@@ -7,7 +7,7 @@ services:
     container_name: oneorder-backend
     ports:
       - "8000:8000"
-    # Đọc cấu hình từ .env nếu có; nếu không có file .env vẫn khởi chạy bình thường
+    # Đọc cấu hình từ .env nếu có; nếu không có file .env vẫn khởi chạy bình thường (yêu cầu Docker Compose 2.24+)
     env_file:
       - path: .env
         required: false
@@ -17,8 +17,8 @@ services:
       # Đường dẫn SQLite lưu vào thư mục volume /app/db
       - DATABASE_URL=${DATABASE_URL:-sqlite:////app/db/oneorder.db}
     volumes:
-      # Giữ dữ liệu SQLite tại thư mục ./data-db trên máy host
-      - ./data-db:/app/db
+      # Dùng named volume để đảm bảo quyền ghi SQLite cho appuser trên Linux
+      - oneorder-db:/app/db
     restart: unless-stopped
 
   # Dịch vụ frontend (tạm thời comment cho đến khi hoàn thành frontend/):
@@ -37,3 +37,6 @@ services:
   #     - VITE_API_URL=http://localhost:8000
   #   depends_on:
   #     - backend
+
+volumes:
+  oneorder-db:

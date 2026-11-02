@@ -18,11 +18,11 @@ RUN useradd -m -u 1000 appuser
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Sao chép mã nguồn ứng dụng
-COPY . .
-
 # Tạo thư mục lưu database SQLite và phân quyền cho appuser
 RUN mkdir -p /app/db && chown -R appuser:appuser /app
+
+# Sao chép mã nguồn ứng dụng với quyền appuser (tránh sinh layer chown nặng)
+COPY --chown=appuser:appuser . .
 
 # Chuyển sang người dùng non-root
 USER appuser
