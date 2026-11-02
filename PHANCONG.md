@@ -48,9 +48,9 @@
 
 **Mục tiêu:** từ ảnh/email/Excel ra được đơn nháp dạng JSON.
 
-- [ ] Viết `AI client` với 2 chế độ `live` (Claude vision) và `demo` (fixture ghi sẵn).
-- [ ] Viết `backend/services/intake` xử lý ảnh, văn bản email và Excel.
-- [ ] Endpoint `POST /api/intake` trả về đơn nháp kèm điểm tin cậy cho từng dòng.
+- [x] Viết `AI client` với 2 chế độ `live` (Claude vision) và `demo` (fixture ghi sẵn).
+- [x] Viết `backend/services/intake` xử lý ảnh, văn bản email và Excel.
+- [x] Endpoint `POST /api/intake` trả về đơn nháp kèm điểm tin cậy cho từng dòng.
 
 ---
 
@@ -71,7 +71,7 @@
 
 ## Quy ước làm việc
 
-- Mỗi người làm trên **nhánh riêng** (ví dụ `khang/data`, `nhat/frontend`) rồi tạo Pull Request vào `main`, vì `main` yêu cầu PR.
+- Mỗi người làm trên **nhánh riêng** theo định dạng `feat/...` (ví dụ `feat/data`, `feat/frontend`) rồi tạo Pull Request vào `main`, vì `main` yêu cầu PR.
 - Commit nhỏ, thông điệp rõ ràng. Không commit `.env`, API key hay dữ liệu thật.
 - Gặp vướng mắc quá 30 phút thì báo ngay trong nhóm, không để đến cuối ngày.
 - Mỗi người tự ghi lại cách dùng trợ lý AI (đã hỏi gì, đã kiểm tra hoặc sửa gì) để làm **AI Journal**.
