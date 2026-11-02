@@ -374,6 +374,16 @@ pytest
 
 Khi không có API key, ứng dụng dùng các fixture demo đã ghi sẵn cho các đầu vào mẫu, và dùng bộ phân tích theo quy tắc cho văn bản thuần. Giao diện luôn hiển thị chế độ đang hoạt động.
 
+### Chạy bằng Docker
+
+Khởi chạy toàn bộ dịch vụ backend với Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Sau khi khởi động, mở [http://localhost:8000/docs](http://localhost:8000/docs) để xem tài liệu API Swagger UI hoặc kiểm tra trạng thái tại [http://localhost:8000/api/health](http://localhost:8000/api/health).
+
 ---
 
 ## 8. Sử dụng AI và kiểm chứng bởi con người
