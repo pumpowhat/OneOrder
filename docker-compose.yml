@@ -1,0 +1,39 @@
+# Docker Compose cho dự án OneOrder
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: oneorder-backend
+    ports:
+      - "8000:8000"
+    # Đọc cấu hình từ .env nếu có; nếu không có file .env vẫn khởi chạy bình thường
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Mặc định sử dụng AI_MODE=demo để chạy không cần API key
+      - AI_MODE=${AI_MODE:-demo}
+      # Đường dẫn SQLite lưu vào thư mục volume /app/db
+      - DATABASE_URL=${DATABASE_URL:-sqlite:////app/db/oneorder.db}
+    volumes:
+      # Giữ dữ liệu SQLite tại thư mục ./data-db trên máy host
+      - ./data-db:/app/db
+    restart: unless-stopped
+
+  # Dịch vụ frontend (tạm thời comment cho đến khi hoàn thành frontend/):
+  # Hướng dẫn kích hoạt:
+  # 1. Bỏ comment toàn bộ khối frontend bên dưới
+  # 2. Đảm bảo thư mục frontend/ có Dockerfile hợp lệ
+  # 3. Khởi chạy lại: docker compose up --build
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: oneorder-frontend
+  #   ports:
+  #     - "5173:5173"
+  #   environment:
+  #     - VITE_API_URL=http://localhost:8000
+  #   depends_on:
+  #     - backend
