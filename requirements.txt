@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+anthropic
+openpyxl
+pandas
+rapidfuzz
+scikit-learn
+python-dotenv
+python-multipart
+pytest
+httpx
