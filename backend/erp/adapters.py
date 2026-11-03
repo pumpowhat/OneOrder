@@ -23,10 +23,16 @@ class UnifiedStockItem:
     sku: str
     warehouse_id: str
     country: str
-    quantity_on_hand: int
-    reserved_quantity: int
-    available_quantity: int
+    quantity_on_hand: int | float
+    reserved_quantity: int | float
+    available_quantity: int | float
     unit: str
+
+
+def _qty(value) -> int | float:
+    """Parse a stock quantity, keeping fractions (e.g. 12.5 m) and returning whole numbers as int."""
+    number = float(value)
+    return int(number) if number.is_integer() else number
 
 
 def load_dk_inventory(path: str | Path | None = None) -> list[UnifiedStockItem]:
@@ -39,8 +45,8 @@ def load_dk_inventory(path: str | Path | None = None) -> list[UnifiedStockItem]:
     with open(target, mode="r", encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            on_hand = int(row["beholdning"])
-            reserved = int(row["reserveret"])
+            on_hand = _qty(row["beholdning"])
+            reserved = _qty(row["reserveret"])
             wh = row["lager_kode"].strip()
             country = wh.split("-")[0] if "-" in wh else "DK"
             items.append(
@@ -68,8 +74,8 @@ def load_se_inventory(path: str | Path | None = None) -> list[UnifiedStockItem]:
 
     items = []
     for entry in raw_data:
-        on_hand = int(entry["saldo"])
-        reserved = int(entry["reserverat"])
+        on_hand = _qty(entry["saldo"])
+        reserved = _qty(entry["reserverat"])
         wh = str(entry["lagerplats"]).strip()
         country = wh.split("-")[0] if "-" in wh else "SE"
         items.append(
@@ -97,8 +103,8 @@ def load_no_inventory(path: str | Path | None = None) -> list[UnifiedStockItem]:
 
     items = []
     for entry in raw_data:
-        on_hand = int(entry["quantity_on_hand"])
-        reserved = int(entry["reserved_quantity"])
+        on_hand = _qty(entry["quantity_on_hand"])
+        reserved = _qty(entry["reserved_quantity"])
         wh = str(entry["warehouse_id"]).strip()
         country = wh.split("-")[0] if "-" in wh else "NO"
         items.append(
