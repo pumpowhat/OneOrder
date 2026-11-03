@@ -1,8 +1,15 @@
+import logging
+
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from sqlalchemy.orm import Session
 
 from backend.ai import get_ai_client
+from backend.db import get_db, save_draft_order
 from backend.services.intake import AIClient, DraftOrder, IntakeService, UnsupportedInput
 from backend.services.intake.demo_client import DemoFixtureMissing
+from backend.services.matching import CatalogueMatcher, load_catalog
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api")
 
@@ -14,6 +21,7 @@ async def intake(
     file: UploadFile | None = File(None, description="Photo (.jpg/.png/.webp), Excel (.xlsx) or email (.txt/.eml)"),
     text: str | None = Form(None, description="Pasted email text, instead of a file"),
     ai: AIClient = Depends(get_ai_client),
+    db: Session = Depends(get_db),
 ) -> DraftOrder:
     if (file is None) == (text is None):
         raise HTTPException(422, "Send either a file or text, not both or neither")
@@ -24,9 +32,24 @@ async def intake(
             content = await file.read(MAX_UPLOAD_BYTES + 1)
             if len(content) > MAX_UPLOAD_BYTES:
                 raise HTTPException(413, "File is larger than 10 MB")
-            return service.process(file.filename or "", content)
-        return service.from_email(text)
+            order = service.process(file.filename or "", content)
+        else:
+            order = service.from_email(text)
     except (UnsupportedInput, DemoFixtureMissing, ValueError) as exc:
         raise HTTPException(422, str(exc)) from exc
     except RuntimeError as exc:
         raise HTTPException(502, str(exc)) from exc
+
+    # Match order lines against catalogue; catch only expected missing/malformed catalogue errors
+    try:
+        catalog = load_catalog()
+        matcher = CatalogueMatcher(catalog, ai=ai)
+        order = matcher.match_order(order)
+    except (FileNotFoundError, ValueError) as exc:
+        logger.warning("Catalogue matching skipped: %s", exc)
+        order.warnings.append(f"Catalogue matching skipped: {exc}")
+
+    # Save draft order and audit log entry in database
+    save_draft_order(db, order)
+
+    return order

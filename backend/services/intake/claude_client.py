@@ -73,6 +73,20 @@ rows, return the exact header text of the column holding each field, or null if 
 Also return customer, delivery_site and requested_date (YYYY-MM-DD) only if they appear as values
 in the sample rows; otherwise null. Use header text exactly as given."""
 
+MATCH_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "sku": {"type": ["string", "null"]},
+    },
+    "required": ["sku"],
+    "additionalProperties": False,
+}
+
+MATCH_RULES = """\
+You are an expert in Nordic building materials. A customer wrote an order line description in Danish,
+Swedish, Norwegian or English. Given the description and top candidate products from the catalogue,
+choose the best matching SKU. If none match the material, return null."""
+
 
 class ClaudeClient:
     """Live AIClient backed by the Claude API (vision for photos, structured JSON output)."""
@@ -98,6 +112,10 @@ class ClaudeClient:
     def map_excel_columns(self, headers: list[str], sample_rows: list[list]) -> dict:
         payload = json.dumps({"headers": headers, "sample_rows": sample_rows}, default=str, ensure_ascii=False)
         return self._ask(COLUMN_RULES, payload, COLUMN_SCHEMA)
+
+    def match_product(self, description: str, candidates: list[dict]) -> str | None:
+        payload = json.dumps({"description": description, "candidates": candidates}, default=str, ensure_ascii=False)
+        return self._ask(MATCH_RULES, payload, MATCH_SCHEMA).get("sku")
 
     def _ask(self, system: str, content, schema: dict) -> dict:
         response = self.client.messages.create(
