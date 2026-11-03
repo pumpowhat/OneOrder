@@ -88,6 +88,7 @@ export const vi: Record<TranslationKey, string> = {
   "review.confirmLineBtn": "Xác nhận dòng",
   "review.confirmedBadge": "Đã xác nhận",
   "review.approveBtn": "Phê duyệt đơn hàng",
+  "review.approveSuccess": "Đơn hàng {id} đã được sales_desk phê duyệt. Sẵn sàng lập kế hoạch.",
   "review.proceedToPlanBtn": "Chuyển sang Kế hoạch giao hàng →",
   "review.auditTrailTitle": "Nhật ký kiểm toán (Audit Trail)",
   "review.auditTrailSubtitle": "Lịch sử bất biến ghi lại mọi chỉnh sửa và quyết định xác nhận của con người",

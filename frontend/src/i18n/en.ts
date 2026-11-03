@@ -86,6 +86,7 @@ export const en = {
   "review.confirmLineBtn": "Confirm Line",
   "review.confirmedBadge": "Confirmed",
   "review.approveBtn": "Approve Order",
+  "review.approveSuccess": "Order {id} approved by sales_desk. Ready for fulfillment planning.",
   "review.proceedToPlanBtn": "Proceed to Fulfillment Plan →",
   "review.auditTrailTitle": "Audit Log Trail",
   "review.auditTrailSubtitle": "Immutable history of order changes, edits, and human confirmations",
