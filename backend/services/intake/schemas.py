@@ -13,19 +13,39 @@ class SourceType(str, Enum):
     EXCEL = "excel"
 
 
+class MatchCandidate(BaseModel):
+    sku: str
+    name: str
+    score: float
+    unit: str | None = None
+
+
 class DraftLine(BaseModel):
     description: str
     quantity: float
     unit: str | None = None
     confidence: float = Field(ge=0, le=1)
     source_text: str | None = None
+    matched_sku: str | None = None
+    match_score: float | None = None
+    candidates: list[MatchCandidate] = Field(default_factory=list)
+    confirmed: bool = False
 
     @property
     def needs_review(self) -> bool:
-        return self.confidence < REVIEW_THRESHOLD
+        if self.confirmed:
+            return False
+        if self.confidence < REVIEW_THRESHOLD:
+            return True
+        if self.match_score is not None:
+            if self.match_score < 0.60 or self.matched_sku is None:
+                return True
+        return False
 
 
 class DraftOrder(BaseModel):
+    id: str | None = None
+    status: str = "draft"
     source_type: SourceType
     source_name: str | None = None
     customer: str | None = None

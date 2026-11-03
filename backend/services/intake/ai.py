@@ -20,3 +20,9 @@ class AIClient(Protocol):
         Returns {"description": <header>, "quantity": <header>, "unit": <header or None>,
         "customer", "delivery_site", "requested_date"}; the last three are optional.
         """
+
+    def match_product(self, description: str, candidates: list[dict]) -> str | None:
+        """Pick the best matching product SKU from candidates for a line description.
+
+        Returns the chosen sku, or None if none match.
+        """

@@ -58,6 +58,11 @@ class DemoClient:
             mapping[field] = next((h for h in headers if words & set(re.findall(r"\w+", h.lower()))), None)
         return mapping
 
+    def match_product(self, description: str, candidates: list[dict]) -> str | None:
+        if not candidates:
+            return None
+        return candidates[0]["sku"]
+
     def _load(self, content: bytes | str) -> dict | None:
         path = self.fixture_dir / f"{fixture_key(content)}.json"
         return json.loads(path.read_text("utf-8"))["payload"] if path.exists() else None
