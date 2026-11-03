@@ -121,6 +121,7 @@ export const en = {
   // Stock Screen
   "stock.title": "Group Stock Across DK · SE · NO",
   "stock.subtitle": "Unified inventory view across Scandinavian warehouses and native ERP adapters",
+  "stock.syncBtn": "Sync ERP Inventories",
   "stock.kpiTotalSkus": "Catalog SKUs",
   "stock.kpiWarehouses": "Warehouses Connected",
   "stock.kpiAdapters": "ERP Adapters Active",

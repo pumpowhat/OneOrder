@@ -123,6 +123,7 @@ export const vi: Record<TranslationKey, string> = {
   // Stock Screen
   "stock.title": "Tồn kho tập đoàn DK · SE · NO",
   "stock.subtitle": "Góc nhìn tồn kho hợp nhất qua mạng lưới kho Scandinavia và các adapter ERP bản địa",
+  "stock.syncBtn": "Đồng bộ tồn kho ERP",
   "stock.kpiTotalSkus": "Mã hàng trong danh mục",
   "stock.kpiWarehouses": "Kho hàng kết nối",
   "stock.kpiAdapters": "Adapter ERP hoạt động",
