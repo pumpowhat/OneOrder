@@ -1,0 +1,49 @@
+{
+  "source_file": "en_order.txt",
+  "line_count": 5,
+  "customer": "NCC Construction Ltd",
+  "delivery_site": null,
+  "requested_date": "2026-11-18",
+  "lines": [
+    {
+      "line_number": 1,
+      "description": "Fire resistant drywall 15mm 1200x2400",
+      "quantity": 50.0,
+      "unit": "pcs",
+      "matched_sku": "GYP-13-2400",
+      "needs_review": true
+    },
+    {
+      "line_number": 2,
+      "description": "Glass wool insulation 100mm",
+      "quantity": 40.0,
+      "unit": "m2",
+      "matched_sku": "ISO-GLAS-100",
+      "needs_review": true
+    },
+    {
+      "line_number": 3,
+      "description": "Timber C24 spruce 45x145mm 4.2m",
+      "quantity": 15.0,
+      "unit": "pcs",
+      "matched_sku": "TIM-SPRU-45145-42",
+      "needs_review": true
+    },
+    {
+      "line_number": 4,
+      "description": "Standard drywall screws 3.9x40",
+      "quantity": 12.0,
+      "unit": "pk",
+      "matched_sku": "SCR-GIP-40",
+      "needs_review": true
+    },
+    {
+      "line_number": 5,
+      "description": "White acrylic sealant 300ml",
+      "quantity": 20.0,
+      "unit": "pcs",
+      "matched_sku": "FUG-ACR-300",
+      "needs_review": true
+    }
+  ]
+}

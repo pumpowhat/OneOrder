@@ -1,0 +1,49 @@
+{
+  "source_file": "se_order.txt",
+  "line_count": 5,
+  "customer": "Skanska Sverige AB",
+  "delivery_site": "Solnavägen 12, 113 65 Stockholm",
+  "requested_date": "2026-11-12",
+  "lines": [
+    {
+      "line_number": 1,
+      "description": "Brandgipsskiva 15mm",
+      "quantity": 20.0,
+      "unit": "st",
+      "matched_sku": "GYP-15-FIRE",
+      "needs_review": true
+    },
+    {
+      "line_number": 2,
+      "description": "Glasull isolering 100mm",
+      "quantity": 30.0,
+      "unit": "m2",
+      "matched_sku": "ISO-GLAS-100",
+      "needs_review": true
+    },
+    {
+      "line_number": 3,
+      "description": "Regel C24 45x145mm 4.8m",
+      "quantity": 12.0,
+      "unit": "st",
+      "matched_sku": "TIM-SPRU-45145-48",
+      "needs_review": true
+    },
+    {
+      "line_number": 4,
+      "description": "Akrylfog vit 300ml",
+      "quantity": 15.0,
+      "unit": "st",
+      "matched_sku": "FUG-ACR-300",
+      "needs_review": true
+    },
+    {
+      "line_number": 5,
+      "description": "Cement standard 25kg",
+      "quantity": 10.0,
+      "unit": "sæk",
+      "matched_sku": "CEM-PORT-25",
+      "needs_review": true
+    }
+  ]
+}

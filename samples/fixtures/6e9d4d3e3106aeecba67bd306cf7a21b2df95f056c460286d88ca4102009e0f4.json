@@ -1,0 +1,45 @@
+{
+  "source": "se-handwritten-1.jpg",
+  "payload": {
+    "customer": "Skanska Sverige AB",
+    "delivery_site": "Solnavägen 12, 113 65 Stockholm",
+    "requested_date": "2026-11-12",
+    "lines": [
+      {
+        "description": "Brandgipsskiva 15mm",
+        "quantity": 40.0,
+        "unit": "st",
+        "confidence": 0.95,
+        "source_text": "40 st Brandgipsskiva 15mm"
+      },
+      {
+        "description": "Glasull isolering 100mm",
+        "quantity": 50.0,
+        "unit": "m2",
+        "confidence": 0.72,
+        "source_text": "50 m2 Glasull isolering 100mm"
+      },
+      {
+        "description": "Regel C24 45x145mm 4.8m",
+        "quantity": 15.0,
+        "unit": "st",
+        "confidence": 0.95,
+        "source_text": "15 st Regel C24 45x145mm 4.8m"
+      },
+      {
+        "description": "Gipsskruv 3.9x40",
+        "quantity": 10.0,
+        "unit": "pk",
+        "confidence": 0.7,
+        "source_text": "10 pk Gipsskruv 3.9x40"
+      },
+      {
+        "description": "Cement standard 25kg",
+        "quantity": 20.0,
+        "unit": "säck",
+        "confidence": 0.95,
+        "source_text": "20 säck Cement standard 25kg"
+      }
+    ]
+  }
+}

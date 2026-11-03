@@ -1,0 +1,49 @@
+{
+  "source_file": "no_order.txt",
+  "line_count": 5,
+  "customer": "Veidekke Entreprenør AS",
+  "delivery_site": "Stenersgata 1, 0184 Oslo",
+  "requested_date": "2026-11-15",
+  "lines": [
+    {
+      "line_number": 1,
+      "description": "Brannplate gips 15mm",
+      "quantity": 30.0,
+      "unit": "stk",
+      "matched_sku": "GYP-15-FIRE",
+      "needs_review": true
+    },
+    {
+      "line_number": 2,
+      "description": "Rockwool flexibatts 100mm",
+      "quantity": 25.0,
+      "unit": "m2",
+      "matched_sku": "ISO-ROCK-100",
+      "needs_review": true
+    },
+    {
+      "line_number": 3,
+      "description": "Konstruksjonsvirke 45x145 3.6m",
+      "quantity": 10.0,
+      "unit": "stk",
+      "matched_sku": "TIM-SPRU-45145-36",
+      "needs_review": true
+    },
+    {
+      "line_number": 4,
+      "description": "Portlandsement standard 25kg",
+      "quantity": 20.0,
+      "unit": "stk",
+      "matched_sku": "CEM-PORT-25",
+      "needs_review": true
+    },
+    {
+      "line_number": 5,
+      "description": "Gipsskruer 3.9x40mm",
+      "quantity": 5.0,
+      "unit": "pk",
+      "matched_sku": "SCR-GIP-40",
+      "needs_review": true
+    }
+  ]
+}
