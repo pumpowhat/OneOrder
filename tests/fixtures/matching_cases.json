@@ -1,0 +1,429 @@
+[
+  {
+    "query": "gipsplade standard 13mm 1200x2400",
+    "expected_sku": "GYP-13-2400",
+    "expected_review": false,
+    "lang": "da",
+    "note": "thạch cao standard 2400mm"
+  },
+  {
+    "query": "gipsplade brand 15mm",
+    "expected_sku": "GYP-15-FIRE",
+    "expected_review": false,
+    "lang": "da",
+    "note": "tên thợ gọi tấm thạch cao chống cháy"
+  },
+  {
+    "query": "vådrumsgips 13mm",
+    "expected_sku": "GYP-13-WATH",
+    "expected_review": false,
+    "lang": "da",
+    "note": "thạch cao chống ẩm phòng tắm"
+  },
+  {
+    "query": "isolering glasuld 100mm",
+    "expected_sku": "ISO-GLAS-100",
+    "expected_review": false,
+    "lang": "da",
+    "note": "bông thủy tinh 100mm"
+  },
+  {
+    "query": "rockwool flexibatts 100mm",
+    "expected_sku": "ISO-ROCK-100",
+    "expected_review": false,
+    "lang": "da",
+    "note": "bông khoáng rockwool 100mm"
+  },
+  {
+    "query": "portland cement standard 25kg",
+    "expected_sku": "CEM-PORT-25",
+    "expected_review": false,
+    "lang": "da",
+    "note": "xi măng portland 25kg"
+  },
+  {
+    "query": "gipsskruer 3.9x40mm til træ",
+    "expected_sku": "SCR-GIP-40",
+    "expected_review": false,
+    "lang": "da",
+    "note": "vít thạch cao bắt gỗ 40mm"
+  },
+  {
+    "query": "akrylfugemasse hvid 300ml",
+    "expected_sku": "FUG-ACR-300",
+    "expected_review": false,
+    "lang": "da",
+    "note": "keo trám acrylic trắng"
+  },
+
+  {
+    "query": "normal gipsskiva 13mm",
+    "expected_sku": "GYP-13-2400",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "tên Thụy Điển cho thạch cao 13mm"
+  },
+  {
+    "query": "brandgipsskiva 15mm",
+    "expected_sku": "GYP-15-FIRE",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "thạch cao chống cháy Thụy Điển"
+  },
+  {
+    "query": "våtrumsskiva 13mm",
+    "expected_sku": "GYP-13-WATH",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "tấm chống ẩm Thụy Điển"
+  },
+  {
+    "query": "glasull isolering 100mm",
+    "expected_sku": "ISO-GLAS-100",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "bông thủy tinh tiếng Thụy Điển"
+  },
+  {
+    "query": "stenull flexibatts 100mm",
+    "expected_sku": "ISO-ROCK-100",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "bông đá Thụy Điển"
+  },
+  {
+    "query": "cement standard 25kg",
+    "expected_sku": "CEM-PORT-25",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "xi măng tiêu chuẩn Thụy Điển"
+  },
+  {
+    "query": "gipsskruv 3.9x40",
+    "expected_sku": "SCR-GIP-40",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "vít thạch cao Thụy Điển"
+  },
+  {
+    "query": "akrylfog vit 300ml",
+    "expected_sku": "FUG-ACR-300",
+    "expected_review": false,
+    "lang": "sv",
+    "note": "keo trám trắng Thụy Điển"
+  },
+
+  {
+    "query": "standard gipsplate 13mm",
+    "expected_sku": "GYP-13-2400",
+    "expected_review": false,
+    "lang": "no",
+    "note": "tên Na Uy cho thạch cao 13mm"
+  },
+  {
+    "query": "brannplate gips 15mm",
+    "expected_sku": "GYP-15-FIRE",
+    "expected_review": false,
+    "lang": "no",
+    "note": "thạch cao chống cháy Na Uy"
+  },
+  {
+    "query": "våtromsplate 13mm",
+    "expected_sku": "GYP-13-WATH",
+    "expected_review": false,
+    "lang": "no",
+    "note": "tấm chống ẩm Na Uy"
+  },
+  {
+    "query": "glassull isolasjon 100mm",
+    "expected_sku": "ISO-GLAS-100",
+    "expected_review": false,
+    "lang": "no",
+    "note": "bông thủy tinh tiếng Na Uy"
+  },
+  {
+    "query": "steinull isolasjon 100mm",
+    "expected_sku": "ISO-ROCK-100",
+    "expected_review": false,
+    "lang": "no",
+    "note": "bông đá Na Uy"
+  },
+  {
+    "query": "sement 25kg",
+    "expected_sku": "CEM-PORT-25",
+    "expected_review": false,
+    "lang": "no",
+    "note": "xi măng Na Uy"
+  },
+  {
+    "query": "gipsskrue 3.9x40",
+    "expected_sku": "SCR-GIP-40",
+    "expected_review": false,
+    "lang": "no",
+    "note": "vít thạch cao Na Uy"
+  },
+  {
+    "query": "akrylfugemasse hvit 300ml",
+    "expected_sku": "FUG-ACR-300",
+    "expected_review": false,
+    "lang": "no",
+    "note": "keo trám trắng Na Uy"
+  },
+
+  {
+    "query": "standard plasterboard 13mm",
+    "expected_sku": "GYP-13-2400",
+    "expected_review": false,
+    "lang": "en",
+    "note": "drywall tiếng Anh"
+  },
+  {
+    "query": "fire rated plasterboard 15mm",
+    "expected_sku": "GYP-15-FIRE",
+    "expected_review": false,
+    "lang": "en",
+    "note": "fire board tiếng Anh"
+  },
+  {
+    "query": "moisture resistant drywall 13mm",
+    "expected_sku": "GYP-13-WATH",
+    "expected_review": false,
+    "lang": "en",
+    "note": "thạch cao chống ẩm tiếng Anh"
+  },
+  {
+    "query": "glass wool insulation 100mm",
+    "expected_sku": "ISO-GLAS-100",
+    "expected_review": false,
+    "lang": "en",
+    "note": "bông thủy tinh tiếng Anh"
+  },
+  {
+    "query": "stone wool insulation 100mm",
+    "expected_sku": "ISO-ROCK-100",
+    "expected_review": false,
+    "lang": "en",
+    "note": "bông đá tiếng Anh"
+  },
+  {
+    "query": "portland cement 25kg",
+    "expected_sku": "CEM-PORT-25",
+    "expected_review": false,
+    "lang": "en",
+    "note": "xi măng tiếng Anh"
+  },
+  {
+    "query": "drywall screws 40mm",
+    "expected_sku": "SCR-GIP-40",
+    "expected_review": false,
+    "lang": "en",
+    "note": "vít thạch cao tiếng Anh"
+  },
+  {
+    "query": "acrylic sealant white 300ml",
+    "expected_sku": "FUG-ACR-300",
+    "expected_review": false,
+    "lang": "en",
+    "note": "keo trám trắng tiếng Anh"
+  },
+
+  {
+    "query": "gipspalde 13mm",
+    "expected_sku": "GYP-13-2400",
+    "expected_review": false,
+    "lang": "da",
+    "note": "đảo chữ gipspalde -> gipsplade"
+  },
+  {
+    "query": "glasuld solering 100mm",
+    "expected_sku": "ISO-GLAS-100",
+    "expected_review": false,
+    "lang": "da",
+    "note": "gõ thiếu chữ i trong isolering"
+  },
+  {
+    "query": "portlnd cement 25kg",
+    "expected_sku": "CEM-PORT-25",
+    "expected_review": false,
+    "lang": "da",
+    "note": "gõ thiếu chữ a portlnd"
+  },
+  {
+    "query": "moertel 25kg",
+    "expected_sku": "BET-TORR-25",
+    "expected_review": false,
+    "lang": "da",
+    "note": "thay ø bằng oe trong mørtel"
+  },
+  {
+    "query": "trae terrassebraedder 28x120",
+    "expected_sku": "TIM-TERR-28120",
+    "expected_review": false,
+    "lang": "da",
+    "note": "thay æ bằng ae trong træ og brædder"
+  },
+  {
+    "query": "radonspaer 0.4mm",
+    "expected_sku": "MEM-RAD-04",
+    "expected_review": false,
+    "lang": "da",
+    "note": "thay æ bằng ae và thiếu re"
+  },
+  {
+    "query": "akryl fugemase hvid 300ml",
+    "expected_sku": "FUG-ACR-300",
+    "expected_review": false,
+    "lang": "da",
+    "note": "tách từ và thiếu s trong fugemasse"
+  },
+  {
+    "query": "fischer duopower 8x40",
+    "expected_sku": "ANC-NYL-8",
+    "expected_review": false,
+    "lang": "da",
+    "note": "viết tắt tắc kê fischer"
+  },
+
+  {
+    "query": "gipsplade 13 mm",
+    "expected_sku": "GYP-13-2400",
+    "expected_review": false,
+    "lang": "da",
+    "note": "cách khoảng trước đơn vị mm"
+  },
+  {
+    "query": "brandgips 15 mm",
+    "expected_sku": "GYP-15-FIRE",
+    "expected_review": false,
+    "lang": "da",
+    "note": "cách khoảng 15 mm"
+  },
+  {
+    "query": "isolering 100 mm",
+    "expected_sku": "ISO-GLAS-100",
+    "expected_review": false,
+    "lang": "da",
+    "note": "cách khoảng 100 mm"
+  },
+  {
+    "query": "rockwool flexibatts 100 mm",
+    "expected_sku": "ISO-ROCK-100",
+    "expected_review": false,
+    "lang": "da",
+    "note": "cách khoảng đơn vị mm"
+  },
+  {
+    "query": "portland cement 25 kg",
+    "expected_sku": "CEM-PORT-25",
+    "expected_review": false,
+    "lang": "da",
+    "note": "cách khoảng 25 kg"
+  },
+  {
+    "query": "skruer 4x40",
+    "expected_sku": "SCR-GIP-40",
+    "expected_review": false,
+    "lang": "da",
+    "note": "viết tắt vít 4x40"
+  },
+  {
+    "query": "radonspærre 0.4mm 4 x 25m",
+    "expected_sku": "MEM-RAD-04",
+    "expected_review": false,
+    "lang": "da",
+    "note": "cách khoảng kích thước cuộn màng"
+  },
+  {
+    "query": "dampspærre 0.20 mm",
+    "expected_sku": "MEM-VAP-02",
+    "expected_review": false,
+    "lang": "da",
+    "note": "cách khoảng độ dày màng hơi"
+  },
+
+  {
+    "query": "gipsplade",
+    "expected_sku": "GYP-13-3000",
+    "expected_review": true,
+    "lang": "da",
+    "note": "quá chung chung không có độ dày hay chiều dài, cần review"
+  },
+  {
+    "query": "skruer",
+    "expected_sku": "SCR-GIP-40",
+    "expected_review": true,
+    "lang": "da",
+    "note": "chỉ ghi vít chung chung không có kích thước, cần review"
+  },
+  {
+    "query": "isolering",
+    "expected_sku": "ISO-GLAS-100",
+    "expected_review": true,
+    "lang": "da",
+    "note": "không rõ loại bông thủy tinh hay bông khoáng, cần review"
+  },
+  {
+    "query": "mørtel",
+    "expected_sku": "BET-TORR-25",
+    "expected_review": true,
+    "lang": "da",
+    "note": "không rõ loại vữa trát hay xây, cần review"
+  },
+  {
+    "query": "plade",
+    "expected_sku": "GYP-13-2400",
+    "expected_review": true,
+    "lang": "da",
+    "note": "từ quá mơ hồ không biết loại tấm nào, cần review"
+  },
+  {
+    "query": "cement",
+    "expected_sku": "CEM-PORT-25",
+    "expected_review": true,
+    "lang": "da",
+    "note": "không rõ loại hay quy cách đóng gói, cần review"
+  },
+
+  {
+    "query": "cà phê sữa đá highland",
+    "expected_sku": null,
+    "expected_review": true,
+    "lang": "vi",
+    "note": "thực phẩm không có trong danh mục"
+  },
+  {
+    "query": "máy xúc đào komatsu pc200",
+    "expected_sku": null,
+    "expected_review": true,
+    "lang": "da",
+    "note": "phương tiện cơ giới nặng không bán"
+  },
+  {
+    "query": "điện thoại thông minh samsung galaxy",
+    "expected_sku": null,
+    "expected_review": true,
+    "lang": "vi",
+    "note": "đồ công nghệ tiêu dùng"
+  },
+  {
+    "query": "bánh mì thịt chả lụa",
+    "expected_sku": null,
+    "expected_review": true,
+    "lang": "vi",
+    "note": "đồ ăn ngoài catalog"
+  },
+  {
+    "query": "sơn móng tay gel màu tím",
+    "expected_sku": null,
+    "expected_review": true,
+    "lang": "da",
+    "note": "mỹ phẩm không thuộc vật liệu xây dựng"
+  },
+  {
+    "query": "áo phao bơi cứu hộ trẻ em",
+    "expected_sku": null,
+    "expected_review": true,
+    "lang": "da",
+    "note": "dụng cụ thể thao dưới nước"
+  }
+]
