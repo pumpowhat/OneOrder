@@ -1,75 +1,64 @@
-# React + TypeScript + Vite
+# OneOrder — Frontend Shell
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+OneOrder is a Nordic B2B building materials order orchestration dashboard designed to streamline contractor request intake, human-in-the-loop review, multi-warehouse fulfillment routing across Denmark, Sweden, and Norway, and delivery time prediction.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Quick Start
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Port:** `5173` (`strictPort: true` enforced)
+- **Vite Proxy:** All relative requests to `/api` and `/mock-erp` automatically proxy to the FastAPI backend running at `http://127.0.0.1:8000`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
-```
+## Six Core Screens
+
+| Route | Screen Name | Description |
+|---|---|---|
+| `/inbox` | **Contractor Intake** | Incoming customer material orders from OCR photo notes, emails, and Excel BOQ sheets with raw previews and extraction stats. |
+| `/review` | **Order Review & Verification** | Human-in-the-loop review enforcing the 85% confidence threshold. Flagged lines require manual confirmation before approval. Features an immutable audit trail. |
+| `/plan` | **Fulfillment Planning** | Multi-warehouse routing (Nearest Branch → Domestic DC → Cross-Border DC), vehicle & crane truck assignment, and P50/P90 ML delivery windows. |
+| `/stock` | **Group Inventory** | Consolidated inventory across DK, SE, and NO with low-stock alerts and a live Native ERP Adapter Inspector (Danish CSV, Swedish JSON, English JSON). |
+| `/rules` | **Business Rules** | Interactive dispatcher rules configuration (`rules.json`) covering intake confidence, sourcing priority order, vehicle weight caps, and winter buffers. |
+| `/model` | **ML Delivery Time Model** | LightGBM quantile regression performance metrics, SHAP feature importance weights, and an interactive What-If ETA Simulator. |
+
+---
+
+## API Integration Guide (For Teammates)
+
+When wiring real backend endpoints:
+
+1. **API Types & Data Contracts:**
+   - Central contract declarations reside in `src/types/api.ts`.
+   - Confirmed backend types match `backend/db.py` (`Order`, `OrderLine`, `AuditLogEntry`, etc.).
+   - Provisional contracts are clearly marked with `// PROVISIONAL:`.
+   - Assumptions are documented with `// ASSUMPTION:`.
+
+2. **Connecting Endpoints:**
+   - Replace mock imports from `src/mocks/*.ts` with API calls via `src/api/client.ts`.
+   - Use relative URLs (e.g. `/api/orders/{id}`) so Vite proxies to `127.0.0.1:8000`.
+   - When a screen is fully connected to FastAPI, simply remove the `<MockDataBanner />` component from that page.
+
+3. **Bilingual Support (i18n):**
+   - All user-facing strings are keyed through `useI18n()`.
+   - English dictionary: `src/i18n/en.ts`.
+   - Vietnamese dictionary: `src/i18n/vi.ts` (enforced with strict TypeScript type parity).
+
+---
+
+## Tech Stack
+
+- **React 19** + **TypeScript** (Strict Mode)
+- **Vite 8**
+- **Tailwind CSS v4** (Zero config files, fully tokenized in `src/index.css` via `@theme inline`)
+- **React Router 7** (Declarative `BrowserRouter`)
+- **Lucide React** (Consistent icon library)
+- **Inter Variable Font** (Self-hosted via `@fontsource-variable/inter`)
