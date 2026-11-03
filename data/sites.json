@@ -1,0 +1,112 @@
+[
+  {
+    "id": "SITE-DK-01",
+    "name": "Nordhavn Kronløbsøen Residential Tower",
+    "country": "DK",
+    "address": "Sundkaj 7, 2150 Nordhavn, København",
+    "latitude": 55.7077,
+    "longitude": 12.5985,
+    "contact_person": "Lars Møller (NCC Denmark)",
+    "phone": "+45 20 12 34 56",
+    "crane_accessible": true
+  },
+  {
+    "id": "SITE-DK-02",
+    "name": "Carlsberg Byen Karré 11 Boliger",
+    "country": "DK",
+    "address": "Pasteurs Vej 24, 1799 København V",
+    "latitude": 55.6667,
+    "longitude": 12.5333,
+    "contact_person": "Henrik Nielsen (Per Aarsleff A/S)",
+    "phone": "+45 21 98 76 54",
+    "crane_accessible": true
+  },
+  {
+    "id": "SITE-DK-03",
+    "name": "Aarhus Nyt Universitetshospital Udvidelse",
+    "country": "DK",
+    "address": "Palle Juul-Jensens Boulevard 99, 8200 Aarhus N",
+    "latitude": 56.1915,
+    "longitude": 10.165,
+    "contact_person": "Morten Jensen (MT Højgaard)",
+    "phone": "+45 22 45 67 89",
+    "crane_accessible": true
+  },
+  {
+    "id": "SITE-DK-04",
+    "name": "Odense Havnebad & Erhvervskvarter",
+    "country": "DK",
+    "address": "Havnegade 45, 5000 Odense C",
+    "latitude": 55.412,
+    "longitude": 10.379,
+    "contact_person": "Søren Poulsen (Jens Møller Byg)",
+    "phone": "+45 23 11 22 33",
+    "crane_accessible": false
+  },
+  {
+    "id": "SITE-SE-01",
+    "name": "Hagastaden Life Science Kvarter",
+    "country": "SE",
+    "address": "Solnavägen 12, 113 65 Stockholm",
+    "latitude": 59.3467,
+    "longitude": 18.0354,
+    "contact_person": "Johan Lindqvist (Skanska Sverige)",
+    "phone": "+46 8 504 350 00",
+    "crane_accessible": true
+  },
+  {
+    "id": "SITE-SE-02",
+    "name": "Karlatornet Lindholmen Skyscraper",
+    "country": "SE",
+    "address": "Lindholmsallén 34, 417 56 Göteborg",
+    "latitude": 57.7103,
+    "longitude": 11.9388,
+    "contact_person": "Erik Bergström (Serneke Bygg)",
+    "phone": "+46 31 712 97 00",
+    "crane_accessible": true
+  },
+  {
+    "id": "SITE-SE-03",
+    "name": "Malmö Live Nyhavn Kvarteret",
+    "country": "SE",
+    "address": "Gibraltargatan 2, 211 18 Malmö",
+    "latitude": 55.6074,
+    "longitude": 12.9934,
+    "contact_person": "Sara Holm (Peab Malmö)",
+    "phone": "+46 40 16 70 00",
+    "crane_accessible": false
+  },
+  {
+    "id": "SITE-NO-01",
+    "name": "Bjørvika Barcode Finanssenter",
+    "country": "NO",
+    "address": "Dronning Eufemias gate 16, 0191 Oslo",
+    "latitude": 59.9075,
+    "longitude": 10.7584,
+    "contact_person": "Knut Haug (Veidekke Entreprenør)",
+    "phone": "+47 21 05 50 00",
+    "crane_accessible": true
+  },
+  {
+    "id": "SITE-NO-02",
+    "name": "Bergen Bybane Fyllingsdalen Verksted",
+    "country": "NO",
+    "address": "Folke Bernadottes vei 50, 5147 Fyllingsdalen, Bergen",
+    "latitude": 60.37,
+    "longitude": 5.34,
+    "contact_person": "Ole Bakke (AF Gruppen Vest)",
+    "phone": "+47 55 59 70 00",
+    "crane_accessible": true
+  },
+  {
+    "id": "SITE-NO-03",
+    "name": "Trondheim Solsiden Brygge Boliger",
+    "country": "NO",
+    "address": "Beddingen 8, 7014 Trondheim",
+    "latitude": 63.435,
+    "longitude": 10.413,
+    "contact_person": "Trond Solberg (Hent AS)",
+    "phone": "+47 72 89 80 00",
+    "crane_accessible": false
+  }
+]

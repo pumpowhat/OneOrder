@@ -1,0 +1,152 @@
+[
+  {
+    "code": "DK-DC-01",
+    "name": "Taastrup Central Logistics Hub",
+    "country": "DK",
+    "type": "dc",
+    "address": "Kuldyssen 14, 2630 Taastrup",
+    "latitude": 55.6521,
+    "longitude": 12.3012,
+    "contact_email": "dc-taastrup@oneorder.dk"
+  },
+  {
+    "code": "DK-BR-01",
+    "name": "København Sydhavn Proff Branch",
+    "country": "DK",
+    "type": "branch",
+    "address": "Bådehavnsgade 44, 2450 København SV",
+    "latitude": 55.6514,
+    "longitude": 12.5378,
+    "contact_email": "cph-sydhavn@oneorder.dk"
+  },
+  {
+    "code": "DK-BR-02",
+    "name": "Aarhus Havn Byggecenter",
+    "country": "DK",
+    "type": "branch",
+    "address": "Sverigesgade 12, 8000 Aarhus C",
+    "latitude": 56.1524,
+    "longitude": 10.2229,
+    "contact_email": "aarhus-havn@oneorder.dk"
+  },
+  {
+    "code": "DK-BR-03",
+    "name": "Odense Erhvervsafdeling",
+    "country": "DK",
+    "type": "branch",
+    "address": "Havnegade 98, 5000 Odense C",
+    "latitude": 55.4038,
+    "longitude": 10.3883,
+    "contact_email": "odense-proff@oneorder.dk"
+  },
+  {
+    "code": "DK-BR-04",
+    "name": "Aalborg Syd Trælast",
+    "country": "DK",
+    "type": "branch",
+    "address": "Hobrovej 340, 9200 Aalborg SV",
+    "latitude": 57.0189,
+    "longitude": 9.9197,
+    "contact_email": "aalborg-syd@oneorder.dk"
+  },
+  {
+    "code": "SE-DC-01",
+    "name": "Jönköping Nordic Central Distribution Center",
+    "country": "SE",
+    "type": "dc",
+    "address": "Torsviks Industriområde 12, 556 52 Jönköping",
+    "latitude": 57.7826,
+    "longitude": 14.1618,
+    "contact_email": "dc-jonkoping@oneorder.se"
+  },
+  {
+    "code": "SE-BR-01",
+    "name": "Stockholm Globen Proffscenter",
+    "country": "SE",
+    "type": "branch",
+    "address": "Arenavägen 33, 121 77 Johanneshov, Stockholm",
+    "latitude": 59.2936,
+    "longitude": 18.0831,
+    "contact_email": "sthlm-globen@oneorder.se"
+  },
+  {
+    "code": "SE-BR-02",
+    "name": "Göteborg Hisingen Byggvaruhus",
+    "country": "SE",
+    "type": "branch",
+    "address": "Tagenevägen 21, 425 37 Hisings Kärra, Göteborg",
+    "latitude": 57.721,
+    "longitude": 11.9447,
+    "contact_email": "goteborg-hisingen@oneorder.se"
+  },
+  {
+    "code": "SE-BR-03",
+    "name": "Malmö Hamn Proffsfilial",
+    "country": "SE",
+    "type": "branch",
+    "address": "Hans Michelsensgatan 10, 211 20 Malmö",
+    "latitude": 55.618,
+    "longitude": 12.9981,
+    "contact_email": "malmo-hamn@oneorder.se"
+  },
+  {
+    "code": "SE-BR-04",
+    "name": "Uppsala Fyrislund Byggdepå",
+    "country": "SE",
+    "type": "branch",
+    "address": "Rapsgatan 8, 753 23 Uppsala",
+    "latitude": 59.8732,
+    "longitude": 17.6534,
+    "contact_email": "uppsala-nord@oneorder.se"
+  },
+  {
+    "code": "NO-DC-01",
+    "name": "Vestby Central WMS Hub",
+    "country": "NO",
+    "type": "dc",
+    "address": "Stormåsan 16, 1540 Vestby",
+    "latitude": 59.6053,
+    "longitude": 10.7481,
+    "contact_email": "dc-vestby@oneorder.no"
+  },
+  {
+    "code": "NO-BR-01",
+    "name": "Oslo Alnabru Proffsenter",
+    "country": "NO",
+    "type": "branch",
+    "address": "Strømsveien 314, 0666 Oslo",
+    "latitude": 59.9315,
+    "longitude": 10.8458,
+    "contact_email": "oslo-alnabru@oneorder.no"
+  },
+  {
+    "code": "NO-BR-02",
+    "name": "Bergen Minde Byggevarehus",
+    "country": "NO",
+    "type": "branch",
+    "address": "Kanalveien 64, 5068 Bergen",
+    "latitude": 60.3642,
+    "longitude": 5.3486,
+    "contact_email": "bergen-minde@oneorder.no"
+  },
+  {
+    "code": "NO-BR-03",
+    "name": "Trondheim Sluppen Proffavdeling",
+    "country": "NO",
+    "type": "branch",
+    "address": "Bratsbergvegen 22, 7037 Trondheim",
+    "latitude": 63.4022,
+    "longitude": 10.3951,
+    "contact_email": "trondheim-sluppen@oneorder.no"
+  },
+  {
+    "code": "NO-BR-04",
+    "name": "Stavanger Forus Byggsenter",
+    "country": "NO",
+    "type": "branch",
+    "address": "Lagerveien 15, 4033 Stavanger",
+    "latitude": 58.8872,
+    "longitude": 5.7275,
+    "contact_email": "stavanger-forus@oneorder.no"
+  }
+]
