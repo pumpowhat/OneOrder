@@ -85,13 +85,21 @@ class AuditLogModel(Base):
     order = relationship("OrderModel", back_populates="audit_logs")
 
 
+_db_initialized = False
+
+
 def init_db(target_engine=None) -> None:
     """Create all database tables if they do not exist."""
+    global _db_initialized
     Base.metadata.create_all(bind=target_engine or engine)
+    _db_initialized = True
 
 
 def get_db() -> Generator[Session, None, None]:
     """FastAPI dependency for obtaining a database session."""
+    global _db_initialized
+    if not _db_initialized:
+        init_db()
     db = SessionLocal()
     try:
         yield db
