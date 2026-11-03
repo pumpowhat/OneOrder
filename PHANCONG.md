@@ -61,7 +61,7 @@
 
 | Ngày | Nghĩa | Khang | Nhật |
 |---|---|---|---|
-| **4/11** | [x] Bộ đối khớp danh mục (RapidFuzz + gợi ý AI), audit log, endpoint `approve` (xong sớm) | Viết test cho adapter ERP và đối khớp danh mục; chuẩn bị file mẫu (ảnh viết tay, email, Excel) | Màn hình **Inbox** và **Review** nối API thật |
+| **4/11** | [x] Bộ đối khớp danh mục (RapidFuzz + gợi ý AI), audit log, endpoint `approve` (xong sớm) | [x] Viết test cho adapter ERP và đối khớp danh mục; chuẩn bị file mẫu (ảnh viết tay, email, Excel) | Màn hình **Inbox** và **Review** nối API thật |
 | **5/11** | Orchestration engine: quy tắc chọn nguồn, tách lô, chọn phương tiện | Màn hình **Tồn kho nhóm** và dữ liệu cho `rules.json` | Màn hình **Rules** (xem và sửa quy tắc) |
 | **6/11** | Mô hình ETA (P50/P90), endpoint `plan` và `confirm`, nối toàn bộ luồng | Script sinh dữ liệu huấn luyện mô phỏng, tài liệu `docs/eta-calibration.md` | Màn hình **Kế hoạch thực hiện** và **Model** |
 | **7/11** | Sửa lỗi tích hợp, tinh chỉnh độ chính xác | Chạy thử với nhiều file mẫu, ghi lại lỗi | Soạn **System Context Diagram.pdf** |
