@@ -65,6 +65,7 @@ class OrderLineModel(Base):
     match_score = Column(Float, nullable=True)
     candidates = Column(Text, nullable=True)  # JSON-encoded list of candidate dicts
     confirmed = Column(Integer, default=0, nullable=False)  # 1 when verified by user
+    ambiguous = Column(Integer, default=0, nullable=False)  # 1 when candidates had close scores
 
     order = relationship("OrderModel", back_populates="lines")
 
@@ -92,7 +93,8 @@ def init_db(target_engine=None) -> None:
     """Create all database tables if they do not exist."""
     global _db_initialized
     Base.metadata.create_all(bind=target_engine or engine)
-    _db_initialized = True
+    if target_engine is None or target_engine is engine:
+        _db_initialized = True
 
 
 def get_db() -> Generator[Session, None, None]:
@@ -158,6 +160,7 @@ def save_draft_order(db: Session, order, user: str = "sales_desk") -> OrderModel
             match_score=line.match_score,
             candidates=json.dumps(cand_data, ensure_ascii=False) if cand_data else None,
             confirmed=1 if getattr(line, "confirmed", False) else 0,
+            ambiguous=1 if getattr(line, "ambiguous", False) else 0,
         )
         db.add(db_line)
 
@@ -191,6 +194,7 @@ def order_model_to_dict(model: OrderModel) -> dict:
             match_score=l.match_score,
             matched_sku=l.matched_sku,
             confirmed=bool(l.confirmed),
+            ambiguous=bool(getattr(l, "ambiguous", 0)),
         )
 
         lines.append({
@@ -204,6 +208,7 @@ def order_model_to_dict(model: OrderModel) -> dict:
             "match_score": l.match_score,
             "candidates": cands,
             "confirmed": bool(l.confirmed),
+            "ambiguous": bool(getattr(l, "ambiguous", 0)),
             "needs_review": line_needs_review_val,
         })
 

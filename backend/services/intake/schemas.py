@@ -14,20 +14,24 @@ def line_needs_review(
     match_score: float | None = None,
     matched_sku: str | None = None,
     confirmed: bool = False,
+    ambiguous: bool = False,
 ) -> bool:
     """Determine whether a line item requires human review before approval.
 
     A line requires human review if:
     1. It has NOT been explicitly confirmed by a user, AND
-    2. Extraction confidence is below REVIEW_THRESHOLD (0.85), OR
-    3. Catalogue match score is below MATCH_AUTO_THRESHOLD (0.90) (meaning it was either
-       matched by AI/heuristics in [0.60, 0.90), had close candidate scores, or failed), OR
-    4. It has no matched SKU.
+    2. It was marked ambiguous (e.g. multiple candidates with nearly identical scores), OR
+    3. Extraction confidence is below REVIEW_THRESHOLD (0.85), OR
+    4. Catalogue match score is below MATCH_AUTO_THRESHOLD (0.90) (meaning it was either
+       matched by AI/heuristics in [0.60, 0.90), or failed), OR
+    5. It has no matched SKU.
 
     If matching has not yet run (match_score is None), review is determined solely by confidence.
     """
     if confirmed:
         return False
+    if ambiguous:
+        return True
     if confidence < REVIEW_THRESHOLD:
         return True
     if match_score is not None:
@@ -59,6 +63,7 @@ class DraftLine(BaseModel):
     match_score: float | None = None
     candidates: list[MatchCandidate] = Field(default_factory=list)
     confirmed: bool = False
+    ambiguous: bool = False
 
     @property
     def needs_review(self) -> bool:
@@ -67,6 +72,7 @@ class DraftLine(BaseModel):
             match_score=self.match_score,
             matched_sku=self.matched_sku,
             confirmed=self.confirmed,
+            ambiguous=self.ambiguous,
         )
 
 

@@ -193,3 +193,31 @@ def test_approve_rejects_already_approved_order(client):
 def test_get_nonexistent_order_returns_404(client):
     res = client.get("/api/orders/non-existent-id")
     assert res.status_code == 404
+
+
+def test_approve_returns_503_when_catalog_unavailable(client, monkeypatch):
+    res = client.post("/api/intake", data={"text": EMAIL_ORDER})
+    order_id = res.json()["id"]
+
+    def broken_catalog():
+        raise FileNotFoundError("catalog.json missing")
+
+    monkeypatch.setattr("backend.routers.orders.load_catalog", broken_catalog)
+
+    approve_res = client.post(f"/api/orders/{order_id}/approve", json={})
+    assert approve_res.status_code == 503
+    assert "Catalogue service unavailable" in approve_res.json()["detail"]
+
+
+def test_init_db_custom_engine_does_not_set_global_flag():
+    import backend.db as db_mod
+    original_flag = db_mod._db_initialized
+    try:
+        db_mod._db_initialized = False
+        custom_engine = create_engine("sqlite:///:memory:")
+        db_mod.init_db(target_engine=custom_engine)
+        assert db_mod._db_initialized is False
+        db_mod.init_db()  # default engine
+        assert db_mod._db_initialized is True
+    finally:
+        db_mod._db_initialized = original_flag

@@ -110,6 +110,8 @@ class CatalogueMatcher:
             if gap < 0.05:
                 is_ambiguous = True
 
+        line.ambiguous = is_ambiguous
+
         if top_score >= MATCH_AUTO_THRESHOLD and not is_ambiguous:
             line.matched_sku = candidates[0].sku
         elif top_score >= MATCH_MIN_THRESHOLD:
@@ -122,10 +124,6 @@ class CatalogueMatcher:
                     chosen = None
             # Fallback to top candidate if AI unavailable or returns None
             line.matched_sku = chosen or (candidates[0].sku if candidates else None)
-            # If match was ambiguous, ensure match_score remains below AUTO threshold
-            # so that line_needs_review() continues to require human review
-            if is_ambiguous and line.match_score >= MATCH_AUTO_THRESHOLD:
-                line.match_score = round(MATCH_AUTO_THRESHOLD - 0.01, 2)
         else:
             line.matched_sku = None
 

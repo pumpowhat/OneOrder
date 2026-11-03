@@ -81,18 +81,20 @@ def test_medium_score_calls_ai_and_flags_review(catalog):
     class MockAI:
         def match_product(self, description, candidates):
             calls.append((description, candidates))
-            return candidates[0]["sku"]
+            # AI explicitly picks candidate #2 instead of top candidate #1
+            return candidates[1]["sku"]
 
     matcher = CatalogueMatcher(catalog, ai=MockAI())
-    # Partial description falling into [0.60, 0.90)
+    # "Gips brand" scores ~0.855, which is strictly within [0.60, 0.90)
     line = DraftLine(description="Gips brand", quantity=4, confidence=0.95)
     matched = matcher.match_line(line)
 
-    if 0.60 <= matched.match_score < 0.90:
-        assert len(calls) == 1
-        assert matched.matched_sku is not None
-        # Must require human confirmation because it was an ambiguous/AI match!
-        assert matched.needs_review is True
+    assert 0.60 <= matched.match_score < 0.90
+    assert len(calls) == 1
+    assert calls[0][0] == "Gips brand"
+    assert matched.matched_sku == matched.candidates[1].sku
+    # Must require human confirmation because score is in [0.60, 0.90)
+    assert matched.needs_review is True
 
 
 def test_ambiguous_short_query_does_not_blindly_autoselect(catalog):
@@ -101,6 +103,8 @@ def test_ambiguous_short_query_does_not_blindly_autoselect(catalog):
     line = DraftLine(description="gipsplade", quantity=10, confidence=0.95)
     matched = matcher.match_line(line)
 
+    # Flagged as ambiguous and real score preserved without being faked
+    assert matched.ambiguous is True
     # Should not be treated as a definitive >0.90 match without human review
     assert matched.needs_review is True
 

@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Body, Depends, HTTPException
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
@@ -5,6 +7,8 @@ from sqlalchemy.orm import Session
 from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/orders", tags=["orders"])
 
@@ -60,8 +64,12 @@ def approve_order(
     try:
         catalog = load_catalog()
         valid_skus = {item.sku for item in catalog}
-    except Exception:
-        valid_skus = set()
+    except Exception as exc:
+        logger.error("Failed to load catalogue during order approval for %s: %s", order_id, exc)
+        raise HTTPException(
+            status_code=503,
+            detail=f"Catalogue service unavailable: {exc}",
+        ) from exc
 
     # Validate correction fields before applying
     for corr in payload.corrections:
@@ -70,7 +78,7 @@ def approve_order(
                 status_code=400,
                 detail=f"Line quantity must be greater than 0, got {corr.quantity}",
             )
-        if corr.sku is not None and valid_skus and corr.sku not in valid_skus:
+        if corr.sku is not None and corr.sku not in valid_skus:
             raise HTTPException(
                 status_code=400,
                 detail=f"Invalid SKU '{corr.sku}': not found in catalogue",
@@ -92,12 +100,14 @@ def approve_order(
 
         if corr.sku is not None:
             line.matched_sku = corr.sku
+            line.ambiguous = 0
         if corr.quantity is not None:
             line.quantity = corr.quantity
         if corr.description is not None:
             line.description = corr.description
         if corr.confirmed:
             line.confirmed = 1
+            line.ambiguous = 0
 
         after = {
             "line_index": line.line_index,
@@ -123,6 +133,7 @@ def approve_order(
             raise HTTPException(status_code=400, detail=f"Invalid line index {idx}")
         if not line.confirmed:
             line.confirmed = 1
+            line.ambiguous = 0
             record_audit_log(
                 db,
                 order_id=order.id,
@@ -140,11 +151,18 @@ def approve_order(
                 detail=f"Cannot approve order: line {line.line_index} ('{line.description}') is missing SKU",
             )
 
+        if line.matched_sku not in valid_skus:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Cannot approve order: SKU '{line.matched_sku}' on line {line.line_index} not found in catalogue",
+            )
+
         if line_needs_review(
             confidence=line.confidence,
             match_score=line.match_score,
             matched_sku=line.matched_sku,
             confirmed=bool(line.confirmed),
+            ambiguous=bool(getattr(line, "ambiguous", 0)),
         ):
             raise HTTPException(
                 status_code=409,
