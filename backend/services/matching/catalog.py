@@ -1,59 +1,94 @@
 from dataclasses import dataclass, field
+from functools import lru_cache
 import json
 import os
 from pathlib import Path
 
+# Compute repository root directory (4 levels up from this file)
+REPO_ROOT = Path(__file__).resolve().parents[3]
+
 DEFAULT_CATALOG_ENV = "CATALOG_PATH"
-DEFAULT_CATALOG_FILE = "data/catalog.json"
-SAMPLE_CATALOG_FILE = Path(__file__).resolve().parent.parent.parent.parent / "tests" / "fixtures" / "catalog_sample.json"
+DEFAULT_CATALOG_FILE = REPO_ROOT / "data" / "catalog.json"
+SAMPLE_CATALOG_FILE = REPO_ROOT / "tests" / "fixtures" / "catalog_sample.json"
 
 
-@dataclass
+@dataclass(frozen=True)
 class CatalogItem:
     sku: str
     name: str
     unit: str | None = None
-    aliases: list[str] = field(default_factory=list)
+    aliases: tuple[str, ...] = field(default_factory=tuple)
 
 
 def resolve_catalog_path(path: str | Path | None = None) -> Path:
-    """Find the catalog file to use: explicit path, env var, default, or test sample."""
+    """Resolve the catalogue file path anchored to the repository root.
+
+    Precedence:
+    1. Explicit path passed as argument.
+    2. CATALOG_PATH environment variable.
+    3. Standard data/catalog.json.
+    4. If in testing environment (PYTEST_CURRENT_TEST or USE_SAMPLE_CATALOG=1),
+       and standard data/catalog.json is not present, fall back to tests/fixtures/catalog_sample.json.
+    """
     if path:
-        return Path(path)
+        p = Path(path)
+        return p if p.is_absolute() else (REPO_ROOT / p if (REPO_ROOT / p).exists() else p)
+
     env_path = os.getenv(DEFAULT_CATALOG_ENV)
     if env_path:
-        return Path(env_path)
-    default_p = Path(DEFAULT_CATALOG_FILE)
-    if default_p.exists():
-        return default_p
-    if SAMPLE_CATALOG_FILE.exists():
+        p = Path(env_path)
+        return p if p.is_absolute() else REPO_ROOT / p
+
+    if DEFAULT_CATALOG_FILE.exists():
+        return DEFAULT_CATALOG_FILE
+
+    # Only fall back to test fixtures when explicitly in a test environment
+    is_test_env = bool(
+        os.getenv("USE_SAMPLE_CATALOG", "").lower() in ("1", "true", "yes")
+        or "PYTEST_CURRENT_TEST" in os.environ
+    )
+    if is_test_env and SAMPLE_CATALOG_FILE.exists():
         return SAMPLE_CATALOG_FILE
-    return default_p
+
+    return DEFAULT_CATALOG_FILE
 
 
-def load_catalog(path: str | Path | None = None) -> list[CatalogItem]:
-    """Read catalog products from JSON file.
-
-    Expects a JSON array of objects with 'sku', 'name', optional 'unit' and 'aliases'.
-    """
-    target = resolve_catalog_path(path)
+@lru_cache(maxsize=8)
+def _read_catalog_file(target_str: str) -> tuple[CatalogItem, ...]:
+    target = Path(target_str)
     if not target.exists():
-        raise FileNotFoundError(f"Catalog file not found: {target}")
+        raise FileNotFoundError(
+            f"Catalogue file not found: {target}. "
+            f"Please ensure '{DEFAULT_CATALOG_FILE}' exists or configure {DEFAULT_CATALOG_ENV}."
+        )
 
     with open(target, encoding="utf-8") as f:
         data = json.load(f)
 
     if not isinstance(data, list):
-        raise ValueError(f"Catalog JSON must be a list of items, got {type(data).__name__}")
+        raise ValueError(f"Catalogue JSON must be a list of items, got {type(data).__name__}")
 
-    catalog = []
+    items = []
     for entry in data:
-        catalog.append(
+        raw_aliases = entry.get("aliases") or []
+        alias_tuple = tuple(str(a).strip() for a in raw_aliases if str(a).strip())
+        items.append(
             CatalogItem(
                 sku=str(entry["sku"]).strip(),
                 name=str(entry["name"]).strip(),
                 unit=str(entry["unit"]).strip() if entry.get("unit") else None,
-                aliases=[str(a).strip() for a in entry.get("aliases") or [] if str(a).strip()],
+                aliases=alias_tuple,
             )
         )
-    return catalog
+    return tuple(items)
+
+
+def load_catalog(path: str | Path | None = None) -> list[CatalogItem]:
+    """Read catalog products from JSON file with caching."""
+    target = resolve_catalog_path(path)
+    return list(_read_catalog_file(str(target)))
+
+
+def clear_catalog_cache() -> None:
+    """Clear cached catalogue data."""
+    _read_catalog_file.cache_clear()

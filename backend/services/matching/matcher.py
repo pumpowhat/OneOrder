@@ -3,7 +3,13 @@ import unicodedata
 from rapidfuzz import fuzz
 
 from backend.services.intake.ai import AIClient
-from backend.services.intake.schemas import DraftLine, DraftOrder, MatchCandidate
+from backend.services.intake.schemas import (
+    MATCH_AUTO_THRESHOLD,
+    MATCH_MIN_THRESHOLD,
+    DraftLine,
+    DraftOrder,
+    MatchCandidate,
+)
 from .catalog import CatalogItem
 
 
@@ -41,7 +47,7 @@ class CatalogueMatcher:
         scored = []
 
         for item in self.catalog:
-            targets = [item.name] + item.aliases
+            targets = [item.name] + list(item.aliases)
             best = 0.0
 
             for target in targets:
@@ -60,7 +66,9 @@ class CatalogueMatcher:
                 token_set = fuzz.token_set_ratio(q_norm, t_norm) / 100.0
 
                 s = max(w_ratio, token_sort)
-                if is_subset:
+                # Boost subset only when query contains enough specific tokens (>= 2)
+                # to prevent single generic words like 'gipsplade' from falsely claiming 0.95
+                if is_subset and len(q_tokens) >= 2:
                     s = max(s, 0.95)
                 elif token_set >= 0.95 and len(q_tokens) >= 2:
                     s = max(s, 0.90)
@@ -82,18 +90,29 @@ class CatalogueMatcher:
     def match_line(self, line: DraftLine) -> DraftLine:
         """Find catalogue matches and assign SKU based on threshold rules:
 
-        - Score >= 0.90: automatically select top SKU.
-        - Score in [0.60, 0.90): invoke AIClient to disambiguate among top-3.
-        - Score < 0.60: leave SKU empty, requiring human review.
+        - Score >= 0.90 AND clear winner (gap between top-1 and top-2 >= 0.05, or exact 1.0):
+          Automatically select top SKU.
+        - Score in [0.60, 0.90) OR ambiguous close match (gap < 0.05):
+          Invoke AIClient to disambiguate among top-3.
+          Suggested SKU is assigned, but line continues to require human confirmation.
+        - Score < 0.60:
+          Leave SKU empty, requiring human assignment.
         """
         candidates = self.score_candidates(line.description, top_k=3)
         line.candidates = candidates
         top_score = candidates[0].score if candidates else 0.0
         line.match_score = top_score
 
-        if top_score >= 0.90:
+        # Detect ambiguous ties or near-ties between top candidates
+        is_ambiguous = False
+        if len(candidates) >= 2 and top_score < 1.0:
+            gap = top_score - candidates[1].score
+            if gap < 0.05:
+                is_ambiguous = True
+
+        if top_score >= MATCH_AUTO_THRESHOLD and not is_ambiguous:
             line.matched_sku = candidates[0].sku
-        elif top_score >= 0.60:
+        elif top_score >= MATCH_MIN_THRESHOLD:
             chosen = None
             if self.ai and hasattr(self.ai, "match_product"):
                 cand_dicts = [{"sku": c.sku, "name": c.name, "score": c.score} for c in candidates]
@@ -103,6 +122,10 @@ class CatalogueMatcher:
                     chosen = None
             # Fallback to top candidate if AI unavailable or returns None
             line.matched_sku = chosen or (candidates[0].sku if candidates else None)
+            # If match was ambiguous, ensure match_score remains below AUTO threshold
+            # so that line_needs_review() continues to require human review
+            if is_ambiguous and line.match_score >= MATCH_AUTO_THRESHOLD:
+                line.match_score = round(MATCH_AUTO_THRESHOLD - 0.01, 2)
         else:
             line.matched_sku = None
 

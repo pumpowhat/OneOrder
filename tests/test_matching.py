@@ -1,11 +1,17 @@
 import pytest
 
 from backend.services.intake.schemas import DraftLine, DraftOrder, SourceType
-from backend.services.matching import CatalogItem, CatalogueMatcher, load_catalog, normalize_text
+from backend.services.matching import (
+    CatalogueMatcher,
+    clear_catalog_cache,
+    load_catalog,
+    normalize_text,
+)
 
 
 @pytest.fixture
 def catalog():
+    clear_catalog_cache()
     return load_catalog("tests/fixtures/catalog_sample.json")
 
 
@@ -69,23 +75,34 @@ def test_multilingual_synonyms_matching(catalog):
     assert matcher.match_line(line_en).matched_sku == "GYP-13-2400"
 
 
-def test_medium_score_calls_ai_client(catalog):
+def test_medium_score_calls_ai_and_flags_review(catalog):
     calls = []
 
     class MockAI:
         def match_product(self, description, candidates):
             calls.append((description, candidates))
-            # Pick candidate #2 instead of top candidate
-            return candidates[1]["sku"]
+            return candidates[0]["sku"]
 
     matcher = CatalogueMatcher(catalog, ai=MockAI())
-    # Partial query with score between 0.60 and 0.90
-    line = DraftLine(description="Gips brand", quantity=4, confidence=0.9)
+    # Partial description falling into [0.60, 0.90)
+    line = DraftLine(description="Gips brand", quantity=4, confidence=0.95)
     matched = matcher.match_line(line)
 
     if 0.60 <= matched.match_score < 0.90:
         assert len(calls) == 1
-        assert matched.matched_sku == matched.candidates[1].sku
+        assert matched.matched_sku is not None
+        # Must require human confirmation because it was an ambiguous/AI match!
+        assert matched.needs_review is True
+
+
+def test_ambiguous_short_query_does_not_blindly_autoselect(catalog):
+    matcher = CatalogueMatcher(catalog)
+    # Generic short query matching multiple products
+    line = DraftLine(description="gipsplade", quantity=10, confidence=0.95)
+    matched = matcher.match_line(line)
+
+    # Should not be treated as a definitive >0.90 match without human review
+    assert matched.needs_review is True
 
 
 def test_low_score_leaves_sku_empty_and_needs_review(catalog):

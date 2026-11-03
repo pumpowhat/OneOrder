@@ -3,8 +3,37 @@ from enum import Enum
 
 from pydantic import BaseModel, Field
 
-# Lines below this confidence must be reviewed by a person before approval.
+# Review thresholds
 REVIEW_THRESHOLD = 0.85
+MATCH_AUTO_THRESHOLD = 0.90
+MATCH_MIN_THRESHOLD = 0.60
+
+
+def line_needs_review(
+    confidence: float,
+    match_score: float | None = None,
+    matched_sku: str | None = None,
+    confirmed: bool = False,
+) -> bool:
+    """Determine whether a line item requires human review before approval.
+
+    A line requires human review if:
+    1. It has NOT been explicitly confirmed by a user, AND
+    2. Extraction confidence is below REVIEW_THRESHOLD (0.85), OR
+    3. Catalogue match score is below MATCH_AUTO_THRESHOLD (0.90) (meaning it was either
+       matched by AI/heuristics in [0.60, 0.90), had close candidate scores, or failed), OR
+    4. It has no matched SKU.
+
+    If matching has not yet run (match_score is None), review is determined solely by confidence.
+    """
+    if confirmed:
+        return False
+    if confidence < REVIEW_THRESHOLD:
+        return True
+    if match_score is not None:
+        if match_score < MATCH_AUTO_THRESHOLD or not matched_sku:
+            return True
+    return False
 
 
 class SourceType(str, Enum):
@@ -33,14 +62,12 @@ class DraftLine(BaseModel):
 
     @property
     def needs_review(self) -> bool:
-        if self.confirmed:
-            return False
-        if self.confidence < REVIEW_THRESHOLD:
-            return True
-        if self.match_score is not None:
-            if self.match_score < 0.60 or self.matched_sku is None:
-                return True
-        return False
+        return line_needs_review(
+            confidence=self.confidence,
+            match_score=self.match_score,
+            matched_sku=self.matched_sku,
+            confirmed=self.confirmed,
+        )
 
 
 class DraftOrder(BaseModel):

@@ -3,6 +3,8 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
+from backend.services.intake.schemas import line_needs_review
+from backend.services.matching import load_catalog
 
 router = APIRouter(prefix="/api/orders", tags=["orders"])
 
@@ -38,12 +40,41 @@ def approve_order(
 ) -> dict:
     """Approve a draft order.
 
-    Returns 409 if any line lacks an SKU or has unresolved review requirements.
-    Accepts human corrections and confirmations in the body, writing audit logs for each.
+    Validations:
+    - Returns 409 if the order has already been approved.
+    - Returns 400 if any corrected SKU does not exist in the catalogue or quantity <= 0.
+    - Returns 409 if any line lacks an SKU or has unresolved review requirements.
+
+    Transaction semantics:
+    All corrections, confirmations, status updates, and audit logs are committed
+    atomically. If validation fails with 409 or 400, no changes are committed to the DB.
     """
     order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
     if not order:
         raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+
+    if order.status == "approved":
+        raise HTTPException(status_code=409, detail=f"Order {order_id} has already been approved")
+
+    # Load valid catalogue SKUs to validate human corrections
+    try:
+        catalog = load_catalog()
+        valid_skus = {item.sku for item in catalog}
+    except Exception:
+        valid_skus = set()
+
+    # Validate correction fields before applying
+    for corr in payload.corrections:
+        if corr.quantity is not None and corr.quantity <= 0:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Line quantity must be greater than 0, got {corr.quantity}",
+            )
+        if corr.sku is not None and valid_skus and corr.sku not in valid_skus:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid SKU '{corr.sku}': not found in catalogue",
+            )
 
     # Apply manual corrections
     for corr in payload.corrections:
@@ -109,12 +140,12 @@ def approve_order(
                 detail=f"Cannot approve order: line {line.line_index} ('{line.description}') is missing SKU",
             )
 
-        needs_review = (
-            line.confidence < 0.85
-            or (line.match_score is not None and line.match_score < 0.60)
-            or line.matched_sku is None
-        )
-        if needs_review and not line.confirmed:
+        if line_needs_review(
+            confidence=line.confidence,
+            match_score=line.match_score,
+            matched_sku=line.matched_sku,
+            confirmed=bool(line.confirmed),
+        ):
             raise HTTPException(
                 status_code=409,
                 detail=f"Cannot approve order: line {line.line_index} ('{line.description}') requires review and has not been confirmed",

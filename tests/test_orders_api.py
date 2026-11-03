@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 from backend.db import Base, get_db
 from backend.main import app
+from backend.services.matching import clear_catalog_cache
 
 EMAIL_ORDER = """\
 Fra: lars@byggefirma.dk
@@ -24,6 +25,7 @@ Hilsen Lars
 
 @pytest.fixture
 def test_db(tmp_path):
+    clear_catalog_cache()
     db_file = tmp_path / "test_oneorder.db"
     test_engine = create_engine(f"sqlite:///{db_file}", connect_args={"check_same_thread": False})
     Base.metadata.create_all(bind=test_engine)
@@ -105,6 +107,36 @@ def test_approve_blocked_when_rule_confidence_low(client):
     assert "requires review" in approve_res.json()["detail"]
 
 
+def test_approve_rejects_invalid_sku(client):
+    res = client.post("/api/intake", data={"text": EMAIL_ORDER})
+    assert res.status_code == 200
+    order_id = res.json()["id"]
+
+    approve_payload = {
+        "corrections": [
+            {"line_index": 0, "sku": "NON_EXISTENT_SKU_999"},
+        ]
+    }
+    approve_res = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
+    assert approve_res.status_code == 400
+    assert "not found in catalogue" in approve_res.json()["detail"]
+
+
+def test_approve_rejects_non_positive_quantity(client):
+    res = client.post("/api/intake", data={"text": EMAIL_ORDER})
+    assert res.status_code == 200
+    order_id = res.json()["id"]
+
+    approve_payload = {
+        "corrections": [
+            {"line_index": 0, "quantity": -5.0},
+        ]
+    }
+    approve_res = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
+    assert approve_res.status_code == 400
+    assert "greater than 0" in approve_res.json()["detail"]
+
+
 def test_approve_succeeds_with_corrections_and_confirmations(client):
     res = client.post("/api/intake", data={"text": EMAIL_ORDER})
     assert res.status_code == 200
@@ -137,6 +169,25 @@ def test_approve_succeeds_with_corrections_and_confirmations(client):
     assert approve_log["user"] == "anna_sales"
     assert approve_log["payload_before"] == {"status": "draft"}
     assert approve_log["payload_after"] == {"status": "approved"}
+
+
+def test_approve_rejects_already_approved_order(client):
+    res = client.post("/api/intake", data={"text": EMAIL_ORDER})
+    order_id = res.json()["id"]
+
+    approve_payload = {
+        "corrections": [
+            {"line_index": 0, "sku": "GYP-13-2400", "confirmed": True},
+        ],
+        "confirm_lines": [1, 2],
+    }
+    res_first = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
+    assert res_first.status_code == 200
+
+    # Second approval attempt must return 409
+    res_second = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
+    assert res_second.status_code == 409
+    assert "already been approved" in res_second.json()["detail"]
 
 
 def test_get_nonexistent_order_returns_404(client):

@@ -7,6 +7,8 @@ from typing import Generator
 from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, create_engine
 from sqlalchemy.orm import Session, declarative_base, relationship, sessionmaker
 
+from backend.services.intake.schemas import line_needs_review
+
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./oneorder.db")
 
 engine = create_engine(
@@ -90,7 +92,6 @@ def init_db(target_engine=None) -> None:
 
 def get_db() -> Generator[Session, None, None]:
     """FastAPI dependency for obtaining a database session."""
-    init_db()
     db = SessionLocal()
     try:
         yield db
@@ -177,14 +178,12 @@ def order_model_to_dict(model: OrderModel) -> dict:
             except Exception:
                 pass
 
-        line_needs_review = False
-        if not bool(l.confirmed):
-            if l.confidence < 0.85:
-                line_needs_review = True
-            elif l.match_score is not None and (l.match_score < 0.60 or l.matched_sku is None):
-                line_needs_review = True
-            elif l.matched_sku is None:
-                line_needs_review = True
+        line_needs_review_val = line_needs_review(
+            confidence=l.confidence,
+            match_score=l.match_score,
+            matched_sku=l.matched_sku,
+            confirmed=bool(l.confirmed),
+        )
 
         lines.append({
             "line_index": l.line_index,
@@ -197,7 +196,7 @@ def order_model_to_dict(model: OrderModel) -> dict:
             "match_score": l.match_score,
             "candidates": cands,
             "confirmed": bool(l.confirmed),
-            "needs_review": line_needs_review,
+            "needs_review": line_needs_review_val,
         })
 
     logs = []
@@ -238,7 +237,3 @@ def order_model_to_dict(model: OrderModel) -> dict:
         "needs_review": any(l["needs_review"] for l in lines),
         "audit_logs": logs,
     }
-
-
-# Ensure tables exist upon module import
-init_db()

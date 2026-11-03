@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.orm import Session
 
@@ -6,6 +8,8 @@ from backend.db import get_db, save_draft_order
 from backend.services.intake import AIClient, DraftOrder, IntakeService, UnsupportedInput
 from backend.services.intake.demo_client import DemoFixtureMissing
 from backend.services.matching import CatalogueMatcher, load_catalog
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api")
 
@@ -36,14 +40,14 @@ async def intake(
     except RuntimeError as exc:
         raise HTTPException(502, str(exc)) from exc
 
-    # Match order lines against catalogue
+    # Match order lines against catalogue; catch only expected missing/malformed catalogue errors
     try:
         catalog = load_catalog()
         matcher = CatalogueMatcher(catalog, ai=ai)
         order = matcher.match_order(order)
-    except Exception:
-        # If catalog fails to load, keep lines as extracted
-        pass
+    except (FileNotFoundError, ValueError) as exc:
+        logger.warning("Catalogue matching skipped: %s", exc)
+        order.warnings.append(f"Catalogue matching skipped: {exc}")
 
     # Save draft order and audit log entry in database
     save_draft_order(db, order)
