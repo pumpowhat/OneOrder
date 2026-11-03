@@ -1,0 +1,7737 @@
+[
+  {
+    "sku": "GYP-13-2400",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2912,
+    "reserved_quantity": 203,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-2400",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 161,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-2400",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 197,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-2400",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 65,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-2400",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 38,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-FIRE",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1562,
+    "reserved_quantity": 109,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-FIRE",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-FIRE",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 83,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-FIRE",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 181,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-FIRE",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 193,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "ISO-GLAS-100",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2299,
+    "reserved_quantity": 321,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-100",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 163,
+    "reserved_quantity": 11,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-100",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 163,
+    "reserved_quantity": 17,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-100",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 3,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-100",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 16,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-150",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 866,
+    "reserved_quantity": 95,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-150",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 129,
+    "reserved_quantity": 11,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-150",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 11,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-150",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 2,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-150",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m2"
+  },
+  {
+    "sku": "SCR-GIP-40",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 545,
+    "reserved_quantity": 54,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-40",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 59,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-40",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 3,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-40",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-40",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 193,
+    "reserved_quantity": 9,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-55",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 926,
+    "reserved_quantity": 101,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-55",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 126,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-55",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 9,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-55",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 33,
+    "reserved_quantity": 1,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-55",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "TIM-SPRU-45145",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2613,
+    "reserved_quantity": 156,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45145",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 732,
+    "reserved_quantity": 73,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45145",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 221,
+    "reserved_quantity": 24,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45145",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 647,
+    "reserved_quantity": 32,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45145",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 7,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45095",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2418,
+    "reserved_quantity": 265,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45095",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 7,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45095",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45095",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 252,
+    "reserved_quantity": 25,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45095",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 586,
+    "reserved_quantity": 46,
+    "unit": "m"
+  },
+  {
+    "sku": "PLY-SPRU-18",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 886,
+    "reserved_quantity": 97,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-18",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 128,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-18",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 88,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-18",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 48,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-18",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 193,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "CEM-PORT-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1055,
+    "reserved_quantity": 105,
+    "unit": "sæk"
+  },
+  {
+    "sku": "CEM-PORT-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "sæk"
+  },
+  {
+    "sku": "CEM-PORT-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 185,
+    "reserved_quantity": 16,
+    "unit": "sæk"
+  },
+  {
+    "sku": "CEM-PORT-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "sæk"
+  },
+  {
+    "sku": "CEM-PORT-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 16,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-TORR-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 610,
+    "reserved_quantity": 30,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-TORR-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 167,
+    "reserved_quantity": 11,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-TORR-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 139,
+    "reserved_quantity": 9,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-TORR-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 178,
+    "reserved_quantity": 10,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-TORR-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 71,
+    "reserved_quantity": 4,
+    "unit": "sæk"
+  },
+  {
+    "sku": "ARM-JERN-12",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1358,
+    "reserved_quantity": 176,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-12",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 129,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-12",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 35,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-12",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 32,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-12",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 73,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2565,
+    "reserved_quantity": 256,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 58,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 74,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 159,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-ACR-300",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1515,
+    "reserved_quantity": 151,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-ACR-300",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-ACR-300",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 185,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-ACR-300",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 183,
+    "reserved_quantity": 20,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-ACR-300",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "MEM-RAD-04",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2412,
+    "reserved_quantity": 168,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-RAD-04",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 111,
+    "reserved_quantity": 7,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-RAD-04",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 97,
+    "reserved_quantity": 8,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-RAD-04",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 136,
+    "reserved_quantity": 10,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-RAD-04",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 9,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-13-3000",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2392,
+    "reserved_quantity": 167,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-3000",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-3000",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 69,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-3000",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-3000",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 108,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-2400",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 484,
+    "reserved_quantity": 43,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-2400",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 122,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-2400",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 125,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-2400",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 81,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-2400",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 105,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-WATH",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2305,
+    "reserved_quantity": 230,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-WATH",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 85,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-WATH",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 178,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-WATH",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 86,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-13-WATH",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-ACOUS",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 884,
+    "reserved_quantity": 79,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-ACOUS",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-ACOUS",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 34,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-ACOUS",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 99,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-15-ACOUS",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 189,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-WIND",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1335,
+    "reserved_quantity": 133,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-WIND",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-WIND",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 78,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-WIND",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-09-WIND",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 41,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-FIB-13",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1330,
+    "reserved_quantity": 66,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-FIB-13",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 79,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-FIB-13",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 75,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-FIB-13",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 119,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-FIB-13",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1885,
+    "reserved_quantity": 188,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 45,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 143,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 29,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 83,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 610,
+    "reserved_quantity": 30,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 178,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 148,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 139,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 43,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2027,
+    "reserved_quantity": 243,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 93,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 92,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1328,
+    "reserved_quantity": 172,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 185,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 69,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 144,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-TAPE-PAP",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1886,
+    "reserved_quantity": 207,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-PAP",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 77,
+    "reserved_quantity": 3,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-PAP",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 135,
+    "reserved_quantity": 9,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-PAP",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 64,
+    "reserved_quantity": 5,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-PAP",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 144,
+    "reserved_quantity": 5,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-GLAS",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2819,
+    "reserved_quantity": 394,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-GLAS",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 2,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-GLAS",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-GLAS",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 2,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-TAPE-GLAS",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 164,
+    "reserved_quantity": 13,
+    "unit": "rl"
+  },
+  {
+    "sku": "GYP-FILL-JNT",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 471,
+    "reserved_quantity": 28,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-JNT",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 36,
+    "reserved_quantity": 2,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-JNT",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 77,
+    "reserved_quantity": 6,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-JNT",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 42,
+    "reserved_quantity": 4,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-JNT",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 181,
+    "reserved_quantity": 16,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-FIN",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2471,
+    "reserved_quantity": 148,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-FIN",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 104,
+    "reserved_quantity": 8,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-FIN",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 178,
+    "reserved_quantity": 17,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-FIN",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 1,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-FILL-FIN",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 132,
+    "reserved_quantity": 10,
+    "unit": "spand"
+  },
+  {
+    "sku": "GYP-COR-ALU",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2657,
+    "reserved_quantity": 318,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-COR-ALU",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 156,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-COR-ALU",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 173,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-COR-ALU",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 74,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-COR-ALU",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-INSP-40",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2652,
+    "reserved_quantity": 185,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-INSP-40",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 196,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-INSP-40",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 136,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-INSP-40",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-INSP-40",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 95,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2016,
+    "reserved_quantity": 141,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45195",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 161,
+    "reserved_quantity": 11,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45195",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 269,
+    "reserved_quantity": 29,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45195",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 737,
+    "reserved_quantity": 51,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45195",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 184,
+    "reserved_quantity": 11,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45220",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1812,
+    "reserved_quantity": 163,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45220",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 181,
+    "reserved_quantity": 19,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45220",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 639,
+    "reserved_quantity": 31,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45220",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 695,
+    "reserved_quantity": 34,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45220",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 359,
+    "reserved_quantity": 17,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45070",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2505,
+    "reserved_quantity": 250,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45070",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 182,
+    "reserved_quantity": 7,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45070",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 499,
+    "reserved_quantity": 44,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45070",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 313,
+    "reserved_quantity": 21,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SPRU-45070",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 532,
+    "reserved_quantity": 53,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-3857",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1365,
+    "reserved_quantity": 136,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-3857",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 177,
+    "reserved_quantity": 12,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-3857",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 673,
+    "reserved_quantity": 47,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-3857",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 409,
+    "reserved_quantity": 28,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-3857",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 596,
+    "reserved_quantity": 59,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-2550",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 8115,
+    "reserved_quantity": 811,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-2550",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 258,
+    "reserved_quantity": 20,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-2550",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 509,
+    "reserved_quantity": 55,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-2550",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 163,
+    "reserved_quantity": 14,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-LATH-2550",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 626,
+    "reserved_quantity": 50,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-BATT-25100",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 6999,
+    "reserved_quantity": 559,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-BATT-25100",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 157,
+    "reserved_quantity": 17,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-BATT-25100",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 494,
+    "reserved_quantity": 19,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-BATT-25100",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-BATT-25100",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 494,
+    "reserved_quantity": 19,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-28120",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 6036,
+    "reserved_quantity": 422,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-28120",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 306,
+    "reserved_quantity": 24,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-28120",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 395,
+    "reserved_quantity": 35,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-28120",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 718,
+    "reserved_quantity": 28,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-28120",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-LARCH",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 3246,
+    "reserved_quantity": 227,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-LARCH",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-LARCH",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 17,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-LARCH",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 652,
+    "reserved_quantity": 65,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-TERR-LARCH",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 416,
+    "reserved_quantity": 24,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22150",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 8100,
+    "reserved_quantity": 405,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22150",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 735,
+    "reserved_quantity": 36,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22150",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 175,
+    "reserved_quantity": 8,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22150",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 272,
+    "reserved_quantity": 16,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22150",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 528,
+    "reserved_quantity": 31,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22200",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2043,
+    "reserved_quantity": 122,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22200",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 348,
+    "reserved_quantity": 34,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22200",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 703,
+    "reserved_quantity": 35,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22200",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-FASC-22200",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-CLAD-22145",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 8697,
+    "reserved_quantity": 1217,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-CLAD-22145",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 713,
+    "reserved_quantity": 49,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-CLAD-22145",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 486,
+    "reserved_quantity": 19,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-CLAD-22145",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 475,
+    "reserved_quantity": 42,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-CLAD-22145",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 155,
+    "reserved_quantity": 13,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-BEAM-GLULAM",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 187,
+    "reserved_quantity": 22,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLULAM",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 11,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLULAM",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 28,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLULAM",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 9,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLULAM",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLU2",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 92,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLU2",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 14,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLU2",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLU2",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 29,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-BEAM-GLU2",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 10,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-12",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2560,
+    "reserved_quantity": 128,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-12",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 36,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-12",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-12",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-12",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 99,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-21",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1298,
+    "reserved_quantity": 168,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-21",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 129,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-21",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 136,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-21",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-SPRU-21",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-FILM-18",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 539,
+    "reserved_quantity": 75,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-FILM-18",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 54,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-FILM-18",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 164,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-FILM-18",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-FILM-18",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-TRAIL-15",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2289,
+    "reserved_quantity": 320,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-TRAIL-15",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 159,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-TRAIL-15",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-TRAIL-15",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 76,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PLY-TRAIL-15",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 106,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-12",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1863,
+    "reserved_quantity": 149,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-12",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 35,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-12",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-12",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 47,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-12",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 147,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-18",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 648,
+    "reserved_quantity": 84,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-18",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-18",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-18",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 73,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-18",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-22",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1407,
+    "reserved_quantity": 168,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-22",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 62,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-22",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 102,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-22",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 19,
+    "unit": "stk"
+  },
+  {
+    "sku": "OSB-3-22",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 142,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "MDF-STD-16",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2723,
+    "reserved_quantity": 217,
+    "unit": "stk"
+  },
+  {
+    "sku": "MDF-STD-16",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "MDF-STD-16",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 142,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "MDF-STD-16",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 36,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "MDF-STD-16",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 188,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "ISO-GLAS-050",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 614,
+    "reserved_quantity": 55,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-050",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 191,
+    "reserved_quantity": 13,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-050",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 33,
+    "reserved_quantity": 1,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-050",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-050",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 102,
+    "reserved_quantity": 10,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-150",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2434,
+    "reserved_quantity": 219,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-150",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 84,
+    "reserved_quantity": 6,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-150",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 129,
+    "reserved_quantity": 6,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-150",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 133,
+    "reserved_quantity": 6,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-150",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 33,
+    "reserved_quantity": 2,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-200",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2699,
+    "reserved_quantity": 377,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-200",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 158,
+    "reserved_quantity": 15,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-200",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 34,
+    "reserved_quantity": 2,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-200",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 192,
+    "reserved_quantity": 7,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-GLAS-200",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 7,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-050",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2233,
+    "reserved_quantity": 178,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-050",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 101,
+    "reserved_quantity": 5,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-050",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 172,
+    "reserved_quantity": 13,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-050",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 93,
+    "reserved_quantity": 4,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-050",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 5,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-100",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2403,
+    "reserved_quantity": 192,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-100",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 32,
+    "reserved_quantity": 1,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-100",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-100",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 148,
+    "reserved_quantity": 11,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-100",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 165,
+    "reserved_quantity": 8,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-200",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2029,
+    "reserved_quantity": 284,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-200",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 117,
+    "reserved_quantity": 10,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-200",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 188,
+    "reserved_quantity": 7,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-200",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 59,
+    "reserved_quantity": 6,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-ROCK-200",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 135,
+    "reserved_quantity": 9,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-100",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2387,
+    "reserved_quantity": 286,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-100",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 11,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-100",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 57,
+    "reserved_quantity": 2,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-100",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 92,
+    "reserved_quantity": 3,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-100",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 136,
+    "reserved_quantity": 10,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-150",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1488,
+    "reserved_quantity": 193,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-150",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 111,
+    "reserved_quantity": 12,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-150",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 93,
+    "reserved_quantity": 8,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-150",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 77,
+    "reserved_quantity": 3,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-TERR-150",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 57,
+    "reserved_quantity": 2,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-80",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1592,
+    "reserved_quantity": 111,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-80",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 142,
+    "reserved_quantity": 14,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-80",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 2,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-80",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 33,
+    "reserved_quantity": 1,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-80",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-150",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1564,
+    "reserved_quantity": 140,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-150",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 48,
+    "reserved_quantity": 3,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-150",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 62,
+    "reserved_quantity": 3,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-150",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 98,
+    "reserved_quantity": 5,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-EPS-150",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 94,
+    "reserved_quantity": 5,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-XPS-300",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1375,
+    "reserved_quantity": 137,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-XPS-300",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 161,
+    "reserved_quantity": 14,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-XPS-300",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 106,
+    "reserved_quantity": 10,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-XPS-300",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 14,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-XPS-300",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 163,
+    "reserved_quantity": 11,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-PIPE-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 6834,
+    "reserved_quantity": 888,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 743,
+    "reserved_quantity": 37,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 235,
+    "reserved_quantity": 21,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-28",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 7395,
+    "reserved_quantity": 739,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-28",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 158,
+    "reserved_quantity": 6,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-28",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 414,
+    "reserved_quantity": 16,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-28",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 454,
+    "reserved_quantity": 18,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-PIPE-28",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 202,
+    "reserved_quantity": 16,
+    "unit": "m"
+  },
+  {
+    "sku": "ISO-SOUND-45",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 889,
+    "reserved_quantity": 124,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-SOUND-45",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 121,
+    "reserved_quantity": 6,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-SOUND-45",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 106,
+    "reserved_quantity": 10,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-SOUND-45",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 135,
+    "reserved_quantity": 14,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-SOUND-45",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 2,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-FIRE-60",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1817,
+    "reserved_quantity": 218,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-FIRE-60",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 177,
+    "reserved_quantity": 8,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-FIRE-60",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 1,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-FIRE-60",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 78,
+    "reserved_quantity": 4,
+    "unit": "m2"
+  },
+  {
+    "sku": "ISO-FIRE-60",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 6,
+    "unit": "m2"
+  },
+  {
+    "sku": "BET-FIN-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2137,
+    "reserved_quantity": 256,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-FIN-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 5,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-FIN-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 1,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-FIN-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 9,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-FIN-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 58,
+    "reserved_quantity": 5,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-GROV-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2410,
+    "reserved_quantity": 120,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-GROV-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 181,
+    "reserved_quantity": 16,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-GROV-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 77,
+    "reserved_quantity": 3,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-GROV-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 3,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-GROV-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 114,
+    "reserved_quantity": 11,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-RAPID-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1690,
+    "reserved_quantity": 84,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-RAPID-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 159,
+    "reserved_quantity": 11,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-RAPID-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 36,
+    "reserved_quantity": 1,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-RAPID-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 124,
+    "reserved_quantity": 4,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-RAPID-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 171,
+    "reserved_quantity": 18,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-STRAND-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2810,
+    "reserved_quantity": 140,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-STRAND-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 2,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-STRAND-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 52,
+    "reserved_quantity": 4,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-STRAND-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 189,
+    "reserved_quantity": 17,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-STRAND-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 122,
+    "reserved_quantity": 12,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-BAKKE-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 700,
+    "reserved_quantity": 35,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-BAKKE-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 128,
+    "reserved_quantity": 5,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-BAKKE-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 119,
+    "reserved_quantity": 13,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-BAKKE-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 55,
+    "reserved_quantity": 3,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-BAKKE-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 28,
+    "reserved_quantity": 1,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-SEL-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 611,
+    "reserved_quantity": 36,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-SEL-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 10,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-SEL-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 168,
+    "reserved_quantity": 13,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-SEL-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 64,
+    "reserved_quantity": 5,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-SEL-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 75,
+    "reserved_quantity": 8,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-EXP-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 931,
+    "reserved_quantity": 55,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-EXP-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 138,
+    "reserved_quantity": 8,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-EXP-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 1,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-EXP-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BET-EXP-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 101,
+    "reserved_quantity": 5,
+    "unit": "sæk"
+  },
+  {
+    "sku": "BRK-RED-MASSIV",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 740,
+    "reserved_quantity": 37,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-RED-MASSIV",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 19,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-RED-MASSIV",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-RED-MASSIV",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 154,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-RED-MASSIV",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 147,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-YEL-MASSIV",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2108,
+    "reserved_quantity": 274,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-YEL-MASSIV",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 185,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-YEL-MASSIV",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 143,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-YEL-MASSIV",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-YEL-MASSIV",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 21,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-100",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1448,
+    "reserved_quantity": 188,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-100",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 132,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-100",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 71,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-100",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 153,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-100",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 184,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-150",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2709,
+    "reserved_quantity": 379,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-150",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 162,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-150",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 117,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-150",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 57,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-GAS-150",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 199,
+    "reserved_quantity": 21,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-10",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2099,
+    "reserved_quantity": 293,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-10",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-10",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 132,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-10",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 71,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-10",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-15",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2492,
+    "reserved_quantity": 174,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-15",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-15",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 186,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-15",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 34,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-15",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 43,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-20",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2655,
+    "reserved_quantity": 265,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-20",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 142,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-20",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 64,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-20",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-LECA-20",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 162,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SAND-BIG",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 285,
+    "reserved_quantity": 28,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SAND-BIG",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 8,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SAND-BIG",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 10,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SAND-BIG",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SAND-BIG",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 8,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-GRAV-BIG",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 81,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-GRAV-BIG",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 14,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-GRAV-BIG",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 13,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-GRAV-BIG",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 16,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-GRAV-BIG",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SKÆRV-BIG",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 144,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SKÆRV-BIG",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SKÆRV-BIG",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SKÆRV-BIG",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "AGG-SKÆRV-BIG",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 5,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-08",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2838,
+    "reserved_quantity": 368,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-08",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 154,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-08",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 46,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-08",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-08",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 95,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-10",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1377,
+    "reserved_quantity": 165,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-10",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 45,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-10",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 158,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-10",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-10",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 25,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-16",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1138,
+    "reserved_quantity": 147,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-16",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 191,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-16",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-16",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 44,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-JERN-16",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 47,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0615",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 229,
+    "reserved_quantity": 32,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0615",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 7,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0615",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 12,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0615",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0615",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0815",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 164,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0815",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 23,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0815",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 24,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0815",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 15,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0815",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-DIST-30",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2113,
+    "reserved_quantity": 169,
+    "unit": "pose"
+  },
+  {
+    "sku": "ARM-DIST-30",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 121,
+    "reserved_quantity": 10,
+    "unit": "pose"
+  },
+  {
+    "sku": "ARM-DIST-30",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 11,
+    "unit": "pose"
+  },
+  {
+    "sku": "ARM-DIST-30",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 169,
+    "reserved_quantity": 8,
+    "unit": "pose"
+  },
+  {
+    "sku": "ARM-DIST-30",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 115,
+    "reserved_quantity": 12,
+    "unit": "pose"
+  },
+  {
+    "sku": "ARM-BIND-TRD",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 573,
+    "reserved_quantity": 45,
+    "unit": "rl"
+  },
+  {
+    "sku": "ARM-BIND-TRD",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 161,
+    "reserved_quantity": 14,
+    "unit": "rl"
+  },
+  {
+    "sku": "ARM-BIND-TRD",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 13,
+    "unit": "rl"
+  },
+  {
+    "sku": "ARM-BIND-TRD",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 179,
+    "reserved_quantity": 19,
+    "unit": "rl"
+  },
+  {
+    "sku": "ARM-BIND-TRD",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 157,
+    "reserved_quantity": 7,
+    "unit": "rl"
+  },
+  {
+    "sku": "ARM-BEAM-IPE180",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 238,
+    "reserved_quantity": 30,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-IPE180",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 20,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-IPE180",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 17,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-IPE180",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 16,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-IPE180",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 12,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-30",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2359,
+    "reserved_quantity": 330,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-30",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 134,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-30",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 66,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-30",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 35,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-30",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 76,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-40",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2936,
+    "reserved_quantity": 322,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-40",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-40",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 71,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-40",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 177,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-FLIS-40",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 56,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-HERR-GRY",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 962,
+    "reserved_quantity": 67,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-HERR-GRY",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 172,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-HERR-GRY",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 73,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-HERR-GRY",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 178,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-HERR-GRY",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 122,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-BK",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1815,
+    "reserved_quantity": 181,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-BK",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 169,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-BK",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 125,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-BK",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 179,
+    "reserved_quantity": 19,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-BK",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 28,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-RED",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1207,
+    "reserved_quantity": 144,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-RED",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 125,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-RED",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-RED",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 49,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-TAG-RED",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 92,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-RIDGE-BK",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 610,
+    "reserved_quantity": 30,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-RIDGE-BK",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-RIDGE-BK",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 142,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-RIDGE-BK",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-RIDGE-BK",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 153,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-PAP-UND",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 744,
+    "reserved_quantity": 66,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-UND",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 44,
+    "reserved_quantity": 3,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-UND",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 193,
+    "reserved_quantity": 9,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-UND",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 162,
+    "reserved_quantity": 9,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-UND",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 99,
+    "reserved_quantity": 6,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-TOP",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 477,
+    "reserved_quantity": 57,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-TOP",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 48,
+    "reserved_quantity": 3,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-TOP",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 139,
+    "reserved_quantity": 9,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-TOP",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 81,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-PAP-TOP",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 21,
+    "unit": "rl"
+  },
+  {
+    "sku": "ROOF-GUT-ZINC",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2322,
+    "reserved_quantity": 162,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-ZINC",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 92,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-ZINC",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 66,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-ZINC",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 192,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-ZINC",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 179,
+    "reserved_quantity": 19,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-PLAS",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2843,
+    "reserved_quantity": 227,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-PLAS",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 74,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-PLAS",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 168,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-PLAS",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 193,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-PLAS",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 168,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-BRK",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2587,
+    "reserved_quantity": 310,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-BRK",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 58,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-BRK",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 138,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-BRK",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 114,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-GUT-BRK",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 42,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "FAC-FIB-BOARD",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1713,
+    "reserved_quantity": 137,
+    "unit": "stk"
+  },
+  {
+    "sku": "FAC-FIB-BOARD",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 127,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "FAC-FIB-BOARD",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 86,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "FAC-FIB-BOARD",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 163,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "FAC-FIB-BOARD",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 188,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "FAC-CEDAR-18",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 3723,
+    "reserved_quantity": 223,
+    "unit": "m"
+  },
+  {
+    "sku": "FAC-CEDAR-18",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 417,
+    "reserved_quantity": 29,
+    "unit": "m"
+  },
+  {
+    "sku": "FAC-CEDAR-18",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 742,
+    "reserved_quantity": 29,
+    "unit": "m"
+  },
+  {
+    "sku": "FAC-CEDAR-18",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 357,
+    "reserved_quantity": 39,
+    "unit": "m"
+  },
+  {
+    "sku": "FAC-CEDAR-18",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 158,
+    "reserved_quantity": 6,
+    "unit": "m"
+  },
+  {
+    "sku": "WIN-FLASH-78",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1045,
+    "reserved_quantity": 104,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-FLASH-78",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 85,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-FLASH-78",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 43,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-FLASH-78",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 71,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-FLASH-78",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 65,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-HATCH-60",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2343,
+    "reserved_quantity": 187,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-HATCH-60",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-HATCH-60",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 66,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-HATCH-60",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 54,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-HATCH-60",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 32,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "SCR-GIP-25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 869,
+    "reserved_quantity": 121,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 101,
+    "reserved_quantity": 5,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 159,
+    "reserved_quantity": 17,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 148,
+    "reserved_quantity": 5,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-55",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1387,
+    "reserved_quantity": 166,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-55",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 152,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-55",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 167,
+    "reserved_quantity": 18,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-55",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 85,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-GIP-55",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 14,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-75",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1286,
+    "reserved_quantity": 141,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-75",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 97,
+    "reserved_quantity": 8,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-75",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 106,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-75",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 32,
+    "reserved_quantity": 2,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-TER-75",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 75,
+    "reserved_quantity": 8,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-580",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 409,
+    "reserved_quantity": 57,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-580",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 73,
+    "reserved_quantity": 3,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-580",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 157,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-580",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 2,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-580",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 146,
+    "reserved_quantity": 8,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-5100",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 510,
+    "reserved_quantity": 25,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-5100",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 98,
+    "reserved_quantity": 9,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-5100",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-5100",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 62,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-5100",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 4,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-6120",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1630,
+    "reserved_quantity": 81,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-6120",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 153,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-6120",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 166,
+    "reserved_quantity": 9,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-6120",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 5,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-6120",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 115,
+    "reserved_quantity": 8,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-FAC-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1730,
+    "reserved_quantity": 86,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-FAC-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 68,
+    "reserved_quantity": 5,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-FAC-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 173,
+    "reserved_quantity": 15,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-FAC-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 28,
+    "reserved_quantity": 1,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-FAC-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 179,
+    "reserved_quantity": 19,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-BET-75",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1418,
+    "reserved_quantity": 184,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-BET-75",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 149,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-BET-75",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 24,
+    "reserved_quantity": 1,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-BET-75",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 182,
+    "reserved_quantity": 18,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-BET-75",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 199,
+    "reserved_quantity": 21,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-34",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 376,
+    "reserved_quantity": 41,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-34",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 93,
+    "reserved_quantity": 4,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-34",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 85,
+    "reserved_quantity": 4,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-34",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 68,
+    "reserved_quantity": 2,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-34",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-90",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1761,
+    "reserved_quantity": 105,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-90",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 103,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-90",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 33,
+    "reserved_quantity": 1,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-90",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 97,
+    "reserved_quantity": 4,
+    "unit": "pk"
+  },
+  {
+    "sku": "NAI-GUN-90",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 76,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "FIT-ANG-90",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1584,
+    "reserved_quantity": 142,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-90",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 108,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-90",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 122,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-90",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 129,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-90",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 174,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-70",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 403,
+    "reserved_quantity": 32,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-70",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-70",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 114,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-70",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 192,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-ANG-70",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 112,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-PLT-100",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 696,
+    "reserved_quantity": 76,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-PLT-100",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 118,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-PLT-100",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 99,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-PLT-100",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 161,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-PLT-100",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-51",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1469,
+    "reserved_quantity": 205,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-51",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 83,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-51",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 112,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-51",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-51",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-45",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1486,
+    "reserved_quantity": 163,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-45",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 145,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-45",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 108,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-45",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 34,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "FIT-BEAM-45",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 89,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "ANC-EXP-10",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1279,
+    "reserved_quantity": 179,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-EXP-10",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 169,
+    "reserved_quantity": 8,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-EXP-10",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 89,
+    "reserved_quantity": 4,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-EXP-10",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 99,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-EXP-10",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 46,
+    "reserved_quantity": 2,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-NYL-8",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 501,
+    "reserved_quantity": 30,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-NYL-8",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 66,
+    "reserved_quantity": 3,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-NYL-8",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 191,
+    "reserved_quantity": 21,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-NYL-8",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-NYL-8",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 168,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "ANC-CHEM-300",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1598,
+    "reserved_quantity": 207,
+    "unit": "stk"
+  },
+  {
+    "sku": "ANC-CHEM-300",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 98,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "ANC-CHEM-300",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 188,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "ANC-CHEM-300",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ANC-CHEM-300",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 53,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110-3M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1402,
+    "reserved_quantity": 98,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110-3M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 156,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110-3M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 167,
+    "reserved_quantity": 18,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110-3M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 152,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-110-3M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 53,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-75",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1394,
+    "reserved_quantity": 125,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-75",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 157,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-75",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 107,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-75",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 96,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-75",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 59,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-50",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 447,
+    "reserved_quantity": 53,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-50",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-50",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 139,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-50",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-50",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-45",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 915,
+    "reserved_quantity": 91,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-45",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 142,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-45",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 172,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-45",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-45",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 65,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-88",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2198,
+    "reserved_quantity": 285,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-88",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-88",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 76,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-88",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-110-88",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 79,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PEX-15",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2805,
+    "reserved_quantity": 280,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-15",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 5,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-15",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 165,
+    "reserved_quantity": 8,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-15",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 21,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-15",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 45,
+    "reserved_quantity": 2,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-20",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2219,
+    "reserved_quantity": 310,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-20",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-20",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 199,
+    "reserved_quantity": 21,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-20",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 108,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-PEX-20",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 2,
+    "unit": "rl"
+  },
+  {
+    "sku": "DRA-WELL-315",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1145,
+    "reserved_quantity": 114,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-WELL-315",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-WELL-315",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 97,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-WELL-315",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 182,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-WELL-315",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-CORR-110",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1085,
+    "reserved_quantity": 108,
+    "unit": "rl"
+  },
+  {
+    "sku": "DRA-CORR-110",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 52,
+    "reserved_quantity": 2,
+    "unit": "rl"
+  },
+  {
+    "sku": "DRA-CORR-110",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 149,
+    "reserved_quantity": 7,
+    "unit": "rl"
+  },
+  {
+    "sku": "DRA-CORR-110",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 74,
+    "reserved_quantity": 7,
+    "unit": "rl"
+  },
+  {
+    "sku": "DRA-CORR-110",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 124,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "DRA-CHAN-1M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1491,
+    "reserved_quantity": 89,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-CHAN-1M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 64,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-CHAN-1M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 42,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-CHAN-1M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-CHAN-1M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-GULLY-150",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1293,
+    "reserved_quantity": 103,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-GULLY-150",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 69,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-GULLY-150",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 193,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-GULLY-150",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "DRA-GULLY-150",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 103,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-ISOF-32",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2297,
+    "reserved_quantity": 275,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-ISOF-32",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 182,
+    "reserved_quantity": 10,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-ISOF-32",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-ISOF-32",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 55,
+    "reserved_quantity": 3,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-ISOF-32",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 19,
+    "unit": "rl"
+  },
+  {
+    "sku": "PIP-VALV-BALL",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2204,
+    "reserved_quantity": 198,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-VALV-BALL",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 141,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-VALV-BALL",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-VALV-BALL",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 108,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-VALV-BALL",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 122,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-MANIF-4",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 485,
+    "reserved_quantity": 48,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-MANIF-4",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 36,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-MANIF-4",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 158,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-MANIF-4",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 85,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-MANIF-4",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 159,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-SIL-SAN",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1996,
+    "reserved_quantity": 219,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-SIL-SAN",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 156,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-SIL-SAN",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 132,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-SIL-SAN",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 148,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-SIL-SAN",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 69,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-MS-POLY",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1491,
+    "reserved_quantity": 89,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-MS-POLY",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 46,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-MS-POLY",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 118,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-MS-POLY",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 86,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-MS-POLY",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-PU-FOAM",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 970,
+    "reserved_quantity": 48,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-PU-FOAM",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-PU-FOAM",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-PU-FOAM",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "FUG-PU-FOAM",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "MEM-VAP-02",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1550,
+    "reserved_quantity": 77,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-VAP-02",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 175,
+    "reserved_quantity": 12,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-VAP-02",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-VAP-02",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 181,
+    "reserved_quantity": 9,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-VAP-02",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 93,
+    "reserved_quantity": 8,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-WATH-1K",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2818,
+    "reserved_quantity": 366,
+    "unit": "spand"
+  },
+  {
+    "sku": "MEM-WATH-1K",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "spand"
+  },
+  {
+    "sku": "MEM-WATH-1K",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 2,
+    "unit": "spand"
+  },
+  {
+    "sku": "MEM-WATH-1K",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 199,
+    "reserved_quantity": 21,
+    "unit": "spand"
+  },
+  {
+    "sku": "MEM-WATH-1K",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 38,
+    "reserved_quantity": 3,
+    "unit": "spand"
+  },
+  {
+    "sku": "MEM-BAND-120",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1296,
+    "reserved_quantity": 142,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-BAND-120",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 11,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-BAND-120",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 173,
+    "reserved_quantity": 8,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-BAND-120",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 23,
+    "reserved_quantity": 1,
+    "unit": "rl"
+  },
+  {
+    "sku": "MEM-BAND-120",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 108,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "PAI-WALL-10",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2611,
+    "reserved_quantity": 156,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-WALL-10",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 14,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-WALL-10",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 121,
+    "reserved_quantity": 10,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-WALL-10",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 154,
+    "reserved_quantity": 9,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-WALL-10",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 187,
+    "reserved_quantity": 13,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-CEIL-02",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1865,
+    "reserved_quantity": 186,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-CEIL-02",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 82,
+    "reserved_quantity": 4,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-CEIL-02",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 42,
+    "reserved_quantity": 4,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-CEIL-02",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 154,
+    "reserved_quantity": 9,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-CEIL-02",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 169,
+    "reserved_quantity": 8,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-EXT-FAC",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1804,
+    "reserved_quantity": 162,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-EXT-FAC",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-EXT-FAC",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 58,
+    "reserved_quantity": 3,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-EXT-FAC",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 146,
+    "reserved_quantity": 14,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-EXT-FAC",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 138,
+    "reserved_quantity": 13,
+    "unit": "spand"
+  },
+  {
+    "sku": "PAI-WOOD-OIL",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1215,
+    "reserved_quantity": 121,
+    "unit": "dunk"
+  },
+  {
+    "sku": "PAI-WOOD-OIL",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 38,
+    "reserved_quantity": 2,
+    "unit": "dunk"
+  },
+  {
+    "sku": "PAI-WOOD-OIL",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 117,
+    "reserved_quantity": 10,
+    "unit": "dunk"
+  },
+  {
+    "sku": "PAI-WOOD-OIL",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 158,
+    "reserved_quantity": 15,
+    "unit": "dunk"
+  },
+  {
+    "sku": "PAI-WOOD-OIL",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 3,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-CONC-SEAL",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2144,
+    "reserved_quantity": 192,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-CONC-SEAL",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 143,
+    "reserved_quantity": 10,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-CONC-SEAL",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 61,
+    "reserved_quantity": 3,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-CONC-SEAL",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 7,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-CONC-SEAL",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 119,
+    "reserved_quantity": 8,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-PRIM-UNIV",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2258,
+    "reserved_quantity": 293,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-PRIM-UNIV",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 117,
+    "reserved_quantity": 5,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-PRIM-UNIV",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 106,
+    "reserved_quantity": 6,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-PRIM-UNIV",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 86,
+    "reserved_quantity": 8,
+    "unit": "dunk"
+  },
+  {
+    "sku": "CHM-PRIM-UNIV",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 107,
+    "reserved_quantity": 7,
+    "unit": "dunk"
+  },
+  {
+    "sku": "SAF-FENC-MOB",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 234,
+    "reserved_quantity": 21,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-FENC-MOB",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-FENC-MOB",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 18,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-FENC-MOB",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-FENC-MOB",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 28,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-BASE-CON",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2580,
+    "reserved_quantity": 129,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-BASE-CON",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-BASE-CON",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-BASE-CON",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-BASE-CON",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "SAF-COV-FLOR",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2101,
+    "reserved_quantity": 126,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-FLOR",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 82,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-FLOR",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-FLOR",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 94,
+    "reserved_quantity": 9,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-FLOR",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 76,
+    "reserved_quantity": 6,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-PLAS",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 401,
+    "reserved_quantity": 24,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-PLAS",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 182,
+    "reserved_quantity": 18,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-PLAS",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 35,
+    "reserved_quantity": 3,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-PLAS",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 93,
+    "reserved_quantity": 8,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-COV-PLAS",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "rl"
+  },
+  {
+    "sku": "SAF-DUST-SHE",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1592,
+    "reserved_quantity": 111,
+    "unit": "sæt"
+  },
+  {
+    "sku": "SAF-DUST-SHE",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 1,
+    "unit": "sæt"
+  },
+  {
+    "sku": "SAF-DUST-SHE",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 81,
+    "reserved_quantity": 4,
+    "unit": "sæt"
+  },
+  {
+    "sku": "SAF-DUST-SHE",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 6,
+    "unit": "sæt"
+  },
+  {
+    "sku": "SAF-DUST-SHE",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 102,
+    "reserved_quantity": 6,
+    "unit": "sæt"
+  },
+  {
+    "sku": "ELE-CAB-3G15",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1655,
+    "reserved_quantity": 165,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-3G15",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 179,
+    "reserved_quantity": 12,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-3G15",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 88,
+    "reserved_quantity": 7,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-3G15",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-3G15",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 54,
+    "reserved_quantity": 5,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-5G25",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1957,
+    "reserved_quantity": 234,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-5G25",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-5G25",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 89,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-5G25",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 39,
+    "reserved_quantity": 2,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CAB-5G25",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 122,
+    "reserved_quantity": 12,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CON-FLEX",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2668,
+    "reserved_quantity": 346,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CON-FLEX",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 188,
+    "reserved_quantity": 7,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CON-FLEX",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 28,
+    "reserved_quantity": 1,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CON-FLEX",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 1,
+    "unit": "rl"
+  },
+  {
+    "sku": "ELE-CON-FLEX",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 93,
+    "reserved_quantity": 4,
+    "unit": "rl"
+  },
+  {
+    "sku": "TOO-DIAM-230",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1510,
+    "reserved_quantity": 75,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-DIAM-230",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 156,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-DIAM-230",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 121,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-DIAM-230",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 105,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-DIAM-230",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-SAW-BLAD",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2063,
+    "reserved_quantity": 165,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-SAW-BLAD",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 44,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-SAW-BLAD",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 88,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-SAW-BLAD",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 179,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "TOO-SAW-BLAD",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 98,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SE-PINE45",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SE-PINE45",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SE-PINE45",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SE-PINE45",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "TIM-SE-PINE45",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m"
+  },
+  {
+    "sku": "STO-SE-GRANITE",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-SE-GRANITE",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-SE-GRANITE",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-SE-GRANITE",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "STO-SE-GRANITE",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-HEA200",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-HEA200",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-HEA200",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-HEA200",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-BEAM-HEA200",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-NO-SLATE",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 850,
+    "reserved_quantity": 45,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-NO-SLATE",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 120,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-NO-SLATE",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-NO-SLATE",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ROOF-NO-SLATE",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "CHM-NO-ARCTIC",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 850,
+    "reserved_quantity": 45,
+    "unit": "spand"
+  },
+  {
+    "sku": "CHM-NO-ARCTIC",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 120,
+    "reserved_quantity": 10,
+    "unit": "spand"
+  },
+  {
+    "sku": "CHM-NO-ARCTIC",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "spand"
+  },
+  {
+    "sku": "CHM-NO-ARCTIC",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "spand"
+  },
+  {
+    "sku": "CHM-NO-ARCTIC",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "spand"
+  },
+  {
+    "sku": "INS-NO-ECOWOOL",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 850,
+    "reserved_quantity": 45,
+    "unit": "m2"
+  },
+  {
+    "sku": "INS-NO-ECOWOOL",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 120,
+    "reserved_quantity": 10,
+    "unit": "m2"
+  },
+  {
+    "sku": "INS-NO-ECOWOOL",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m2"
+  },
+  {
+    "sku": "INS-NO-ECOWOOL",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m2"
+  },
+  {
+    "sku": "INS-NO-ECOWOOL",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "m2"
+  },
+  {
+    "sku": "BRK-DK-CPHRED",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-DK-CPHRED",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-DK-CPHRED",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-DK-CPHRED",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "BRK-DK-CPHRED",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-DK-VELUX78",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-DK-VELUX78",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-DK-VELUX78",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-DK-VELUX78",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "WIN-DK-VELUX78",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2834,
+    "reserved_quantity": 255,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 36,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 124,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 89,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1512,
+    "reserved_quantity": 105,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 143,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 34,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 49,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2202,
+    "reserved_quantity": 154,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 75,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 46,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 91,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 96,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 847,
+    "reserved_quantity": 101,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 26,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 54,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45095-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 104,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2406,
+    "reserved_quantity": 264,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 53,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 191,
+    "reserved_quantity": 21,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 188,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 95,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1179,
+    "reserved_quantity": 165,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 174,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 75,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2184,
+    "reserved_quantity": 196,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 172,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 98,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 197,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 593,
+    "reserved_quantity": 47,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 33,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45120-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1254,
+    "reserved_quantity": 112,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 43,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 94,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 156,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 95,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1489,
+    "reserved_quantity": 208,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 192,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 39,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 65,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 81,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1578,
+    "reserved_quantity": 205,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 184,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 54,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 178,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 196,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1357,
+    "reserved_quantity": 162,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 24,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 77,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45145-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 169,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1584,
+    "reserved_quantity": 142,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 92,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 144,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1524,
+    "reserved_quantity": 137,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 48,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 103,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 38,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 108,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 635,
+    "reserved_quantity": 63,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 141,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 88,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 127,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1791,
+    "reserved_quantity": 107,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 113,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 92,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 83,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45170-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 147,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2288,
+    "reserved_quantity": 297,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 156,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 34,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2648,
+    "reserved_quantity": 344,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 39,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 196,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 172,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2235,
+    "reserved_quantity": 223,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1059,
+    "reserved_quantity": 148,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 53,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 89,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45195-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 83,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2893,
+    "reserved_quantity": 231,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 123,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 96,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 151,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 39,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 491,
+    "reserved_quantity": 29,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 149,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 127,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 34,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1141,
+    "reserved_quantity": 68,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 132,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 185,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 99,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2442,
+    "reserved_quantity": 170,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 147,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 145,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 176,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45220-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 35,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2611,
+    "reserved_quantity": 156,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 162,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 154,
+    "reserved_quantity": 15,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 66,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 178,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2464,
+    "reserved_quantity": 221,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 84,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 171,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1437,
+    "reserved_quantity": 172,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 168,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 43,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1039,
+    "reserved_quantity": 145,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 137,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-45245-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 176,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-36",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2219,
+    "reserved_quantity": 310,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-36",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 14,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-36",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-36",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 106,
+    "reserved_quantity": 10,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-36",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 175,
+    "reserved_quantity": 19,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-42",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1958,
+    "reserved_quantity": 254,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-42",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 32,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-42",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 87,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-42",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 94,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-42",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 68,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 643,
+    "reserved_quantity": 51,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 195,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 144,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 136,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 152,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-54",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1792,
+    "reserved_quantity": 125,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-54",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-54",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 148,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-54",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 175,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "TIM-SPRU-70195-54",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 54,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0515",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 182,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0515",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 6,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0515",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 17,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0515",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 16,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-0515",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 19,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1015",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 245,
+    "reserved_quantity": 24,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1015",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 19,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1015",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 10,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1015",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1015",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 23,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1215",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 264,
+    "reserved_quantity": 23,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1215",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1215",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 13,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1215",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 26,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "ARM-NET-1215",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 17,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70-4M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 798,
+    "reserved_quantity": 103,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70-4M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 121,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70-4M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 157,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70-4M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 128,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U70-4M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 72,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70-4M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1217,
+    "reserved_quantity": 146,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70-4M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 179,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70-4M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 148,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70-4M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 193,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C70-4M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 33,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95-4M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1461,
+    "reserved_quantity": 87,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95-4M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 189,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95-4M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 168,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95-4M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 189,
+    "reserved_quantity": 17,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U95-4M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 21,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95-4M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2662,
+    "reserved_quantity": 186,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95-4M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 24,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95-4M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 162,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95-4M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 98,
+    "reserved_quantity": 5,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C95-4M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 54,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U120",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1631,
+    "reserved_quantity": 97,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U120",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 82,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U120",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 32,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U120",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 187,
+    "reserved_quantity": 13,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-U120",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 37,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C120",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1069,
+    "reserved_quantity": 149,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C120",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C120",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 57,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C120",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 131,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "GYP-PROF-C120",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 28,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-2M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 715,
+    "reserved_quantity": 71,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-2M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 36,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-2M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 183,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-2M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 42,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-2M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 19,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-3M",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2923,
+    "reserved_quantity": 233,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-3M",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 27,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-3M",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 89,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-3M",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 82,
+    "reserved_quantity": 8,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-PVC-160-3M",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 166,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-45",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2938,
+    "reserved_quantity": 381,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-45",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 185,
+    "reserved_quantity": 16,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-45",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 22,
+    "reserved_quantity": 1,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-45",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 156,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-45",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 149,
+    "reserved_quantity": 7,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-88",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 2986,
+    "reserved_quantity": 328,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-88",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 59,
+    "reserved_quantity": 6,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-88",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-88",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 51,
+    "reserved_quantity": 3,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-BEN-160-88",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 49,
+    "reserved_quantity": 2,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-RED-160110",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 883,
+    "reserved_quantity": 70,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-RED-160110",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 194,
+    "reserved_quantity": 11,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-RED-160110",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 45,
+    "reserved_quantity": 4,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-RED-160110",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 94,
+    "reserved_quantity": 9,
+    "unit": "stk"
+  },
+  {
+    "sku": "PIP-RED-160110",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 152,
+    "reserved_quantity": 12,
+    "unit": "stk"
+  },
+  {
+    "sku": "SCR-WOOD-440",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1269,
+    "reserved_quantity": 177,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-440",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-440",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-440",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-440",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 125,
+    "reserved_quantity": 11,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-450",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1045,
+    "reserved_quantity": 104,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-450",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 0,
+    "reserved_quantity": 0,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-450",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 197,
+    "reserved_quantity": 9,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-450",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 81,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-450",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 52,
+    "reserved_quantity": 2,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-460",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1619,
+    "reserved_quantity": 226,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-460",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 116,
+    "reserved_quantity": 4,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-460",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 55,
+    "reserved_quantity": 3,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-460",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 109,
+    "reserved_quantity": 9,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-460",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 198,
+    "reserved_quantity": 19,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-560",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1238,
+    "reserved_quantity": 160,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-560",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 67,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-560",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 63,
+    "reserved_quantity": 6,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-560",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 126,
+    "reserved_quantity": 12,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-560",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 183,
+    "reserved_quantity": 12,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-570",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 524,
+    "reserved_quantity": 47,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-570",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 189,
+    "reserved_quantity": 9,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-570",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 58,
+    "reserved_quantity": 3,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-570",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 24,
+    "reserved_quantity": 1,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-WOOD-570",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 71,
+    "reserved_quantity": 7,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-ROOF-48",
+    "warehouse_id": "NO-DC-01",
+    "quantity_on_hand": 1704,
+    "reserved_quantity": 153,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-ROOF-48",
+    "warehouse_id": "NO-BR-01",
+    "quantity_on_hand": 31,
+    "reserved_quantity": 3,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-ROOF-48",
+    "warehouse_id": "NO-BR-02",
+    "quantity_on_hand": 174,
+    "reserved_quantity": 10,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-ROOF-48",
+    "warehouse_id": "NO-BR-03",
+    "quantity_on_hand": 25,
+    "reserved_quantity": 1,
+    "unit": "pk"
+  },
+  {
+    "sku": "SCR-ROOF-48",
+    "warehouse_id": "NO-BR-04",
+    "quantity_on_hand": 163,
+    "reserved_quantity": 17,
+    "unit": "pk"
+  }
+]

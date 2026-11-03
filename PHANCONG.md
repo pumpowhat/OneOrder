@@ -19,14 +19,14 @@
 
 **Mục tiêu:** có đủ dữ liệu để backend chạy được luồng đầu-cuối.
 
-- [ ] Tạo `data/catalog.json`: khoảng 150–200 sản phẩm xây dựng (mã, tên bằng tiếng Đan Mạch/Thụy Điển/Na Uy/Anh, đơn vị, trọng lượng, có cần xe cẩu không).
-- [ ] Tạo `data/warehouses.json`: khoảng 15 kho gồm chi nhánh và DC ở DK, SE, NO (mã kho, tên, quốc gia, loại, toạ độ).
-- [ ] Tạo `data/sites.json`: khoảng 10 công trường mẫu có địa chỉ và toạ độ.
-- [ ] Tạo dữ liệu tồn kho theo **3 định dạng gốc khác nhau**:
+- [x] Tạo `data/catalog.json`: khoảng 150–200 sản phẩm xây dựng (mã, tên bằng tiếng Đan Mạch/Thụy Điển/Na Uy/Anh, đơn vị, trọng lượng, có cần xe cẩu không).
+- [x] Tạo `data/warehouses.json`: khoảng 15 kho gồm chi nhánh và DC ở DK, SE, NO (mã kho, tên, quốc gia, loại, toạ độ).
+- [x] Tạo `data/sites.json`: khoảng 10 công trường mẫu có địa chỉ và toạ độ.
+- [x] Tạo dữ liệu tồn kho theo **3 định dạng gốc khác nhau**:
   - DK: CSV
   - SE: JSON, tên trường tiếng Thụy Điển
   - NO: JSON, tên trường tiếng Anh
-- [ ] Có một số mặt hàng hiếm chỉ tồn tại ở nước ngoài, để demo cross-border.
+- [x] Có một số mặt hàng hiếm chỉ tồn tại ở nước ngoài, để demo cross-border.
 
 **Kết quả cần nộp:** các file nằm trong `data/`, kèm một đoạn mô tả ngắn về định dạng trong `docs/data-formats.md`.
 **Cách nghiệm thu:** Nghĩa đọc được cả 3 nguồn bằng adapter mà không phải sửa tay dữ liệu.

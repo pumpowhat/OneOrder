@@ -1,0 +1,7737 @@
+[
+  {
+    "artikelnr": "GYP-13-2400",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1477,
+    "reserverat": 177,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-2400",
+    "lagerplats": "SE-BR-01",
+    "saldo": 23,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-2400",
+    "lagerplats": "SE-BR-02",
+    "saldo": 55,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-2400",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-2400",
+    "lagerplats": "SE-BR-04",
+    "saldo": 144,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-FIRE",
+    "lagerplats": "SE-DC-01",
+    "saldo": 834,
+    "reserverat": 75,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-FIRE",
+    "lagerplats": "SE-BR-01",
+    "saldo": 167,
+    "reserverat": 18,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-FIRE",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-FIRE",
+    "lagerplats": "SE-BR-03",
+    "saldo": 83,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-FIRE",
+    "lagerplats": "SE-BR-04",
+    "saldo": 61,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ISO-GLAS-100",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1211,
+    "reserverat": 72,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-100",
+    "lagerplats": "SE-BR-01",
+    "saldo": 114,
+    "reserverat": 11,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-100",
+    "lagerplats": "SE-BR-02",
+    "saldo": 197,
+    "reserverat": 9,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-100",
+    "lagerplats": "SE-BR-03",
+    "saldo": 28,
+    "reserverat": 2,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-100",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-150",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1173,
+    "reserverat": 93,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-150",
+    "lagerplats": "SE-BR-01",
+    "saldo": 158,
+    "reserverat": 15,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-150",
+    "lagerplats": "SE-BR-02",
+    "saldo": 45,
+    "reserverat": 4,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-150",
+    "lagerplats": "SE-BR-03",
+    "saldo": 163,
+    "reserverat": 11,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-150",
+    "lagerplats": "SE-BR-04",
+    "saldo": 75,
+    "reserverat": 5,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "SCR-GIP-40",
+    "lagerplats": "SE-DC-01",
+    "saldo": 695,
+    "reserverat": 69,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-40",
+    "lagerplats": "SE-BR-01",
+    "saldo": 55,
+    "reserverat": 6,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-40",
+    "lagerplats": "SE-BR-02",
+    "saldo": 152,
+    "reserverat": 12,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-40",
+    "lagerplats": "SE-BR-03",
+    "saldo": 125,
+    "reserverat": 11,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-40",
+    "lagerplats": "SE-BR-04",
+    "saldo": 113,
+    "reserverat": 10,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-55",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1662,
+    "reserverat": 116,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-55",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-55",
+    "lagerplats": "SE-BR-02",
+    "saldo": 167,
+    "reserverat": 18,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-55",
+    "lagerplats": "SE-BR-03",
+    "saldo": 149,
+    "reserverat": 7,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-55",
+    "lagerplats": "SE-BR-04",
+    "saldo": 138,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145",
+    "lagerplats": "SE-DC-01",
+    "saldo": 3609,
+    "reserverat": 288,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145",
+    "lagerplats": "SE-BR-01",
+    "saldo": 461,
+    "reserverat": 50,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145",
+    "lagerplats": "SE-BR-02",
+    "saldo": 646,
+    "reserverat": 25,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145",
+    "lagerplats": "SE-BR-04",
+    "saldo": 673,
+    "reserverat": 47,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095",
+    "lagerplats": "SE-DC-01",
+    "saldo": 5211,
+    "reserverat": 625,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095",
+    "lagerplats": "SE-BR-01",
+    "saldo": 205,
+    "reserverat": 22,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095",
+    "lagerplats": "SE-BR-02",
+    "saldo": 611,
+    "reserverat": 54,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095",
+    "lagerplats": "SE-BR-03",
+    "saldo": 583,
+    "reserverat": 29,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095",
+    "lagerplats": "SE-BR-04",
+    "saldo": 212,
+    "reserverat": 21,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "PLY-SPRU-18",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2311,
+    "reserverat": 138,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-18",
+    "lagerplats": "SE-BR-01",
+    "saldo": 148,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-18",
+    "lagerplats": "SE-BR-02",
+    "saldo": 83,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-18",
+    "lagerplats": "SE-BR-03",
+    "saldo": 23,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-18",
+    "lagerplats": "SE-BR-04",
+    "saldo": 79,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "CEM-PORT-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1364,
+    "reserverat": 122,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "CEM-PORT-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 88,
+    "reserverat": 3,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "CEM-PORT-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 46,
+    "reserverat": 4,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "CEM-PORT-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 34,
+    "reserverat": 2,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "CEM-PORT-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 44,
+    "reserverat": 3,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-TORR-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2510,
+    "reserverat": 125,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-TORR-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 93,
+    "reserverat": 8,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-TORR-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 68,
+    "reserverat": 5,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-TORR-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 175,
+    "reserverat": 19,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-TORR-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 85,
+    "reserverat": 4,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "ARM-JERN-12",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1382,
+    "reserverat": 96,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-12",
+    "lagerplats": "SE-BR-01",
+    "saldo": 93,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-12",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-12",
+    "lagerplats": "SE-BR-03",
+    "saldo": 173,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-12",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2846,
+    "reserverat": 313,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110",
+    "lagerplats": "SE-BR-01",
+    "saldo": 147,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110",
+    "lagerplats": "SE-BR-02",
+    "saldo": 194,
+    "reserverat": 19,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110",
+    "lagerplats": "SE-BR-03",
+    "saldo": 133,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110",
+    "lagerplats": "SE-BR-04",
+    "saldo": 114,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-ACR-300",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2967,
+    "reserverat": 356,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-ACR-300",
+    "lagerplats": "SE-BR-01",
+    "saldo": 43,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-ACR-300",
+    "lagerplats": "SE-BR-02",
+    "saldo": 194,
+    "reserverat": 19,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-ACR-300",
+    "lagerplats": "SE-BR-03",
+    "saldo": 117,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-ACR-300",
+    "lagerplats": "SE-BR-04",
+    "saldo": 161,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "MEM-RAD-04",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2222,
+    "reserverat": 155,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-RAD-04",
+    "lagerplats": "SE-BR-01",
+    "saldo": 106,
+    "reserverat": 6,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-RAD-04",
+    "lagerplats": "SE-BR-02",
+    "saldo": 55,
+    "reserverat": 3,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-RAD-04",
+    "lagerplats": "SE-BR-03",
+    "saldo": 123,
+    "reserverat": 8,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-RAD-04",
+    "lagerplats": "SE-BR-04",
+    "saldo": 165,
+    "reserverat": 8,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-13-3000",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2420,
+    "reserverat": 121,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-3000",
+    "lagerplats": "SE-BR-01",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-3000",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-3000",
+    "lagerplats": "SE-BR-03",
+    "saldo": 138,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-3000",
+    "lagerplats": "SE-BR-04",
+    "saldo": 148,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-2400",
+    "lagerplats": "SE-DC-01",
+    "saldo": 821,
+    "reserverat": 49,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-2400",
+    "lagerplats": "SE-BR-01",
+    "saldo": 55,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-2400",
+    "lagerplats": "SE-BR-02",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-2400",
+    "lagerplats": "SE-BR-03",
+    "saldo": 62,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-2400",
+    "lagerplats": "SE-BR-04",
+    "saldo": 74,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-WATH",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1253,
+    "reserverat": 100,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-WATH",
+    "lagerplats": "SE-BR-01",
+    "saldo": 23,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-WATH",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-WATH",
+    "lagerplats": "SE-BR-03",
+    "saldo": 21,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-13-WATH",
+    "lagerplats": "SE-BR-04",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-ACOUS",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1396,
+    "reserverat": 153,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-ACOUS",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-ACOUS",
+    "lagerplats": "SE-BR-02",
+    "saldo": 188,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-ACOUS",
+    "lagerplats": "SE-BR-03",
+    "saldo": 144,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-15-ACOUS",
+    "lagerplats": "SE-BR-04",
+    "saldo": 114,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-WIND",
+    "lagerplats": "SE-DC-01",
+    "saldo": 988,
+    "reserverat": 128,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-WIND",
+    "lagerplats": "SE-BR-01",
+    "saldo": 173,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-WIND",
+    "lagerplats": "SE-BR-02",
+    "saldo": 174,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-WIND",
+    "lagerplats": "SE-BR-03",
+    "saldo": 145,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-09-WIND",
+    "lagerplats": "SE-BR-04",
+    "saldo": 86,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-FIB-13",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1840,
+    "reserverat": 92,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-FIB-13",
+    "lagerplats": "SE-BR-01",
+    "saldo": 167,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-FIB-13",
+    "lagerplats": "SE-BR-02",
+    "saldo": 66,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-FIB-13",
+    "lagerplats": "SE-BR-03",
+    "saldo": 156,
+    "reserverat": 12,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-FIB-13",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1770,
+    "reserverat": 88,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70",
+    "lagerplats": "SE-BR-01",
+    "saldo": 152,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70",
+    "lagerplats": "SE-BR-02",
+    "saldo": 55,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70",
+    "lagerplats": "SE-BR-03",
+    "saldo": 121,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70",
+    "lagerplats": "SE-BR-04",
+    "saldo": 44,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2593,
+    "reserverat": 207,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70",
+    "lagerplats": "SE-BR-01",
+    "saldo": 172,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70",
+    "lagerplats": "SE-BR-02",
+    "saldo": 122,
+    "reserverat": 12,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70",
+    "lagerplats": "SE-BR-03",
+    "saldo": 128,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70",
+    "lagerplats": "SE-BR-04",
+    "saldo": 34,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1674,
+    "reserverat": 150,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95",
+    "lagerplats": "SE-BR-01",
+    "saldo": 152,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95",
+    "lagerplats": "SE-BR-02",
+    "saldo": 63,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95",
+    "lagerplats": "SE-BR-03",
+    "saldo": 198,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95",
+    "lagerplats": "SE-BR-04",
+    "saldo": 155,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2874,
+    "reserverat": 258,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95",
+    "lagerplats": "SE-BR-01",
+    "saldo": 31,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95",
+    "lagerplats": "SE-BR-02",
+    "saldo": 53,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95",
+    "lagerplats": "SE-BR-03",
+    "saldo": 144,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95",
+    "lagerplats": "SE-BR-04",
+    "saldo": 42,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-TAPE-PAP",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1913,
+    "reserverat": 153,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-PAP",
+    "lagerplats": "SE-BR-01",
+    "saldo": 95,
+    "reserverat": 10,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-PAP",
+    "lagerplats": "SE-BR-02",
+    "saldo": 95,
+    "reserverat": 6,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-PAP",
+    "lagerplats": "SE-BR-03",
+    "saldo": 105,
+    "reserverat": 9,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-PAP",
+    "lagerplats": "SE-BR-04",
+    "saldo": 36,
+    "reserverat": 2,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-GLAS",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1042,
+    "reserverat": 72,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-GLAS",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-GLAS",
+    "lagerplats": "SE-BR-02",
+    "saldo": 155,
+    "reserverat": 17,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-GLAS",
+    "lagerplats": "SE-BR-03",
+    "saldo": 191,
+    "reserverat": 21,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-TAPE-GLAS",
+    "lagerplats": "SE-BR-04",
+    "saldo": 132,
+    "reserverat": 10,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "GYP-FILL-JNT",
+    "lagerplats": "SE-DC-01",
+    "saldo": 803,
+    "reserverat": 64,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-JNT",
+    "lagerplats": "SE-BR-01",
+    "saldo": 194,
+    "reserverat": 11,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-JNT",
+    "lagerplats": "SE-BR-02",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-JNT",
+    "lagerplats": "SE-BR-03",
+    "saldo": 136,
+    "reserverat": 10,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-JNT",
+    "lagerplats": "SE-BR-04",
+    "saldo": 41,
+    "reserverat": 2,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-FIN",
+    "lagerplats": "SE-DC-01",
+    "saldo": 844,
+    "reserverat": 75,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-FIN",
+    "lagerplats": "SE-BR-01",
+    "saldo": 144,
+    "reserverat": 5,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-FIN",
+    "lagerplats": "SE-BR-02",
+    "saldo": 37,
+    "reserverat": 1,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-FIN",
+    "lagerplats": "SE-BR-03",
+    "saldo": 167,
+    "reserverat": 18,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-FILL-FIN",
+    "lagerplats": "SE-BR-04",
+    "saldo": 62,
+    "reserverat": 3,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "GYP-COR-ALU",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2118,
+    "reserverat": 275,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-COR-ALU",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-COR-ALU",
+    "lagerplats": "SE-BR-02",
+    "saldo": 58,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-COR-ALU",
+    "lagerplats": "SE-BR-03",
+    "saldo": 41,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-COR-ALU",
+    "lagerplats": "SE-BR-04",
+    "saldo": 171,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-INSP-40",
+    "lagerplats": "SE-DC-01",
+    "saldo": 729,
+    "reserverat": 102,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-INSP-40",
+    "lagerplats": "SE-BR-01",
+    "saldo": 136,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-INSP-40",
+    "lagerplats": "SE-BR-02",
+    "saldo": 173,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-INSP-40",
+    "lagerplats": "SE-BR-03",
+    "saldo": 119,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-INSP-40",
+    "lagerplats": "SE-BR-04",
+    "saldo": 37,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2256,
+    "reserverat": 157,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195",
+    "lagerplats": "SE-BR-01",
+    "saldo": 317,
+    "reserverat": 34,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195",
+    "lagerplats": "SE-BR-02",
+    "saldo": 382,
+    "reserverat": 15,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195",
+    "lagerplats": "SE-BR-03",
+    "saldo": 621,
+    "reserverat": 68,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195",
+    "lagerplats": "SE-BR-04",
+    "saldo": 481,
+    "reserverat": 33,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220",
+    "lagerplats": "SE-DC-01",
+    "saldo": 7551,
+    "reserverat": 906,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220",
+    "lagerplats": "SE-BR-01",
+    "saldo": 394,
+    "reserverat": 31,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220",
+    "lagerplats": "SE-BR-03",
+    "saldo": 477,
+    "reserverat": 52,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45070",
+    "lagerplats": "SE-DC-01",
+    "saldo": 6816,
+    "reserverat": 477,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45070",
+    "lagerplats": "SE-BR-01",
+    "saldo": 417,
+    "reserverat": 29,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45070",
+    "lagerplats": "SE-BR-02",
+    "saldo": 578,
+    "reserverat": 46,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45070",
+    "lagerplats": "SE-BR-03",
+    "saldo": 705,
+    "reserverat": 49,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45070",
+    "lagerplats": "SE-BR-04",
+    "saldo": 402,
+    "reserverat": 32,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-3857",
+    "lagerplats": "SE-DC-01",
+    "saldo": 8859,
+    "reserverat": 708,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-3857",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-3857",
+    "lagerplats": "SE-BR-02",
+    "saldo": 268,
+    "reserverat": 26,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-3857",
+    "lagerplats": "SE-BR-03",
+    "saldo": 198,
+    "reserverat": 7,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-3857",
+    "lagerplats": "SE-BR-04",
+    "saldo": 598,
+    "reserverat": 23,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-2550",
+    "lagerplats": "SE-DC-01",
+    "saldo": 4902,
+    "reserverat": 441,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-2550",
+    "lagerplats": "SE-BR-01",
+    "saldo": 336,
+    "reserverat": 20,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-2550",
+    "lagerplats": "SE-BR-02",
+    "saldo": 384,
+    "reserverat": 23,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-2550",
+    "lagerplats": "SE-BR-03",
+    "saldo": 287,
+    "reserverat": 14,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-LATH-2550",
+    "lagerplats": "SE-BR-04",
+    "saldo": 494,
+    "reserverat": 19,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-BATT-25100",
+    "lagerplats": "SE-DC-01",
+    "saldo": 5493,
+    "reserverat": 329,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-BATT-25100",
+    "lagerplats": "SE-BR-01",
+    "saldo": 696,
+    "reserverat": 41,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-BATT-25100",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-BATT-25100",
+    "lagerplats": "SE-BR-03",
+    "saldo": 413,
+    "reserverat": 45,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-BATT-25100",
+    "lagerplats": "SE-BR-04",
+    "saldo": 497,
+    "reserverat": 34,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-28120",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2067,
+    "reserverat": 289,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-28120",
+    "lagerplats": "SE-BR-01",
+    "saldo": 622,
+    "reserverat": 24,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-28120",
+    "lagerplats": "SE-BR-02",
+    "saldo": 543,
+    "reserverat": 27,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-28120",
+    "lagerplats": "SE-BR-03",
+    "saldo": 279,
+    "reserverat": 13,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-28120",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-LARCH",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2847,
+    "reserverat": 398,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-LARCH",
+    "lagerplats": "SE-BR-01",
+    "saldo": 426,
+    "reserverat": 34,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-LARCH",
+    "lagerplats": "SE-BR-02",
+    "saldo": 397,
+    "reserverat": 43,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-LARCH",
+    "lagerplats": "SE-BR-03",
+    "saldo": 378,
+    "reserverat": 30,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-TERR-LARCH",
+    "lagerplats": "SE-BR-04",
+    "saldo": 317,
+    "reserverat": 34,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22150",
+    "lagerplats": "SE-DC-01",
+    "saldo": 5634,
+    "reserverat": 732,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22150",
+    "lagerplats": "SE-BR-01",
+    "saldo": 206,
+    "reserverat": 8,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22150",
+    "lagerplats": "SE-BR-02",
+    "saldo": 502,
+    "reserverat": 20,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22150",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22150",
+    "lagerplats": "SE-BR-04",
+    "saldo": 197,
+    "reserverat": 21,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22200",
+    "lagerplats": "SE-DC-01",
+    "saldo": 5220,
+    "reserverat": 261,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22200",
+    "lagerplats": "SE-BR-01",
+    "saldo": 591,
+    "reserverat": 29,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22200",
+    "lagerplats": "SE-BR-02",
+    "saldo": 699,
+    "reserverat": 62,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22200",
+    "lagerplats": "SE-BR-03",
+    "saldo": 209,
+    "reserverat": 14,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-FASC-22200",
+    "lagerplats": "SE-BR-04",
+    "saldo": 651,
+    "reserverat": 58,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-CLAD-22145",
+    "lagerplats": "SE-DC-01",
+    "saldo": 7806,
+    "reserverat": 546,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-CLAD-22145",
+    "lagerplats": "SE-BR-01",
+    "saldo": 717,
+    "reserverat": 78,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-CLAD-22145",
+    "lagerplats": "SE-BR-02",
+    "saldo": 673,
+    "reserverat": 47,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-CLAD-22145",
+    "lagerplats": "SE-BR-03",
+    "saldo": 635,
+    "reserverat": 57,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-CLAD-22145",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLULAM",
+    "lagerplats": "SE-DC-01",
+    "saldo": 137,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLULAM",
+    "lagerplats": "SE-BR-01",
+    "saldo": 16,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLULAM",
+    "lagerplats": "SE-BR-02",
+    "saldo": 23,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLULAM",
+    "lagerplats": "SE-BR-03",
+    "saldo": 7,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLULAM",
+    "lagerplats": "SE-BR-04",
+    "saldo": 20,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLU2",
+    "lagerplats": "SE-DC-01",
+    "saldo": 289,
+    "reserverat": 40,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLU2",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLU2",
+    "lagerplats": "SE-BR-02",
+    "saldo": 17,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLU2",
+    "lagerplats": "SE-BR-03",
+    "saldo": 17,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-BEAM-GLU2",
+    "lagerplats": "SE-BR-04",
+    "saldo": 14,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-12",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2703,
+    "reserverat": 216,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-12",
+    "lagerplats": "SE-BR-01",
+    "saldo": 36,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-12",
+    "lagerplats": "SE-BR-02",
+    "saldo": 87,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-12",
+    "lagerplats": "SE-BR-03",
+    "saldo": 128,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-12",
+    "lagerplats": "SE-BR-04",
+    "saldo": 86,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-21",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2722,
+    "reserverat": 190,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-21",
+    "lagerplats": "SE-BR-01",
+    "saldo": 189,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-21",
+    "lagerplats": "SE-BR-02",
+    "saldo": 103,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-21",
+    "lagerplats": "SE-BR-03",
+    "saldo": 133,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-SPRU-21",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-FILM-18",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2603,
+    "reserverat": 208,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-FILM-18",
+    "lagerplats": "SE-BR-01",
+    "saldo": 178,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-FILM-18",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-FILM-18",
+    "lagerplats": "SE-BR-03",
+    "saldo": 109,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-FILM-18",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-TRAIL-15",
+    "lagerplats": "SE-DC-01",
+    "saldo": 488,
+    "reserverat": 63,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-TRAIL-15",
+    "lagerplats": "SE-BR-01",
+    "saldo": 57,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-TRAIL-15",
+    "lagerplats": "SE-BR-02",
+    "saldo": 132,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-TRAIL-15",
+    "lagerplats": "SE-BR-03",
+    "saldo": 117,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PLY-TRAIL-15",
+    "lagerplats": "SE-BR-04",
+    "saldo": 41,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-12",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2684,
+    "reserverat": 241,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-12",
+    "lagerplats": "SE-BR-01",
+    "saldo": 41,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-12",
+    "lagerplats": "SE-BR-02",
+    "saldo": 47,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-12",
+    "lagerplats": "SE-BR-03",
+    "saldo": 93,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-12",
+    "lagerplats": "SE-BR-04",
+    "saldo": 81,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-18",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2528,
+    "reserverat": 328,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-18",
+    "lagerplats": "SE-BR-01",
+    "saldo": 199,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-18",
+    "lagerplats": "SE-BR-02",
+    "saldo": 116,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-18",
+    "lagerplats": "SE-BR-03",
+    "saldo": 117,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-18",
+    "lagerplats": "SE-BR-04",
+    "saldo": 102,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-22",
+    "lagerplats": "SE-DC-01",
+    "saldo": 552,
+    "reserverat": 38,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-22",
+    "lagerplats": "SE-BR-01",
+    "saldo": 181,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-22",
+    "lagerplats": "SE-BR-02",
+    "saldo": 164,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-22",
+    "lagerplats": "SE-BR-03",
+    "saldo": 121,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "OSB-3-22",
+    "lagerplats": "SE-BR-04",
+    "saldo": 82,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "MDF-STD-16",
+    "lagerplats": "SE-DC-01",
+    "saldo": 936,
+    "reserverat": 102,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "MDF-STD-16",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "MDF-STD-16",
+    "lagerplats": "SE-BR-02",
+    "saldo": 39,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "MDF-STD-16",
+    "lagerplats": "SE-BR-03",
+    "saldo": 104,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "MDF-STD-16",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ISO-GLAS-050",
+    "lagerplats": "SE-DC-01",
+    "saldo": 739,
+    "reserverat": 103,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-050",
+    "lagerplats": "SE-BR-01",
+    "saldo": 151,
+    "reserverat": 16,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-050",
+    "lagerplats": "SE-BR-02",
+    "saldo": 66,
+    "reserverat": 3,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-050",
+    "lagerplats": "SE-BR-03",
+    "saldo": 172,
+    "reserverat": 6,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-050",
+    "lagerplats": "SE-BR-04",
+    "saldo": 167,
+    "reserverat": 11,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-150",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1773,
+    "reserverat": 141,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-150",
+    "lagerplats": "SE-BR-01",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-150",
+    "lagerplats": "SE-BR-02",
+    "saldo": 67,
+    "reserverat": 4,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-150",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-150",
+    "lagerplats": "SE-BR-04",
+    "saldo": 125,
+    "reserverat": 6,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-200",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2820,
+    "reserverat": 141,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-200",
+    "lagerplats": "SE-BR-01",
+    "saldo": 138,
+    "reserverat": 8,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-200",
+    "lagerplats": "SE-BR-02",
+    "saldo": 35,
+    "reserverat": 2,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-200",
+    "lagerplats": "SE-BR-03",
+    "saldo": 87,
+    "reserverat": 9,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-GLAS-200",
+    "lagerplats": "SE-BR-04",
+    "saldo": 58,
+    "reserverat": 3,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-050",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2388,
+    "reserverat": 310,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-050",
+    "lagerplats": "SE-BR-01",
+    "saldo": 178,
+    "reserverat": 17,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-050",
+    "lagerplats": "SE-BR-02",
+    "saldo": 195,
+    "reserverat": 21,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-050",
+    "lagerplats": "SE-BR-03",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-050",
+    "lagerplats": "SE-BR-04",
+    "saldo": 199,
+    "reserverat": 21,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-100",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2272,
+    "reserverat": 159,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-100",
+    "lagerplats": "SE-BR-01",
+    "saldo": 83,
+    "reserverat": 9,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-100",
+    "lagerplats": "SE-BR-02",
+    "saldo": 124,
+    "reserverat": 9,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-100",
+    "lagerplats": "SE-BR-03",
+    "saldo": 58,
+    "reserverat": 5,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-100",
+    "lagerplats": "SE-BR-04",
+    "saldo": 145,
+    "reserverat": 7,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-200",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2463,
+    "reserverat": 197,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-200",
+    "lagerplats": "SE-BR-01",
+    "saldo": 117,
+    "reserverat": 5,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-200",
+    "lagerplats": "SE-BR-02",
+    "saldo": 174,
+    "reserverat": 10,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-200",
+    "lagerplats": "SE-BR-03",
+    "saldo": 65,
+    "reserverat": 3,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-ROCK-200",
+    "lagerplats": "SE-BR-04",
+    "saldo": 129,
+    "reserverat": 6,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-100",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2108,
+    "reserverat": 274,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-100",
+    "lagerplats": "SE-BR-01",
+    "saldo": 136,
+    "reserverat": 5,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-100",
+    "lagerplats": "SE-BR-02",
+    "saldo": 165,
+    "reserverat": 8,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-100",
+    "lagerplats": "SE-BR-03",
+    "saldo": 156,
+    "reserverat": 6,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-100",
+    "lagerplats": "SE-BR-04",
+    "saldo": 119,
+    "reserverat": 8,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-150",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1414,
+    "reserverat": 127,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-150",
+    "lagerplats": "SE-BR-01",
+    "saldo": 28,
+    "reserverat": 2,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-150",
+    "lagerplats": "SE-BR-02",
+    "saldo": 168,
+    "reserverat": 13,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-150",
+    "lagerplats": "SE-BR-03",
+    "saldo": 32,
+    "reserverat": 1,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-TERR-150",
+    "lagerplats": "SE-BR-04",
+    "saldo": 82,
+    "reserverat": 4,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-80",
+    "lagerplats": "SE-DC-01",
+    "saldo": 916,
+    "reserverat": 100,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-80",
+    "lagerplats": "SE-BR-01",
+    "saldo": 31,
+    "reserverat": 2,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-80",
+    "lagerplats": "SE-BR-02",
+    "saldo": 52,
+    "reserverat": 2,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-80",
+    "lagerplats": "SE-BR-03",
+    "saldo": 37,
+    "reserverat": 3,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-80",
+    "lagerplats": "SE-BR-04",
+    "saldo": 122,
+    "reserverat": 7,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-150",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1579,
+    "reserverat": 221,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-150",
+    "lagerplats": "SE-BR-01",
+    "saldo": 76,
+    "reserverat": 3,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-150",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-150",
+    "lagerplats": "SE-BR-03",
+    "saldo": 46,
+    "reserverat": 4,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-EPS-150",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-XPS-300",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2225,
+    "reserverat": 222,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-XPS-300",
+    "lagerplats": "SE-BR-01",
+    "saldo": 165,
+    "reserverat": 14,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-XPS-300",
+    "lagerplats": "SE-BR-02",
+    "saldo": 153,
+    "reserverat": 7,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-XPS-300",
+    "lagerplats": "SE-BR-03",
+    "saldo": 194,
+    "reserverat": 19,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-XPS-300",
+    "lagerplats": "SE-BR-04",
+    "saldo": 196,
+    "reserverat": 7,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-PIPE-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 7053,
+    "reserverat": 423,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 185,
+    "reserverat": 12,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 516,
+    "reserverat": 51,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 726,
+    "reserverat": 29,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 381,
+    "reserverat": 41,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-28",
+    "lagerplats": "SE-DC-01",
+    "saldo": 4791,
+    "reserverat": 574,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-28",
+    "lagerplats": "SE-BR-01",
+    "saldo": 408,
+    "reserverat": 24,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-28",
+    "lagerplats": "SE-BR-02",
+    "saldo": 725,
+    "reserverat": 79,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-28",
+    "lagerplats": "SE-BR-03",
+    "saldo": 665,
+    "reserverat": 46,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-PIPE-28",
+    "lagerplats": "SE-BR-04",
+    "saldo": 483,
+    "reserverat": 43,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "ISO-SOUND-45",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2779,
+    "reserverat": 389,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-SOUND-45",
+    "lagerplats": "SE-BR-01",
+    "saldo": 61,
+    "reserverat": 5,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-SOUND-45",
+    "lagerplats": "SE-BR-02",
+    "saldo": 191,
+    "reserverat": 13,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-SOUND-45",
+    "lagerplats": "SE-BR-03",
+    "saldo": 98,
+    "reserverat": 9,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-SOUND-45",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-FIRE-60",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2238,
+    "reserverat": 290,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-FIRE-60",
+    "lagerplats": "SE-BR-01",
+    "saldo": 157,
+    "reserverat": 7,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-FIRE-60",
+    "lagerplats": "SE-BR-02",
+    "saldo": 48,
+    "reserverat": 3,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-FIRE-60",
+    "lagerplats": "SE-BR-03",
+    "saldo": 152,
+    "reserverat": 12,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "ISO-FIRE-60",
+    "lagerplats": "SE-BR-04",
+    "saldo": 113,
+    "reserverat": 10,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "BET-FIN-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2360,
+    "reserverat": 118,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-FIN-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 188,
+    "reserverat": 7,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-FIN-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 41,
+    "reserverat": 3,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-FIN-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 187,
+    "reserverat": 13,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-FIN-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 99,
+    "reserverat": 6,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-GROV-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1301,
+    "reserverat": 78,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-GROV-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 186,
+    "reserverat": 11,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-GROV-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-GROV-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 52,
+    "reserverat": 2,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-GROV-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 138,
+    "reserverat": 13,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-RAPID-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 676,
+    "reserverat": 74,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-RAPID-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 125,
+    "reserverat": 6,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-RAPID-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 194,
+    "reserverat": 11,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-RAPID-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 43,
+    "reserverat": 4,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-RAPID-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 116,
+    "reserverat": 4,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-STRAND-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1832,
+    "reserverat": 128,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-STRAND-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 155,
+    "reserverat": 10,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-STRAND-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 62,
+    "reserverat": 3,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-STRAND-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 98,
+    "reserverat": 9,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-STRAND-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 168,
+    "reserverat": 6,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-BAKKE-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2308,
+    "reserverat": 300,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-BAKKE-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-BAKKE-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 157,
+    "reserverat": 14,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-BAKKE-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 171,
+    "reserverat": 18,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-BAKKE-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 45,
+    "reserverat": 4,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-SEL-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2371,
+    "reserverat": 142,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-SEL-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 192,
+    "reserverat": 15,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-SEL-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 44,
+    "reserverat": 1,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-SEL-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-SEL-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 49,
+    "reserverat": 2,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-EXP-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2966,
+    "reserverat": 326,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-EXP-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 147,
+    "reserverat": 16,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-EXP-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 75,
+    "reserverat": 5,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-EXP-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 28,
+    "reserverat": 1,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BET-EXP-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 114,
+    "reserverat": 6,
+    "enhet": "sæk"
+  },
+  {
+    "artikelnr": "BRK-RED-MASSIV",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1833,
+    "reserverat": 146,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-RED-MASSIV",
+    "lagerplats": "SE-BR-01",
+    "saldo": 116,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-RED-MASSIV",
+    "lagerplats": "SE-BR-02",
+    "saldo": 148,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-RED-MASSIV",
+    "lagerplats": "SE-BR-03",
+    "saldo": 116,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-RED-MASSIV",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-YEL-MASSIV",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1202,
+    "reserverat": 84,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-YEL-MASSIV",
+    "lagerplats": "SE-BR-01",
+    "saldo": 28,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-YEL-MASSIV",
+    "lagerplats": "SE-BR-02",
+    "saldo": 49,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-YEL-MASSIV",
+    "lagerplats": "SE-BR-03",
+    "saldo": 43,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-YEL-MASSIV",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-100",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1843,
+    "reserverat": 147,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-100",
+    "lagerplats": "SE-BR-01",
+    "saldo": 81,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-100",
+    "lagerplats": "SE-BR-02",
+    "saldo": 199,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-100",
+    "lagerplats": "SE-BR-03",
+    "saldo": 147,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-100",
+    "lagerplats": "SE-BR-04",
+    "saldo": 35,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-150",
+    "lagerplats": "SE-DC-01",
+    "saldo": 976,
+    "reserverat": 107,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-150",
+    "lagerplats": "SE-BR-01",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-150",
+    "lagerplats": "SE-BR-02",
+    "saldo": 86,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-150",
+    "lagerplats": "SE-BR-03",
+    "saldo": 115,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-GAS-150",
+    "lagerplats": "SE-BR-04",
+    "saldo": 193,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-10",
+    "lagerplats": "SE-DC-01",
+    "saldo": 867,
+    "reserverat": 104,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-10",
+    "lagerplats": "SE-BR-01",
+    "saldo": 186,
+    "reserverat": 18,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-10",
+    "lagerplats": "SE-BR-02",
+    "saldo": 188,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-10",
+    "lagerplats": "SE-BR-03",
+    "saldo": 56,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-10",
+    "lagerplats": "SE-BR-04",
+    "saldo": 192,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-15",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1935,
+    "reserverat": 193,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-15",
+    "lagerplats": "SE-BR-01",
+    "saldo": 87,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-15",
+    "lagerplats": "SE-BR-02",
+    "saldo": 169,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-15",
+    "lagerplats": "SE-BR-03",
+    "saldo": 58,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-15",
+    "lagerplats": "SE-BR-04",
+    "saldo": 64,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-20",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1427,
+    "reserverat": 171,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-20",
+    "lagerplats": "SE-BR-01",
+    "saldo": 183,
+    "reserverat": 20,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-20",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-20",
+    "lagerplats": "SE-BR-03",
+    "saldo": 147,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-LECA-20",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SAND-BIG",
+    "lagerplats": "SE-DC-01",
+    "saldo": 139,
+    "reserverat": 19,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SAND-BIG",
+    "lagerplats": "SE-BR-01",
+    "saldo": 12,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SAND-BIG",
+    "lagerplats": "SE-BR-02",
+    "saldo": 11,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SAND-BIG",
+    "lagerplats": "SE-BR-03",
+    "saldo": 26,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SAND-BIG",
+    "lagerplats": "SE-BR-04",
+    "saldo": 25,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-GRAV-BIG",
+    "lagerplats": "SE-DC-01",
+    "saldo": 179,
+    "reserverat": 25,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-GRAV-BIG",
+    "lagerplats": "SE-BR-01",
+    "saldo": 15,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-GRAV-BIG",
+    "lagerplats": "SE-BR-02",
+    "saldo": 7,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-GRAV-BIG",
+    "lagerplats": "SE-BR-03",
+    "saldo": 17,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-GRAV-BIG",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SKÆRV-BIG",
+    "lagerplats": "SE-DC-01",
+    "saldo": 201,
+    "reserverat": 12,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SKÆRV-BIG",
+    "lagerplats": "SE-BR-01",
+    "saldo": 17,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SKÆRV-BIG",
+    "lagerplats": "SE-BR-02",
+    "saldo": 7,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SKÆRV-BIG",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "AGG-SKÆRV-BIG",
+    "lagerplats": "SE-BR-04",
+    "saldo": 15,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-08",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1987,
+    "reserverat": 238,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-08",
+    "lagerplats": "SE-BR-01",
+    "saldo": 194,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-08",
+    "lagerplats": "SE-BR-02",
+    "saldo": 159,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-08",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-08",
+    "lagerplats": "SE-BR-04",
+    "saldo": 36,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-10",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2841,
+    "reserverat": 170,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-10",
+    "lagerplats": "SE-BR-01",
+    "saldo": 33,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-10",
+    "lagerplats": "SE-BR-02",
+    "saldo": 167,
+    "reserverat": 18,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-10",
+    "lagerplats": "SE-BR-03",
+    "saldo": 115,
+    "reserverat": 12,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-10",
+    "lagerplats": "SE-BR-04",
+    "saldo": 127,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-16",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2381,
+    "reserverat": 142,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-16",
+    "lagerplats": "SE-BR-01",
+    "saldo": 199,
+    "reserverat": 21,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-16",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-16",
+    "lagerplats": "SE-BR-03",
+    "saldo": 127,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-JERN-16",
+    "lagerplats": "SE-BR-04",
+    "saldo": 59,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0615",
+    "lagerplats": "SE-DC-01",
+    "saldo": 171,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0615",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0615",
+    "lagerplats": "SE-BR-02",
+    "saldo": 12,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0615",
+    "lagerplats": "SE-BR-03",
+    "saldo": 27,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0615",
+    "lagerplats": "SE-BR-04",
+    "saldo": 10,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0815",
+    "lagerplats": "SE-DC-01",
+    "saldo": 58,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0815",
+    "lagerplats": "SE-BR-01",
+    "saldo": 10,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0815",
+    "lagerplats": "SE-BR-02",
+    "saldo": 6,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0815",
+    "lagerplats": "SE-BR-03",
+    "saldo": 10,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0815",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-DIST-30",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1259,
+    "reserverat": 176,
+    "enhet": "pose"
+  },
+  {
+    "artikelnr": "ARM-DIST-30",
+    "lagerplats": "SE-BR-01",
+    "saldo": 28,
+    "reserverat": 2,
+    "enhet": "pose"
+  },
+  {
+    "artikelnr": "ARM-DIST-30",
+    "lagerplats": "SE-BR-02",
+    "saldo": 46,
+    "reserverat": 2,
+    "enhet": "pose"
+  },
+  {
+    "artikelnr": "ARM-DIST-30",
+    "lagerplats": "SE-BR-03",
+    "saldo": 75,
+    "reserverat": 8,
+    "enhet": "pose"
+  },
+  {
+    "artikelnr": "ARM-DIST-30",
+    "lagerplats": "SE-BR-04",
+    "saldo": 111,
+    "reserverat": 12,
+    "enhet": "pose"
+  },
+  {
+    "artikelnr": "ARM-BIND-TRD",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2323,
+    "reserverat": 185,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ARM-BIND-TRD",
+    "lagerplats": "SE-BR-01",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ARM-BIND-TRD",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ARM-BIND-TRD",
+    "lagerplats": "SE-BR-03",
+    "saldo": 124,
+    "reserverat": 9,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ARM-BIND-TRD",
+    "lagerplats": "SE-BR-04",
+    "saldo": 79,
+    "reserverat": 5,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ARM-BEAM-IPE180",
+    "lagerplats": "SE-DC-01",
+    "saldo": 280,
+    "reserverat": 14,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-IPE180",
+    "lagerplats": "SE-BR-01",
+    "saldo": 11,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-IPE180",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-IPE180",
+    "lagerplats": "SE-BR-03",
+    "saldo": 19,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-IPE180",
+    "lagerplats": "SE-BR-04",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-30",
+    "lagerplats": "SE-DC-01",
+    "saldo": 925,
+    "reserverat": 92,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-30",
+    "lagerplats": "SE-BR-01",
+    "saldo": 34,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-30",
+    "lagerplats": "SE-BR-02",
+    "saldo": 53,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-30",
+    "lagerplats": "SE-BR-03",
+    "saldo": 41,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-30",
+    "lagerplats": "SE-BR-04",
+    "saldo": 97,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-40",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1079,
+    "reserverat": 151,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-40",
+    "lagerplats": "SE-BR-01",
+    "saldo": 31,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-40",
+    "lagerplats": "SE-BR-02",
+    "saldo": 193,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-40",
+    "lagerplats": "SE-BR-03",
+    "saldo": 187,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-FLIS-40",
+    "lagerplats": "SE-BR-04",
+    "saldo": 104,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-HERR-GRY",
+    "lagerplats": "SE-DC-01",
+    "saldo": 945,
+    "reserverat": 94,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-HERR-GRY",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-HERR-GRY",
+    "lagerplats": "SE-BR-02",
+    "saldo": 47,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-HERR-GRY",
+    "lagerplats": "SE-BR-03",
+    "saldo": 185,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-HERR-GRY",
+    "lagerplats": "SE-BR-04",
+    "saldo": 35,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-BK",
+    "lagerplats": "SE-DC-01",
+    "saldo": 549,
+    "reserverat": 76,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-BK",
+    "lagerplats": "SE-BR-01",
+    "saldo": 196,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-BK",
+    "lagerplats": "SE-BR-02",
+    "saldo": 33,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-BK",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-BK",
+    "lagerplats": "SE-BR-04",
+    "saldo": 188,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-RED",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1983,
+    "reserverat": 158,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-RED",
+    "lagerplats": "SE-BR-01",
+    "saldo": 108,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-RED",
+    "lagerplats": "SE-BR-02",
+    "saldo": 77,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-RED",
+    "lagerplats": "SE-BR-03",
+    "saldo": 64,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-TAG-RED",
+    "lagerplats": "SE-BR-04",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-RIDGE-BK",
+    "lagerplats": "SE-DC-01",
+    "saldo": 482,
+    "reserverat": 33,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-RIDGE-BK",
+    "lagerplats": "SE-BR-01",
+    "saldo": 131,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-RIDGE-BK",
+    "lagerplats": "SE-BR-02",
+    "saldo": 109,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-RIDGE-BK",
+    "lagerplats": "SE-BR-03",
+    "saldo": 54,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-RIDGE-BK",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-PAP-UND",
+    "lagerplats": "SE-DC-01",
+    "saldo": 913,
+    "reserverat": 73,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-UND",
+    "lagerplats": "SE-BR-01",
+    "saldo": 96,
+    "reserverat": 7,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-UND",
+    "lagerplats": "SE-BR-02",
+    "saldo": 145,
+    "reserverat": 13,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-UND",
+    "lagerplats": "SE-BR-03",
+    "saldo": 75,
+    "reserverat": 5,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-UND",
+    "lagerplats": "SE-BR-04",
+    "saldo": 87,
+    "reserverat": 6,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-TOP",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2130,
+    "reserverat": 106,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-TOP",
+    "lagerplats": "SE-BR-01",
+    "saldo": 153,
+    "reserverat": 13,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-TOP",
+    "lagerplats": "SE-BR-02",
+    "saldo": 37,
+    "reserverat": 1,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-TOP",
+    "lagerplats": "SE-BR-03",
+    "saldo": 188,
+    "reserverat": 7,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-PAP-TOP",
+    "lagerplats": "SE-BR-04",
+    "saldo": 159,
+    "reserverat": 11,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ROOF-GUT-ZINC",
+    "lagerplats": "SE-DC-01",
+    "saldo": 776,
+    "reserverat": 85,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-ZINC",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-ZINC",
+    "lagerplats": "SE-BR-02",
+    "saldo": 92,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-ZINC",
+    "lagerplats": "SE-BR-03",
+    "saldo": 123,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-ZINC",
+    "lagerplats": "SE-BR-04",
+    "saldo": 173,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-PLAS",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1913,
+    "reserverat": 153,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-PLAS",
+    "lagerplats": "SE-BR-01",
+    "saldo": 167,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-PLAS",
+    "lagerplats": "SE-BR-02",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-PLAS",
+    "lagerplats": "SE-BR-03",
+    "saldo": 115,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-PLAS",
+    "lagerplats": "SE-BR-04",
+    "saldo": 162,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-BRK",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2881,
+    "reserverat": 172,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-BRK",
+    "lagerplats": "SE-BR-01",
+    "saldo": 192,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-BRK",
+    "lagerplats": "SE-BR-02",
+    "saldo": 107,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-BRK",
+    "lagerplats": "SE-BR-03",
+    "saldo": 53,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-GUT-BRK",
+    "lagerplats": "SE-BR-04",
+    "saldo": 143,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FAC-FIB-BOARD",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2926,
+    "reserverat": 321,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FAC-FIB-BOARD",
+    "lagerplats": "SE-BR-01",
+    "saldo": 98,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FAC-FIB-BOARD",
+    "lagerplats": "SE-BR-02",
+    "saldo": 159,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FAC-FIB-BOARD",
+    "lagerplats": "SE-BR-03",
+    "saldo": 26,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FAC-FIB-BOARD",
+    "lagerplats": "SE-BR-04",
+    "saldo": 85,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FAC-CEDAR-18",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1545,
+    "reserverat": 154,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "FAC-CEDAR-18",
+    "lagerplats": "SE-BR-01",
+    "saldo": 608,
+    "reserverat": 36,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "FAC-CEDAR-18",
+    "lagerplats": "SE-BR-02",
+    "saldo": 559,
+    "reserverat": 27,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "FAC-CEDAR-18",
+    "lagerplats": "SE-BR-03",
+    "saldo": 745,
+    "reserverat": 52,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "FAC-CEDAR-18",
+    "lagerplats": "SE-BR-04",
+    "saldo": 423,
+    "reserverat": 21,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "WIN-FLASH-78",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2513,
+    "reserverat": 201,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-FLASH-78",
+    "lagerplats": "SE-BR-01",
+    "saldo": 142,
+    "reserverat": 14,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-FLASH-78",
+    "lagerplats": "SE-BR-02",
+    "saldo": 185,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-FLASH-78",
+    "lagerplats": "SE-BR-03",
+    "saldo": 157,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-FLASH-78",
+    "lagerplats": "SE-BR-04",
+    "saldo": 189,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-HATCH-60",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2492,
+    "reserverat": 174,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-HATCH-60",
+    "lagerplats": "SE-BR-01",
+    "saldo": 117,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-HATCH-60",
+    "lagerplats": "SE-BR-02",
+    "saldo": 168,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-HATCH-60",
+    "lagerplats": "SE-BR-03",
+    "saldo": 124,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-HATCH-60",
+    "lagerplats": "SE-BR-04",
+    "saldo": 163,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SCR-GIP-25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1645,
+    "reserverat": 164,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 125,
+    "reserverat": 11,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 188,
+    "reserverat": 7,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 144,
+    "reserverat": 5,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 91,
+    "reserverat": 6,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-55",
+    "lagerplats": "SE-DC-01",
+    "saldo": 414,
+    "reserverat": 37,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-55",
+    "lagerplats": "SE-BR-01",
+    "saldo": 149,
+    "reserverat": 7,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-55",
+    "lagerplats": "SE-BR-02",
+    "saldo": 98,
+    "reserverat": 9,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-55",
+    "lagerplats": "SE-BR-03",
+    "saldo": 153,
+    "reserverat": 7,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-GIP-55",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-75",
+    "lagerplats": "SE-DC-01",
+    "saldo": 625,
+    "reserverat": 62,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-75",
+    "lagerplats": "SE-BR-01",
+    "saldo": 131,
+    "reserverat": 9,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-75",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-75",
+    "lagerplats": "SE-BR-03",
+    "saldo": 45,
+    "reserverat": 4,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-TER-75",
+    "lagerplats": "SE-BR-04",
+    "saldo": 36,
+    "reserverat": 2,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-580",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1514,
+    "reserverat": 136,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-580",
+    "lagerplats": "SE-BR-01",
+    "saldo": 183,
+    "reserverat": 12,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-580",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-580",
+    "lagerplats": "SE-BR-03",
+    "saldo": 171,
+    "reserverat": 18,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-580",
+    "lagerplats": "SE-BR-04",
+    "saldo": 69,
+    "reserverat": 6,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-5100",
+    "lagerplats": "SE-DC-01",
+    "saldo": 442,
+    "reserverat": 30,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-5100",
+    "lagerplats": "SE-BR-01",
+    "saldo": 174,
+    "reserverat": 10,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-5100",
+    "lagerplats": "SE-BR-02",
+    "saldo": 168,
+    "reserverat": 6,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-5100",
+    "lagerplats": "SE-BR-03",
+    "saldo": 82,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-5100",
+    "lagerplats": "SE-BR-04",
+    "saldo": 123,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-6120",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1001,
+    "reserverat": 60,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-6120",
+    "lagerplats": "SE-BR-01",
+    "saldo": 187,
+    "reserverat": 20,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-6120",
+    "lagerplats": "SE-BR-02",
+    "saldo": 82,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-6120",
+    "lagerplats": "SE-BR-03",
+    "saldo": 174,
+    "reserverat": 10,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-6120",
+    "lagerplats": "SE-BR-04",
+    "saldo": 178,
+    "reserverat": 10,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-FAC-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1333,
+    "reserverat": 106,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-FAC-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-FAC-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 62,
+    "reserverat": 3,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-FAC-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 165,
+    "reserverat": 14,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-FAC-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 22,
+    "reserverat": 1,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-BET-75",
+    "lagerplats": "SE-DC-01",
+    "saldo": 479,
+    "reserverat": 67,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-BET-75",
+    "lagerplats": "SE-BR-01",
+    "saldo": 198,
+    "reserverat": 11,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-BET-75",
+    "lagerplats": "SE-BR-02",
+    "saldo": 47,
+    "reserverat": 3,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-BET-75",
+    "lagerplats": "SE-BR-03",
+    "saldo": 81,
+    "reserverat": 4,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-BET-75",
+    "lagerplats": "SE-BR-04",
+    "saldo": 164,
+    "reserverat": 6,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-34",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1331,
+    "reserverat": 79,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-34",
+    "lagerplats": "SE-BR-01",
+    "saldo": 147,
+    "reserverat": 10,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-34",
+    "lagerplats": "SE-BR-02",
+    "saldo": 83,
+    "reserverat": 9,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-34",
+    "lagerplats": "SE-BR-03",
+    "saldo": 49,
+    "reserverat": 2,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-34",
+    "lagerplats": "SE-BR-04",
+    "saldo": 146,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-90",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1054,
+    "reserverat": 94,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-90",
+    "lagerplats": "SE-BR-01",
+    "saldo": 101,
+    "reserverat": 9,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-90",
+    "lagerplats": "SE-BR-02",
+    "saldo": 71,
+    "reserverat": 4,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-90",
+    "lagerplats": "SE-BR-03",
+    "saldo": 69,
+    "reserverat": 6,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "NAI-GUN-90",
+    "lagerplats": "SE-BR-04",
+    "saldo": 123,
+    "reserverat": 13,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "FIT-ANG-90",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1365,
+    "reserverat": 136,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-90",
+    "lagerplats": "SE-BR-01",
+    "saldo": 53,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-90",
+    "lagerplats": "SE-BR-02",
+    "saldo": 95,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-90",
+    "lagerplats": "SE-BR-03",
+    "saldo": 151,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-90",
+    "lagerplats": "SE-BR-04",
+    "saldo": 62,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-70",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1016,
+    "reserverat": 111,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-70",
+    "lagerplats": "SE-BR-01",
+    "saldo": 86,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-70",
+    "lagerplats": "SE-BR-02",
+    "saldo": 166,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-70",
+    "lagerplats": "SE-BR-03",
+    "saldo": 187,
+    "reserverat": 20,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-ANG-70",
+    "lagerplats": "SE-BR-04",
+    "saldo": 108,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-PLT-100",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1738,
+    "reserverat": 225,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-PLT-100",
+    "lagerplats": "SE-BR-01",
+    "saldo": 158,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-PLT-100",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-PLT-100",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-PLT-100",
+    "lagerplats": "SE-BR-04",
+    "saldo": 52,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-51",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1476,
+    "reserverat": 162,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-51",
+    "lagerplats": "SE-BR-01",
+    "saldo": 188,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-51",
+    "lagerplats": "SE-BR-02",
+    "saldo": 147,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-51",
+    "lagerplats": "SE-BR-03",
+    "saldo": 169,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-51",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-45",
+    "lagerplats": "SE-DC-01",
+    "saldo": 797,
+    "reserverat": 95,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-45",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-45",
+    "lagerplats": "SE-BR-02",
+    "saldo": 151,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-45",
+    "lagerplats": "SE-BR-03",
+    "saldo": 112,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FIT-BEAM-45",
+    "lagerplats": "SE-BR-04",
+    "saldo": 151,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ANC-EXP-10",
+    "lagerplats": "SE-DC-01",
+    "saldo": 883,
+    "reserverat": 70,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-EXP-10",
+    "lagerplats": "SE-BR-01",
+    "saldo": 193,
+    "reserverat": 17,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-EXP-10",
+    "lagerplats": "SE-BR-02",
+    "saldo": 162,
+    "reserverat": 16,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-EXP-10",
+    "lagerplats": "SE-BR-03",
+    "saldo": 133,
+    "reserverat": 11,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-EXP-10",
+    "lagerplats": "SE-BR-04",
+    "saldo": 172,
+    "reserverat": 13,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-NYL-8",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1726,
+    "reserverat": 189,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-NYL-8",
+    "lagerplats": "SE-BR-01",
+    "saldo": 52,
+    "reserverat": 4,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-NYL-8",
+    "lagerplats": "SE-BR-02",
+    "saldo": 176,
+    "reserverat": 14,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-NYL-8",
+    "lagerplats": "SE-BR-03",
+    "saldo": 115,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-NYL-8",
+    "lagerplats": "SE-BR-04",
+    "saldo": 85,
+    "reserverat": 7,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "ANC-CHEM-300",
+    "lagerplats": "SE-DC-01",
+    "saldo": 307,
+    "reserverat": 36,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ANC-CHEM-300",
+    "lagerplats": "SE-BR-01",
+    "saldo": 105,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ANC-CHEM-300",
+    "lagerplats": "SE-BR-02",
+    "saldo": 83,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ANC-CHEM-300",
+    "lagerplats": "SE-BR-03",
+    "saldo": 157,
+    "reserverat": 14,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ANC-CHEM-300",
+    "lagerplats": "SE-BR-04",
+    "saldo": 89,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110-3M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 656,
+    "reserverat": 72,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110-3M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 123,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110-3M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110-3M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 25,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-110-3M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 106,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-75",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2451,
+    "reserverat": 147,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-75",
+    "lagerplats": "SE-BR-01",
+    "saldo": 53,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-75",
+    "lagerplats": "SE-BR-02",
+    "saldo": 53,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-75",
+    "lagerplats": "SE-BR-03",
+    "saldo": 33,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-75",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-50",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2931,
+    "reserverat": 175,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-50",
+    "lagerplats": "SE-BR-01",
+    "saldo": 106,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-50",
+    "lagerplats": "SE-BR-02",
+    "saldo": 66,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-50",
+    "lagerplats": "SE-BR-03",
+    "saldo": 192,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-50",
+    "lagerplats": "SE-BR-04",
+    "saldo": 127,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-45",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2120,
+    "reserverat": 106,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-45",
+    "lagerplats": "SE-BR-01",
+    "saldo": 58,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-45",
+    "lagerplats": "SE-BR-02",
+    "saldo": 91,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-45",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-45",
+    "lagerplats": "SE-BR-04",
+    "saldo": 26,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-88",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2812,
+    "reserverat": 196,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-88",
+    "lagerplats": "SE-BR-01",
+    "saldo": 132,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-88",
+    "lagerplats": "SE-BR-02",
+    "saldo": 136,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-88",
+    "lagerplats": "SE-BR-03",
+    "saldo": 55,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-110-88",
+    "lagerplats": "SE-BR-04",
+    "saldo": 139,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PEX-15",
+    "lagerplats": "SE-DC-01",
+    "saldo": 686,
+    "reserverat": 75,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-15",
+    "lagerplats": "SE-BR-01",
+    "saldo": 196,
+    "reserverat": 7,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-15",
+    "lagerplats": "SE-BR-02",
+    "saldo": 112,
+    "reserverat": 8,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-15",
+    "lagerplats": "SE-BR-03",
+    "saldo": 192,
+    "reserverat": 7,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-15",
+    "lagerplats": "SE-BR-04",
+    "saldo": 179,
+    "reserverat": 19,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-20",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1566,
+    "reserverat": 172,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-20",
+    "lagerplats": "SE-BR-01",
+    "saldo": 144,
+    "reserverat": 5,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-20",
+    "lagerplats": "SE-BR-02",
+    "saldo": 117,
+    "reserverat": 10,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-20",
+    "lagerplats": "SE-BR-03",
+    "saldo": 109,
+    "reserverat": 9,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-PEX-20",
+    "lagerplats": "SE-BR-04",
+    "saldo": 95,
+    "reserverat": 10,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "DRA-WELL-315",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1095,
+    "reserverat": 109,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-WELL-315",
+    "lagerplats": "SE-BR-01",
+    "saldo": 49,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-WELL-315",
+    "lagerplats": "SE-BR-02",
+    "saldo": 49,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-WELL-315",
+    "lagerplats": "SE-BR-03",
+    "saldo": 65,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-WELL-315",
+    "lagerplats": "SE-BR-04",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-CORR-110",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2059,
+    "reserverat": 288,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "DRA-CORR-110",
+    "lagerplats": "SE-BR-01",
+    "saldo": 149,
+    "reserverat": 7,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "DRA-CORR-110",
+    "lagerplats": "SE-BR-02",
+    "saldo": 142,
+    "reserverat": 14,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "DRA-CORR-110",
+    "lagerplats": "SE-BR-03",
+    "saldo": 44,
+    "reserverat": 3,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "DRA-CORR-110",
+    "lagerplats": "SE-BR-04",
+    "saldo": 65,
+    "reserverat": 5,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "DRA-CHAN-1M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2000,
+    "reserverat": 100,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-CHAN-1M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 65,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-CHAN-1M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 133,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-CHAN-1M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 143,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-CHAN-1M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 66,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-GULLY-150",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2696,
+    "reserverat": 296,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-GULLY-150",
+    "lagerplats": "SE-BR-01",
+    "saldo": 91,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-GULLY-150",
+    "lagerplats": "SE-BR-02",
+    "saldo": 182,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-GULLY-150",
+    "lagerplats": "SE-BR-03",
+    "saldo": 58,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "DRA-GULLY-150",
+    "lagerplats": "SE-BR-04",
+    "saldo": 85,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-ISOF-32",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1325,
+    "reserverat": 132,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-ISOF-32",
+    "lagerplats": "SE-BR-01",
+    "saldo": 69,
+    "reserverat": 3,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-ISOF-32",
+    "lagerplats": "SE-BR-02",
+    "saldo": 174,
+    "reserverat": 17,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-ISOF-32",
+    "lagerplats": "SE-BR-03",
+    "saldo": 83,
+    "reserverat": 5,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-ISOF-32",
+    "lagerplats": "SE-BR-04",
+    "saldo": 61,
+    "reserverat": 3,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PIP-VALV-BALL",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1789,
+    "reserverat": 250,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-VALV-BALL",
+    "lagerplats": "SE-BR-01",
+    "saldo": 28,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-VALV-BALL",
+    "lagerplats": "SE-BR-02",
+    "saldo": 126,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-VALV-BALL",
+    "lagerplats": "SE-BR-03",
+    "saldo": 52,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-VALV-BALL",
+    "lagerplats": "SE-BR-04",
+    "saldo": 23,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-MANIF-4",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2485,
+    "reserverat": 248,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-MANIF-4",
+    "lagerplats": "SE-BR-01",
+    "saldo": 148,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-MANIF-4",
+    "lagerplats": "SE-BR-02",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-MANIF-4",
+    "lagerplats": "SE-BR-03",
+    "saldo": 34,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-MANIF-4",
+    "lagerplats": "SE-BR-04",
+    "saldo": 31,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-SIL-SAN",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2103,
+    "reserverat": 168,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-SIL-SAN",
+    "lagerplats": "SE-BR-01",
+    "saldo": 31,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-SIL-SAN",
+    "lagerplats": "SE-BR-02",
+    "saldo": 129,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-SIL-SAN",
+    "lagerplats": "SE-BR-03",
+    "saldo": 168,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-SIL-SAN",
+    "lagerplats": "SE-BR-04",
+    "saldo": 144,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-MS-POLY",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2074,
+    "reserverat": 186,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-MS-POLY",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-MS-POLY",
+    "lagerplats": "SE-BR-02",
+    "saldo": 131,
+    "reserverat": 14,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-MS-POLY",
+    "lagerplats": "SE-BR-03",
+    "saldo": 78,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-MS-POLY",
+    "lagerplats": "SE-BR-04",
+    "saldo": 124,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-PU-FOAM",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2285,
+    "reserverat": 228,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-PU-FOAM",
+    "lagerplats": "SE-BR-01",
+    "saldo": 166,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-PU-FOAM",
+    "lagerplats": "SE-BR-02",
+    "saldo": 172,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-PU-FOAM",
+    "lagerplats": "SE-BR-03",
+    "saldo": 86,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "FUG-PU-FOAM",
+    "lagerplats": "SE-BR-04",
+    "saldo": 183,
+    "reserverat": 12,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "MEM-VAP-02",
+    "lagerplats": "SE-DC-01",
+    "saldo": 417,
+    "reserverat": 50,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-VAP-02",
+    "lagerplats": "SE-BR-01",
+    "saldo": 174,
+    "reserverat": 10,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-VAP-02",
+    "lagerplats": "SE-BR-02",
+    "saldo": 94,
+    "reserverat": 9,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-VAP-02",
+    "lagerplats": "SE-BR-03",
+    "saldo": 94,
+    "reserverat": 9,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-VAP-02",
+    "lagerplats": "SE-BR-04",
+    "saldo": 89,
+    "reserverat": 8,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-WATH-1K",
+    "lagerplats": "SE-DC-01",
+    "saldo": 648,
+    "reserverat": 84,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "MEM-WATH-1K",
+    "lagerplats": "SE-BR-01",
+    "saldo": 79,
+    "reserverat": 5,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "MEM-WATH-1K",
+    "lagerplats": "SE-BR-02",
+    "saldo": 56,
+    "reserverat": 2,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "MEM-WATH-1K",
+    "lagerplats": "SE-BR-03",
+    "saldo": 98,
+    "reserverat": 9,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "MEM-WATH-1K",
+    "lagerplats": "SE-BR-04",
+    "saldo": 137,
+    "reserverat": 12,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "MEM-BAND-120",
+    "lagerplats": "SE-DC-01",
+    "saldo": 573,
+    "reserverat": 45,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-BAND-120",
+    "lagerplats": "SE-BR-01",
+    "saldo": 24,
+    "reserverat": 0,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-BAND-120",
+    "lagerplats": "SE-BR-02",
+    "saldo": 55,
+    "reserverat": 3,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-BAND-120",
+    "lagerplats": "SE-BR-03",
+    "saldo": 119,
+    "reserverat": 13,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "MEM-BAND-120",
+    "lagerplats": "SE-BR-04",
+    "saldo": 86,
+    "reserverat": 8,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "PAI-WALL-10",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1337,
+    "reserverat": 160,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-WALL-10",
+    "lagerplats": "SE-BR-01",
+    "saldo": 145,
+    "reserverat": 13,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-WALL-10",
+    "lagerplats": "SE-BR-02",
+    "saldo": 102,
+    "reserverat": 10,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-WALL-10",
+    "lagerplats": "SE-BR-03",
+    "saldo": 83,
+    "reserverat": 9,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-WALL-10",
+    "lagerplats": "SE-BR-04",
+    "saldo": 137,
+    "reserverat": 6,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-CEIL-02",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1369,
+    "reserverat": 191,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-CEIL-02",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-CEIL-02",
+    "lagerplats": "SE-BR-02",
+    "saldo": 189,
+    "reserverat": 9,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-CEIL-02",
+    "lagerplats": "SE-BR-03",
+    "saldo": 149,
+    "reserverat": 13,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-CEIL-02",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-EXT-FAC",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1119,
+    "reserverat": 156,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-EXT-FAC",
+    "lagerplats": "SE-BR-01",
+    "saldo": 33,
+    "reserverat": 1,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-EXT-FAC",
+    "lagerplats": "SE-BR-02",
+    "saldo": 87,
+    "reserverat": 9,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-EXT-FAC",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-EXT-FAC",
+    "lagerplats": "SE-BR-04",
+    "saldo": 156,
+    "reserverat": 12,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "PAI-WOOD-OIL",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2954,
+    "reserverat": 265,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "PAI-WOOD-OIL",
+    "lagerplats": "SE-BR-01",
+    "saldo": 38,
+    "reserverat": 3,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "PAI-WOOD-OIL",
+    "lagerplats": "SE-BR-02",
+    "saldo": 52,
+    "reserverat": 2,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "PAI-WOOD-OIL",
+    "lagerplats": "SE-BR-03",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "PAI-WOOD-OIL",
+    "lagerplats": "SE-BR-04",
+    "saldo": 113,
+    "reserverat": 5,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-CONC-SEAL",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2798,
+    "reserverat": 363,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-CONC-SEAL",
+    "lagerplats": "SE-BR-01",
+    "saldo": 46,
+    "reserverat": 2,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-CONC-SEAL",
+    "lagerplats": "SE-BR-02",
+    "saldo": 104,
+    "reserverat": 4,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-CONC-SEAL",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-CONC-SEAL",
+    "lagerplats": "SE-BR-04",
+    "saldo": 93,
+    "reserverat": 8,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-PRIM-UNIV",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2784,
+    "reserverat": 250,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-PRIM-UNIV",
+    "lagerplats": "SE-BR-01",
+    "saldo": 117,
+    "reserverat": 5,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-PRIM-UNIV",
+    "lagerplats": "SE-BR-02",
+    "saldo": 157,
+    "reserverat": 14,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-PRIM-UNIV",
+    "lagerplats": "SE-BR-03",
+    "saldo": 197,
+    "reserverat": 17,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "CHM-PRIM-UNIV",
+    "lagerplats": "SE-BR-04",
+    "saldo": 145,
+    "reserverat": 7,
+    "enhet": "dunk"
+  },
+  {
+    "artikelnr": "SAF-FENC-MOB",
+    "lagerplats": "SE-DC-01",
+    "saldo": 136,
+    "reserverat": 14,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-FENC-MOB",
+    "lagerplats": "SE-BR-01",
+    "saldo": 8,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-FENC-MOB",
+    "lagerplats": "SE-BR-02",
+    "saldo": 5,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-FENC-MOB",
+    "lagerplats": "SE-BR-03",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-FENC-MOB",
+    "lagerplats": "SE-BR-04",
+    "saldo": 21,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-BASE-CON",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2084,
+    "reserverat": 187,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-BASE-CON",
+    "lagerplats": "SE-BR-01",
+    "saldo": 197,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-BASE-CON",
+    "lagerplats": "SE-BR-02",
+    "saldo": 66,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-BASE-CON",
+    "lagerplats": "SE-BR-03",
+    "saldo": 144,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-BASE-CON",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SAF-COV-FLOR",
+    "lagerplats": "SE-DC-01",
+    "saldo": 845,
+    "reserverat": 84,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-FLOR",
+    "lagerplats": "SE-BR-01",
+    "saldo": 194,
+    "reserverat": 11,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-FLOR",
+    "lagerplats": "SE-BR-02",
+    "saldo": 152,
+    "reserverat": 6,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-FLOR",
+    "lagerplats": "SE-BR-03",
+    "saldo": 113,
+    "reserverat": 5,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-FLOR",
+    "lagerplats": "SE-BR-04",
+    "saldo": 123,
+    "reserverat": 13,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-PLAS",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1642,
+    "reserverat": 114,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-PLAS",
+    "lagerplats": "SE-BR-01",
+    "saldo": 178,
+    "reserverat": 10,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-PLAS",
+    "lagerplats": "SE-BR-02",
+    "saldo": 165,
+    "reserverat": 8,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-PLAS",
+    "lagerplats": "SE-BR-03",
+    "saldo": 28,
+    "reserverat": 2,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-COV-PLAS",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "SAF-DUST-SHE",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2423,
+    "reserverat": 193,
+    "enhet": "sæt"
+  },
+  {
+    "artikelnr": "SAF-DUST-SHE",
+    "lagerplats": "SE-BR-01",
+    "saldo": 127,
+    "reserverat": 13,
+    "enhet": "sæt"
+  },
+  {
+    "artikelnr": "SAF-DUST-SHE",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "sæt"
+  },
+  {
+    "artikelnr": "SAF-DUST-SHE",
+    "lagerplats": "SE-BR-03",
+    "saldo": 132,
+    "reserverat": 10,
+    "enhet": "sæt"
+  },
+  {
+    "artikelnr": "SAF-DUST-SHE",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "sæt"
+  },
+  {
+    "artikelnr": "ELE-CAB-3G15",
+    "lagerplats": "SE-DC-01",
+    "saldo": 612,
+    "reserverat": 42,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-3G15",
+    "lagerplats": "SE-BR-01",
+    "saldo": 135,
+    "reserverat": 9,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-3G15",
+    "lagerplats": "SE-BR-02",
+    "saldo": 144,
+    "reserverat": 5,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-3G15",
+    "lagerplats": "SE-BR-03",
+    "saldo": 26,
+    "reserverat": 1,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-3G15",
+    "lagerplats": "SE-BR-04",
+    "saldo": 194,
+    "reserverat": 11,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-5G25",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1030,
+    "reserverat": 51,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-5G25",
+    "lagerplats": "SE-BR-01",
+    "saldo": 171,
+    "reserverat": 11,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-5G25",
+    "lagerplats": "SE-BR-02",
+    "saldo": 121,
+    "reserverat": 10,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-5G25",
+    "lagerplats": "SE-BR-03",
+    "saldo": 156,
+    "reserverat": 12,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CAB-5G25",
+    "lagerplats": "SE-BR-04",
+    "saldo": 46,
+    "reserverat": 2,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CON-FLEX",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2425,
+    "reserverat": 242,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CON-FLEX",
+    "lagerplats": "SE-BR-01",
+    "saldo": 42,
+    "reserverat": 4,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CON-FLEX",
+    "lagerplats": "SE-BR-02",
+    "saldo": 28,
+    "reserverat": 1,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CON-FLEX",
+    "lagerplats": "SE-BR-03",
+    "saldo": 143,
+    "reserverat": 15,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "ELE-CON-FLEX",
+    "lagerplats": "SE-BR-04",
+    "saldo": 187,
+    "reserverat": 13,
+    "enhet": "rl"
+  },
+  {
+    "artikelnr": "TOO-DIAM-230",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2525,
+    "reserverat": 252,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-DIAM-230",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-DIAM-230",
+    "lagerplats": "SE-BR-02",
+    "saldo": 191,
+    "reserverat": 21,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-DIAM-230",
+    "lagerplats": "SE-BR-03",
+    "saldo": 39,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-DIAM-230",
+    "lagerplats": "SE-BR-04",
+    "saldo": 38,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-SAW-BLAD",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2831,
+    "reserverat": 169,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-SAW-BLAD",
+    "lagerplats": "SE-BR-01",
+    "saldo": 119,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-SAW-BLAD",
+    "lagerplats": "SE-BR-02",
+    "saldo": 65,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-SAW-BLAD",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TOO-SAW-BLAD",
+    "lagerplats": "SE-BR-04",
+    "saldo": 102,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SE-PINE45",
+    "lagerplats": "SE-DC-01",
+    "saldo": 3500,
+    "reserverat": 45,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SE-PINE45",
+    "lagerplats": "SE-BR-01",
+    "saldo": 120,
+    "reserverat": 10,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SE-PINE45",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SE-PINE45",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "TIM-SE-PINE45",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m"
+  },
+  {
+    "artikelnr": "STO-SE-GRANITE",
+    "lagerplats": "SE-DC-01",
+    "saldo": 850,
+    "reserverat": 45,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-SE-GRANITE",
+    "lagerplats": "SE-BR-01",
+    "saldo": 120,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-SE-GRANITE",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-SE-GRANITE",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "STO-SE-GRANITE",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-HEA200",
+    "lagerplats": "SE-DC-01",
+    "saldo": 850,
+    "reserverat": 45,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-HEA200",
+    "lagerplats": "SE-BR-01",
+    "saldo": 120,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-HEA200",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-HEA200",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-BEAM-HEA200",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-NO-SLATE",
+    "lagerplats": "SE-DC-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-NO-SLATE",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-NO-SLATE",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-NO-SLATE",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ROOF-NO-SLATE",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "CHM-NO-ARCTIC",
+    "lagerplats": "SE-DC-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "CHM-NO-ARCTIC",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "CHM-NO-ARCTIC",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "CHM-NO-ARCTIC",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "CHM-NO-ARCTIC",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "spand"
+  },
+  {
+    "artikelnr": "INS-NO-ECOWOOL",
+    "lagerplats": "SE-DC-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "INS-NO-ECOWOOL",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "INS-NO-ECOWOOL",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "INS-NO-ECOWOOL",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "INS-NO-ECOWOOL",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "m2"
+  },
+  {
+    "artikelnr": "BRK-DK-CPHRED",
+    "lagerplats": "SE-DC-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-DK-CPHRED",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-DK-CPHRED",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-DK-CPHRED",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "BRK-DK-CPHRED",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-DK-VELUX78",
+    "lagerplats": "SE-DC-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-DK-VELUX78",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-DK-VELUX78",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-DK-VELUX78",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "WIN-DK-VELUX78",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 428,
+    "reserverat": 55,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 158,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 89,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 158,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 85,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2695,
+    "reserverat": 269,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 136,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 156,
+    "reserverat": 12,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 36,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 153,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2305,
+    "reserverat": 230,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 55,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 26,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 52,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 118,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1860,
+    "reserverat": 93,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 198,
+    "reserverat": 19,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 116,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 114,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45095-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 82,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2236,
+    "reserverat": 245,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 129,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 76,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 45,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 29,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2976,
+    "reserverat": 327,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 64,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 81,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 189,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1545,
+    "reserverat": 154,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 116,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 151,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 95,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 415,
+    "reserverat": 41,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 173,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 152,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 71,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45120-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 111,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2115,
+    "reserverat": 211,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 96,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 154,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1344,
+    "reserverat": 120,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 27,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 186,
+    "reserverat": 18,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 46,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 125,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1595,
+    "reserverat": 159,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 173,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 111,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 144,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 89,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1222,
+    "reserverat": 85,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 114,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 185,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45145-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 188,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 549,
+    "reserverat": 76,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 114,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 39,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1648,
+    "reserverat": 214,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 82,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 65,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 129,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 86,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2144,
+    "reserverat": 192,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 75,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 29,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 89,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 972,
+    "reserverat": 68,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 24,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 81,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 196,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45170-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 113,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2482,
+    "reserverat": 173,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 123,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 173,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 123,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 42,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 951,
+    "reserverat": 57,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 175,
+    "reserverat": 12,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 97,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 127,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 77,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1599,
+    "reserverat": 223,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 142,
+    "reserverat": 14,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 27,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 133,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 148,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2778,
+    "reserverat": 361,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 171,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 22,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45195-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 159,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2938,
+    "reserverat": 381,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 173,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 177,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 34,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 29,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2106,
+    "reserverat": 231,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 117,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 46,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 175,
+    "reserverat": 19,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2494,
+    "reserverat": 224,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 145,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 94,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 26,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 103,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1291,
+    "reserverat": 77,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 31,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 123,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 99,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45220-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 99,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1492,
+    "reserverat": 104,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 61,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 117,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 87,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 48,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2812,
+    "reserverat": 196,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 28,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 133,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 99,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 26,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2060,
+    "reserverat": 103,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 188,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 176,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 94,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 172,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1268,
+    "reserverat": 164,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 33,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 144,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 124,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-45245-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 151,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-36",
+    "lagerplats": "SE-DC-01",
+    "saldo": 956,
+    "reserverat": 105,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-36",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-36",
+    "lagerplats": "SE-BR-02",
+    "saldo": 53,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-36",
+    "lagerplats": "SE-BR-03",
+    "saldo": 159,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-36",
+    "lagerplats": "SE-BR-04",
+    "saldo": 93,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-42",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1770,
+    "reserverat": 88,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-42",
+    "lagerplats": "SE-BR-01",
+    "saldo": 139,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-42",
+    "lagerplats": "SE-BR-02",
+    "saldo": 189,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-42",
+    "lagerplats": "SE-BR-03",
+    "saldo": 116,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-42",
+    "lagerplats": "SE-BR-04",
+    "saldo": 117,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 484,
+    "reserverat": 43,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 121,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 66,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 102,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 171,
+    "reserverat": 18,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-54",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1398,
+    "reserverat": 181,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-54",
+    "lagerplats": "SE-BR-01",
+    "saldo": 124,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-54",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-54",
+    "lagerplats": "SE-BR-03",
+    "saldo": 184,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "TIM-SPRU-70195-54",
+    "lagerplats": "SE-BR-04",
+    "saldo": 172,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0515",
+    "lagerplats": "SE-DC-01",
+    "saldo": 286,
+    "reserverat": 31,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0515",
+    "lagerplats": "SE-BR-01",
+    "saldo": 23,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0515",
+    "lagerplats": "SE-BR-02",
+    "saldo": 27,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0515",
+    "lagerplats": "SE-BR-03",
+    "saldo": 19,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-0515",
+    "lagerplats": "SE-BR-04",
+    "saldo": 27,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1015",
+    "lagerplats": "SE-DC-01",
+    "saldo": 265,
+    "reserverat": 26,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1015",
+    "lagerplats": "SE-BR-01",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1015",
+    "lagerplats": "SE-BR-02",
+    "saldo": 17,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1015",
+    "lagerplats": "SE-BR-03",
+    "saldo": 12,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1015",
+    "lagerplats": "SE-BR-04",
+    "saldo": 24,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1215",
+    "lagerplats": "SE-DC-01",
+    "saldo": 92,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1215",
+    "lagerplats": "SE-BR-01",
+    "saldo": 11,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1215",
+    "lagerplats": "SE-BR-02",
+    "saldo": 6,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1215",
+    "lagerplats": "SE-BR-03",
+    "saldo": 27,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "ARM-NET-1215",
+    "lagerplats": "SE-BR-04",
+    "saldo": 14,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70-4M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1175,
+    "reserverat": 117,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70-4M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 112,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70-4M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70-4M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 161,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U70-4M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70-4M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2007,
+    "reserverat": 240,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70-4M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 69,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70-4M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70-4M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 26,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C70-4M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 85,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95-4M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1828,
+    "reserverat": 237,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95-4M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95-4M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 59,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95-4M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 169,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U95-4M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 164,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95-4M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1879,
+    "reserverat": 263,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95-4M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 43,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95-4M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 64,
+    "reserverat": 5,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95-4M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C95-4M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 162,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U120",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1717,
+    "reserverat": 206,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U120",
+    "lagerplats": "SE-BR-01",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U120",
+    "lagerplats": "SE-BR-02",
+    "saldo": 52,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U120",
+    "lagerplats": "SE-BR-03",
+    "saldo": 196,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-U120",
+    "lagerplats": "SE-BR-04",
+    "saldo": 107,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C120",
+    "lagerplats": "SE-DC-01",
+    "saldo": 980,
+    "reserverat": 49,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C120",
+    "lagerplats": "SE-BR-01",
+    "saldo": 91,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C120",
+    "lagerplats": "SE-BR-02",
+    "saldo": 72,
+    "reserverat": 2,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C120",
+    "lagerplats": "SE-BR-03",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "GYP-PROF-C120",
+    "lagerplats": "SE-BR-04",
+    "saldo": 151,
+    "reserverat": 16,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-2M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2867,
+    "reserverat": 344,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-2M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 139,
+    "reserverat": 15,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-2M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 174,
+    "reserverat": 10,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-2M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 133,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-2M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 25,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-3M",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2295,
+    "reserverat": 229,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-3M",
+    "lagerplats": "SE-BR-01",
+    "saldo": 186,
+    "reserverat": 11,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-3M",
+    "lagerplats": "SE-BR-02",
+    "saldo": 96,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-3M",
+    "lagerplats": "SE-BR-03",
+    "saldo": 92,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-PVC-160-3M",
+    "lagerplats": "SE-BR-04",
+    "saldo": 92,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-45",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2179,
+    "reserverat": 305,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-45",
+    "lagerplats": "SE-BR-01",
+    "saldo": 124,
+    "reserverat": 9,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-45",
+    "lagerplats": "SE-BR-02",
+    "saldo": 121,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-45",
+    "lagerplats": "SE-BR-03",
+    "saldo": 56,
+    "reserverat": 4,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-45",
+    "lagerplats": "SE-BR-04",
+    "saldo": 192,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-88",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1889,
+    "reserverat": 264,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-88",
+    "lagerplats": "SE-BR-01",
+    "saldo": 153,
+    "reserverat": 13,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-88",
+    "lagerplats": "SE-BR-02",
+    "saldo": 84,
+    "reserverat": 3,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-88",
+    "lagerplats": "SE-BR-03",
+    "saldo": 177,
+    "reserverat": 8,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-BEN-160-88",
+    "lagerplats": "SE-BR-04",
+    "saldo": 103,
+    "reserverat": 7,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-RED-160110",
+    "lagerplats": "SE-DC-01",
+    "saldo": 2783,
+    "reserverat": 222,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-RED-160110",
+    "lagerplats": "SE-BR-01",
+    "saldo": 73,
+    "reserverat": 6,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-RED-160110",
+    "lagerplats": "SE-BR-02",
+    "saldo": 48,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-RED-160110",
+    "lagerplats": "SE-BR-03",
+    "saldo": 189,
+    "reserverat": 17,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "PIP-RED-160110",
+    "lagerplats": "SE-BR-04",
+    "saldo": 23,
+    "reserverat": 1,
+    "enhet": "stk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-440",
+    "lagerplats": "SE-DC-01",
+    "saldo": 526,
+    "reserverat": 57,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-440",
+    "lagerplats": "SE-BR-01",
+    "saldo": 178,
+    "reserverat": 17,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-440",
+    "lagerplats": "SE-BR-02",
+    "saldo": 149,
+    "reserverat": 13,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-440",
+    "lagerplats": "SE-BR-03",
+    "saldo": 54,
+    "reserverat": 3,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-440",
+    "lagerplats": "SE-BR-04",
+    "saldo": 37,
+    "reserverat": 3,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-450",
+    "lagerplats": "SE-DC-01",
+    "saldo": 514,
+    "reserverat": 46,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-450",
+    "lagerplats": "SE-BR-01",
+    "saldo": 173,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-450",
+    "lagerplats": "SE-BR-02",
+    "saldo": 75,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-450",
+    "lagerplats": "SE-BR-03",
+    "saldo": 51,
+    "reserverat": 5,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-450",
+    "lagerplats": "SE-BR-04",
+    "saldo": 144,
+    "reserverat": 11,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-460",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1063,
+    "reserverat": 85,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-460",
+    "lagerplats": "SE-BR-01",
+    "saldo": 86,
+    "reserverat": 5,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-460",
+    "lagerplats": "SE-BR-02",
+    "saldo": 32,
+    "reserverat": 2,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-460",
+    "lagerplats": "SE-BR-03",
+    "saldo": 39,
+    "reserverat": 2,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-460",
+    "lagerplats": "SE-BR-04",
+    "saldo": 24,
+    "reserverat": 1,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-560",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1692,
+    "reserverat": 118,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-560",
+    "lagerplats": "SE-BR-01",
+    "saldo": 75,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-560",
+    "lagerplats": "SE-BR-02",
+    "saldo": 42,
+    "reserverat": 4,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-560",
+    "lagerplats": "SE-BR-03",
+    "saldo": 177,
+    "reserverat": 8,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-560",
+    "lagerplats": "SE-BR-04",
+    "saldo": 171,
+    "reserverat": 18,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-570",
+    "lagerplats": "SE-DC-01",
+    "saldo": 414,
+    "reserverat": 37,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-570",
+    "lagerplats": "SE-BR-01",
+    "saldo": 23,
+    "reserverat": 2,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-570",
+    "lagerplats": "SE-BR-02",
+    "saldo": 21,
+    "reserverat": 1,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-570",
+    "lagerplats": "SE-BR-03",
+    "saldo": 21,
+    "reserverat": 1,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-WOOD-570",
+    "lagerplats": "SE-BR-04",
+    "saldo": 125,
+    "reserverat": 11,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-ROOF-48",
+    "lagerplats": "SE-DC-01",
+    "saldo": 1444,
+    "reserverat": 129,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-ROOF-48",
+    "lagerplats": "SE-BR-01",
+    "saldo": 36,
+    "reserverat": 2,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-ROOF-48",
+    "lagerplats": "SE-BR-02",
+    "saldo": 38,
+    "reserverat": 3,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-ROOF-48",
+    "lagerplats": "SE-BR-03",
+    "saldo": 27,
+    "reserverat": 1,
+    "enhet": "pk"
+  },
+  {
+    "artikelnr": "SCR-ROOF-48",
+    "lagerplats": "SE-BR-04",
+    "saldo": 0,
+    "reserverat": 0,
+    "enhet": "pk"
+  }
+]
