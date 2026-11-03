@@ -63,6 +63,9 @@ export const en = {
   "inbox.sourcePhoto": "Photo (OCR)",
   "inbox.sourceEmail": "Email",
   "inbox.sourceExcel": "Excel",
+  "inbox.simulatedToast": "New site order intake simulated: NCC Aarhus (DK)",
+  "inbox.emptyTitle": "No intake requests match",
+  "inbox.emptyDesc": "Try clearing or relaxing your search query or filters.",
   "inbox.flaggedLines": "flagged line(s)",
   "inbox.cleanLines": "lines extracted cleanly",
 

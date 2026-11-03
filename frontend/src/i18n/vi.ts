@@ -65,6 +65,9 @@ export const vi: Record<TranslationKey, string> = {
   "inbox.sourcePhoto": "Ảnh chụp (OCR)",
   "inbox.sourceEmail": "Email",
   "inbox.sourceExcel": "Excel",
+  "inbox.simulatedToast": "Đã mô phỏng đơn gửi mới từ công trường: NCC Aarhus (DK)",
+  "inbox.emptyTitle": "Không có yêu cầu phù hợp",
+  "inbox.emptyDesc": "Thử xóa bộ lọc hoặc tìm kiếm với từ khóa khác.",
   "inbox.flaggedLines": "dòng cần chú ý",
   "inbox.cleanLines": "dòng trích xuất chuẩn",
 
