@@ -10,7 +10,10 @@ Generates:
 """
 
 import csv
+import hashlib
 import json
+import re
+import unicodedata
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -1964,6 +1967,8 @@ SITES = [
 #   'SE': Only in Sweden
 #   'NO': Only in Norway
 #   'DK': Only in Denmark
+COUNTRIES = ["DK", "SE", "NO"]
+
 RARE_CROSS_BORDER_MAP = {
     # Exclusive to Sweden
     "TIM-SE-PINE45": "SE",
@@ -1979,6 +1984,29 @@ RARE_CROSS_BORDER_MAP = {
 }
 
 
+def _alias_tokens(text):
+    text = text.lower().translate(str.maketrans({"æ": "ae", "ø": "oe", "å": "aa", "ä": "ae", "ö": "oe"}))
+    text = "".join(c for c in unicodedata.normalize("NFKD", text) if not unicodedata.combining(c))
+    text = re.sub(r"(\d+)(mm|cm|m|kg|pk|stk)", r"\1 \2", text)
+    text = re.sub(r"(\d+)x(\d+)", r"\1 \2", text)
+    return set(re.sub(r"[^\w\s]", " ", text).split())
+
+
+def drop_ambiguous_aliases(items):
+    """Remove aliases that are too generic: all their tokens also appear in another SKU's name or alias.
+
+    Such an alias would exact-match one SKU and be auto-selected although sibling SKUs
+    (other lengths, grades, variants) fit it just as well.
+    """
+    token_sets = [(it["sku"], _alias_tokens(t)) for it in items for t in [it["name"], *it.get("aliases", [])]]
+    for it in items:
+        it["aliases"] = [
+            a for a in it.get("aliases", [])
+            if not any(sku != it["sku"] and _alias_tokens(a) <= tokens for sku, tokens in token_sets)
+        ]
+    return items
+
+
 def build_catalog():
     items = []
     # Deduplicate by SKU while preserving order
@@ -1988,7 +2016,7 @@ def build_catalog():
         if sku not in seen_skus:
             seen_skus.add(sku)
             items.append(item)
-    return items
+    return drop_ambiguous_aliases(items)
 
 
 def generate_inventory_for_country(catalog, country_code, warehouses):
@@ -1999,7 +2027,8 @@ def generate_inventory_for_country(catalog, country_code, warehouses):
       - If SKU is rare to this country: Central DC has abundant stock, 1-2 key branches have moderate stock.
       - Normal items:
           - Central DC has high stock (e.g. 500 - 3500)
-          - Regional branches have moderate local stock (e.g. 20 - 450)
+          - Regional branches carry ~55% of items with moderate local stock (e.g. 20 - 450)
+          - ~12% of items are DC-only; ~7% are nearly out of stock in one country
       - Reserved quantity is realistic (e.g. 5% - 15% of on-hand).
     """
     country_whs = [w for w in warehouses if w["country"] == country_code]
@@ -2007,7 +2036,6 @@ def generate_inventory_for_country(catalog, country_code, warehouses):
     branches = [w for w in country_whs if w["type"] == "branch"]
 
     records = []
-    import hashlib
 
     for idx, item in enumerate(catalog):
         sku = item["sku"]
@@ -2051,6 +2079,24 @@ def generate_inventory_for_country(catalog, country_code, warehouses):
 
         # Deterministic pseudo-random generation based on SKU hash
         h = int(hashlib.md5(f"{sku}_{country_code}".encode()).hexdigest(), 16)
+        sku_hash = int(hashlib.md5(f"{sku}_range".encode()).hexdigest(), 16)
+        # ~12% of items are kept at the Central DC only (branches hold nothing)
+        dc_only = sku_hash % 8 == 0
+        # ~7% of items are nearly out of stock in one country, so another country must supply them
+        short_country = COUNTRIES[(sku_hash // 14) % len(COUNTRIES)] if sku_hash % 14 == 1 else None
+
+        if short_country == country_code:
+            on_hand = h % 25
+            records.append({
+                "sku": sku,
+                "warehouse_code": dc["code"],
+                "on_hand": on_hand,
+                "reserved": min(on_hand, 2),
+                "unit": unit,
+            })
+            for br in branches:
+                records.append({"sku": sku, "warehouse_code": br["code"], "on_hand": 0, "reserved": 0, "unit": unit})
+            continue
         
         # DC Stock
         base_dc = 400 + (h % 2600)
@@ -2073,7 +2119,7 @@ def generate_inventory_for_country(catalog, country_code, warehouses):
         # Branch Stocks
         for b_idx, br in enumerate(branches):
             b_hash = int(hashlib.md5(f"{sku}_{br['code']}".encode()).hexdigest(), 16)
-            is_stocked = (b_hash % 10) >= 1  # 90% chance stocked in local branch
+            is_stocked = not dc_only and (b_hash % 100) >= 45  # ~55% chance a branch carries the item
             if is_stocked:
                 base_br = 20 + (b_hash % 180)
                 if unit == "m":
@@ -2114,7 +2160,7 @@ def write_sites(sites, path: Path):
 def write_inventory_dk_csv(records, path: Path):
     """Format: CSV, Danish field headers: varenr, lager_kode, beholdning, reserveret, enhed"""
     with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow(["varenr", "lager_kode", "beholdning", "reserveret", "enhed"])
         for r in records:
             writer.writerow([r["sku"], r["warehouse_code"], r["on_hand"], r["reserved"], r["unit"]])

@@ -7,7 +7,6 @@
     "weight_kg": 25.5,
     "requires_crane": false,
     "aliases": [
-      "gipsplade 13mm",
       "gipsskiva normal 13mm",
       "gipsplate standard 13mm",
       "standard plasterboard 13mm",
@@ -36,7 +35,6 @@
     "weight_kg": 2.2,
     "requires_crane": false,
     "aliases": [
-      "isolering 100mm",
       "glasull isolering 100mm",
       "glassull isolasjon 100mm",
       "glass wool insulation 100mm"
@@ -52,8 +50,7 @@
     "aliases": [
       "stenull isolering 150mm",
       "steinull isolasjon 150mm",
-      "stone wool insulation 150mm",
-      "stenuld 150mm"
+      "stone wool insulation 150mm"
     ]
   },
   {
@@ -92,11 +89,8 @@
     "weight_kg": 3.2,
     "requires_crane": false,
     "aliases": [
-      "spærtræ 45x145",
       "regel virke 45x145",
-      "konstruksjonsvirke 45x145",
-      "structural timber 45x145",
-      "regel 45x145"
+      "structural timber 45x145"
     ]
   },
   {
@@ -107,9 +101,6 @@
     "weight_kg": 2.1,
     "requires_crane": false,
     "aliases": [
-      "spærtræ 45x95",
-      "regel 45x95",
-      "konstruksjonsvirke 45x95",
       "structural timber 45x95"
     ]
   },
@@ -148,10 +139,8 @@
     "weight_kg": 25.0,
     "requires_crane": false,
     "aliases": [
-      "murbruk 25kg",
       "murmørtel 25kg",
-      "dry mortar 25kg",
-      "mørtel 25kg"
+      "dry mortar 25kg"
     ]
   },
   {
@@ -178,7 +167,6 @@
     "aliases": [
       "avloppsrör pvc 110mm",
       "avløpsrør pvc 110mm",
-      "drainage pipe pvc 110mm",
       "pvc rør 110mm"
     ]
   },
@@ -192,8 +180,7 @@
     "aliases": [
       "akrylfog vit 300ml",
       "akrylfugemasse hvit 300ml",
-      "acrylic sealant white 300ml",
-      "fugemasse 300ml"
+      "acrylic sealant white 300ml"
     ]
   },
   {
@@ -302,8 +289,6 @@
     "weight_kg": 2.4,
     "requires_crane": false,
     "aliases": [
-      "u-skinne 70mm",
-      "stålregel u70",
       "styreskinne u70",
       "steel track u70 3m"
     ]
@@ -316,8 +301,6 @@
     "weight_kg": 2.7,
     "requires_crane": false,
     "aliases": [
-      "c-stolpe 70mm",
-      "stålregel c70",
       "stender c70",
       "steel stud c70 3m"
     ]
@@ -330,8 +313,6 @@
     "weight_kg": 3.1,
     "requires_crane": false,
     "aliases": [
-      "u-skinne 95mm",
-      "stålregel u95",
       "styreskinne u95",
       "steel track u95"
     ]
@@ -344,8 +325,6 @@
     "weight_kg": 3.4,
     "requires_crane": false,
     "aliases": [
-      "c-stolpe 95mm",
-      "stålregel c95",
       "stender c95",
       "steel stud c95"
     ]
@@ -442,9 +421,7 @@
     "weight_kg": 4.3,
     "requires_crane": false,
     "aliases": [
-      "spærtræ 45x195",
       "regel virke 45x195",
-      "konstruksjonsvirke 45x195",
       "structural timber 45x195"
     ]
   },
@@ -456,9 +433,7 @@
     "weight_kg": 4.9,
     "requires_crane": false,
     "aliases": [
-      "spærtræ 45x220",
       "regel virke 45x220",
-      "konstruksjonsvirke 45x220",
       "structural timber 45x220"
     ]
   },
@@ -751,7 +726,6 @@
     "aliases": [
       "glasuld 150mm",
       "glasull rulle 150mm",
-      "glassull rull 150mm",
       "glass wool roll 150mm"
     ]
   },
@@ -791,7 +765,6 @@
     "weight_kg": 3.2,
     "requires_crane": false,
     "aliases": [
-      "stenuld 100mm",
       "rockwool 100mm flexibatts",
       "steinull batts 100mm",
       "rockwool insulation 100mm"
@@ -2820,7 +2793,6 @@
     "weight_kg": 16.5,
     "requires_crane": true,
     "aliases": [
-      "rionet 5mm",
       "armeringsnät 5mm",
       "armeringsnett 5mm"
     ]
