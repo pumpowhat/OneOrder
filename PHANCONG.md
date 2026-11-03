@@ -5,11 +5,11 @@
 
 ## Thành viên
 
-| Thành viên | Vai trò chính | Mức độ task |
-|---|---|---|
-| **Nghĩa** | Trưởng nhóm, backend, AI, mô hình ML | Khó |
-| **Khang** | Dữ liệu mẫu, ERP giả lập, kiểm thử | Dễ – vừa |
-| **Nhật** | Frontend, tài liệu, sơ đồ | Dễ – vừa |
+| Thành viên | Vai trò chính                        | Mức độ task |
+| ---------- | ------------------------------------ | ----------- |
+| **Nghĩa**  | Trưởng nhóm, backend, AI, mô hình ML | Khó         |
+| **Khang**  | Dữ liệu mẫu, ERP giả lập, kiểm thử   | Dễ – vừa    |
+| **Nhật**   | Frontend, tài liệu, sơ đồ            | Dễ – vừa    |
 
 ---
 
@@ -35,11 +35,11 @@
 
 **Mục tiêu:** có app React chạy được, với layout và điều hướng cho các màn hình chính.
 
-- [ ] Khởi tạo `frontend/` bằng React + Vite + TypeScript + Tailwind CSS.
-- [ ] Dựng layout chung (thanh bên, header) và route cho 6 màn hình: **Inbox, Review, Kế hoạch thực hiện, Tồn kho nhóm, Rules, Model**.
-- [ ] Mỗi màn hình có nội dung giả (placeholder) với dữ liệu cứng, chưa cần gọi API.
-- [ ] Hiển thị badge chế độ AI (`live` / `demo`) ở header.
-- [ ] Cấu hình proxy `/api` tới `http://localhost:8000`.
+- [x] Khởi tạo `frontend/` bằng React + Vite + TypeScript + Tailwind CSS.
+- [x] Dựng layout chung (thanh bên, header) và route cho 6 màn hình: **Inbox, Review, Kế hoạch thực hiện, Tồn kho nhóm, Rules, Model**.
+- [x] Mỗi màn hình có nội dung giả (placeholder) với dữ liệu cứng, chưa cần gọi API.
+- [x] Hiển thị badge chế độ AI (`live` / `demo`) ở header.
+- [x] Cấu hình proxy `/api` tới `http://localhost:8000`.
 
 **Kết quả cần nộp:** `npm install && npm run dev` mở được tại `http://localhost:5173`, điều hướng giữa 6 màn hình không lỗi.
 **Cách nghiệm thu:** Nghĩa chạy thử và không phải sửa cấu hình.
@@ -59,14 +59,14 @@
 
 ## Các task tiếp theo (dự kiến)
 
-| Ngày | Nghĩa | Khang | Nhật |
-|---|---|---|---|
+| Ngày     | Nghĩa                                                                                     | Khang                                                                                          | Nhật                                          |
+| -------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | **4/11** | [x] Bộ đối khớp danh mục (RapidFuzz + gợi ý AI), audit log, endpoint `approve` (xong sớm) | Viết test cho adapter ERP và đối khớp danh mục; chuẩn bị file mẫu (ảnh viết tay, email, Excel) | Màn hình **Inbox** và **Review** nối API thật |
-| **5/11** | Orchestration engine: quy tắc chọn nguồn, tách lô, chọn phương tiện | Màn hình **Tồn kho nhóm** và dữ liệu cho `rules.json` | Màn hình **Rules** (xem và sửa quy tắc) |
-| **6/11** | Mô hình ETA (P50/P90), endpoint `plan` và `confirm`, nối toàn bộ luồng | Script sinh dữ liệu huấn luyện mô phỏng, tài liệu `docs/eta-calibration.md` | Màn hình **Kế hoạch thực hiện** và **Model** |
-| **7/11** | Sửa lỗi tích hợp, tinh chỉnh độ chính xác | Chạy thử với nhiều file mẫu, ghi lại lỗi | Soạn **System Context Diagram.pdf** |
-| **8/11** | Quay video demo (**MVP.mp4**) | Soạn **User Journey.pdf**, hỗ trợ video | Hoàn thiện **AI Journal.pdf** cùng Nghĩa |
-| **9/11** | Dự phòng, rà soát, nộp bài trước 20:00 | Dự phòng | Dự phòng |
+| **5/11** | Orchestration engine: quy tắc chọn nguồn, tách lô, chọn phương tiện                       | Màn hình **Tồn kho nhóm** và dữ liệu cho `rules.json`                                          | Màn hình **Rules** (xem và sửa quy tắc)       |
+| **6/11** | Mô hình ETA (P50/P90), endpoint `plan` và `confirm`, nối toàn bộ luồng                    | Script sinh dữ liệu huấn luyện mô phỏng, tài liệu `docs/eta-calibration.md`                    | Màn hình **Kế hoạch thực hiện** và **Model**  |
+| **7/11** | Sửa lỗi tích hợp, tinh chỉnh độ chính xác                                                 | Chạy thử với nhiều file mẫu, ghi lại lỗi                                                       | Soạn **System Context Diagram.pdf**           |
+| **8/11** | Quay video demo (**MVP.mp4**)                                                             | Soạn **User Journey.pdf**, hỗ trợ video                                                        | Hoàn thiện **AI Journal.pdf** cùng Nghĩa      |
+| **9/11** | Dự phòng, rà soát, nộp bài trước 20:00                                                    | Dự phòng                                                                                       | Dự phòng                                      |
 
 > Các task sau 3/11 là bản nháp, sẽ chốt lại khi hoàn thành task đầu tiên.
 
