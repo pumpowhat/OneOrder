@@ -40,6 +40,7 @@ export const en = {
   "common.approved": "Approved",
   "common.planned": "Planned",
   "common.confirmedStatus": "Confirmed",
+  "common.cancelledStatus": "Cancelled",
   "common.draft": "Draft",
 
   // Mock data banner
