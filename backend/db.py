@@ -4,7 +4,7 @@ import os
 import uuid
 from typing import Generator
 
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, create_engine
+from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, create_engine, inspect, text
 from sqlalchemy.orm import Session, declarative_base, relationship, sessionmaker
 
 from backend.services.intake.schemas import line_needs_review
@@ -26,13 +26,14 @@ class OrderModel(Base):
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
-    status = Column(String(20), default="draft", nullable=False)  # "draft", "approved"
+    status = Column(String(20), default="draft", nullable=False)  # see backend/services/orders/status.py
     source_type = Column(String(20), nullable=False)
     source_name = Column(String(255), nullable=True)
     customer = Column(String(255), nullable=True)
     delivery_site = Column(String(255), nullable=True)
     requested_date = Column(String(20), nullable=True)
     warnings = Column(Text, nullable=True)
+    plan = Column(Text, nullable=True)  # JSON of the latest fulfilment plan, set by /plan
 
     lines = relationship(
         "OrderLineModel",
@@ -78,7 +79,7 @@ class AuditLogModel(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
     order_id = Column(String(36), ForeignKey("orders.id"), nullable=False, index=True)
-    action = Column(String(50), nullable=False)  # "create_draft", "edit_line", "approve"
+    action = Column(String(50), nullable=False)  # "create_draft", "edit_line", "confirm_line", "approve", "plan", "cancel"
     user = Column(String(100), default="sales_desk", nullable=False)
     payload_before = Column(Text, nullable=True)  # JSON-encoded snapshot before change
     payload_after = Column(Text, nullable=True)  # JSON-encoded snapshot after change
@@ -89,10 +90,22 @@ class AuditLogModel(Base):
 _db_initialized = False
 
 
+def _ensure_columns(target_engine) -> None:
+    """Add columns introduced after a database file was first created (create_all never alters tables)."""
+    inspector = inspect(target_engine)
+    if "orders" not in inspector.get_table_names():
+        return
+    existing = {col["name"] for col in inspector.get_columns("orders")}
+    if "plan" not in existing:
+        with target_engine.begin() as conn:
+            conn.execute(text("ALTER TABLE orders ADD COLUMN plan TEXT"))
+
+
 def init_db(target_engine=None) -> None:
-    """Create all database tables if they do not exist."""
+    """Create all database tables if they do not exist, and add newer columns to old ones."""
     global _db_initialized
     Base.metadata.create_all(bind=target_engine or engine)
+    _ensure_columns(target_engine or engine)
     if target_engine is None or target_engine is engine:
         _db_initialized = True
 
@@ -237,6 +250,7 @@ def order_model_to_dict(model: OrderModel) -> dict:
         })
 
     warnings = json.loads(model.warnings) if model.warnings else []
+    plan = json.loads(model.plan) if model.plan else None
     return {
         "id": model.id,
         "status": model.status,
@@ -248,5 +262,6 @@ def order_model_to_dict(model: OrderModel) -> dict:
         "lines": lines,
         "warnings": warnings,
         "needs_review": any(l["needs_review"] for l in lines),
+        "plan": plan,
         "audit_logs": logs,
     }

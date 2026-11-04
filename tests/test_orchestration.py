@@ -350,8 +350,9 @@ def test_plan_api_for_approved_sample_order(client):
         assert s["vehicle_type"] in {"small_truck", "heavy_truck", "crane_truck"}
         assert all(a["reason"] for a in s["lines"])
 
-    # Read-only: planning does not change the order.
-    assert client.get(f"/api/orders/{order['id']}").json()["status"] == "approved"
+    # Planning stores the plan on the order and moves it to "planned" (see tests/test_order_status.py).
+    stored = client.get(f"/api/orders/{order['id']}").json()
+    assert stored["status"] == "planned" and stored["plan"] == body
 
 
 def test_plan_api_rejects_draft_order(client):

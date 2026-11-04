@@ -1,3 +1,4 @@
+import json
 import logging
 
 from fastapi import APIRouter, Body, Depends, HTTPException
@@ -8,6 +9,7 @@ from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
 from backend.erp import get_group_inventory
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
+from backend.services.orders import InvalidTransition, OrderStatus, require_transition
 from backend.services.orchestration import (
     FulfillmentPlan,
     PlanLineInput,
@@ -39,7 +41,19 @@ class ApproveOrderRequest(BaseModel):
     confirm_lines: list[int] = Field(default_factory=list)
 
 
+def _require_transition(order: OrderModel, target: OrderStatus, hint: str | None = None) -> None:
+    """Turn an invalid status change into a 409 that names the order and its current status."""
+    try:
+        require_transition(order.status, target)
+    except InvalidTransition as exc:
+        detail = f"Order {order.id}: {exc}"
+        if hint:
+            detail += f" ({hint})"
+        raise HTTPException(status_code=409, detail=detail) from exc
+
+
 class PlanOrderRequest(BaseModel):
+    user: str = "sales_desk"
     site_id: str | None = Field(
         default=None, description="Override the delivery site (e.g. SITE-NO-01) when the address does not match"
     )
@@ -51,20 +65,17 @@ def plan_order(
     payload: PlanOrderRequest = Body(default_factory=PlanOrderRequest),
     db: Session = Depends(get_db),
 ) -> FulfillmentPlan:
-    """Build a multi-warehouse fulfilment plan for an approved order.
+    """Build a multi-warehouse fulfilment plan, store it on the order and mark the order `planned`.
 
-    Read-only: nothing is reserved and the order status is not changed (ETA and /confirm come later).
-    - 404 unknown order, 409 order not approved yet, 422 site cannot be resolved or SKU unknown,
-      503 data or rules files missing/invalid.
+    Allowed from `approved` and from `planned` (planning again overwrites the stored plan, and the
+    change is audit-logged). Nothing is reserved in any ERP; that is /confirm.
+    - 404 unknown order, 409 order is draft / confirmed / cancelled, 422 site cannot be resolved or
+      SKU unknown, 503 data or rules files missing/invalid. On any error the order is left untouched.
     """
     order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
     if not order:
         raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
-    if order.status != "approved":
-        raise HTTPException(
-            status_code=409,
-            detail=f"Order {order_id} must be approved before planning (status: {order.status})",
-        )
+    _require_transition(order, OrderStatus.PLANNED, hint="approve the order before planning")
 
     try:
         rules = load_rules()
@@ -96,7 +107,7 @@ def plan_order(
         for line in order.lines
     ]
     try:
-        return plan_fulfillment(
+        result = plan_fulfillment(
             lines,
             site,
             match,
@@ -111,6 +122,66 @@ def plan_order(
         )
     except PlanningError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+    previous = json.loads(order.plan) if order.plan else None
+    before_status = order.status
+    order.plan = result.model_dump_json()
+    order.status = OrderStatus.PLANNED.value
+    record_audit_log(
+        db,
+        order_id=order.id,
+        action="plan",
+        user=payload.user,
+        payload_before={
+            "status": before_status,
+            "shipments": len(previous["shipments"]) if previous else None,
+        },
+        payload_after={
+            "status": OrderStatus.PLANNED.value,
+            "site_id": result.site.id,
+            "shipments": len(result.shipments),
+            "total_weight_kg": result.total_weight_kg,
+            "fully_sourced": result.fully_sourced,
+        },
+    )
+    db.commit()
+    return result
+
+
+class CancelOrderRequest(BaseModel):
+    user: str = "sales_desk"
+    reason: str | None = Field(default=None, max_length=500)
+
+
+@router.post("/{order_id}/cancel")
+def cancel_order(
+    order_id: str,
+    payload: CancelOrderRequest = Body(default_factory=CancelOrderRequest),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Cancel an order that is not confirmed yet (draft, approved or planned).
+
+    The stored plan is kept for history. 409 for confirmed or already cancelled orders: reservations
+    in the ERPs would have to be released first, which is outside the MVP.
+    """
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+    _require_transition(order, OrderStatus.CANCELLED)
+
+    before_status = order.status
+    order.status = OrderStatus.CANCELLED.value
+    record_audit_log(
+        db,
+        order_id=order.id,
+        action="cancel",
+        user=payload.user,
+        payload_before={"status": before_status},
+        payload_after={"status": OrderStatus.CANCELLED.value, "reason": payload.reason},
+    )
+    db.commit()
+    db.refresh(order)
+    return order_model_to_dict(order)
 
 
 @router.get("/{order_id}")
@@ -143,8 +214,9 @@ def approve_order(
     if not order:
         raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
 
-    if order.status == "approved":
+    if order.status == OrderStatus.APPROVED.value:
         raise HTTPException(status_code=409, detail=f"Order {order_id} has already been approved")
+    _require_transition(order, OrderStatus.APPROVED)
 
     # Load valid catalogue SKUs to validate human corrections
     try:
@@ -257,14 +329,14 @@ def approve_order(
 
     # Mark order as approved
     before_status = order.status
-    order.status = "approved"
+    order.status = OrderStatus.APPROVED.value
     record_audit_log(
         db,
         order_id=order.id,
         action="approve",
         user=payload.user,
         payload_before={"status": before_status},
-        payload_after={"status": "approved"},
+        payload_after={"status": OrderStatus.APPROVED.value},
     )
     db.commit()
     db.refresh(order)

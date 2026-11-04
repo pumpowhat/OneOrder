@@ -274,7 +274,8 @@ Tích hợp ERP thật, tối ưu tuyến đường, trang theo dõi dành cho n
 | `POST` | `/api/intake` | Ảnh / văn bản email / Excel → đơn nháp |
 | `GET` | `/api/orders/{id}` | Đơn hàng kèm dòng hàng, trạng thái và audit log |
 | `POST` | `/api/orders/{id}/approve` | Các dòng đã kiểm tra (xác nhận bởi con người) |
-| `POST` | `/api/orders/{id}/plan` | Kế hoạch thực hiện đơn và ETA cho từng lô |
+| `POST` | `/api/orders/{id}/plan` | Kế hoạch thực hiện đơn (ETA cho từng lô: sẽ bổ sung); lưu kế hoạch, chuyển đơn sang `planned` |
+| `POST` | `/api/orders/{id}/cancel` | Hủy đơn chưa xác nhận |
 | `POST` | `/api/orders/{id}/confirm` | Ghi đặt giữ hàng vào ERP giả lập |
 | `GET` | `/api/stock` | Tồn kho toàn tập đoàn qua các adapter |
 | `GET` / `PUT` | `/api/rules` | Quy tắc nghiệp vụ |
@@ -284,8 +285,24 @@ Tích hợp ERP thật, tối ưu tuyến đường, trang theo dõi dành cho n
 ### 4.5 Luồng trạng thái đơn hàng
 
 ```text
-RECEIVED → EXTRACTED → APPROVED → PLANNED → CONFIRMED
+draft ──approve──► approved ──plan──► planned ──confirm──► confirmed
+  │                   │                 │  ▲
+  │                   │                 └──┘  plan lại (kế hoạch cũ bị ghi đè)
+  └───────────────────┴─────────────────┴──► cancelled
 ```
+
+| Trạng thái | Ý nghĩa |
+|---|---|
+| `draft` | Đơn nháp do AI trích xuất từ ảnh / email / Excel; có thể còn dòng cần kiểm tra |
+| `approved` | Mọi dòng đã được nhân viên kiểm tra và duyệt |
+| `planned` | Đã có kế hoạch thực hiện đơn, lưu cùng đơn; có thể lập lại |
+| `confirmed` | Đã ghi đặt giữ hàng vào ERP giả lập. Trạng thái cuối |
+| `cancelled` | Hủy trước khi xác nhận. Trạng thái cuối; kế hoạch cũ vẫn được giữ để tra cứu |
+
+- Mỗi lần đổi trạng thái đều ghi vào audit log (`approve`, `plan`, `cancel`).
+- Không thể hủy đơn đã `confirmed`, vì phải trả lại hàng đã giữ trong ERP (ngoài phạm vi MVP).
+- Chuyển trạng thái không hợp lệ trả về `409`. Bảng chuyển nằm ở `backend/services/orders/status.py`.
+- Bỏ `RECEIVED` và `EXTRACTED` của bản thiết kế đầu: file được xử lý ngay trong một lần gọi `/intake`, nên `draft` là trạng thái đầu tiên. Trạng thái `failed` (ERP từ chối đặt giữ hàng) sẽ được thêm cùng `/confirm`.
 
 ### 4.6 Các quyết định thiết kế chính
 
