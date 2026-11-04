@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "description": "DRAFT business rules for the OneOrder orchestration engine. Edit values here, not in code.",
+  "intake": {
+    "min_confidence": 0.85
+  },
+  "sourcing": {
+    "priority": ["branch", "domestic_dc", "cross_border_dc"],
+    "allow_cross_border": true,
+    "allow_line_split": true,
+    "branch_max_distance_km": 150,
+    "max_shipments_per_order": 4
+  },
+  "distance": {
+    "road_factor": 1.3
+  },
+  "vehicles": [
+    {"type": "small_truck", "max_weight_kg": 1500, "crane": false},
+    {"type": "heavy_truck", "max_weight_kg": 12000, "crane": false},
+    {"type": "crane_truck", "max_weight_kg": 10000, "crane": true}
+  ],
+  "country_lead_time_buffer_days": {
+    "DK": 0,
+    "SE": 1,
+    "NO": 1
+  }
+}
