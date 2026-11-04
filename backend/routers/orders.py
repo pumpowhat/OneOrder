@@ -5,8 +5,20 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
+from backend.erp import get_group_inventory
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
+from backend.services.orchestration import (
+    FulfillmentPlan,
+    PlanLineInput,
+    PlanningError,
+    load_products,
+    load_rules,
+    load_sites,
+    load_warehouses,
+    plan_fulfillment,
+    resolve_site,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +37,80 @@ class ApproveOrderRequest(BaseModel):
     user: str = "sales_desk"
     corrections: list[LineCorrection] = Field(default_factory=list)
     confirm_lines: list[int] = Field(default_factory=list)
+
+
+class PlanOrderRequest(BaseModel):
+    site_id: str | None = Field(
+        default=None, description="Override the delivery site (e.g. SITE-NO-01) when the address does not match"
+    )
+
+
+@router.post("/{order_id}/plan", response_model=FulfillmentPlan)
+def plan_order(
+    order_id: str,
+    payload: PlanOrderRequest = Body(default_factory=PlanOrderRequest),
+    db: Session = Depends(get_db),
+) -> FulfillmentPlan:
+    """Build a multi-warehouse fulfilment plan for an approved order.
+
+    Read-only: nothing is reserved and the order status is not changed (ETA and /confirm come later).
+    - 404 unknown order, 409 order not approved yet, 422 site cannot be resolved or SKU unknown,
+      503 data or rules files missing/invalid.
+    """
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+    if order.status != "approved":
+        raise HTTPException(
+            status_code=409,
+            detail=f"Order {order_id} must be approved before planning (status: {order.status})",
+        )
+
+    try:
+        rules = load_rules()
+        sites = load_sites()
+        warehouses = load_warehouses()
+        products = load_products()
+        inventory = get_group_inventory()
+    except (FileNotFoundError, KeyError, ValueError) as exc:
+        logger.error("Planning data unavailable for order %s: %s", order_id, exc)
+        raise HTTPException(status_code=503, detail=f"Planning data unavailable: {exc}") from exc
+
+    resolved = resolve_site(order.delivery_site, sites, site_id=payload.site_id)
+    if not resolved:
+        known = ", ".join(s.id for s in sites)
+        target = f"site_id '{payload.site_id}'" if payload.site_id else f"delivery site '{order.delivery_site}'"
+        raise HTTPException(
+            status_code=422,
+            detail=f"Cannot resolve {target}. Send a site_id, one of: {known}",
+        )
+    site, match = resolved
+
+    lines = [
+        PlanLineInput(
+            line_index=line.line_index,
+            sku=line.matched_sku,
+            quantity=line.quantity,
+            description=line.description,
+        )
+        for line in order.lines
+    ]
+    try:
+        return plan_fulfillment(
+            lines,
+            site,
+            match,
+            inventory,
+            warehouses,
+            products,
+            rules,
+            order_id=order.id,
+            customer=order.customer,
+            delivery_site=order.delivery_site,
+            requested_date=order.requested_date,
+        )
+    except PlanningError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
 @router.get("/{order_id}")
