@@ -305,6 +305,18 @@ def client(tmp_path):
     app.dependency_overrides.clear()
 
 
+CITY_ONLY_EMAIL = """\
+Hei OneOrder,
+
+Kunde: Test Entreprenør AS
+Leveringsadresse: Ukjent veg 99, 0150 Oslo
+Leveringsdato: 2026-11-15
+
+- 30 stk Brannplate gips 15mm
+- 5 pk Gipsskruer 3.9x40mm
+"""
+
+
 def _intake(client, name: str) -> dict:
     res = client.post("/api/intake", files={"file": (name, (SAMPLES_DIR / "emails" / name).read_bytes(), "text/plain")})
     assert res.status_code == 200
@@ -353,7 +365,11 @@ def test_plan_api_unknown_order(client):
 
 
 def test_plan_api_city_match_warns_and_site_override(client):
-    order = _intake(client, "no_order.txt")  # Stenersgata 1, Oslo is not a known site
+    # Inline email on purpose: this address is in Oslo but is not in data/sites.json, and the
+    # test must not depend on samples/ (whose addresses are meant to match known sites).
+    res = client.post("/api/intake", data={"text": CITY_ONLY_EMAIL})
+    assert res.status_code == 200
+    order = res.json()
     _approve_all(client, order)
 
     res = client.post(f"/api/orders/{order['id']}/plan")
