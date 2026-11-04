@@ -105,6 +105,7 @@ SAMPLES_WITH_DELIVERY_SITE = [
     ("emails/dk_order.txt", "dk_order.txt", "text/plain"),
     ("emails/se_order.txt", "se_order.txt", "text/plain"),
     ("emails/no_order.txt", "no_order.txt", "text/plain"),
+    ("emails/en_order.txt", "en_order.txt", "text/plain"),
 ]
 
 

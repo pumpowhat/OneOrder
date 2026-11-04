@@ -353,7 +353,7 @@ Olav Johansen
 Please find our purchase order for the Carlsberg Byen site.
 
 Customer: NCC Construction Ltd
-Delivery site: Pasteurs Vej 24, 1799 København V
+Delivery: Pasteurs Vej 24, 1799 København V
 Delivery date: 2026-11-18
 
 Items:
