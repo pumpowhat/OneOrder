@@ -227,7 +227,7 @@ def create_photos_and_fixtures():
         "BYGGEPLASS ORDRE (NO)",
         [
             "Kunde: Veidekke Entreprenør AS",
-            "Leveringsadresse: Stenersgata 1, 0184 Oslo",
+            "Leveringsadresse: Dronning Eufemias gate 16, 0191 Oslo",
             "Dato: 2026-11-15",
         ],
         no_items,
@@ -237,7 +237,7 @@ def create_photos_and_fixtures():
     no_hash = hashlib.sha256(no_bytes).hexdigest()
     no_payload = {
         "customer": "Veidekke Entreprenør AS",
-        "delivery_site": "Stenersgata 1, 0184 Oslo",
+        "delivery_site": "Dronning Eufemias gate 16, 0191 Oslo",
         "requested_date": "2026-11-15",
         "lines": [
             {
@@ -331,7 +331,7 @@ Erik Lindqvist
 Bestilling for prosjekt i Oslo sentrum.
 
 Kunde: Veidekke Entreprenør AS
-Leveringsadresse: Stenersgata 1, 0184 Oslo
+Leveringsadresse: Dronning Eufemias gate 16, 0191 Oslo
 Leveringsdato: 2026-11-15
 
 Materialliste:

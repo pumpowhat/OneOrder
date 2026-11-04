@@ -3,7 +3,7 @@ Hei OneOrder,
 Bestilling for prosjekt i Oslo sentrum.
 
 Kunde: Veidekke Entreprenør AS
-Leveringsadresse: Stenersgata 1, 0184 Oslo
+Leveringsadresse: Dronning Eufemias gate 16, 0191 Oslo
 Leveringsdato: 2026-11-15
 
 Materialliste:

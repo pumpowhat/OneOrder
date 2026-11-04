@@ -11,6 +11,7 @@ from backend.main import app
 from backend.services.intake.demo_client import DemoClient
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import clear_catalog_cache
+from backend.services.orchestration import load_sites, resolve_site
 
 SAMPLES_DIR = Path("samples")
 EXPECTED_DIR = SAMPLES_DIR / "expected"
@@ -95,6 +96,40 @@ def test_sample_intake_matches_expected(client, rel_path, filename, mime_type):
             f"[{filename}] Line {idx + 1} needs_review mismatch: expected {exp_line['needs_review']}, "
             f"got {stored_line['needs_review']}"
         )
+
+
+SAMPLES_WITH_DELIVERY_SITE = [
+    ("photos/dk-handwritten-1.jpg", "dk-handwritten-1.jpg", "image/jpeg"),
+    ("photos/se-handwritten-1.jpg", "se-handwritten-1.jpg", "image/jpeg"),
+    ("photos/no-handwritten-1.jpg", "no-handwritten-1.jpg", "image/jpeg"),
+    ("emails/dk_order.txt", "dk_order.txt", "text/plain"),
+    ("emails/se_order.txt", "se_order.txt", "text/plain"),
+    ("emails/no_order.txt", "no_order.txt", "text/plain"),
+]
+
+
+@pytest.mark.parametrize("rel_path, filename, mime_type", SAMPLES_WITH_DELIVERY_SITE, ids=[f[1] for f in SAMPLES_WITH_DELIVERY_SITE])
+def test_sample_delivery_sites_resolve_to_address_match(client, rel_path, filename, mime_type):
+    """Every sample email and photo with a delivery_site must resolve to a real site with match_type='address'."""
+    file_path = SAMPLES_DIR / rel_path
+    file_bytes = file_path.read_bytes()
+    response = client.post(
+        "/api/intake",
+        files={"file": (filename, file_bytes, mime_type)},
+    )
+    assert response.status_code == 200, f"Intake failed for {filename}: {response.text}"
+
+    data = response.json()
+    delivery_site = data.get("delivery_site")
+    assert delivery_site, f"Sample {filename} missing delivery_site in intake response"
+
+    sites = load_sites()
+    resolved = resolve_site(delivery_site, sites)
+    assert resolved is not None, f"Could not resolve site for {filename} with address {delivery_site!r}"
+    site, match_type = resolved
+    assert match_type == "address", (
+        f"Sample {filename} with address {delivery_site!r} resolved by {match_type!r}, expected 'address' (matched site: {site.id})"
+    )
 
 
 def test_approve_sample_email_order_workflow(client):
