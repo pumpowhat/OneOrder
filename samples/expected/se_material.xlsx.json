@@ -1,0 +1,49 @@
+{
+  "source_file": "se_material.xlsx",
+  "line_count": 5,
+  "customer": null,
+  "delivery_site": null,
+  "requested_date": null,
+  "lines": [
+    {
+      "line_number": 1,
+      "description": "Brandgipsskiva 15mm",
+      "quantity": 40.0,
+      "unit": "st",
+      "matched_sku": "GYP-15-FIRE",
+      "needs_review": false
+    },
+    {
+      "line_number": 2,
+      "description": "Glasull isolering 100mm",
+      "quantity": 50.0,
+      "unit": "m2",
+      "matched_sku": "ISO-GLAS-100",
+      "needs_review": false
+    },
+    {
+      "line_number": 3,
+      "description": "Regel C24 45x145mm 4.8m",
+      "quantity": 25.0,
+      "unit": "st",
+      "matched_sku": "TIM-SPRU-45145-48",
+      "needs_review": false
+    },
+    {
+      "line_number": 4,
+      "description": "Gipsskruv 3.9x40",
+      "quantity": 15.0,
+      "unit": "pk",
+      "matched_sku": "SCR-GIP-40",
+      "needs_review": false
+    },
+    {
+      "line_number": 5,
+      "description": "Cement standard 25kg",
+      "quantity": 30.0,
+      "unit": "st",
+      "matched_sku": "CEM-PORT-25",
+      "needs_review": false
+    }
+  ]
+}

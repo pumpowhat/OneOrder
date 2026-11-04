@@ -1,0 +1,45 @@
+{
+  "source": "no-handwritten-1.jpg",
+  "payload": {
+    "customer": "Veidekke Entreprenør AS",
+    "delivery_site": "Stenersgata 1, 0184 Oslo",
+    "requested_date": "2026-11-15",
+    "lines": [
+      {
+        "description": "Brannplate gips 15mm",
+        "quantity": 30.0,
+        "unit": "stk",
+        "confidence": 0.95,
+        "source_text": "30 stk Brannplate gips 15mm"
+      },
+      {
+        "description": "Rockwool flexibatts 100mm",
+        "quantity": 25.0,
+        "unit": "m2",
+        "confidence": 0.95,
+        "source_text": "25 m2 Rockwool flexibatts 100mm"
+      },
+      {
+        "description": "Konstruksjonsvirke 45x145 3.6m",
+        "quantity": 12.0,
+        "unit": "stk",
+        "confidence": 0.95,
+        "source_text": "12 stk Konstruksjonsvirke 45x145 3.6m"
+      },
+      {
+        "description": "Portlandsement standard 25kg",
+        "quantity": 15.0,
+        "unit": "stk",
+        "confidence": 0.8,
+        "source_text": "15 stk Portlandsement standard 25kg"
+      },
+      {
+        "description": "Gipsskruer 3.9x40mm",
+        "quantity": 8.0,
+        "unit": "pk",
+        "confidence": 0.95,
+        "source_text": "8 pk Gipsskruer 3.9x40mm"
+      }
+    ]
+  }
+}

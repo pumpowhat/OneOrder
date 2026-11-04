@@ -1,0 +1,41 @@
+{
+  "source_file": "en_boq.xlsx",
+  "line_count": 4,
+  "customer": null,
+  "delivery_site": null,
+  "requested_date": null,
+  "lines": [
+    {
+      "line_number": 1,
+      "description": "Fire resistant drywall 15mm 1200x2400",
+      "quantity": 30.0,
+      "unit": "pcs",
+      "matched_sku": "GYP-13-2400",
+      "needs_review": true
+    },
+    {
+      "line_number": 2,
+      "description": "Timber C24 spruce 45x145mm 4.2m",
+      "quantity": 12.5,
+      "unit": "m",
+      "matched_sku": "TIM-SPRU-45145-42",
+      "needs_review": true
+    },
+    {
+      "line_number": 3,
+      "description": "Glass wool insulation 100mm",
+      "quantity": 45.0,
+      "unit": "m2",
+      "matched_sku": "ISO-GLAS-100",
+      "needs_review": false
+    },
+    {
+      "line_number": 4,
+      "description": "Standard drywall screws 3.9x40",
+      "quantity": 8.0,
+      "unit": "pk",
+      "matched_sku": "SCR-GIP-40",
+      "needs_review": true
+    }
+  ]
+}
