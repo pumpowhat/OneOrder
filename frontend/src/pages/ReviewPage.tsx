@@ -32,6 +32,7 @@ const STATUS_KEYS: Record<OrderStatus, TranslationKey> = {
   approved: "common.approved",
   planned: "common.planned",
   confirmed: "common.confirmedStatus",
+  cancelled: "common.cancelledStatus",
 };
 
 const STATUS_TONES: Record<OrderStatus, "neutral" | "brand" | "success" | "warn" | "danger" | "info"> = {
@@ -39,6 +40,7 @@ const STATUS_TONES: Record<OrderStatus, "neutral" | "brand" | "success" | "warn"
   approved: "success",
   planned: "brand",
   confirmed: "info",
+  cancelled: "neutral",
 };
 
 export default function ReviewPage() {
@@ -70,6 +72,7 @@ export default function ReviewPage() {
 
   const canApprove = flaggedCount === 0 && activeOrder.status === "draft";
   const isApproved = activeOrder.status === "approved" || activeOrder.status === "planned" || activeOrder.status === "confirmed";
+  const isCancelled = activeOrder.status === "cancelled";
 
   // Action: Confirm a specific line
   const handleConfirmLine = (lineIndex: number) => {
@@ -249,7 +252,7 @@ export default function ReviewPage() {
                 <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
             )}
-            {!isApproved && (
+            {!isApproved && !isCancelled && (
               <Button
                 variant="primary"
                 disabled={!canApprove}
@@ -363,7 +366,7 @@ export default function ReviewPage() {
           </div>
         </div>
 
-        {flaggedCount === 0 && !isApproved && (
+        {flaggedCount === 0 && !isApproved && !isCancelled && (
           <Button variant="primary" size="sm" onClick={handleApproveOrder}>
             <Check className="w-3.5 h-3.5 mr-1" />
             {t("review.approveBtn")}

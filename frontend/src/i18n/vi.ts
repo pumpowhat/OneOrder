@@ -42,6 +42,7 @@ export const vi: Record<TranslationKey, string> = {
   "common.approved": "Đã phê duyệt",
   "common.planned": "Đã lên kế hoạch",
   "common.confirmedStatus": "Đã xác nhận",
+  "common.cancelledStatus": "Đã hủy",
   "common.draft": "Bản nháp",
 
   // Mock data banner

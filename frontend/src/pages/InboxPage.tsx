@@ -42,6 +42,7 @@ const STATUS_TONES: Record<OrderStatus, "neutral" | "brand" | "success" | "warn"
   approved: "info",
   planned: "brand",
   confirmed: "success",
+  cancelled: "neutral",
 };
 
 const STATUS_KEYS: Record<OrderStatus, TranslationKey> = {
@@ -49,6 +50,7 @@ const STATUS_KEYS: Record<OrderStatus, TranslationKey> = {
   approved: "common.approved",
   planned: "common.planned",
   confirmed: "common.confirmedStatus",
+  cancelled: "common.cancelledStatus",
 };
 
 export default function InboxPage() {

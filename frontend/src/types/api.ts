@@ -45,9 +45,9 @@ export interface AuditLogEntry {
   payload_after: unknown;
 }
 
-// ASSUMPTION: db.py currently has 'draft' and 'approved', while the overall
-// architecture flow adds 'planned' and 'confirmed'.
-export type OrderStatus = "draft" | "approved" | "planned" | "confirmed";
+// Order lifecycle, same as backend/services/orders/status.py:
+// draft -> approved -> planned -> confirmed, and cancelled (final) from draft/approved/planned.
+export type OrderStatus = "draft" | "approved" | "planned" | "confirmed" | "cancelled";
 
 // ASSUMPTION: Intake sources supported by intake services
 export type SourceType = "image" | "email" | "excel";
