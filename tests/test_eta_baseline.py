@@ -14,7 +14,8 @@ from backend.services.eta import (
 )
 
 SHORT = DriveTime(distance_km=40, duration_min=50)
-LONG = DriveTime(distance_km=1000, duration_min=700)  # > 9 h -> 2 driving days
+LONG = DriveTime(distance_km=1000, duration_min=700)  # > 8 h -> 2 driving days
+EIGHT_H = DriveTime(distance_km=700, duration_min=480)  # exactly 8 h -> 1 driving day
 
 
 def eta(order, origin_type="dc", origin="DK", dest="DK", drive=SHORT):
@@ -54,9 +55,22 @@ def test_friday_afternoon_order_arrives_tuesday():
     assert r.arrival_date == date(2026, 11, 10)
 
 
-def test_branch_can_deliver_same_day():
+def test_branch_can_deliver_same_day_before_its_cutoff():
     r = eta(datetime(2026, 11, 4, 9, 0), origin_type="branch")
     assert r.arrival_date == date(2026, 11, 4)
+
+
+def test_branch_cutoff_is_earlier_than_dc_cutoff():
+    order = datetime(2026, 11, 4, 12, 0)  # Wed 12:00: too late for a branch, fine for a DC
+    assert eta(order, origin_type="branch").dispatch_date == date(2026, 11, 5)
+    assert eta(order, origin_type="dc").dispatch_date == date(2026, 11, 4)
+    assert eta(datetime(2026, 11, 4, 11, 0), origin_type="branch").dispatch_date == date(2026, 11, 5)
+
+
+def test_driving_limit_is_eight_hours_a_day():
+    assert eta(datetime(2026, 11, 3, 9, 0), origin_type="branch", drive=EIGHT_H).driving_days == 1
+    over = DriveTime(distance_km=700, duration_min=481)
+    assert eta(datetime(2026, 11, 3, 9, 0), origin_type="branch", drive=over).driving_days == 2
 
 
 def test_branch_same_day_skips_closed_destination():
@@ -66,9 +80,22 @@ def test_branch_same_day_skips_closed_destination():
 
 
 def test_holiday_in_destination_postpones_delivery():
-    # DC dispatches Thu 24 Dec (DK is open), arrival would be Fri 25 Dec = holiday -> next business day.
-    r = eta(datetime(2026, 12, 24, 9, 0), origin="DK", dest="DK")
+    # DC dispatches Wed 23 Dec; arrival would be Thu 24 Dec (closed) -> Fri 25 (holiday) -> Mon 28.
+    r = eta(datetime(2026, 12, 23, 9, 0), origin="DK", dest="DK")
+    assert r.dispatch_date == date(2026, 12, 23)
     assert r.arrival_date == date(2026, 12, 28)
+
+
+def test_christmas_and_new_year_eve_are_closed_everywhere():
+    for country in ("DK", "SE", "NO"):
+        assert not is_business_day(date(2026, 12, 24), country)
+        assert not is_business_day(date(2026, 12, 31), country)
+    assert is_business_day(date(2026, 12, 30), "DK")
+
+
+def test_order_on_christmas_eve_dispatches_after_christmas():
+    r = eta(datetime(2026, 12, 24, 9, 0), origin="DK", dest="DK")
+    assert r.dispatch_date == date(2026, 12, 28)
 
 
 def test_long_haul_adds_driving_day():

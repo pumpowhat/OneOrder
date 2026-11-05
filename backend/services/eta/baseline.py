@@ -6,9 +6,12 @@ extra delay on top of it and turns it into P50 / P90.
 
 Assumptions (all overridable through ``BaselineConfig``):
 - Orders placed before the cut-off on a business day are dispatched that day; later orders on the
-  next business day. Dispatch day is judged by the *origin* country's calendar.
-- A truck drives at most 9 hours a day (EU driving-time limit); longer trips take extra days.
-- Deliveries happen on business days of the *destination* country only.
+  next business day. The cut-off is 14:00 for DCs and 11:00 for branches (a branch must pick, load
+  and deliver within the site's receiving hours). Dispatch day is judged by the *origin* calendar.
+- A truck covers at most 8 hours of driving a day: the EU limit is 9 h (Reg. 561/2006) with a
+  45 min break per 4.5 h, and unloading takes time too. Longer trips take extra days.
+- Deliveries happen on business days of the *destination* country only. Christmas Eve and New
+  Year's Eve are treated as closed in all three countries although they are not public holidays.
 - Branches can deliver the day they dispatch, DCs need one business day of pick-and-pack.
 - Crossing a border adds customs/handling days only when Norway (outside the EU) is involved.
 """
@@ -24,12 +27,16 @@ from .drive_times import DriveTime
 
 # Weekend days: Saturday=5, Sunday=6 (date.weekday()).
 _WEEKEND = (5, 6)
+# Not public holidays, but in practice nobody delivers: (month, day).
+_DE_FACTO_CLOSED = frozenset({(12, 24), (12, 31)})
 
 
 @dataclass(frozen=True)
 class BaselineConfig:
-    cutoff: time = time(14, 0)
-    max_driving_minutes_per_day: int = 9 * 60
+    cutoff: dict[str, time] = field(
+        default_factory=lambda: {"branch": time(11, 0), "dc": time(14, 0)}
+    )
+    max_driving_minutes_per_day: int = 8 * 60
     pick_pack_days: dict[str, int] = field(default_factory=lambda: {"branch": 0, "dc": 1})
     # Extra business days when the shipment crosses a border involving a non-EU country.
     non_eu_countries: frozenset[str] = frozenset({"NO"})
@@ -53,7 +60,11 @@ def _holidays(country: str) -> holidays.HolidayBase:
 
 
 def is_business_day(day: date, country: str) -> bool:
-    return day.weekday() not in _WEEKEND and day not in _holidays(country)
+    return (
+        day.weekday() not in _WEEKEND
+        and (day.month, day.day) not in _DE_FACTO_CLOSED
+        and day not in _holidays(country)
+    )
 
 
 def next_business_day(day: date, country: str) -> date:
@@ -76,10 +87,12 @@ def add_business_days(day: date, count: int, country: str) -> date:
     return current
 
 
-def dispatch_date(order_time: datetime, origin_country: str, config: BaselineConfig) -> date:
+def dispatch_date(
+    order_time: datetime, origin_type: str, origin_country: str, config: BaselineConfig
+) -> date:
     """First day the warehouse can send the goods, given the cut-off and its national calendar."""
     day = order_time.date()
-    if order_time.time() >= config.cutoff:
+    if order_time.time() >= config.cutoff[origin_type]:
         day += timedelta(days=1)
     return next_business_day(day, origin_country)
 
@@ -105,10 +118,10 @@ def baseline_eta(
     ``origin_type`` is ``"branch"`` or ``"dc"``.
     """
     cfg = config or BaselineConfig()
-    if origin_type not in cfg.pick_pack_days:
+    if origin_type not in cfg.pick_pack_days or origin_type not in cfg.cutoff:
         raise ValueError(f"Unknown origin_type {origin_type!r}; expected one of {sorted(cfg.pick_pack_days)}")
 
-    dispatch = dispatch_date(order_time, origin_country, cfg)
+    dispatch = dispatch_date(order_time, origin_type, origin_country, cfg)
     pick_pack = cfg.pick_pack_days[origin_type]
     driving_days = max(1, math.ceil(drive.duration_min / cfg.max_driving_minutes_per_day))
     border = border_delay_days(origin_country, dest_country, cfg)
