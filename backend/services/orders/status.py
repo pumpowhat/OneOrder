@@ -8,11 +8,12 @@
 - `draft`: extracted from a photo / email / Excel, may still need human review.
 - `approved`: every line reviewed by a person (AI proposes, humans decide).
 - `planned`: a fulfilment plan is stored on the order. Planning again overwrites it.
-- `confirmed`: stock reserved in the ERPs (POST /confirm, not built yet). Final.
+- `confirmed`: stock reserved in the ERPs (POST /confirm); the stored plan and ETA are frozen. Final.
 - `cancelled`: dropped before confirmation. Final. A confirmed order cannot be cancelled here
   because its ERP reservations would have to be released first (outside the MVP).
 
-A `failed` status for a rejected ERP reservation will be added together with /confirm.
+There is no `failed` status: a confirm that is rejected (shortage, late ETA, stock taken by another
+order) answers 409 and leaves the order `planned`.
 """
 
 from enum import Enum

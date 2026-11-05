@@ -6,8 +6,9 @@ from fastapi import APIRouter, Body, Depends, HTTPException
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
+from backend.db import OrderModel, ReservationModel, get_db, order_model_to_dict, record_audit_log
 from backend.erp import get_group_inventory
+from backend.erp.reservations import apply_reservations, find_shortfalls
 from backend.services.eta import attach_eta
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
@@ -70,7 +71,7 @@ def plan_order(
     """Build a multi-warehouse fulfilment plan, store it on the order and mark the order `planned`.
 
     Allowed from `approved` and from `planned` (planning again overwrites the stored plan, and the
-    change is audit-logged). Nothing is reserved in any ERP; that is /confirm.
+    change is audit-logged). Nothing is reserved in any ERP; that is /confirm. Stock already reserved by confirmed orders is not offered again.
     - 404 unknown order, 409 order is draft / confirmed / cancelled, 422 site cannot be resolved or
       SKU unknown, 503 data or rules files missing/invalid. On any error the order is left untouched.
     """
@@ -84,7 +85,7 @@ def plan_order(
         sites = load_sites()
         warehouses = load_warehouses()
         products = load_products()
-        inventory = get_group_inventory()
+        inventory = apply_reservations(get_group_inventory(), db)
     except (FileNotFoundError, KeyError, ValueError) as exc:
         logger.error("Planning data unavailable for order %s: %s", order_id, exc)
         raise HTTPException(status_code=503, detail=f"Planning data unavailable: {exc}") from exc
@@ -154,6 +155,107 @@ def plan_order(
     )
     db.commit()
     return result
+
+
+class ConfirmOrderRequest(BaseModel):
+    user: str = "sales_desk"
+    allow_partial: bool = Field(default=False, description="Confirm although the plan has shortages")
+    accept_late_risk: bool = Field(default=False, description="Confirm although the predicted ETA is late")
+
+
+@router.post("/{order_id}/confirm")
+def confirm_order(
+    order_id: str,
+    payload: ConfirmOrderRequest = Body(default_factory=ConfirmOrderRequest),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Reserve the planned stock in the (mock) ERPs and mark the order `confirmed`. Final.
+
+    The stored plan, including its ETA, is frozen as the commitment. Everything is checked before
+    anything is written, and written in one transaction, so a rejected confirm changes nothing.
+    - 404 unknown order; 409 order is not `planned` (or has no plan);
+    - 409 plan has shortages (unless `allow_partial`) or its ETA is `late` (unless `accept_late_risk`);
+    - 409 stock was taken by another order since planning (plan again);
+    - 503 stock data unavailable.
+    """
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+    _require_transition(order, OrderStatus.CONFIRMED, hint="plan the order before confirming")
+    if order.status != OrderStatus.PLANNED.value or not order.plan:
+        raise HTTPException(status_code=409, detail=f"Order {order_id} has no stored plan to confirm")
+
+    try:
+        plan = FulfillmentPlan.model_validate_json(order.plan)
+    except ValueError as exc:
+        raise HTTPException(status_code=409, detail=f"Order {order_id}: stored plan is invalid, plan again") from exc
+
+    if plan.shortages and not payload.allow_partial:
+        missing = ", ".join(f"{s.sku} (missing {s.missing:g})" for s in plan.shortages)
+        raise HTTPException(
+            status_code=409,
+            detail=f"Order {order_id}: plan has shortages: {missing}. Send allow_partial=true to confirm anyway",
+        )
+    if plan.order_eta and plan.order_eta.risk == "late" and not payload.accept_late_risk:
+        raise HTTPException(
+            status_code=409,
+            detail=(
+                f"Order {order_id}: predicted arrival {plan.order_eta.p50_date} (P50) is after the requested date "
+                f"{plan.requested_date}. Send accept_late_risk=true to confirm anyway"
+            ),
+        )
+
+    needed: dict[tuple[str, str], float] = {}
+    for shipment in plan.shipments:
+        for alloc in shipment.lines:
+            key = (shipment.origin_warehouse, alloc.sku)
+            needed[key] = needed.get(key, 0) + alloc.quantity
+
+    try:
+        inventory = apply_reservations(get_group_inventory(), db)
+    except (FileNotFoundError, KeyError, ValueError) as exc:
+        logger.error("Stock unavailable while confirming order %s: %s", order_id, exc)
+        raise HTTPException(status_code=503, detail=f"Stock data unavailable: {exc}") from exc
+    short = find_shortfalls(needed, inventory)
+    if short:
+        detail = "; ".join(f"{wh} {sku}: need {need:g}, available {avail:g}" for wh, sku, need, avail in short)
+        raise HTTPException(
+            status_code=409,
+            detail=f"Order {order_id}: stock changed since planning ({detail}). Plan the order again",
+        )
+
+    for shipment in plan.shipments:
+        for alloc in shipment.lines:
+            db.add(
+                ReservationModel(
+                    order_id=order.id,
+                    warehouse_code=shipment.origin_warehouse,
+                    sku=alloc.sku,
+                    quantity=alloc.quantity,
+                    unit=alloc.unit,
+                    shipment_index=shipment.shipment_index,
+                )
+            )
+    before_status = order.status
+    order.status = OrderStatus.CONFIRMED.value
+    record_audit_log(
+        db,
+        order_id=order.id,
+        action="confirm",
+        user=payload.user,
+        payload_before={"status": before_status},
+        payload_after={
+            "status": OrderStatus.CONFIRMED.value,
+            "reservations": sum(len(s.lines) for s in plan.shipments),
+            "shipments": len(plan.shipments),
+            "allow_partial": payload.allow_partial,
+            "accept_late_risk": payload.accept_late_risk,
+            "order_eta": plan.order_eta.model_dump() if plan.order_eta else None,
+        },
+    )
+    db.commit()
+    db.refresh(order)
+    return order_model_to_dict(order)
 
 
 class CancelOrderRequest(BaseModel):

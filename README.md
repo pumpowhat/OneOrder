@@ -274,9 +274,9 @@ Tích hợp ERP thật, tối ưu tuyến đường, trang theo dõi dành cho n
 | `POST` | `/api/intake` | Ảnh / văn bản email / Excel → đơn nháp |
 | `GET` | `/api/orders/{id}` | Đơn hàng kèm dòng hàng, trạng thái và audit log |
 | `POST` | `/api/orders/{id}/approve` | Các dòng đã kiểm tra (xác nhận bởi con người) |
-| `POST` | `/api/orders/{id}/plan` | Kế hoạch thực hiện đơn (ETA cho từng lô: sẽ bổ sung); lưu kế hoạch, chuyển đơn sang `planned` |
+| `POST` | `/api/orders/{id}/plan` | Kế hoạch thực hiện đơn kèm ETA P50/P90 cho từng lô và cho cả đơn; lưu kế hoạch, chuyển đơn sang `planned` |
 | `POST` | `/api/orders/{id}/cancel` | Hủy đơn chưa xác nhận |
-| `POST` | `/api/orders/{id}/confirm` | Ghi đặt giữ hàng vào ERP giả lập |
+| `POST` | `/api/orders/{id}/confirm` | Ghi đặt giữ hàng vào ERP giả lập, đóng băng kế hoạch và ETA, chuyển đơn sang `confirmed`. Trả 409 nếu thiếu hàng (trừ khi `allow_partial`), ETA bị trễ (trừ khi `accept_late_risk`) hoặc tồn kho đã bị đơn khác giữ |
 | `GET` | `/api/stock` | Tồn kho toàn tập đoàn qua các adapter |
 | `GET` / `PUT` | `/api/rules` | Quy tắc nghiệp vụ |
 | `GET` | `/api/model` | Chỉ số và đặc trưng của mô hình ETA |
