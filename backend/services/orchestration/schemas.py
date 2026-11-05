@@ -4,6 +4,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+EtaRisk = Literal["on_time", "at_risk", "late"]
 SourceTier = Literal["branch", "domestic_dc", "cross_border_dc"]
 VehicleType = Literal["small_truck", "heavy_truck", "crane_truck"]
 
@@ -42,6 +43,27 @@ class Allocation(BaseModel):
     reason: str
 
 
+class ShipmentETA(BaseModel):
+    """Predicted delivery dates of one shipment (see backend/services/eta)."""
+
+    dispatch_date: str
+    baseline_date: str = Field(description="Earliest arrival if nothing goes wrong")
+    p50_date: str = Field(description="Expected arrival (median)")
+    p90_date: str = Field(description="Safe commitment date (90% of deliveries arrive by then)")
+    delay_p50_days: int
+    delay_p90_days: int
+    risk: EtaRisk | None = Field(default=None, description="vs. the requested date; null when none was given")
+    notes: list[str] = Field(default_factory=list)
+
+
+class OrderETA(BaseModel):
+    """Order-level ETA: the order is ready when its latest shipment arrives."""
+
+    p50_date: str
+    p90_date: str
+    risk: EtaRisk | None = None
+
+
 class Shipment(BaseModel):
     shipment_index: int
     origin_warehouse: str
@@ -58,6 +80,7 @@ class Shipment(BaseModel):
     vehicle_type: VehicleType
     vehicle_count: int
     lines: list[Allocation]
+    eta: ShipmentETA | None = None
 
 
 class Shortage(BaseModel):
@@ -82,3 +105,4 @@ class FulfillmentPlan(BaseModel):
     fully_sourced: bool
     warnings: list[str] = Field(default_factory=list)
     rules_version: int
+    order_eta: OrderETA | None = None

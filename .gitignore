@@ -17,3 +17,4 @@ dist/
 # OS / IDE
 .DS_Store
 .idea/
+backend/services/eta/model.joblib
