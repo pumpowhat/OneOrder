@@ -109,7 +109,19 @@ SAMPLES_WITH_DELIVERY_SITE = [
 ]
 
 
-@pytest.mark.parametrize("rel_path, filename, mime_type", SAMPLES_WITH_DELIVERY_SITE, ids=[f[1] for f in SAMPLES_WITH_DELIVERY_SITE])
+# The authentic handwritten NO photo still shows "Stenersgata 1" (not in sites.json);
+# it must be re-photographed with "Dronning Eufemias gate 16, 0191 Oslo" (issue #10).
+_NO_PHOTO_XFAIL = pytest.mark.xfail(
+    reason="handwritten NO photo still has Stenersgata address; re-photograph needed (#10)",
+    strict=True,
+)
+_DELIVERY_PARAMS = [
+    pytest.param(*f, id=f[1], marks=_NO_PHOTO_XFAIL) if f[1] == "no-handwritten-1.jpg" else pytest.param(*f, id=f[1])
+    for f in SAMPLES_WITH_DELIVERY_SITE
+]
+
+
+@pytest.mark.parametrize("rel_path, filename, mime_type", _DELIVERY_PARAMS)
 def test_sample_delivery_sites_resolve_to_address_match(client, rel_path, filename, mime_type):
     """Every sample email and photo with a delivery_site must resolve to a real site with match_type='address'."""
     file_path = SAMPLES_DIR / rel_path

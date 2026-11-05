@@ -1,4 +1,4 @@
-"""Record a live Claude result as a demo fixture, so demo mode can replay it without a key.
+"""Record a live AI result as a demo fixture, so demo mode can replay it without a key.
 
     python -m scripts.record_fixture samples/handwritten-1.jpg
 """
@@ -8,8 +8,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from backend.ai import FIXTURE_DIR
-from backend.services.intake import ClaudeClient
+from backend.ai import FIXTURE_DIR, make_live_client
 from backend.services.intake.demo_client import fixture_key
 from backend.services.intake.service import IMAGE_TYPES, TEXT_SUFFIXES
 
@@ -17,7 +16,7 @@ from backend.services.intake.service import IMAGE_TYPES, TEXT_SUFFIXES
 def main(path: Path) -> None:
     load_dotenv()
     suffix = path.suffix.lower()
-    client = ClaudeClient()
+    client = make_live_client()  # provider from AI_PROVIDER (claude | gemini)
     if suffix in IMAGE_TYPES:
         content = path.read_bytes()
         payload = client.extract_from_image(content, IMAGE_TYPES[suffix])
