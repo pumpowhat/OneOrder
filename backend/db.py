@@ -47,6 +47,12 @@ class OrderModel(Base):
         cascade="all, delete-orphan",
         order_by="AuditLogModel.timestamp",
     )
+    reservations = relationship(
+        "ReservationModel",
+        back_populates="order",
+        cascade="all, delete-orphan",
+        order_by="ReservationModel.id",
+    )
 
 
 class OrderLineModel(Base):
@@ -69,6 +75,23 @@ class OrderLineModel(Base):
     ambiguous = Column(Integer, default=0, nullable=False)  # 1 when candidates had close scores
 
     order = relationship("OrderModel", back_populates="lines")
+
+
+class ReservationModel(Base):
+    """Stock reserved for a confirmed order: the mock ERPs' "write reservation" (see POST /confirm)."""
+
+    __tablename__ = "reservations"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    order_id = Column(String(36), ForeignKey("orders.id"), nullable=False, index=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
+    warehouse_code = Column(String(50), nullable=False, index=True)
+    sku = Column(String(100), nullable=False, index=True)
+    quantity = Column(Float, nullable=False)
+    unit = Column(String(50), nullable=True)
+    shipment_index = Column(Integer, nullable=True)
+
+    order = relationship("OrderModel", back_populates="reservations")
 
 
 class AuditLogModel(Base):
@@ -263,5 +286,16 @@ def order_model_to_dict(model: OrderModel) -> dict:
         "warnings": warnings,
         "needs_review": any(l["needs_review"] for l in lines),
         "plan": plan,
+        "reservations": [
+            {
+                "warehouse_code": r.warehouse_code,
+                "sku": r.sku,
+                "quantity": r.quantity,
+                "unit": r.unit,
+                "shipment_index": r.shipment_index,
+                "created_at": r.created_at.isoformat() if r.created_at else None,
+            }
+            for r in model.reservations
+        ],
         "audit_logs": logs,
     }
