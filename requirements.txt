@@ -7,6 +7,7 @@ openpyxl
 pandas
 rapidfuzz
 scikit-learn
+holidays
 python-dotenv
 python-multipart
 pytest
