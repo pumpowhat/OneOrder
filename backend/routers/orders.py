@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 import logging
 
@@ -7,6 +8,7 @@ from sqlalchemy.orm import Session
 
 from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
 from backend.erp import get_group_inventory
+from backend.services.eta import attach_eta
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
 from backend.services.orders import InvalidTransition, OrderStatus, require_transition
@@ -122,6 +124,12 @@ def plan_order(
         )
     except PlanningError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+    try:
+        result = attach_eta(result, datetime.now())
+    except Exception as exc:  # ETA is additive: a model/data problem must not block planning
+        logger.exception("ETA failed for order %s", order_id)
+        result.warnings.append(f"ETA unavailable: {exc}")
 
     previous = json.loads(order.plan) if order.plan else None
     before_status = order.status
