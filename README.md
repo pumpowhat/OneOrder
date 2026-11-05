@@ -192,7 +192,7 @@ Tích hợp ERP thật, tối ưu tuyến đường, trang theo dõi dành cho n
                    cột Excel)        ▼            ▼              ▼
                          ┌─────────────────┐  ┌────────────────────────────┐
                          │ AI model API    │  │ ERP các nước (MOCK ở MVP)  │
-                         │ (Claude, vision)│  │  - ERP Đan Mạch            │
+                         │ (Gemini/Claude) │  │  - ERP Đan Mạch            │
                          │ Đặt tại EU khi  │  │  - ERP Thụy Điển + DC WMS  │
                          │ chạy production │  │  - ERP Na Uy               │
                          └─────────────────┘  └────────────────────────────┘
@@ -320,7 +320,7 @@ draft ──approve──► approved ──plan──► planned ──confirm�
 |---|---|---|
 | Frontend | React + Vite + TypeScript, Tailwind CSS | Xây nhanh, màn hình rõ ràng cho video demo |
 | Backend API | Python 3.12 + FastAPI | Đơn giản, có kiểu dữ liệu, tự sinh tài liệu API (`/docs`); Python phù hợp với AI/ML |
-| AI (OCR + văn bản) | Claude API với vision (`anthropic` SDK), model đặt trong `.env` | Đọc được chữ viết tay và nhiều ngôn ngữ Bắc Âu; trả về JSON có cấu trúc |
+| AI (OCR + văn bản) | Gemini API (`google-genai`, mặc định) hoặc Claude API (`anthropic`), chọn bằng `AI_PROVIDER`; model đặt bằng `AI_MODEL` trong `.env` | Đọc được chữ viết tay và nhiều ngôn ngữ Bắc Âu; trả về JSON có cấu trúc |
 | Phân tích Excel | openpyxl / pandas | Đọc `.xlsx`; AI ánh xạ các bố cục cột chưa biết |
 | Đối khớp danh mục | RapidFuzz | Fuzzy matching nhanh, có điểm số để làm độ tin cậy |
 | Dự đoán ETA | scikit-learn `GradientBoostingRegressor` (quantile loss) | Quantile regression cho ngày P50 và P90; nhỏ gọn và dễ giải thích |
@@ -341,7 +341,7 @@ draft ──approve──► approved ──plan──► planned ──confirm�
 ```text
 oneorder-mvp/
 ├── README.md
-├── .env.example            # ANTHROPIC_API_KEY=, AI_MODEL=, AI_MODE=live|demo
+├── .env.example            # AI_PROVIDER=gemini|claude, GEMINI_API_KEY=, ANTHROPIC_API_KEY=, AI_MODEL=, AI_MODE=live|demo
 ├── requirements.txt
 ├── backend/
 │   ├── main.py             # FastAPI app

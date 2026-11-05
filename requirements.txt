@@ -2,6 +2,7 @@ fastapi
 uvicorn[standard]
 sqlalchemy
 anthropic
+google-genai
 openpyxl
 pandas
 rapidfuzz
