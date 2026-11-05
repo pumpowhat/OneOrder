@@ -21,9 +21,9 @@ Thư mục này chứa bộ tệp mẫu dùng để kiểm thử tự động, t
 
 - Ở chế độ `AI_MODE=demo` (mặc định trong kiểm thử và môi trường không kết nối API AI trực tiếp), `DemoClient` ánh xạ ảnh thông qua hàm băm SHA-256 của nội dung ảnh.
 - Tương ứng với mỗi ảnh trong `samples/photos/`, có một tệp fixture định dạng JSON tại `samples/fixtures/<sha256>.json`:
-  - `dk-handwritten-1.jpg` (SHA256: `1a9eb8549f5b9d761084bb2dcd609354cdafaecb6509ec170d51eabf8a59f8f4`)
-  - `se-handwritten-1.jpg` (SHA256: `6e9d4d3e3106aeecba67bd306cf7a21b2df95f056c460286d88ca4102009e0f4`)
-  - `no-handwritten-1.jpg` (SHA256: `ed9ca1ea4f0a4226bc010f06860a88e00492068c39ef99bea7eb785e39abaf93`)
+  - `dk-handwritten-1.jpg` (SHA256: `d40031b6b5e28900b1108bc5b205ea180c7d7848052d8d281bb98faaf4f2df1d`)
+  - `se-handwritten-1.jpg` (SHA256: `7997366477dca6e71d705b7214e073ffe78e2f496ecd835de33657f591ececbb`)
+  - `no-handwritten-1.jpg` (SHA256: `404ae214c49a14c7b1f6edc9b09ef624b4f4648f8ca166a7236c5870be7d22eb`)
 - **Lưu ý:** Không sửa đổi nội dung tệp ảnh nếu không tính lại giá trị băm SHA-256 và cập nhật lại tệp fixture tương ứng.
 
 ## Dữ liệu Kỳ vọng (`samples/expected/`)
