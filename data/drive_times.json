@@ -1,0 +1,608 @@
+{
+  "version": 1,
+  "source": "OSRM table API, car profile (OpenStreetMap data)",
+  "base_url": "https://router.project-osrm.org",
+  "key_format": "<warehouse_code>|<site_id>",
+  "pairs": {
+    "DK-DC-01|SITE-DK-01": {
+      "distance_km": 33.2,
+      "duration_min": 30
+    },
+    "DK-DC-01|SITE-DK-02": {
+      "distance_km": 17.8,
+      "duration_min": 19
+    },
+    "DK-DC-01|SITE-DK-03": {
+      "distance_km": 293.0,
+      "duration_min": 193
+    },
+    "DK-DC-01|SITE-DK-04": {
+      "distance_km": 151.1,
+      "duration_min": 106
+    },
+    "DK-DC-01|SITE-SE-01": {
+      "distance_km": 671.7,
+      "duration_min": 461
+    },
+    "DK-DC-01|SITE-SE-02": {
+      "distance_km": 336.7,
+      "duration_min": 238
+    },
+    "DK-DC-01|SITE-SE-03": {
+      "distance_km": 56.3,
+      "duration_min": 49
+    },
+    "DK-DC-01|SITE-NO-01": {
+      "distance_km": 621.4,
+      "duration_min": 443
+    },
+    "DK-DC-01|SITE-NO-02": {
+      "distance_km": 1080.8,
+      "duration_min": 904
+    },
+    "DK-DC-01|SITE-NO-03": {
+      "distance_km": 1101.7,
+      "duration_min": 883
+    },
+    "DK-BR-01|SITE-DK-01": {
+      "distance_km": 8.8,
+      "duration_min": 15
+    },
+    "DK-BR-01|SITE-DK-02": {
+      "distance_km": 2.3,
+      "duration_min": 5
+    },
+    "DK-BR-01|SITE-DK-03": {
+      "distance_km": 302.1,
+      "duration_min": 201
+    },
+    "DK-BR-01|SITE-DK-04": {
+      "distance_km": 160.3,
+      "duration_min": 115
+    },
+    "DK-BR-01|SITE-SE-01": {
+      "distance_km": 655.7,
+      "duration_min": 449
+    },
+    "DK-BR-01|SITE-SE-02": {
+      "distance_km": 320.7,
+      "duration_min": 227
+    },
+    "DK-BR-01|SITE-SE-03": {
+      "distance_km": 40.3,
+      "duration_min": 38
+    },
+    "DK-BR-01|SITE-NO-01": {
+      "distance_km": 605.4,
+      "duration_min": 431
+    },
+    "DK-BR-01|SITE-NO-02": {
+      "distance_km": 1064.8,
+      "duration_min": 893
+    },
+    "DK-BR-01|SITE-NO-03": {
+      "distance_km": 1085.7,
+      "duration_min": 871
+    },
+    "DK-BR-02|SITE-DK-01": {
+      "distance_km": 316.9,
+      "duration_min": 209
+    },
+    "DK-BR-02|SITE-DK-02": {
+      "distance_km": 300.6,
+      "duration_min": 198
+    },
+    "DK-BR-02|SITE-DK-03": {
+      "distance_km": 9.7,
+      "duration_min": 15
+    },
+    "DK-BR-02|SITE-DK-04": {
+      "distance_km": 143.4,
+      "duration_min": 100
+    },
+    "DK-BR-02|SITE-SE-01": {
+      "distance_km": 952.0,
+      "duration_min": 637
+    },
+    "DK-BR-02|SITE-SE-02": {
+      "distance_km": 617.0,
+      "duration_min": 415
+    },
+    "DK-BR-02|SITE-SE-03": {
+      "distance_km": 336.5,
+      "duration_min": 226
+    },
+    "DK-BR-02|SITE-NO-01": {
+      "distance_km": 901.6,
+      "duration_min": 619
+    },
+    "DK-BR-02|SITE-NO-02": {
+      "distance_km": 1361.1,
+      "duration_min": 1081
+    },
+    "DK-BR-02|SITE-NO-03": {
+      "distance_km": 1381.9,
+      "duration_min": 1059
+    },
+    "DK-BR-03|SITE-DK-01": {
+      "distance_km": 176.5,
+      "duration_min": 126
+    },
+    "DK-BR-03|SITE-DK-02": {
+      "distance_km": 160.2,
+      "duration_min": 115
+    },
+    "DK-BR-03|SITE-DK-03": {
+      "distance_km": 145.7,
+      "duration_min": 106
+    },
+    "DK-BR-03|SITE-DK-04": {
+      "distance_km": 1.8,
+      "duration_min": 3
+    },
+    "DK-BR-03|SITE-SE-01": {
+      "distance_km": 811.6,
+      "duration_min": 554
+    },
+    "DK-BR-03|SITE-SE-02": {
+      "distance_km": 476.6,
+      "duration_min": 332
+    },
+    "DK-BR-03|SITE-SE-03": {
+      "distance_km": 196.2,
+      "duration_min": 143
+    },
+    "DK-BR-03|SITE-NO-01": {
+      "distance_km": 761.3,
+      "duration_min": 536
+    },
+    "DK-BR-03|SITE-NO-02": {
+      "distance_km": 1220.7,
+      "duration_min": 998
+    },
+    "DK-BR-03|SITE-NO-03": {
+      "distance_km": 1241.5,
+      "duration_min": 976
+    },
+    "DK-BR-04|SITE-DK-01": {
+      "distance_km": 423.4,
+      "duration_min": 269
+    },
+    "DK-BR-04|SITE-DK-02": {
+      "distance_km": 407.0,
+      "duration_min": 258
+    },
+    "DK-BR-04|SITE-DK-03": {
+      "distance_km": 110.4,
+      "duration_min": 70
+    },
+    "DK-BR-04|SITE-DK-04": {
+      "distance_km": 249.9,
+      "duration_min": 160
+    },
+    "DK-BR-04|SITE-SE-01": {
+      "distance_km": 1058.4,
+      "duration_min": 697
+    },
+    "DK-BR-04|SITE-SE-02": {
+      "distance_km": 723.4,
+      "duration_min": 475
+    },
+    "DK-BR-04|SITE-SE-03": {
+      "distance_km": 443.0,
+      "duration_min": 286
+    },
+    "DK-BR-04|SITE-NO-01": {
+      "distance_km": 1008.1,
+      "duration_min": 680
+    },
+    "DK-BR-04|SITE-NO-02": {
+      "distance_km": 1467.5,
+      "duration_min": 1141
+    },
+    "DK-BR-04|SITE-NO-03": {
+      "distance_km": 1488.3,
+      "duration_min": 1119
+    },
+    "SE-DC-01|SITE-DK-01": {
+      "distance_km": 336.1,
+      "duration_min": 237
+    },
+    "SE-DC-01|SITE-DK-02": {
+      "distance_km": 336.3,
+      "duration_min": 230
+    },
+    "SE-DC-01|SITE-DK-03": {
+      "distance_km": 633.2,
+      "duration_min": 419
+    },
+    "SE-DC-01|SITE-DK-04": {
+      "distance_km": 491.3,
+      "duration_min": 332
+    },
+    "SE-DC-01|SITE-SE-01": {
+      "distance_km": 324.1,
+      "duration_min": 231
+    },
+    "SE-DC-01|SITE-SE-02": {
+      "distance_km": 150.8,
+      "duration_min": 122
+    },
+    "SE-DC-01|SITE-SE-03": {
+      "distance_km": 292.7,
+      "duration_min": 198
+    },
+    "SE-DC-01|SITE-NO-01": {
+      "distance_km": 392.7,
+      "duration_min": 322
+    },
+    "SE-DC-01|SITE-NO-02": {
+      "distance_km": 852.1,
+      "duration_min": 783
+    },
+    "SE-DC-01|SITE-NO-03": {
+      "distance_km": 873.0,
+      "duration_min": 762
+    },
+    "SE-BR-01|SITE-DK-01": {
+      "distance_km": 655.9,
+      "duration_min": 458
+    },
+    "SE-BR-01|SITE-DK-02": {
+      "distance_km": 656.2,
+      "duration_min": 451
+    },
+    "SE-BR-01|SITE-DK-03": {
+      "distance_km": 953.1,
+      "duration_min": 640
+    },
+    "SE-BR-01|SITE-DK-04": {
+      "distance_km": 811.2,
+      "duration_min": 553
+    },
+    "SE-BR-01|SITE-SE-01": {
+      "distance_km": 9.2,
+      "duration_min": 13
+    },
+    "SE-BR-01|SITE-SE-02": {
+      "distance_km": 473.8,
+      "duration_min": 344
+    },
+    "SE-BR-01|SITE-SE-03": {
+      "distance_km": 612.5,
+      "duration_min": 419
+    },
+    "SE-BR-01|SITE-NO-01": {
+      "distance_km": 523.8,
+      "duration_min": 417
+    },
+    "SE-BR-01|SITE-NO-02": {
+      "distance_km": 983.3,
+      "duration_min": 878
+    },
+    "SE-BR-01|SITE-NO-03": {
+      "distance_km": 823.2,
+      "duration_min": 685
+    },
+    "SE-BR-02|SITE-DK-01": {
+      "distance_km": 319.3,
+      "duration_min": 235
+    },
+    "SE-BR-02|SITE-DK-02": {
+      "distance_km": 319.6,
+      "duration_min": 228
+    },
+    "SE-BR-02|SITE-DK-03": {
+      "distance_km": 616.4,
+      "duration_min": 417
+    },
+    "SE-BR-02|SITE-DK-04": {
+      "distance_km": 474.6,
+      "duration_min": 330
+    },
+    "SE-BR-02|SITE-SE-01": {
+      "distance_km": 473.0,
+      "duration_min": 344
+    },
+    "SE-BR-02|SITE-SE-02": {
+      "distance_km": 2.0,
+      "duration_min": 4
+    },
+    "SE-BR-02|SITE-SE-03": {
+      "distance_km": 275.9,
+      "duration_min": 196
+    },
+    "SE-BR-02|SITE-NO-01": {
+      "distance_km": 292.6,
+      "duration_min": 216
+    },
+    "SE-BR-02|SITE-NO-02": {
+      "distance_km": 752.0,
+      "duration_min": 677
+    },
+    "SE-BR-02|SITE-NO-03": {
+      "distance_km": 772.9,
+      "duration_min": 655
+    },
+    "SE-BR-03|SITE-DK-01": {
+      "distance_km": 45.5,
+      "duration_min": 57
+    },
+    "SE-BR-03|SITE-DK-02": {
+      "distance_km": 45.8,
+      "duration_min": 50
+    },
+    "SE-BR-03|SITE-DK-03": {
+      "distance_km": 342.6,
+      "duration_min": 239
+    },
+    "SE-BR-03|SITE-DK-04": {
+      "distance_km": 200.8,
+      "duration_min": 153
+    },
+    "SE-BR-03|SITE-SE-01": {
+      "distance_km": 613.7,
+      "duration_min": 422
+    },
+    "SE-BR-03|SITE-SE-02": {
+      "distance_km": 278.7,
+      "duration_min": 200
+    },
+    "SE-BR-03|SITE-SE-03": {
+      "distance_km": 4.9,
+      "duration_min": 10
+    },
+    "SE-BR-03|SITE-NO-01": {
+      "distance_km": 563.4,
+      "duration_min": 405
+    },
+    "SE-BR-03|SITE-NO-02": {
+      "distance_km": 1022.8,
+      "duration_min": 866
+    },
+    "SE-BR-03|SITE-NO-03": {
+      "distance_km": 1043.6,
+      "duration_min": 844
+    },
+    "SE-BR-04|SITE-DK-01": {
+      "distance_km": 724.5,
+      "duration_min": 514
+    },
+    "SE-BR-04|SITE-DK-02": {
+      "distance_km": 724.8,
+      "duration_min": 507
+    },
+    "SE-BR-04|SITE-DK-03": {
+      "distance_km": 1021.7,
+      "duration_min": 696
+    },
+    "SE-BR-04|SITE-DK-04": {
+      "distance_km": 879.8,
+      "duration_min": 609
+    },
+    "SE-BR-04|SITE-SE-01": {
+      "distance_km": 67.3,
+      "duration_min": 56
+    },
+    "SE-BR-04|SITE-SE-02": {
+      "distance_km": 466.7,
+      "duration_min": 367
+    },
+    "SE-BR-04|SITE-SE-03": {
+      "distance_km": 681.1,
+      "duration_min": 475
+    },
+    "SE-BR-04|SITE-NO-01": {
+      "distance_km": 503.0,
+      "duration_min": 405
+    },
+    "SE-BR-04|SITE-NO-02": {
+      "distance_km": 962.4,
+      "duration_min": 867
+    },
+    "SE-BR-04|SITE-NO-03": {
+      "distance_km": 749.3,
+      "duration_min": 626
+    },
+    "NO-DC-01|SITE-DK-01": {
+      "distance_km": 567.5,
+      "duration_min": 408
+    },
+    "NO-DC-01|SITE-DK-02": {
+      "distance_km": 567.8,
+      "duration_min": 401
+    },
+    "NO-DC-01|SITE-DK-03": {
+      "distance_km": 864.7,
+      "duration_min": 590
+    },
+    "NO-DC-01|SITE-DK-04": {
+      "distance_km": 722.8,
+      "duration_min": 504
+    },
+    "NO-DC-01|SITE-SE-01": {
+      "distance_km": 502.4,
+      "duration_min": 395
+    },
+    "NO-DC-01|SITE-SE-02": {
+      "distance_km": 254.6,
+      "duration_min": 183
+    },
+    "NO-DC-01|SITE-SE-03": {
+      "distance_km": 524.1,
+      "duration_min": 369
+    },
+    "NO-DC-01|SITE-NO-01": {
+      "distance_km": 41.2,
+      "duration_min": 37
+    },
+    "NO-DC-01|SITE-NO-02": {
+      "distance_km": 500.6,
+      "duration_min": 499
+    },
+    "NO-DC-01|SITE-NO-03": {
+      "distance_km": 521.4,
+      "duration_min": 477
+    },
+    "NO-BR-01|SITE-DK-01": {
+      "distance_km": 607.5,
+      "duration_min": 444
+    },
+    "NO-BR-01|SITE-DK-02": {
+      "distance_km": 607.8,
+      "duration_min": 437
+    },
+    "NO-BR-01|SITE-DK-03": {
+      "distance_km": 904.7,
+      "duration_min": 626
+    },
+    "NO-BR-01|SITE-DK-04": {
+      "distance_km": 762.8,
+      "duration_min": 539
+    },
+    "NO-BR-01|SITE-SE-01": {
+      "distance_km": 527.0,
+      "duration_min": 418
+    },
+    "NO-BR-01|SITE-SE-02": {
+      "distance_km": 294.6,
+      "duration_min": 219
+    },
+    "NO-BR-01|SITE-SE-03": {
+      "distance_km": 564.1,
+      "duration_min": 405
+    },
+    "NO-BR-01|SITE-NO-01": {
+      "distance_km": 9.4,
+      "duration_min": 14
+    },
+    "NO-BR-01|SITE-NO-02": {
+      "distance_km": 469.5,
+      "duration_min": 475
+    },
+    "NO-BR-01|SITE-NO-03": {
+      "distance_km": 479.9,
+      "duration_min": 443
+    },
+    "NO-BR-02|SITE-DK-01": {
+      "distance_km": 1063.2,
+      "duration_min": 903
+    },
+    "NO-BR-02|SITE-DK-02": {
+      "distance_km": 1063.5,
+      "duration_min": 896
+    },
+    "NO-BR-02|SITE-DK-03": {
+      "distance_km": 1360.4,
+      "duration_min": 1085
+    },
+    "NO-BR-02|SITE-DK-04": {
+      "distance_km": 1218.5,
+      "duration_min": 998
+    },
+    "NO-BR-02|SITE-SE-01": {
+      "distance_km": 982.6,
+      "duration_min": 877
+    },
+    "NO-BR-02|SITE-SE-02": {
+      "distance_km": 750.3,
+      "duration_min": 678
+    },
+    "NO-BR-02|SITE-SE-03": {
+      "distance_km": 1019.8,
+      "duration_min": 864
+    },
+    "NO-BR-02|SITE-NO-01": {
+      "distance_km": 457.8,
+      "duration_min": 465
+    },
+    "NO-BR-02|SITE-NO-02": {
+      "distance_km": 2.4,
+      "duration_min": 5
+    },
+    "NO-BR-02|SITE-NO-03": {
+      "distance_km": 636.7,
+      "duration_min": 656
+    },
+    "NO-BR-03|SITE-DK-01": {
+      "distance_km": 1083.2,
+      "duration_min": 876
+    },
+    "NO-BR-03|SITE-DK-02": {
+      "distance_km": 1083.5,
+      "duration_min": 869
+    },
+    "NO-BR-03|SITE-DK-03": {
+      "distance_km": 1380.4,
+      "duration_min": 1058
+    },
+    "NO-BR-03|SITE-DK-04": {
+      "distance_km": 1238.5,
+      "duration_min": 972
+    },
+    "NO-BR-03|SITE-SE-01": {
+      "distance_km": 815.9,
+      "duration_min": 675
+    },
+    "NO-BR-03|SITE-SE-02": {
+      "distance_km": 770.3,
+      "duration_min": 651
+    },
+    "NO-BR-03|SITE-SE-03": {
+      "distance_km": 1039.8,
+      "duration_min": 837
+    },
+    "NO-BR-03|SITE-NO-01": {
+      "distance_km": 482.4,
+      "duration_min": 443
+    },
+    "NO-BR-03|SITE-NO-02": {
+      "distance_km": 635.7,
+      "duration_min": 649
+    },
+    "NO-BR-03|SITE-NO-03": {
+      "distance_km": 4.6,
+      "duration_min": 8
+    },
+    "NO-BR-04|SITE-DK-01": {
+      "distance_km": 1011.3,
+      "duration_min": 848
+    },
+    "NO-BR-04|SITE-DK-02": {
+      "distance_km": 1011.5,
+      "duration_min": 841
+    },
+    "NO-BR-04|SITE-DK-03": {
+      "distance_km": 1308.4,
+      "duration_min": 1030
+    },
+    "NO-BR-04|SITE-DK-04": {
+      "distance_km": 1166.5,
+      "duration_min": 944
+    },
+    "NO-BR-04|SITE-SE-01": {
+      "distance_km": 940.0,
+      "duration_min": 830
+    },
+    "NO-BR-04|SITE-SE-02": {
+      "distance_km": 698.3,
+      "duration_min": 623
+    },
+    "NO-BR-04|SITE-SE-03": {
+      "distance_km": 967.9,
+      "duration_min": 810
+    },
+    "NO-BR-04|SITE-NO-01": {
+      "distance_km": 433.2,
+      "duration_min": 427
+    },
+    "NO-BR-04|SITE-NO-02": {
+      "distance_km": 296.6,
+      "duration_min": 334
+    },
+    "NO-BR-04|SITE-NO-03": {
+      "distance_km": 918.5,
+      "duration_min": 872
+    }
+  }
+}
