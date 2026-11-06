@@ -1,16 +1,21 @@
 #!/usr/bin/env bash
 # OneOrder: test and run helper (backend + frontend).
 #
-#   ./run-oneorder.sh test    pytest, then frontend type check, lint and build   (default)
+#   ./run-oneorder.sh         same as `start`: both servers up, ready to try in the browser   (default)
+#   ./run-oneorder.sh start   start both servers for you to use (Ctrl-C stops them)
+#   ./run-oneorder.sh test    pytest, then frontend type check, lint and build
 #   ./run-oneorder.sh smoke   start both servers on a throw-away database and walk the whole flow
 #                             through the UI proxy: upload, approve, plan, confirm, ERP, stock, rules
 #   ./run-oneorder.sh all     test, then smoke
-#   ./run-oneorder.sh start   start both servers for you to use (Ctrl-C stops them)
+#
+# `start` reads .env. With a Gemini/Claude key in .env it runs the LIVE AI, so any photo can be read;
+# without a key it falls back to demo (recorded fixtures for the files in samples/ only).
+# `test` and `smoke` always use demo, so results never depend on a key or on quota.
 #
 # Options (environment variables):
+#   AI_MODE=demo|live  force the mode for `start` (default: live if a key is configured, else demo)
 #   FRESH=1            with `start`: use an empty temporary database instead of ./oneorder.db
 #   BACKEND_PORT=8000  FRONTEND_PORT=5173     (smoke defaults to 8100 / 5273 so it never clashes with `start`)
-#   AI_MODE=demo       demo (recorded fixtures, no API key) or live
 #
 # Exit code is 0 only if every step passed.
 
@@ -19,8 +24,8 @@ set -uo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
 
-MODE="${1:-test}"
-case "$MODE" in test|smoke|all|start) ;; -h|--help|help) sed -n '2,17p' "$0"; exit 0 ;; *) echo "Unknown mode '$MODE'. Use: test | smoke | all | start" >&2; exit 2 ;; esac
+MODE="${1:-start}"
+case "$MODE" in test|smoke|all|start) ;; -h|--help|help) sed -n '2,22p' "$0"; exit 0 ;; *) echo "Unknown mode '$MODE'. Use: test | smoke | all | start" >&2; exit 2 ;; esac
 
 if [ -t 1 ]; then RED=$'\e[31m'; GREEN=$'\e[32m'; YELLOW=$'\e[33m'; BOLD=$'\e[1m'; DIM=$'\e[2m'; RESET=$'\e[0m'; else RED=; GREEN=; YELLOW=; BOLD=; DIM=; RESET=; fi
 
@@ -86,7 +91,7 @@ setup_node() {
 
 run_tests() {
   head_ "Backend tests"
-  step "pytest" "$PY" -m pytest -q
+  step "pytest (demo AI)" env AI_MODE=demo "$PY" -m pytest -q
   head_ "Frontend checks"
   step "TypeScript type check" bash -c "cd frontend && npx tsc -b"
   step "ESLint"               bash -c "cd frontend && npm run lint --silent"
@@ -106,13 +111,13 @@ wait_for() {  # wait_for <url> <seconds>
   return 1
 }
 
-start_servers() {  # start_servers <backend_port> <frontend_port> <database_url>
-  local bport="$1" fport="$2" dburl="$3"
+start_servers() {  # start_servers <backend_port> <frontend_port> <database_url> <ai_mode>
+  local bport="$1" fport="$2" dburl="$3" aimode="$4"
   for p in "$bport" "$fport"; do
     if port_busy "$p"; then say "${RED}Port $p is already in use.${RESET} Stop what is running there or set BACKEND_PORT / FRONTEND_PORT."; return 1; fi
   done
 
-  DATABASE_URL="$dburl" AI_MODE="${AI_MODE:-demo}" setsid "$PY" -m uvicorn backend.main:app --port "$bport" >"$LOG_DIR/backend.log" 2>&1 &
+  DATABASE_URL="$dburl" AI_MODE="$aimode" setsid "$PY" -m uvicorn backend.main:app --port "$bport" >"$LOG_DIR/backend.log" 2>&1 &
   PIDS+=("$!")
   if ! wait_for "http://127.0.0.1:$bport/api/health" 30; then
     say "${RED}Backend did not start.${RESET}"; tail -n 20 "$LOG_DIR/backend.log" | sed 's/^/     /'; return 1
@@ -136,7 +141,7 @@ smoke() {
   head_ "Smoke test: whole flow through the UI proxy"
   local bport="${BACKEND_PORT:-8100}" fport="${FRONTEND_PORT:-5273}"
   local db="sqlite:///$LOG_DIR/smoke.db"
-  start_servers "$bport" "$fport" "$db" || { record "start servers" 1; return; }
+  start_servers "$bport" "$fport" "$db" demo || { record "start servers" 1; return; }
   record "start servers" 0
 
   local api="http://127.0.0.1:$fport"   # everything goes through the Vite proxy, like the browser
@@ -171,12 +176,31 @@ smoke() {
 
 # ---------------------------------------------------------------------------------------- start
 
+# Value of KEY from the environment, else from .env (empty if unset). Never printed.
+conf() { local v="${!1:-}"; [ -z "$v" ] && [ -f .env ] && v="$(grep -E "^$1=" .env | tail -1 | cut -d= -f2-)"; printf '%s' "$v"; }
+
+# live if the chosen provider has a key; demo otherwise. AI_MODE in the environment wins.
+pick_ai_mode() {
+  [ -n "${AI_MODE:-}" ] && { printf '%s' "$AI_MODE"; return; }
+  local provider; provider="$(conf AI_PROVIDER)"; provider="${provider:-gemini}"
+  if [ "$provider" = claude ]; then [ -n "$(conf ANTHROPIC_API_KEY)" ] && { printf live; return; }
+  else { [ -n "$(conf GEMINI_API_KEY)" ] || [ -n "$(conf GOOGLE_API_KEY)" ]; } && { printf live; return; }; fi
+  printf demo
+}
+
 serve() {
   head_ "Starting OneOrder"
   local bport="${BACKEND_PORT:-8000}" fport="${FRONTEND_PORT:-5173}" db="${DATABASE_URL:-sqlite:///$ROOT/oneorder.db}"
   if [ "${FRESH:-0}" = "1" ]; then db="sqlite:///$LOG_DIR/fresh.db"; say "${YELLOW}FRESH=1: using an empty temporary database${RESET}"; fi
-  start_servers "$bport" "$fport" "$db" || exit 1
-  say "${BOLD}Open http://127.0.0.1:$fport${RESET}   (AI mode: ${AI_MODE:-demo}; Ctrl-C to stop)"
+  local aimode; aimode="$(pick_ai_mode)"
+  start_servers "$bport" "$fport" "$db" "$aimode" || exit 1
+  local actual; actual="$(curl -fsS "http://127.0.0.1:$bport/api/health" | "$PY" -c 'import sys,json; print(json.load(sys.stdin)["ai_mode"])' 2>/dev/null)"
+  if [ "$actual" = live ]; then
+    say "AI: ${GREEN}live${RESET} (provider $(conf AI_PROVIDER), model $(conf AI_MODEL)); any photo, spreadsheet or email can be read."
+  else
+    say "AI: ${YELLOW}demo${RESET}: only the files in samples/ can be read. Add a key to .env for live reading."
+  fi
+  say "${BOLD}Open http://127.0.0.1:$fport${RESET}   (Ctrl-C to stop)"
   while true; do sleep 3600 & wait $!; done
 }
 
