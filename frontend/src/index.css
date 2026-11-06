@@ -1,67 +1,74 @@
 /* OneOrder Design Tokens & Global Styles - Audited for Step 13 */
 @import "tailwindcss";
 
+/* OneOrder brand: Fjord Navy #15233F, Signal Orange #D9622B, Steel Blue #2F5D8C, Paper #F5F2EC.
+   Navy = structure, text and primary buttons. Orange = the flow: the next step, progress, focus.
+   Steel blue = data, links and AI suggestions. Status colours are always paired with a word. */
 :root {
-  --canvas: #f5f6f8;
-  --surface: #ffffff;
-  --surface-2: #f0f2f5;
-  --line: #e2e5ea;
-  --line-strong: #cdd2da;
-  --ink: #0f172a;
-  --ink-muted: #5a6578;
-  --ink-faint: #8a94a6;
+  --canvas: #f5f2ec;
+  --surface: #fffdf9;
+  --surface-2: #efebe2;
+  --line: #e2ddd3;
+  --line-strong: #cfc8ba;
+  --ink: #15233f;
+  --ink-muted: #55607a;
+  --ink-faint: #7a8399;
 
-  --brand: #4f46e5;
-  --brand-hover: #4338ca;
-  --brand-soft: #eef0ff;
-  --brand-ink: #3730a3;
+  --brand: #15233f;
+  --brand-hover: #0e1830;
+  --brand-soft: #e7eaf0;
+  --brand-ink: #15233f;
   --on-brand: #ffffff;
 
-  --success: #15803d;
-  --success-soft: #e7f6ec;
-  --warn: #b45309;
-  --warn-soft: #fef3c7;
-  --danger: #b91c1c;
-  --danger-soft: #fdecec;
-  --info: #0369a1;
-  --info-soft: #e0f2fe;
+  --accent: #d9622b;
+  --accent-hover: #c9561f;
+  --accent-soft: #fce6d8;
+  --accent-ink: #b8501f;
+  --on-accent: #15233f;
 
-  --sidebar: #0f172a;
-  --sidebar-ink: #94a3b8;
-  --sidebar-ink-strong: #f8fafc;
-  --sidebar-hover: rgba(255, 255, 255, 0.06);
-  --sidebar-active: rgba(129, 140, 248, 0.16);
-  --sidebar-accent: #a5b4fc;
-  --sidebar-line: rgba(255, 255, 255, 0.08);
+  --success: #1f6b45;
+  --success-soft: #e3f2e9;
+  --warn: #9a3f12;
+  --warn-soft: #fce6d8;
+  --danger: #9b1c1c;
+  --danger-soft: #f8dcdc;
+  --info: #2f5d8c;
+  --info-soft: #e1eaf3;
 
   --shadow-card:
-    0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+    0 1px 2px rgba(21, 35, 63, 0.04), 0 1px 3px rgba(21, 35, 63, 0.07);
 }
 
 html.dark {
-  --canvas: #0b0f19;
-  --surface: #111827;
-  --surface-2: #1e293b;
-  --line: #1f2937;
-  --line-strong: #334155;
-  --ink: #f8fafc;
-  --ink-muted: #94a3b8;
-  --ink-faint: #64748b;
+  --canvas: #0d1527;
+  --surface: #15233f;
+  --surface-2: #1d2e4f;
+  --line: #2a3b5e;
+  --line-strong: #3a4d75;
+  --ink: #f5f2ec;
+  --ink-muted: #a9b3c8;
+  --ink-faint: #7f8aa3;
 
-  --brand: #6366f1;
-  --brand-hover: #818cf8;
-  --brand-soft: rgba(99, 102, 241, 0.16);
-  --brand-ink: #c7d2fe;
-  --on-brand: #ffffff;
+  --brand: #f5f2ec;
+  --brand-hover: #ffffff;
+  --brand-soft: #1d2e4f;
+  --brand-ink: #f5f2ec;
+  --on-brand: #15233f;
 
-  --success: #4ade80;
-  --success-soft: rgba(34, 197, 94, 0.16);
-  --warn: #fbbf24;
-  --warn-soft: rgba(245, 158, 11, 0.16);
-  --danger: #f87171;
-  --danger-soft: rgba(239, 68, 68, 0.16);
-  --info: #38bdf8;
-  --info-soft: rgba(14, 165, 233, 0.16);
+  --accent: #e8743b;
+  --accent-hover: #f0864f;
+  --accent-soft: rgba(232, 116, 59, 0.18);
+  --accent-ink: #f0925f;
+  --on-accent: #15233f;
+
+  --success: #6fcf9a;
+  --success-soft: rgba(111, 207, 154, 0.16);
+  --warn: #f0925f;
+  --warn-soft: rgba(232, 116, 59, 0.18);
+  --danger: #f08a8a;
+  --danger-soft: rgba(240, 138, 138, 0.16);
+  --info: #8fb4dc;
+  --info-soft: rgba(143, 180, 220, 0.16);
 
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
@@ -69,8 +76,10 @@ html.dark {
 @theme inline {
   --font-sans:
     "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display:
+    "Space Grotesk Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
@@ -87,6 +96,12 @@ html.dark {
   --color-brand-ink: var(--brand-ink);
   --color-on-brand: var(--on-brand);
 
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+
   --color-success: var(--success);
   --color-success-soft: var(--success-soft);
   --color-warn: var(--warn);
@@ -96,14 +111,6 @@ html.dark {
   --color-info: var(--info);
   --color-info-soft: var(--info-soft);
 
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-ink: var(--sidebar-ink);
-  --color-sidebar-ink-strong: var(--sidebar-ink-strong);
-  --color-sidebar-hover: var(--sidebar-hover);
-  --color-sidebar-active: var(--sidebar-active);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-line: var(--sidebar-line);
-
   --radius-card: 0.75rem;
   --shadow-card: var(--shadow-card);
 }
@@ -111,7 +118,6 @@ html.dark {
 @layer base {
   html,
   body {
-    min-width: 1024px;
     background-color: var(--canvas);
     color: var(--ink);
     font-family: var(--font-sans);
@@ -121,7 +127,7 @@ html.dark {
   }
 
   *:focus-visible {
-    outline: 2px solid var(--brand);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
 }

@@ -153,6 +153,11 @@ def _scarce(monkeypatch, plan: dict) -> None:
         ]
 
     monkeypatch.setattr("backend.routers.orders.get_group_inventory", inventory)
+    # confirm checks stock inside the ERPs, so they must see the same scarce stock
+    monkeypatch.setattr(
+        "backend.erp.mock_erp._country_items",
+        lambda country, db: apply_reservations([i for i in inventory() if i.country == country], db),
+    )
 
 
 def test_second_order_cannot_take_stock_reserved_by_first(client, monkeypatch):
