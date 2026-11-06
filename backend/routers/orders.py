@@ -1,8 +1,10 @@
 from datetime import datetime
+import io
 import json
 import logging
 
-from fastapi import APIRouter, Body, Depends, HTTPException
+from fastapi import APIRouter, Body, Depends, HTTPException, Response
+from openpyxl import load_workbook
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
@@ -452,3 +454,128 @@ def approve_order(
     db.refresh(order)
 
     return order_model_to_dict(order)
+
+
+# --- read-only views for the UI ---------------------------------------------------------------------
+
+
+def _order_summary(order: OrderModel) -> dict:
+    """One row of the orders list: enough for the dashboard and the list without loading each order."""
+    plan = json.loads(order.plan) if order.plan else None
+    order_eta = plan.get("order_eta") if plan else None
+    review_lines = sum(
+        1
+        for line in order.lines
+        if line_needs_review(
+            line.confidence, line.match_score, line.matched_sku, bool(line.confirmed), bool(line.ambiguous)
+        )
+    )
+    return {
+        "id": order.id,
+        "status": order.status,
+        "created_at": order.created_at.isoformat() if order.created_at else None,
+        "source_type": order.source_type,
+        "source_name": order.source_name,
+        "customer": order.customer,
+        "delivery_site": order.delivery_site,
+        "requested_date": order.requested_date,
+        "line_count": len(order.lines),
+        "review_lines": review_lines,
+        "shortage_count": len(plan["shortages"]) if plan else 0,
+        "shipment_count": len(plan["shipments"]) if plan else 0,
+        "p50_date": order_eta["p50_date"] if order_eta else None,
+        "p90_date": order_eta["p90_date"] if order_eta else None,
+        "risk": order_eta["risk"] if order_eta else None,
+    }
+
+
+@router.get("")
+def list_orders(status: str | None = None, db: Session = Depends(get_db)) -> list[dict]:
+    """All orders, newest first, as short summaries. Optional ``?status=draft`` filter."""
+    query = db.query(OrderModel)
+    if status:
+        query = query.filter(OrderModel.status == status)
+    return [_order_summary(o) for o in query.order_by(OrderModel.created_at.desc()).all()]
+
+
+_PREVIEW_ROWS = 200
+
+
+@router.get("/{order_id}/source")
+def get_order_source(order_id: str, db: Session = Depends(get_db)) -> dict:
+    """The original input of an order in a form the UI can show next to the extracted lines.
+
+    ``kind`` is ``image`` (fetch the picture from ``/source/file``), ``text`` (email body) or
+    ``table`` (first rows of the spreadsheet).
+    """
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+    if order.source_content is None:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} has no stored original")
+
+    base = {"name": order.source_name, "mime": order.source_mime, "source_type": order.source_type}
+    if order.source_type == "image":
+        return {**base, "kind": "image"}
+    if order.source_type == "excel":
+        try:
+            sheet = load_workbook(io.BytesIO(order.source_content), read_only=True, data_only=True).active
+            rows = [
+                ["" if c is None else str(c) for c in row]
+                for row in sheet.iter_rows(values_only=True)
+                if any(c is not None for c in row)
+            ]
+        except Exception as exc:  # corrupt workbook: the download link still works
+            raise HTTPException(status_code=422, detail=f"Cannot read the stored spreadsheet: {exc}") from exc
+        return {**base, "kind": "table", "rows": rows[:_PREVIEW_ROWS], "truncated": len(rows) > _PREVIEW_ROWS}
+    return {**base, "kind": "text", "text": order.source_content.decode("utf-8", errors="replace")}
+
+
+@router.get("/{order_id}/source/file")
+def get_order_source_file(order_id: str, db: Session = Depends(get_db)) -> Response:
+    """The original bytes (photo, .xlsx or email text) exactly as uploaded."""
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order or order.source_content is None:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} has no stored original")
+    return Response(content=order.source_content, media_type=order.source_mime or "application/octet-stream")
+
+
+@router.get("/{order_id}/availability")
+def order_availability(order_id: str, db: Session = Depends(get_db)) -> list[dict]:
+    """Pre-check of every line against the stock of all three countries (reservations deducted).
+
+    ``status``: ``ok`` the group can cover the line, ``partial`` only part of it, ``none`` no stock,
+    ``unmatched`` the line has no catalogue SKU yet. Lines of the same SKU share the stock.
+    """
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+    try:
+        inventory = apply_reservations(get_group_inventory(), db)
+    except (FileNotFoundError, KeyError, ValueError) as exc:
+        raise HTTPException(status_code=503, detail=f"Stock data unavailable: {exc}") from exc
+
+    pool: dict[str, dict[str, float]] = {}
+    for item in inventory:
+        by_country = pool.setdefault(item.sku, {})
+        by_country[item.country] = by_country.get(item.country, 0) + float(item.available_quantity)
+
+    result = []
+    for line in order.lines:
+        sku = line.matched_sku
+        if not sku:
+            result.append({"line_index": line.line_index, "sku": None, "requested": line.quantity,
+                           "available": 0, "by_country": {}, "status": "unmatched"})
+            continue
+        by_country = pool.get(sku, {})
+        available = sum(by_country.values())
+        status = "ok" if available + 1e-9 >= line.quantity else ("partial" if available > 0 else "none")
+        result.append({"line_index": line.line_index, "sku": sku, "requested": line.quantity,
+                       "available": available, "by_country": dict(by_country), "status": status})
+        # later lines of the same SKU only see what is left
+        remaining = line.quantity
+        for country in sorted(by_country, key=by_country.get, reverse=True):
+            take = min(by_country[country], remaining)
+            by_country[country] -= take
+            remaining -= take
+    return result

@@ -4,7 +4,7 @@ import os
 import uuid
 from typing import Generator
 
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, create_engine, inspect, text
+from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, LargeBinary, String, Text, create_engine, inspect, text
 from sqlalchemy.orm import Session, declarative_base, relationship, sessionmaker
 
 from backend.services.intake.schemas import line_needs_review
@@ -34,6 +34,8 @@ class OrderModel(Base):
     requested_date = Column(String(20), nullable=True)
     warnings = Column(Text, nullable=True)
     plan = Column(Text, nullable=True)  # JSON of the latest fulfilment plan, set by /plan
+    source_content = Column(LargeBinary, nullable=True)  # the original photo / spreadsheet / email, for side-by-side review
+    source_mime = Column(String(100), nullable=True)
 
     lines = relationship(
         "OrderLineModel",
@@ -119,9 +121,13 @@ def _ensure_columns(target_engine) -> None:
     if "orders" not in inspector.get_table_names():
         return
     existing = {col["name"] for col in inspector.get_columns("orders")}
-    if "plan" not in existing:
-        with target_engine.begin() as conn:
+    with target_engine.begin() as conn:
+        if "plan" not in existing:
             conn.execute(text("ALTER TABLE orders ADD COLUMN plan TEXT"))
+        if "source_content" not in existing:
+            conn.execute(text("ALTER TABLE orders ADD COLUMN source_content BLOB"))
+        if "source_mime" not in existing:
+            conn.execute(text("ALTER TABLE orders ADD COLUMN source_mime VARCHAR(100)"))
 
 
 def init_db(target_engine=None) -> None:
@@ -165,8 +171,13 @@ def record_audit_log(
     return entry
 
 
-def save_draft_order(db: Session, order, user: str = "sales_desk") -> OrderModel:
-    """Persist a DraftOrder into the database, generating an id and recording an audit log."""
+def save_draft_order(
+    db: Session, order, user: str = "sales_desk", source: tuple[bytes, str] | None = None
+) -> OrderModel:
+    """Persist a DraftOrder into the database, generating an id and recording an audit log.
+
+    ``source`` is the original input as ``(bytes, mime type)``, kept so a reviewer can compare it
+    with the extracted lines."""
     if not order.id:
         order.id = str(uuid.uuid4())
 
@@ -179,6 +190,8 @@ def save_draft_order(db: Session, order, user: str = "sales_desk") -> OrderModel
         delivery_site=order.delivery_site,
         requested_date=order.requested_date.isoformat() if order.requested_date else None,
         warnings=json.dumps(order.warnings, ensure_ascii=False) if order.warnings else None,
+        source_content=source[0] if source else None,
+        source_mime=source[1] if source else None,
     )
     db.add(db_order)
 
@@ -286,6 +299,8 @@ def order_model_to_dict(model: OrderModel) -> dict:
         "warnings": warnings,
         "needs_review": any(l["needs_review"] for l in lines),
         "plan": plan,
+        "has_source": model.source_content is not None,
+        "created_at": model.created_at.isoformat() if model.created_at else None,
         "reservations": [
             {
                 "warehouse_code": r.warehouse_code,

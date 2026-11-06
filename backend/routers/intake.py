@@ -1,4 +1,5 @@
 import logging
+import mimetypes
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.orm import Session
@@ -27,14 +28,18 @@ async def intake(
         raise HTTPException(422, "Send either a file or text, not both or neither")
 
     service = IntakeService(ai)
+    source: tuple[bytes, str] | None = None
     try:
         if file is not None:
             content = await file.read(MAX_UPLOAD_BYTES + 1)
             if len(content) > MAX_UPLOAD_BYTES:
                 raise HTTPException(413, "File is larger than 10 MB")
             order = service.process(file.filename or "", content)
+            mime = file.content_type if file.content_type and file.content_type != "application/octet-stream" else None
+            source = (content, mime or mimetypes.guess_type(file.filename or "")[0] or "application/octet-stream")
         else:
             order = service.from_email(text)
+            source = (text.encode("utf-8"), "text/plain")
     except (UnsupportedInput, DemoFixtureMissing, ValueError) as exc:
         raise HTTPException(422, str(exc)) from exc
     except RuntimeError as exc:
@@ -50,6 +55,6 @@ async def intake(
         order.warnings.append(f"Catalogue matching skipped: {exc}")
 
     # Save draft order and audit log entry in database
-    save_draft_order(db, order)
+    save_draft_order(db, order, source=source)
 
     return order
