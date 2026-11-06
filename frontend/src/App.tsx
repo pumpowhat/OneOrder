@@ -8,6 +8,7 @@ import DashboardPage from "./pages/DashboardPage.tsx";
 import OrdersPage from "./pages/OrdersPage.tsx";
 import OrderDetailPage from "./pages/OrderDetailPage.tsx";
 import StockPage from "./pages/StockPage.tsx";
+import RulesPage from "./pages/RulesPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
                 <Route path="orders" element={<OrdersPage />} />
                 <Route path="orders/:id" element={<OrderDetailPage />} />
                 <Route path="stock" element={<StockPage />} />
+                <Route path="rules" element={<RulesPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>

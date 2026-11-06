@@ -25,6 +25,12 @@ export function uploadOrder(file: File) {
   return apiClient<{ id: string }>("/api/intake", { method: "POST", body: form });
 }
 
+export function uploadOrderText(text: string) {
+  const form = new FormData();
+  form.append("text", text);
+  return apiClient<{ id: string }>("/api/intake", { method: "POST", body: form });
+}
+
 export function getOrderSource(id: string, signal?: AbortSignal) {
   return apiClient<OrderSource>(`/api/orders/${id}/source`, { signal });
 }

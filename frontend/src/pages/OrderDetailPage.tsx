@@ -12,7 +12,9 @@ import { Button } from "../components/ui/Button.tsx";
 import { Card, CardBody, CardHeader } from "../components/ui/Card.tsx";
 import { EmptyState } from "../components/ui/EmptyState.tsx";
 import { useToast } from "../components/ui/useToast.ts";
+import { AuditTrail } from "../components/orders/AuditTrail.tsx";
 import { PlanView } from "../components/orders/PlanView.tsx";
+import { ReservationList } from "../components/orders/ReservationList.tsx";
 import { ReviewLines } from "../components/orders/ReviewLines.tsx";
 import { SourceViewer } from "../components/orders/SourceViewer.tsx";
 import { Stepper } from "../components/orders/Stepper.tsx";
@@ -168,9 +170,14 @@ export default function OrderDetailPage() {
                 ))}
               </select>
             </label>
-            <Button variant="accent" disabled={busy} onClick={() => run(() => planOrder(order.id, siteId || undefined), t("plan.made"))}>
-              {busy ? t("common.working") : t("plan.make")}
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button variant="accent" disabled={busy} onClick={() => run(() => planOrder(order.id, siteId || undefined), t("plan.made"))}>
+                {busy ? t("common.working") : t("plan.make")}
+              </Button>
+              <Button variant="ghost" disabled={busy} onClick={() => run(() => cancelOrder(order.id), t("order.cancelDone"))}>
+                {t("order.cancel")}
+              </Button>
+            </div>
           </CardBody>
         </Card>
       )}
@@ -227,6 +234,8 @@ export default function OrderDetailPage() {
         </div>
       )}
 
+      {order.status === "confirmed" && <ReservationList reservations={order.reservations} plan={plan} />}
+
       {/* Original input stays reachable after the review step */}
       {order.status !== "draft" && order.has_source && (
         <details className="bg-surface border border-line rounded-card">
@@ -234,6 +243,8 @@ export default function OrderDetailPage() {
           <SourceViewer orderId={order.id} />
         </details>
       )}
+
+      <AuditTrail logs={order.audit_logs} />
 
       {order.status === "draft" && (
         <div>

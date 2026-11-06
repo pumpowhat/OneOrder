@@ -2,6 +2,7 @@ import { AlertTriangle, ArrowRight, Truck } from "lucide-react";
 import { getModelInfo } from "../../api/stock.ts";
 import { useApi } from "../../hooks/useApi.ts";
 import { useI18n } from "../../i18n/useI18n.ts";
+import type { TranslationKey } from "../../i18n/en.ts";
 import { formatIsoDate, formatQty, formatWeightKg } from "../../lib/format.ts";
 import { VEHICLE_LABEL } from "../../lib/status.ts";
 import type { FulfillmentPlan } from "../../types/api.ts";
@@ -9,6 +10,12 @@ import { Badge } from "../ui/Badge.tsx";
 import { Card, CardBody, CardHeader } from "../ui/Card.tsx";
 import { CountryBadge } from "../ui/CountryBadge.tsx";
 import { RiskBadge } from "./StatusBadge.tsx";
+
+function featureLabel(name: string, t: ReturnType<typeof useI18n>["t"]): string {
+  const key = `feat.${name}` as TranslationKey;
+  const label = t(key);
+  return label === key ? name : label;
+}
 
 function ModelNote() {
   const { t } = useI18n();
@@ -21,6 +28,15 @@ function ModelNote() {
         {data && (
           <p>
             {t("plan.etaMetrics", { cov: Math.round(data.metrics.p90_coverage * 100), rows: data.training_rows })}
+          </p>
+        )}
+        {data && (
+          <p>
+            {t("plan.etaDrivers")}{" "}
+            {Object.entries(data.feature_importance)
+              .slice(0, 4)
+              .map(([name, weight]) => `${featureLabel(name, t)} ${Math.round(weight * 100)}%`)
+              .join(" · ")}
           </p>
         )}
         {data && <p className="italic">{data.disclaimer}</p>}
@@ -121,13 +137,17 @@ export function PlanView({ plan }: { plan: FulfillmentPlan }) {
                 {s.vehicle_count > 1 && ` × ${s.vehicle_count}`}
               </span>
               <span>{Math.round(s.distance_km)} km</span>
+              {s.eta && <span>{t("plan.dispatch", { date: formatIsoDate(s.eta.dispatch_date) })}</span>}
               <span>{formatWeightKg(Math.round(s.total_weight_kg))}</span>
               {s.crane_required && <span>{t("plan.crane")}</span>}
             </div>
             <ul className="text-sm divide-y divide-line">
               {s.lines.map((a) => (
                 <li key={`${a.line_index}-${a.sku}`} className="py-1.5 flex items-baseline justify-between gap-4">
-                  <span className="min-w-0 truncate">{a.description ?? a.sku}</span>
+                  <span className="min-w-0">
+                    <span className="block truncate">{a.description ?? a.sku}</span>
+                    <span className="block text-xs text-ink-muted">{a.reason}</span>
+                  </span>
                   <span className="tabular-nums text-ink-muted shrink-0">
                     {formatQty(a.quantity)} {a.unit}
                   </span>

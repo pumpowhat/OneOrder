@@ -12,6 +12,7 @@ export function TopNav() {
     { to: "/", label: t("nav.dashboard"), end: true },
     { to: "/orders", label: t("nav.orders"), end: false },
     { to: "/stock", label: t("nav.stock"), end: false },
+    { to: "/rules", label: t("nav.rules"), end: false },
   ];
 
   return (

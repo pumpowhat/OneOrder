@@ -238,3 +238,39 @@ export interface ModelInfo {
   data_source: string;
   disclaimer: string;
 }
+
+// --- sample inbox -------------------------------------------------------------------------------
+
+export interface InboxItem {
+  id: string;
+  kind: SourceType;
+  filename: string;
+  size_bytes: number;
+  preview: string | null;
+}
+
+// --- rules --------------------------------------------------------------------------------------
+
+export type SourcingTier = "branch" | "domestic_dc" | "cross_border_dc";
+
+export interface VehicleRule {
+  type: VehicleType;
+  max_weight_kg: number;
+  crane: boolean;
+}
+
+/** GET/PUT /api/rules. `intake` and `country_lead_time_buffer_days` are kept as received. */
+export interface Rules {
+  version: number;
+  intake: { min_confidence: number };
+  sourcing: {
+    priority: SourcingTier[];
+    allow_cross_border: boolean;
+    allow_line_split: boolean;
+    branch_max_distance_km: number;
+    max_shipments_per_order: number;
+  };
+  distance: { road_factor: number };
+  vehicles: VehicleRule[];
+  country_lead_time_buffer_days: Record<string, number>;
+}
