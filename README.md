@@ -390,7 +390,12 @@ npm run dev                       # mở http://localhost:5173
 ### Kiểm thử
 
 ```bash
-pytest
+pytest                            # chỉ backend
+./run-oneorder.sh                 # = start: bật backend + frontend, dùng AI thật nếu .env có khóa API
+./run-oneorder.sh test            # pytest + kiểm tra kiểu, lint và build frontend
+./run-oneorder.sh smoke           # dựng cả hai máy chủ trên DB tạm, chạy thử luồng đầu-cuối qua giao diện
+./run-oneorder.sh all             # test rồi smoke
+FRESH=1 ./run-oneorder.sh         # bật với DB trống (AI_MODE=demo để ép chế độ mô phỏng)
 ```
 
 ### Chế độ demo
