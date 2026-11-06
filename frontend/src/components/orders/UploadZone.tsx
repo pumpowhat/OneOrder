@@ -8,9 +8,11 @@ import { ACCEPTED_FILES, useUpload } from "./useUpload.ts";
 /** Drag a photo, spreadsheet or email here, or click to choose one. */
 export function UploadZone() {
   const { t } = useI18n();
-  const { upload, busy } = useUpload();
+  const { upload, uploadText, busy } = useUpload();
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
+  const [pasting, setPasting] = useState(false);
+  const [text, setText] = useState("");
 
   const pick = (files: FileList | null) => {
     const file = files?.[0];
@@ -56,6 +58,35 @@ export function UploadZone() {
       <Button variant="accent" disabled={busy} onClick={() => input.current?.click()}>
         {busy ? t("upload.processing") : t("upload.button")}
       </Button>
+      {pasting ? (
+        <div className="w-full max-w-xl space-y-2 text-left">
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            rows={6}
+            placeholder={t("upload.pastePlaceholder")}
+            aria-label={t("upload.pasteLabel")}
+            className="w-full rounded-lg border border-line-strong bg-surface p-3 text-sm"
+          />
+          <div className="flex items-center gap-2">
+            <Button disabled={busy || !text.trim()} onClick={() => void uploadText(text)}>
+              {t("upload.pasteSubmit")}
+            </Button>
+            <Button variant="ghost" disabled={busy} onClick={() => setPasting(false)}>
+              {t("common.cancel")}
+            </Button>
+          </div>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setPasting(true)}
+          disabled={busy}
+          className="text-xs font-medium text-info hover:underline cursor-pointer disabled:opacity-50"
+        >
+          {t("upload.pasteToggle")}
+        </button>
+      )}
     </div>
   );
 }

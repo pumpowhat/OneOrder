@@ -14,6 +14,7 @@ import { EmptyState } from "../components/ui/EmptyState.tsx";
 import { PageHeader } from "../components/ui/PageHeader.tsx";
 import { Segmented } from "../components/ui/Segmented.tsx";
 import { RiskBadge, StatusBadge } from "../components/orders/StatusBadge.tsx";
+import { InboxPanel } from "../components/orders/InboxPanel.tsx";
 import { UploadZone } from "../components/orders/UploadZone.tsx";
 
 type Tab = OrderStatus | "all";
@@ -58,6 +59,7 @@ export default function OrdersPage() {
     <div className="space-y-6">
       <PageHeader title={t("nav.orders")} subtitle={t("orders.subtitle")} />
       <UploadZone />
+      <InboxPanel defaultOpen={!loading && orders.length === 0} />
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Segmented
