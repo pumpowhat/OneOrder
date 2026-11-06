@@ -155,3 +155,9 @@ def test_stock_reflects_confirmed_reservations(client):
     after = {i["sku"]: i["total_available"] for i in client.get("/api/stock").json()["items"]}
     sku = reserved[0]["sku"]
     assert after[sku] < before[sku]
+
+
+def test_sites_endpoint(client):
+    sites = client.get("/api/sites").json()
+    assert len(sites) == 10
+    assert {"id", "name", "country", "address", "crane_accessible"} <= set(sites[0])

@@ -5,7 +5,7 @@ from backend.db import get_db
 from backend.erp import get_group_inventory
 from backend.erp.reservations import apply_reservations
 from backend.services.matching import load_catalog
-from backend.services.orchestration import load_warehouses
+from backend.services.orchestration import load_sites, load_warehouses
 
 router = APIRouter(prefix="/api", tags=["stock"])
 
@@ -101,3 +101,16 @@ def get_stock(
         for c in COUNTRIES
     }
     return {"summary": summary, "items": rows, "total": len(rows)}
+
+
+@router.get("/sites")
+def get_sites() -> list[dict]:
+    """Construction sites an order can be delivered to (for choosing one when the address is unknown)."""
+    try:
+        sites = load_sites()
+    except (FileNotFoundError, KeyError, ValueError) as exc:
+        raise HTTPException(status_code=503, detail=f"Site data unavailable: {exc}") from exc
+    return [
+        {"id": s.id, "name": s.name, "country": s.country, "address": s.address, "crane_accessible": s.crane_accessible}
+        for s in sites
+    ]

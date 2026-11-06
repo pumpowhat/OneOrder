@@ -1,25 +1,45 @@
-/**
- * API types for OneOrder.
- * Matches backend/main.py and backend/db.py for confirmed endpoints.
- * Provisional types are marked with comments.
- */
+/** API types for OneOrder. They mirror the backend responses (see backend/routers and services). */
 
-// Confirmed: GET /api/health
 export type AiMode = "live" | "demo";
+export type NordicCountry = "DK" | "SE" | "NO";
 
 export interface HealthResponse {
   status: string;
   ai_mode: AiMode;
 }
 
-// ASSUMPTION: Candidate shape parsed from JSON in backend/db.py candidates column
-export interface OrderCandidate {
-  sku: string;
-  description: string;
-  score: number;
+// --- orders -------------------------------------------------------------------------------------
+
+export type OrderStatus = "draft" | "approved" | "planned" | "confirmed" | "cancelled";
+export type SourceType = "image" | "excel" | "email";
+export type EtaRisk = "on_time" | "at_risk" | "late";
+
+/** One row of GET /api/orders. */
+export interface OrderSummary {
+  id: string;
+  status: OrderStatus;
+  created_at: string | null;
+  source_type: SourceType;
+  source_name: string | null;
+  customer: string | null;
+  delivery_site: string | null;
+  requested_date: string | null;
+  line_count: number;
+  review_lines: number;
+  shortage_count: number;
+  shipment_count: number;
+  p50_date: string | null;
+  p90_date: string | null;
+  risk: EtaRisk | null;
 }
 
-// Confirmed: OrderLine schema serialized from backend/db.py OrderLineModel
+export interface OrderCandidate {
+  sku: string;
+  name: string;
+  score: number;
+  unit?: string | null;
+}
+
 export interface OrderLine {
   line_index: number;
   description: string;
@@ -35,24 +55,25 @@ export interface OrderLine {
   needs_review: boolean;
 }
 
-// Confirmed: AuditLog schema from backend/db.py AuditLogModel
 export interface AuditLogEntry {
   id: number;
   timestamp: string | null;
-  action: "create_draft" | "edit_line" | "approve" | string;
+  action: string;
   user: string;
   payload_before: unknown;
   payload_after: unknown;
 }
 
-// Order lifecycle, same as backend/services/orders/status.py:
-// draft -> approved -> planned -> confirmed, and cancelled (final) from draft/approved/planned.
-export type OrderStatus = "draft" | "approved" | "planned" | "confirmed" | "cancelled";
+export interface Reservation {
+  warehouse_code: string;
+  sku: string;
+  quantity: number;
+  unit: string | null;
+  shipment_index: number | null;
+  created_at: string | null;
+}
 
-// ASSUMPTION: Intake sources supported by intake services
-export type SourceType = "image" | "email" | "excel";
-
-// Confirmed: Order schema serialized from backend/db.py OrderModel
+/** GET /api/orders/{id}. */
 export interface Order {
   id: string;
   status: OrderStatus;
@@ -64,137 +85,156 @@ export interface Order {
   lines: OrderLine[];
   warnings: string[];
   needs_review: boolean;
+  plan: FulfillmentPlan | null;
+  has_source: boolean;
+  created_at: string | null;
+  reservations: Reservation[];
   audit_logs: AuditLogEntry[];
 }
 
-// ---------------------------------------------------------------------------
-// PROVISIONAL: The types below support frontend shell screens before
-// backend endpoints for intake, fulfillment planning, stock, rules, and model
-// metrics are wired.
-// ---------------------------------------------------------------------------
+export type OrderSource =
+  | { kind: "image"; name: string | null; mime: string | null }
+  | { kind: "text"; name: string | null; mime: string | null; text: string }
+  | { kind: "table"; name: string | null; mime: string | null; rows: string[][]; truncated: boolean };
 
-export type NordicCountry = "DK" | "SE" | "NO";
+export type AvailabilityStatus = "ok" | "partial" | "none" | "unmatched";
 
-// PROVISIONAL: Inbox item for /inbox contractor intake queue
-export interface InboxItem {
-  id: string;
-  orderId: string;
-  receivedAt: string;
-  sourceType: SourceType;
-  sourceName: string;
-  customer: string;
-  deliverySite: string;
-  country: NordicCountry;
-  requestedDate: string | null;
-  lineCount: number;
-  flaggedCount: number;
-  status: OrderStatus;
-  rawPreviewTitle: string;
-  rawPreviewBody: string;
+export interface LineAvailability {
+  line_index: number;
+  sku: string | null;
+  requested: number;
+  available: number;
+  by_country: Partial<Record<NordicCountry, number>>;
+  status: AvailabilityStatus;
+}
+
+export interface LineCorrection {
+  line_index: number;
+  sku?: string;
+  quantity?: number;
+  confirmed?: boolean;
+}
+
+// --- plan ---------------------------------------------------------------------------------------
+
+export interface ShipmentEta {
+  dispatch_date: string;
+  baseline_date: string;
+  p50_date: string;
+  p90_date: string;
+  delay_p50_days: number;
+  delay_p90_days: number;
+  risk: EtaRisk | null;
+  notes: string[];
+}
+
+export interface OrderEta {
+  p50_date: string;
+  p90_date: string;
+  risk: EtaRisk | null;
+}
+
+export interface Allocation {
+  line_index: number;
+  sku: string;
+  description: string | null;
+  quantity: number;
+  unit: string | null;
+  weight_kg: number;
+  reason: string;
 }
 
 export type VehicleType = "small_truck" | "heavy_truck" | "crane_truck";
 
-export type WarehouseSourceType = "branch" | "domestic_dc" | "cross_border_dc";
-
-// PROVISIONAL: Material line allocated to a specific shipment
-export interface ShipmentLineItem {
-  sku: string;
-  description: string;
-  quantity: number;
-  unit: string;
-  weight_kg: number;
-}
-
-// PROVISIONAL: Individual shipment plan for /plan
-export interface ShipmentPlan {
-  id: string;
+export interface Shipment {
   shipment_index: number;
   origin_warehouse: string;
+  origin_name: string;
   origin_country: NordicCountry;
-  destination_site: string;
+  origin_type: "branch" | "dc";
   destination_country: NordicCountry;
-  vehicle_type: VehicleType;
-  crane_required: boolean;
   cross_border: boolean;
   distance_km: number;
   total_weight_kg: number;
-  p50_date: string;
-  p90_date: string;
-  on_time: boolean;
-  selection_reason: string;
-  erp_reservation_id?: string;
-  lines: ShipmentLineItem[];
+  crane_required: boolean;
+  vehicle_type: VehicleType;
+  vehicle_count: number;
+  lines: Allocation[];
+  eta: ShipmentEta | null;
 }
 
-// PROVISIONAL: Order-level fulfillment plan
-export interface FulfillmentPlan {
-  order_id: string;
-  customer: string;
-  delivery_site: string;
-  requested_date: string;
-  shipments: ShipmentPlan[];
-  total_weight_kg: number;
-  max_p90_date: string;
-  on_time: boolean;
-}
-
-// PROVISIONAL: Multi-warehouse stock level row for /stock
-export interface WarehouseStockRow {
+export interface Shortage {
+  line_index: number;
   sku: string;
-  description: string;
-  category: string;
-  unit: string;
-  dk_stock: number;
-  se_stock: number;
-  no_stock: number;
-  total_stock: number;
-  reorder_level: number;
-  lead_time_days: number;
+  description: string | null;
+  requested: number;
+  allocated: number;
+  missing: number;
+  reason: string;
 }
 
-// PROVISIONAL: Native ERP raw JSON inspector sample
-export interface NativeErpSample {
-  erp_system: string;
-  warehouse_code: string;
+export interface FulfillmentPlan {
+  order_id: string | null;
+  customer: string | null;
+  requested_date: string | null;
+  site: { id: string; name: string; country: NordicCountry; match: "site_id" | "address" | "city" };
+  shipments: Shipment[];
+  shortages: Shortage[];
+  total_weight_kg: number;
+  fully_sourced: boolean;
+  warnings: string[];
+  order_eta: OrderEta | null;
+}
+
+export interface Site {
+  id: string;
+  name: string;
   country: NordicCountry;
-  sample_json: string;
+  address: string;
+  crane_accessible: boolean;
 }
 
-// PROVISIONAL: Configurable business rules for /rules
-export interface BusinessRules {
-  confidence_threshold: number;
-  sourcing_priority: string[];
-  allow_cross_border: boolean;
-  max_shipments_per_order: number;
-  vehicle_weight_limits: Record<VehicleType, number>;
-  country_lead_time_buffer_days: Record<NordicCountry, number>;
+// --- stock --------------------------------------------------------------------------------------
+
+export type StockLevel = "ok" | "low" | "out";
+
+export interface StockCell {
+  on_hand: number;
+  reserved: number;
+  available: number;
 }
 
-// PROVISIONAL: ML ETA model metrics for /model
-export interface ModelMetrics {
-  model_name: string;
-  algorithm: string;
-  train_samples: number;
-  mae_days: number;
-  rmse_days: number;
-  r2_score: number;
-  p50_coverage: number;
-  p90_coverage: number;
-  last_retrained_iso: string;
+export interface StockWarehouse extends StockCell {
+  code: string;
+  name: string;
+  type: "branch" | "dc" | null;
+  country: NordicCountry;
 }
 
-// PROVISIONAL: Feature importance entry for /model
-export interface FeatureImportanceItem {
-  feature: string;
-  importance: number;
-  description: string;
+export interface StockItem {
+  sku: string;
+  name: string;
+  unit: string;
+  by_country: Record<NordicCountry, StockCell>;
+  warehouses: StockWarehouse[];
+  total_available: number;
+  level: StockLevel;
+  single_country: boolean;
 }
 
-// PROVISIONAL: Prediction calibration bin
-export interface CalibrationNote {
-  bin: string;
-  predicted_days: number;
-  actual_days: number;
-  sample_count: number;
+export interface StockResponse {
+  summary: Record<NordicCountry, { skus: number; out_or_low: number }>;
+  items: StockItem[];
+  total: number;
+}
+
+// --- model --------------------------------------------------------------------------------------
+
+export interface ModelInfo {
+  features: string[];
+  feature_importance: Record<string, number>;
+  metrics: { p90_coverage: number; mae_p50_days: number; holdout_rows: number };
+  training_rows: number;
+  data_source: string;
+  disclaimer: string;
 }

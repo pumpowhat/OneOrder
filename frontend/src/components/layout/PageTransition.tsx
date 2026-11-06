@@ -5,10 +5,7 @@ export function PageTransition() {
   const location = useLocation();
 
   useEffect(() => {
-    const mainEl = document.getElementById("main-content");
-    if (mainEl) {
-      mainEl.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    }
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [location.pathname]);
 
   return (

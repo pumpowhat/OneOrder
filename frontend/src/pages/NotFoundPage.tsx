@@ -17,7 +17,7 @@ export default function NotFoundPage() {
           <AlertCircle className="w-6 h-6" />
         </div>
         <p className="text-sm text-ink-muted">{t("notFound.description")}</p>
-        <Link to="/inbox">
+        <Link to="/">
           <Button variant="primary">{t("notFound.backHome")}</Button>
         </Link>
       </div>

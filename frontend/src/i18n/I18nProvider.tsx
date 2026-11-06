@@ -14,7 +14,7 @@ const DICTIONARIES = {
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
     const saved = readStorage(STORAGE_KEY);
-    return saved === "vi" || saved === "en" ? saved : "en";
+    return saved === "vi" || saved === "en" ? saved : "vi";
   });
 
   const setLocale = useCallback((next: Locale) => {
