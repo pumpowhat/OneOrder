@@ -270,17 +270,23 @@ Tích hợp ERP thật, tối ưu tuyến đường, trang theo dõi dành cho n
 
 | Method | Endpoint | Mô tả |
 |---|---|---|
-| `GET` | `/api/inbox` | Hộp thư mẫu (email và tệp đính kèm) |
+| `GET` | `/api/inbox` | Hộp thư mẫu (email, ảnh viết tay, Excel trong `samples/`) |
+| `POST` | `/api/inbox/import` | Nhập một mục trong hộp thư mẫu như một lần tải lên, trả về đơn nháp |
 | `POST` | `/api/intake` | Ảnh / văn bản email / Excel → đơn nháp |
 | `GET` | `/api/orders/{id}` | Đơn hàng kèm dòng hàng, trạng thái và audit log |
 | `POST` | `/api/orders/{id}/approve` | Các dòng đã kiểm tra (xác nhận bởi con người) |
 | `POST` | `/api/orders/{id}/plan` | Kế hoạch thực hiện đơn kèm ETA P50/P90 cho từng lô và cho cả đơn; lưu kế hoạch, chuyển đơn sang `planned` |
 | `POST` | `/api/orders/{id}/cancel` | Hủy đơn chưa xác nhận |
-| `POST` | `/api/orders/{id}/confirm` | Ghi đặt giữ hàng vào ERP giả lập, đóng băng kế hoạch và ETA, chuyển đơn sang `confirmed`. Trả 409 nếu thiếu hàng (trừ khi `allow_partial`), ETA bị trễ (trừ khi `accept_late_risk`) hoặc tồn kho đã bị đơn khác giữ |
-| `GET` | `/api/stock` | Tồn kho toàn tập đoàn qua các adapter |
+| `POST` | `/api/orders/{id}/confirm` | Ghi đặt giữ hàng vào ERP giả lập của từng nước (tất cả hoặc không), đóng băng kế hoạch và ETA, chuyển đơn sang `confirmed`. Trả 409 nếu thiếu hàng (trừ khi `allow_partial`), ETA bị trễ (trừ khi `accept_late_risk`) hoặc tồn kho đã bị đơn khác giữ |
+| `GET` | `/api/stock` | Tồn kho toàn tập đoàn qua các adapter, đã trừ hàng đã giữ; lọc theo nước, từ khóa, hàng sắp hết |
+| `GET` | `/api/orders` | Danh sách đơn (lọc `?status=`) |
+| `GET` | `/api/orders/{id}/source` | File gốc của đơn (ảnh, nội dung email hoặc bảng Excel) để đối chiếu |
+| `GET` | `/api/orders/{id}/availability` | Tiền kiểm tra từng dòng với tồn kho 3 nước |
 | `GET` / `PUT` | `/api/rules` | Quy tắc nghiệp vụ |
 | `GET` | `/api/model` | Chỉ số và đặc trưng của mô hình ETA |
-| `GET` | `/mock-erp/{dk\|se\|no}/stock` | Payload gốc của ERP (phục vụ demo) |
+| `GET` | `/mock-erp/{dk\|se\|no}/stock` | Tồn kho theo định dạng gốc của ERP từng nước (DK CSV, SE JSON tiếng Thụy Điển, NO JSON tiếng Anh), đã gồm hàng đã giữ |
+| `GET` / `POST` | `/mock-erp/{dk\|se\|no}/reservations` | Xem và ghi đặt giữ hàng vào ERP của một nước; trả 409 nếu kho không đủ hàng |
+| `DELETE` | `/mock-erp/{dk\|se\|no}/reservations/{order_ref}` | Giải phóng đặt giữ của một đơn |
 
 ### 4.5 Luồng trạng thái đơn hàng
 

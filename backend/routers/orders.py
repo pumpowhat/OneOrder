@@ -8,9 +8,10 @@ from openpyxl import load_workbook
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from backend.db import OrderModel, ReservationModel, get_db, order_model_to_dict, record_audit_log
+from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
 from backend.erp import get_group_inventory
-from backend.erp.reservations import apply_reservations, find_shortfalls
+from backend.erp.mock_erp import ReservationRejected, reserve_for_order
+from backend.erp.reservations import apply_reservations
 from backend.services.eta import attach_eta
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
@@ -207,37 +208,17 @@ def confirm_order(
             ),
         )
 
-    needed: dict[tuple[str, str], float] = {}
-    for shipment in plan.shipments:
-        for alloc in shipment.lines:
-            key = (shipment.origin_warehouse, alloc.sku)
-            needed[key] = needed.get(key, 0) + alloc.quantity
-
     try:
-        inventory = apply_reservations(get_group_inventory(), db)
-    except (FileNotFoundError, KeyError, ValueError) as exc:
-        logger.error("Stock unavailable while confirming order %s: %s", order_id, exc)
-        raise HTTPException(status_code=503, detail=f"Stock data unavailable: {exc}") from exc
-    short = find_shortfalls(needed, inventory)
-    if short:
-        detail = "; ".join(f"{wh} {sku}: need {need:g}, available {avail:g}" for wh, sku, need, avail in short)
+        reserved_lines = reserve_for_order(db, order.id, plan.shipments)
+    except ReservationRejected as exc:
         raise HTTPException(
             status_code=409,
-            detail=f"Order {order_id}: stock changed since planning ({detail}). Plan the order again",
-        )
+            detail=f"Order {order_id}: stock changed since planning ({exc}). Plan the order again",
+        ) from exc
+    except (FileNotFoundError, KeyError, ValueError) as exc:
+        logger.error("ERP unavailable while confirming order %s: %s", order_id, exc)
+        raise HTTPException(status_code=503, detail=f"Stock data unavailable: {exc}") from exc
 
-    for shipment in plan.shipments:
-        for alloc in shipment.lines:
-            db.add(
-                ReservationModel(
-                    order_id=order.id,
-                    warehouse_code=shipment.origin_warehouse,
-                    sku=alloc.sku,
-                    quantity=alloc.quantity,
-                    unit=alloc.unit,
-                    shipment_index=shipment.shipment_index,
-                )
-            )
     before_status = order.status
     order.status = OrderStatus.CONFIRMED.value
     record_audit_log(
@@ -248,7 +229,7 @@ def confirm_order(
         payload_before={"status": before_status},
         payload_after={
             "status": OrderStatus.CONFIRMED.value,
-            "reservations": sum(len(s.lines) for s in plan.shipments),
+            "reservations": reserved_lines,
             "shipments": len(plan.shipments),
             "allow_partial": payload.allow_partial,
             "accept_late_risk": payload.accept_late_risk,

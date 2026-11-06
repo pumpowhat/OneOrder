@@ -1,8 +1,9 @@
 """Reservations written by POST /confirm, and their effect on the group stock view.
 
-The three national ERPs are simulated from files, so "write reservation" is a row in the
-``reservations`` table. Planning and confirming subtract those rows from the file-based stock so a
-second order cannot be promised goods that are already reserved.
+The three national ERPs are simulated (see ``mock_erp``): their stock files are the opening balance
+and "write reservation" is a row in the ``reservations`` table. These helpers subtract those rows
+from the file-based stock, which is exactly what each ERP's native payload shows, so a second order
+cannot be promised goods that are already reserved.
 """
 
 from collections import defaultdict
