@@ -90,7 +90,7 @@ export default function OrderDetailPage() {
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <h1 className="text-[22px] font-semibold tracking-tight">{order.customer ?? t("common.unknownCustomer")}</h1>
+              <h1 className="font-display text-2xl font-semibold tracking-tight">{order.customer ?? t("common.unknownCustomer")}</h1>
               <StatusBadge status={order.status} />
             </div>
             <p className="text-sm text-ink-muted">{order.source_name}</p>
@@ -168,7 +168,7 @@ export default function OrderDetailPage() {
                 ))}
               </select>
             </label>
-            <Button variant="primary" disabled={busy} onClick={() => run(() => planOrder(order.id, siteId || undefined), t("plan.made"))}>
+            <Button variant="accent" disabled={busy} onClick={() => run(() => planOrder(order.id, siteId || undefined), t("plan.made"))}>
               {busy ? t("common.working") : t("plan.make")}
             </Button>
           </CardBody>
@@ -195,7 +195,7 @@ export default function OrderDetailPage() {
             )}
             <div className="flex flex-wrap items-center gap-3">
               <Button
-                variant="primary"
+                variant="accent"
                 disabled={busy || !canConfirm}
                 onClick={() =>
                   run(

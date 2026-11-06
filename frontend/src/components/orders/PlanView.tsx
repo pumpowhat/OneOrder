@@ -50,11 +50,11 @@ export function PlanView({ plan }: { plan: FulfillmentPlan }) {
               <div className="flex flex-wrap items-center gap-6">
                 <div>
                   <div className="text-xs text-ink-muted">{t("plan.expected")}</div>
-                  <div className="text-xl font-semibold tabular-nums">{formatIsoDate(eta.p50_date)}</div>
+                  <div className="font-display text-2xl font-semibold tabular-nums">{formatIsoDate(eta.p50_date)}</div>
                 </div>
                 <div>
                   <div className="text-xs text-ink-muted">{t("plan.safe")}</div>
-                  <div className="text-xl font-semibold tabular-nums">{formatIsoDate(eta.p90_date)}</div>
+                  <div className="font-display text-2xl font-semibold tabular-nums text-ink-muted">{formatIsoDate(eta.p90_date)}</div>
                 </div>
                 <div>
                   <div className="text-xs text-ink-muted">{t("common.requestedDate")}</div>

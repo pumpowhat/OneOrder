@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { Button } from "../ui/Button.tsx";
 import { Badge, type BadgeTone } from "../ui/Badge.tsx";
-import { ConfidenceBar } from "../ui/ConfidenceBar.tsx";
 import { useI18n } from "../../i18n/useI18n.ts";
 import type { TranslationKey } from "../../i18n/en.ts";
 import { formatQty } from "../../lib/format.ts";
@@ -14,6 +13,8 @@ const AVAIL: Record<AvailabilityStatus, { tone: BadgeTone; label: TranslationKey
   none: { tone: "danger", label: "avail.none" },
   unmatched: { tone: "neutral", label: "avail.unmatched" },
 };
+
+const REVIEW_THRESHOLD = 0.85;
 
 interface Edit {
   sku?: string;
@@ -134,16 +135,19 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
                     />
                   )
                 ) : (
-                  <span className="text-xs font-mono text-ink-muted">{sku(line)}</span>
+                  <span className="text-xs font-mono text-info">{sku(line)}</span>
                 )}
-                <ConfidenceBar value={line.confidence} />
+                <Badge tone={line.confidence >= REVIEW_THRESHOLD ? "success" : "warn"}>
+                  {t("review.ai", { pct: Math.round(line.confidence * 100) })}
+                  {line.confidence < REVIEW_THRESHOLD && ` · ${t("review.check")}`}
+                </Badge>
                 {avail && (
                   <Badge tone={AVAIL[avail.status].tone}>
                     {t(AVAIL[avail.status].label)}
                     {avail.status !== "unmatched" && ` · ${formatQty(avail.available)}`}
                   </Badge>
                 )}
-                {flagged && !done && <span className="text-xs text-warn font-medium">{t("review.needsCheck")}</span>}
+                {(done || line.confirmed) && <Badge tone="neutral">{t("review.byPerson")}</Badge>}
               </div>
             </li>
           );
@@ -154,7 +158,7 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
         <span className="text-sm text-ink-muted">
           {pending.length > 0 ? t("review.pending", { n: pending.length }) : t("review.allChecked")}
         </span>
-        <Button variant="primary" disabled={busy || pending.length > 0} onClick={approve}>
+        <Button variant="accent" disabled={busy || pending.length > 0} onClick={approve}>
           {busy ? t("common.working") : t("review.approve")}
         </Button>
       </div>

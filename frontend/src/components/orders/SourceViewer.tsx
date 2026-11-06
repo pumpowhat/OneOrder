@@ -54,7 +54,7 @@ export function SourceViewer({ orderId }: { orderId: string }) {
       <a
         href={orderSourceFileUrl(orderId)}
         download={data.name ?? undefined}
-        className="inline-flex items-center gap-1.5 text-xs font-medium text-brand hover:underline"
+        className="inline-flex items-center gap-1.5 text-xs font-medium text-info hover:underline"
       >
         <Download className="w-3.5 h-3.5" aria-hidden="true" />
         {data.name ?? t("source.download")}

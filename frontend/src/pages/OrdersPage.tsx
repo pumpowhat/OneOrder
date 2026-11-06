@@ -71,7 +71,7 @@ export default function OrdersPage() {
         <Card>
           <CardBody className="flex items-center justify-between gap-4">
             <span className="text-sm text-danger">{errorMessage(error, t)}</span>
-            <button type="button" onClick={reload} className="text-sm font-medium text-brand hover:underline">
+            <button type="button" onClick={reload} className="text-sm font-medium text-info hover:underline">
               {t("common.retry")}
             </button>
           </CardBody>

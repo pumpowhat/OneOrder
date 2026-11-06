@@ -34,10 +34,10 @@ export function UploadZone() {
       onDrop={onDrop}
       className={cn(
         "rounded-card border-2 border-dashed px-6 py-8 flex flex-col items-center text-center gap-3 transition-colors",
-        over ? "border-brand bg-brand-soft" : "border-line-strong bg-surface",
+        over ? "border-accent bg-accent-soft" : "border-line-strong bg-surface",
       )}
     >
-      <div className="w-10 h-10 rounded-full bg-brand-soft text-brand flex items-center justify-center">
+      <div className="w-10 h-10 rounded-full bg-accent-soft text-accent-ink flex items-center justify-center">
         {busy ? <Loader2 className="w-5 h-5 animate-spin" /> : <FileUp className="w-5 h-5" />}
       </div>
       <div className="space-y-1">
@@ -53,7 +53,7 @@ export function UploadZone() {
         onChange={(e) => pick(e.target.files)}
         tabIndex={-1}
       />
-      <Button variant="primary" disabled={busy} onClick={() => input.current?.click()}>
+      <Button variant="accent" disabled={busy} onClick={() => input.current?.click()}>
         {busy ? t("upload.processing") : t("upload.button")}
       </Button>
     </div>
@@ -61,7 +61,7 @@ export function UploadZone() {
 }
 
 /** Compact version for page headers. */
-export function UploadButton() {
+export function UploadButton({ variant = "accent" }: { variant?: "accent" | "primary" }) {
   const { t } = useI18n();
   const { upload, busy } = useUpload();
   const input = useRef<HTMLInputElement>(null);
@@ -80,7 +80,7 @@ export function UploadButton() {
           e.target.value = "";
         }}
       />
-      <Button variant="primary" disabled={busy} onClick={() => input.current?.click()}>
+      <Button variant={variant} disabled={busy} onClick={() => input.current?.click()}>
         {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileUp className="w-4 h-4" />}
         {busy ? t("upload.processing") : t("upload.button")}
       </Button>

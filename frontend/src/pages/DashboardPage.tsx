@@ -67,7 +67,7 @@ export default function DashboardPage() {
         <Card>
           <CardBody className="flex items-center justify-between gap-4">
             <span className="text-sm text-danger">{errorMessage(error, t)}</span>
-            <button type="button" onClick={reload} className="text-sm font-medium text-brand hover:underline">
+            <button type="button" onClick={reload} className="text-sm font-medium text-info hover:underline">
               {t("common.retry")}
             </button>
           </CardBody>
@@ -79,9 +79,9 @@ export default function DashboardPage() {
           <Link
             key={stat.status}
             to={`/orders?tab=${stat.status}`}
-            className="bg-surface border border-line rounded-card shadow-card p-5 hover:border-brand transition-colors"
+            className="bg-surface border border-line rounded-card shadow-card p-5 hover:border-accent transition-colors"
           >
-            <div className="text-3xl font-semibold tabular-nums">{loading ? "…" : count(stat.status)}</div>
+            <div className="font-display text-3xl font-semibold tabular-nums">{loading ? "…" : count(stat.status)}</div>
             <div className="mt-1 text-sm font-medium">{t(stat.label)}</div>
             <div className="text-xs text-ink-muted">{t(stat.hint)}</div>
           </Link>
@@ -137,7 +137,7 @@ export default function DashboardPage() {
       </div>
 
       {!loading && !error && orders.length === 0 && (
-        <EmptyState title={t("dash.emptyTitle")} description={t("dash.emptyText")} action={<UploadButton />} />
+        <EmptyState title={t("dash.emptyTitle")} description={t("dash.emptyText")} action={<UploadButton variant="primary" />} />
       )}
     </div>
   );

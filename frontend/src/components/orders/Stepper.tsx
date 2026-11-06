@@ -21,8 +21,8 @@ export function Stepper({ status }: { status: OrderStatus }) {
             <span
               className={cn(
                 "w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold border",
-                done && "bg-success text-on-brand border-success",
-                active && "bg-brand text-on-brand border-brand",
+                done && "bg-brand text-on-brand border-brand",
+                active && "bg-accent text-on-accent border-accent",
                 !done && !active && "bg-surface text-ink-faint border-line-strong",
               )}
             >

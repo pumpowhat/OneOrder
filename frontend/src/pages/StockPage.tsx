@@ -49,7 +49,7 @@ export default function StockPage() {
           <Card key={c}>
             <CardBody className="space-y-1">
               <CountryBadge country={c} />
-              <div className="text-2xl font-semibold tabular-nums">{data ? data.summary[c].skus : "…"}</div>
+              <div className="font-display text-2xl font-semibold tabular-nums">{data ? data.summary[c].skus : "…"}</div>
               <div className="text-xs text-ink-muted">
                 {t("stock.skuCount")}
                 {data && data.summary[c].out_or_low > 0 && (
@@ -97,7 +97,7 @@ export default function StockPage() {
         <Card>
           <CardBody className="flex items-center justify-between gap-4">
             <span className="text-sm text-danger">{errorMessage(error, t)}</span>
-            <button type="button" onClick={reload} className="text-sm font-medium text-brand hover:underline">
+            <button type="button" onClick={reload} className="text-sm font-medium text-info hover:underline">
               {t("common.retry")}
             </button>
           </CardBody>
@@ -135,7 +135,7 @@ export default function StockPage() {
                           {expanded ? <ChevronDown className="w-4 h-4 text-ink-faint" /> : <ChevronRight className="w-4 h-4 text-ink-faint" />}
                           <span>
                             <span className="block font-medium">{item.name}</span>
-                            <span className="block text-xs text-ink-muted font-mono">{item.sku}</span>
+                            <span className="block text-xs text-info font-mono">{item.sku}</span>
                           </span>
                         </button>
                       </td>
@@ -194,7 +194,7 @@ export default function StockPage() {
           {items.length > shown && (
             <div className="flex items-center justify-between px-5 py-3 border-t border-line bg-surface-2 text-sm text-ink-muted">
               <span>{t("stock.showing", { shown: visible.length, total: items.length })}</span>
-              <button type="button" onClick={() => setShown((n) => n + PAGE_SIZE)} className="font-medium text-brand hover:underline cursor-pointer">
+              <button type="button" onClick={() => setShown((n) => n + PAGE_SIZE)} className="font-medium text-info hover:underline cursor-pointer">
                 {t("stock.showMore")}
               </button>
             </div>

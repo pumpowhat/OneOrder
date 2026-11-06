@@ -4,8 +4,8 @@ import type { EtaRisk, OrderStatus, VehicleType } from "../types/api.ts";
 
 export const STATUS_TONE: Record<OrderStatus, BadgeTone> = {
   draft: "warn",
-  approved: "info",
-  planned: "brand",
+  approved: "neutral",
+  planned: "info",
   confirmed: "success",
   cancelled: "neutral",
 };

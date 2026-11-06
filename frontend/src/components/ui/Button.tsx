@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "../../lib/cn.ts";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
+export type ButtonVariant = "primary" | "accent" | "secondary" | "ghost" | "danger";
 export type ButtonSize = "sm" | "md";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,6 +13,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const VARIANT_STYLES: Record<ButtonVariant, string> = {
   primary:
     "bg-brand text-on-brand hover:bg-brand-hover active:bg-brand-hover border border-transparent shadow-sm",
+  // The next step in the flow: one per screen. Navy text, because white on orange fails contrast.
+  accent:
+    "bg-accent text-on-accent hover:bg-accent-hover active:bg-accent-hover border border-transparent shadow-sm font-semibold",
   secondary:
     "bg-surface text-ink border border-line-strong hover:bg-surface-2 active:bg-surface-2 shadow-sm",
   ghost:
