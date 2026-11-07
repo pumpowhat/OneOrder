@@ -25,7 +25,7 @@ interface Props {
   order: Order;
   availability: LineAvailability[];
   busy: boolean;
-  onApprove: (corrections: LineCorrection[], confirmLines: number[]) => void;
+  onApprove: (corrections: LineCorrection[], confirmLines: number[], customer?: string) => void;
 }
 
 /** The extracted lines with confidence and stock pre-check; the clerk fixes and ticks the doubtful ones. */
@@ -33,6 +33,9 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
   const { t } = useI18n();
   const [edits, setEdits] = useState<Record<number, Edit>>({});
   const [checked, setChecked] = useState<Set<number>>(new Set());
+  const [customer, setCustomer] = useState("");
+  const needsCustomer = !order.customer?.trim();
+  const customerMissing = needsCustomer && !customer.trim();
   const stock = useMemo(() => new Map(availability.map((a) => [a.line_index, a])), [availability]);
 
   const sku = (line: OrderLine) => edits[line.line_index]?.sku ?? line.matched_sku ?? "";
@@ -49,11 +52,30 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
       corrections.push({ line_index: Number(index), sku: e.sku, quantity: e.quantity, confirmed: true });
     }
     const confirmLines = [...checked].filter((i) => !(i in edits));
-    onApprove(corrections, confirmLines);
+    onApprove(corrections, confirmLines, needsCustomer ? customer.trim() : undefined);
   };
 
   return (
     <div>
+      {needsCustomer && (
+        <div className={cn("px-5 py-4 border-b border-line space-y-1.5", customerMissing && "bg-warn-soft/40")}>
+          <label htmlFor="customer-name" className="text-sm font-medium">
+            {t("review.customerLabel")}
+          </label>
+          <input
+            id="customer-name"
+            type="text"
+            value={customer}
+            maxLength={255}
+            required
+            aria-required="true"
+            placeholder={t("review.customerPlaceholder")}
+            onChange={(e) => setCustomer(e.target.value)}
+            className="h-9 w-full max-w-[420px] px-2 rounded-md border border-line-strong bg-surface text-sm"
+          />
+          <p className="text-xs text-ink-muted">{t("review.customerHint")}</p>
+        </div>
+      )}
       <ul className="divide-y divide-line">
         {order.lines.map((line) => {
           const flagged = line.needs_review || !sku(line);
@@ -156,9 +178,13 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
 
       <div className="flex items-center justify-between gap-4 px-5 py-4 border-t border-line bg-surface-2 rounded-b-card">
         <span className="text-sm text-ink-muted">
-          {pending.length > 0 ? t("review.pending", { n: pending.length }) : t("review.allChecked")}
+          {customerMissing
+            ? t("review.customerRequired")
+            : pending.length > 0
+              ? t("review.pending", { n: pending.length })
+              : t("review.allChecked")}
         </span>
-        <Button variant="accent" disabled={busy || pending.length > 0} onClick={approve}>
+        <Button variant="accent" disabled={busy || pending.length > 0 || customerMissing} onClick={approve}>
           {busy ? t("common.working") : t("review.approve")}
         </Button>
       </div>

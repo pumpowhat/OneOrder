@@ -149,12 +149,15 @@ def test_approve_succeeds_with_corrections_and_confirmations(client):
             {"line_index": 0, "sku": "GYP-13-2400", "confirmed": True},
         ],
         "confirm_lines": [1, 2],
+        "customer": "Byggefirma ApS",
     }
 
     approve_res = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
     assert approve_res.status_code == 200
     approved_data = approve_res.json()
     assert approved_data["status"] == "approved"
+    assert approved_data["customer"] == "Byggefirma ApS"
+    assert "set_customer" in [l["action"] for l in approved_data["audit_logs"]]
 
     # Verify audit logs for edit_line, confirm_line, and approve
     logs = approved_data["audit_logs"]
@@ -180,6 +183,7 @@ def test_approve_rejects_already_approved_order(client):
             {"line_index": 0, "sku": "GYP-13-2400", "confirmed": True},
         ],
         "confirm_lines": [1, 2],
+        "customer": "Byggefirma ApS",
     }
     res_first = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
     assert res_first.status_code == 200
@@ -221,3 +225,22 @@ def test_init_db_custom_engine_does_not_set_global_flag():
         assert db_mod._db_initialized is True
     finally:
         db_mod._db_initialized = original_flag
+
+
+def test_approve_requires_customer_name_when_ocr_found_none(client):
+    res = client.post("/api/intake", data={"text": EMAIL_ORDER})
+    order = res.json()
+    assert not order["customer"]
+    corrections = [
+        {"line_index": i, "sku": line["matched_sku"] or "GYP-13-2400", "confirmed": True}
+        for i, line in enumerate(order["lines"])
+    ]
+
+    blank = client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer": "   "})
+    assert blank.status_code == 409
+    assert "customer name" in blank.json()["detail"]
+    assert client.get(f"/api/orders/{order['id']}").json()["status"] == "draft"
+
+    ok = client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer": " Byg ApS "})
+    assert ok.status_code == 200
+    assert ok.json()["customer"] == "Byg ApS"
