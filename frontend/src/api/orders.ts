@@ -41,10 +41,10 @@ export function getAvailability(id: string, signal?: AbortSignal) {
   return apiClient<LineAvailability[]>(`/api/orders/${id}/availability`, { signal });
 }
 
-export function approveOrder(id: string, corrections: LineCorrection[], confirmLines: number[]) {
+export function approveOrder(id: string, corrections: LineCorrection[], confirmLines: number[], customer?: string) {
   return apiClient<Order>(`/api/orders/${id}/approve`, {
     method: "POST",
-    body: { corrections, confirm_lines: confirmLines },
+    body: { corrections, confirm_lines: confirmLines, ...(customer ? { customer } : {}) },
   });
 }
 

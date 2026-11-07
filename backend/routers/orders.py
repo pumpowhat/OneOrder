@@ -45,6 +45,7 @@ class ApproveOrderRequest(BaseModel):
     user: str = "sales_desk"
     corrections: list[LineCorrection] = Field(default_factory=list)
     confirm_lines: list[int] = Field(default_factory=list)
+    customer: str | None = Field(default=None, max_length=255, description="Required when OCR found no customer name")
 
 
 def _require_transition(order: OrderModel, target: OrderStatus, hint: str | None = None) -> None:
@@ -419,6 +420,26 @@ def approve_order(
                 status_code=409,
                 detail=f"Cannot approve order: line {line.line_index} ('{line.description}') requires review and has not been confirmed",
             )
+
+    # The customer name is mandatory: if OCR did not find one, the clerk must type it
+    customer_name = (payload.customer or "").strip() or (order.customer or "").strip()
+    if not customer_name:
+        raise HTTPException(
+            status_code=409,
+            detail=f"Cannot approve order {order_id}: customer name is missing, enter it to approve",
+        )
+
+    # Record a customer name entered by hand
+    if customer_name != (order.customer or ""):
+        record_audit_log(
+            db,
+            order_id=order.id,
+            action="set_customer",
+            user=payload.user,
+            payload_before={"customer": order.customer},
+            payload_after={"customer": customer_name},
+        )
+        order.customer = customer_name
 
     # Mark order as approved
     before_status = order.status

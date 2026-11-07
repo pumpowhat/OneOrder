@@ -139,8 +139,8 @@ export default function OrderDetailPage() {
               order={order}
               availability={availability.data ?? []}
               busy={busy}
-              onApprove={(corrections: LineCorrection[], confirmLines: number[]) =>
-                run(() => approveOrder(order.id, corrections, confirmLines), t("review.approved"))
+              onApprove={(corrections: LineCorrection[], confirmLines: number[], customer?: string) =>
+                run(() => approveOrder(order.id, corrections, confirmLines, customer), t("review.approved"))
               }
             />
           </Card>
