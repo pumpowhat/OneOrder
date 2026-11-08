@@ -39,6 +39,8 @@ def ingest(
                 raise HTTPException(413, "File is larger than 10 MB")
             order = service.process(filename or "", content)
             known = mime if mime and mime != "application/octet-stream" else None
+            if order.source_type == "pdf":
+                known = "application/pdf"  # validated content; never serve a PDF as a caller-supplied HTML MIME
             source = (content, known or mimetypes.guess_type(filename or "")[0] or "application/octet-stream")
         else:
             order = service.from_email(text or "")
@@ -63,7 +65,7 @@ def ingest(
 
 @router.post("/intake", response_model=DraftOrder)
 async def intake(
-    file: UploadFile | None = File(None, description="Photo (.jpg/.png/.webp), Excel (.xlsx) or email (.txt/.eml)"),
+    file: UploadFile | None = File(None, description="Photo (.jpg/.png/.webp), PDF (.pdf, up to 20 pages), Excel (.xlsx) or email (.txt/.eml); max 10 MB"),
     text: str | None = Form(None, description="Pasted email text, instead of a file"),
     ai: AIClient = Depends(get_ai_client),
     db: Session = Depends(get_db),

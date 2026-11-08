@@ -75,7 +75,7 @@ setup_python() {
     say "Creating .venv ..."; python3 -m venv .venv || exit 1
   fi
   PY="$ROOT/.venv/bin/python"
-  if ! "$PY" -c "import fastapi, sqlalchemy, holidays, sklearn, openpyxl, pytest" 2>/dev/null; then
+  if ! "$PY" -c "import fastapi, sqlalchemy, holidays, sklearn, openpyxl, pytest, pypdf" 2>/dev/null; then
     say "Installing backend requirements ..."; "$PY" -m pip install -q -r requirements.txt || exit 1
   fi
 }

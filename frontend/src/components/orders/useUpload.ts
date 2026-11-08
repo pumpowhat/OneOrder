@@ -6,7 +6,7 @@ import { errorMessage } from "../../lib/errors.ts";
 import { useI18n } from "../../i18n/useI18n.ts";
 import { useToast } from "../ui/useToast.ts";
 
-export const ACCEPTED_FILES = ".jpg,.jpeg,.png,.webp,.xlsx,.txt,.eml";
+export const ACCEPTED_FILES = ".jpg,.jpeg,.png,.webp,.pdf,.xlsx,.txt,.eml";
 
 type Source = { file: File } | { text: string } | { inboxId: string };
 

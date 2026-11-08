@@ -55,6 +55,15 @@ class DemoClient:
     def extract_from_text(self, text: str) -> dict:
         return self._load(text) or parse_email(text)
 
+    def extract_from_pdf(self, data: bytes) -> dict:
+        fixture = self._load(data)
+        if fixture is None:
+            raise DemoFixtureMissing(
+                "Demo mode has no recorded result for this PDF. Use a PDF sample from samples/, "
+                "record one with scripts/record_fixture.py, or set AI_MODE=live for PDF OCR."
+            )
+        return fixture
+
     def map_excel_columns(self, headers: list[str], sample_rows: list[list]) -> dict:
         mapping = {"customer": None, "customer_phone": None, "delivery_site": None, "requested_date": None}
         _, mapping["customer_phone"] = phone_from_columns(headers, sample_rows)

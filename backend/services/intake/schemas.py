@@ -44,6 +44,7 @@ def line_needs_review(
 
 class SourceType(str, Enum):
     IMAGE = "image"
+    PDF = "pdf"
     EMAIL = "email"
     EXCEL = "excel"
 

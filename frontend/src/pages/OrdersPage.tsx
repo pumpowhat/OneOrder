@@ -1,5 +1,5 @@
 import { Link, useNavigate, useSearchParams } from "react-router";
-import { FileImage, FileSpreadsheet, Mail } from "lucide-react";
+import { FileImage, FileSpreadsheet, FileText, Mail } from "lucide-react";
 import { listOrders } from "../api/orders.ts";
 import { useApi } from "../hooks/useApi.ts";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.ts";
@@ -26,7 +26,7 @@ const TABS: Array<{ value: Tab; label: TranslationKey }> = [
   { value: "all", label: "orders.tabAll" },
 ];
 
-const SOURCE_ICON: Record<SourceType, typeof Mail> = { image: FileImage, excel: FileSpreadsheet, email: Mail };
+const SOURCE_ICON: Record<SourceType, typeof Mail> = { image: FileImage, pdf: FileText, excel: FileSpreadsheet, email: Mail };
 
 function note(order: OrderSummary, t: ReturnType<typeof useI18n>["t"]) {
   if (order.status === "draft" && order.review_lines > 0) {

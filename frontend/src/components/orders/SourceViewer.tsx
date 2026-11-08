@@ -6,7 +6,7 @@ import { useI18n } from "../../i18n/useI18n.ts";
 import { errorMessage } from "../../lib/errors.ts";
 import { cn } from "../../lib/cn.ts";
 
-/** The original photo, email or spreadsheet, shown as it was uploaded so it can be checked against the lines. */
+/** The original photo, PDF, email or spreadsheet, shown beside the extracted lines for review. */
 export function SourceViewer({ orderId }: { orderId: string }) {
   const { t } = useI18n();
   const { data, error, loading } = useApi((signal) => getOrderSource(orderId, signal), [orderId]);
@@ -17,6 +17,16 @@ export function SourceViewer({ orderId }: { orderId: string }) {
 
   return (
     <div className="space-y-3 p-5">
+      {data.kind === "pdf" && (
+        <object
+          data={`${orderSourceFileUrl(orderId)}#view=Fit&navpanes=0`}
+          type="application/pdf"
+          aria-label={data.name ?? t("source.title")}
+          className="block w-full h-[520px] rounded-lg border border-line bg-surface-2"
+        >
+          <p className="p-4 text-sm text-ink-muted">{t("source.pdfFallback")}</p>
+        </object>
+      )}
       {data.kind === "image" && (
         <button
           type="button"

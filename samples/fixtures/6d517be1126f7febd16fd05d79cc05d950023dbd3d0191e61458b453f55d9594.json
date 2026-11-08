@@ -1,0 +1,46 @@
+{
+  "source": "dk-scan.pdf",
+  "payload": {
+    "customer": "MT Højgaard",
+    "delivery_site": "Sundkaj 7, 2150 Nordhavn, København",
+    "requested_date": "2026-11-10",
+    "lines": [
+      {
+        "description": "Gipsplade standard 13mm 1200x2400",
+        "quantity": 50.0,
+        "unit": "stk",
+        "confidence": 0.95,
+        "source_text": "50 stk Gipsplade standard 13mm 1200x2400"
+      },
+      {
+        "description": "Konstruktionstræ C24 45x145mm 4.2m",
+        "quantity": 20.0,
+        "unit": "stk",
+        "confidence": 0.95,
+        "source_text": "20 stk Konstruktionstræ C24 45x145mm 4.2m"
+      },
+      {
+        "description": "Gipsskruer 3.9x40mm til træ",
+        "quantity": 10.0,
+        "unit": "pk",
+        "confidence": 0.8,
+        "source_text": "10 pk Gipsskruer 3.9x40mm til træ"
+      },
+      {
+        "description": "Portland cement standard 25kg",
+        "quantity": 25.0,
+        "unit": "sæk",
+        "confidence": 0.95,
+        "source_text": "25 sæk Portland cement standard 25kg"
+      },
+      {
+        "description": "Rockwool flexibatts 100mm",
+        "quantity": 30.0,
+        "unit": "m2",
+        "confidence": 0.95,
+        "source_text": "30 m2 Rockwool flexibatts 100mm"
+      }
+    ],
+    "customer_phone": null
+  }
+}

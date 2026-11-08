@@ -7,6 +7,7 @@ from openpyxl import load_workbook
 
 from .ai import AIClient
 from .phone import phone_from_columns
+from .pdf import validate_pdf
 from .schemas import DraftLine, DraftOrder, SourceType
 
 IMAGE_TYPES = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp"}
@@ -31,6 +32,8 @@ class IntakeService:
         suffix = Path(filename).suffix.lower()
         if suffix in IMAGE_TYPES:
             return self.from_image(content, IMAGE_TYPES[suffix], filename)
+        if suffix == ".pdf":
+            return self.from_pdf(content, filename)
         if suffix in EXCEL_SUFFIXES:
             return self.from_excel(content, filename)
         if suffix in TEXT_SUFFIXES:
@@ -39,6 +42,13 @@ class IntakeService:
 
     def from_image(self, data: bytes, media_type: str, name: str | None = None) -> DraftOrder:
         return self._build(SourceType.IMAGE, name, self.ai.extract_from_image(data, media_type))
+
+    def from_pdf(self, data: bytes, name: str | None = None) -> DraftOrder:
+        try:
+            validate_pdf(data)
+        except ValueError as exc:
+            raise UnsupportedInput(str(exc)) from exc
+        return self._build(SourceType.PDF, name, self.ai.extract_from_pdf(data))
 
     def from_email(self, text: str, name: str | None = None) -> DraftOrder:
         if not text.strip():

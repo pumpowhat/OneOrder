@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from backend.ai import FIXTURE_DIR, make_live_client
 from backend.services.intake.demo_client import fixture_key
 from backend.services.intake.service import IMAGE_TYPES, TEXT_SUFFIXES
+from backend.services.intake.pdf import validate_pdf
 
 
 def main(path: Path) -> None:
@@ -20,11 +21,15 @@ def main(path: Path) -> None:
     if suffix in IMAGE_TYPES:
         content = path.read_bytes()
         payload = client.extract_from_image(content, IMAGE_TYPES[suffix])
+    elif suffix == ".pdf":
+        content = path.read_bytes()
+        validate_pdf(content)
+        payload = client.extract_from_pdf(content)
     elif suffix in TEXT_SUFFIXES:
         content = path.read_text("utf-8")
         payload = client.extract_from_text(content)
     else:
-        sys.exit(f"Only photos and email text can be recorded (got {suffix}); Excel needs no fixture.")
+        sys.exit(f"Only photos, PDFs and email text can be recorded (got {suffix}); Excel needs no fixture.")
 
     FIXTURE_DIR.mkdir(parents=True, exist_ok=True)
     target = FIXTURE_DIR / f"{fixture_key(content)}.json"

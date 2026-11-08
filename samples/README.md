@@ -7,6 +7,7 @@ Thư mục này chứa bộ tệp mẫu dùng để kiểm thử tự động, t
 | Tên tệp | Định dạng | Ngôn ngữ | Số dòng thực tế | Mục đích trình diễn & Ghi chú |
 |---|---|---|:---:|---|
 | `photos/dk-handwritten-1.jpg` | Ảnh JPG | Đan Mạch (DK) | 5 | Đơn viết tay từ công trường Nordhavn; gồm 1 dòng confidence thấp (0.80) để minh họa cờ review. |
+| `pdf/dk-scan.pdf` | PDF scan (1 trang) | Đan Mạch (DK) | 5 | Ảnh đơn DK đóng trong PDF, cùng fixture đã duyệt; thử tải PDF và xem tệp gốc trong Review. Tái tạo bằng `python -m scripts.generate_pdf_sample`. |
 | `photos/se-handwritten-1.jpg` | Ảnh JPG | Thụy Điển (SE) | 5 | Chữ viết tay vội / khó đọc tại Stockholm; 2 dòng có confidence < 0.85 để kiểm tra màn hình Review. |
 | `photos/no-handwritten-1.jpg` | Ảnh JPG | Na Uy (NO) | 5 | Đơn viết tay công trường Oslo; vật tư gỗ và xi măng chuẩn Na Uy; 1 dòng cần review. |
 | `emails/dk_order.txt` | Văn bản (.txt) | Đan Mạch (DK) | 5 | Email đặt hàng tiêu chuẩn Đan Mạch; kết hợp cú pháp số lượng đứng trước (`40 stk...`) và đứng sau (`... - 10 pk`). |

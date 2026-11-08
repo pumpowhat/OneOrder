@@ -131,8 +131,15 @@ Nhà thầu gửi đơn              (ảnh viết tay / email / Excel)
 **Đầu vào**
 
 - Ảnh danh sách vật tư viết tay (OCR bằng mô hình AI thị giác).
+- PDF (`.pdf`), gồm PDF văn bản và PDF scan/ảnh viết tay nhiều trang: AI đọc toàn bộ tài liệu thành một đơn nháp.
 - Email đặt hàng (văn bản tự do, tiếng Đan Mạch, Thụy Điển, Na Uy hoặc Anh).
 - Tệp Excel (`.xlsx`): AI ánh xạ bố cục cột riêng của từng khách hàng.
+
+**Tải PDF và OCR:** chọn hoặc kéo thả tệp tại màn hình Đơn hàng. Giới hạn **10 MB / 20 trang**;
+PDF lỗi, rỗng hoặc có mã hóa/mật khẩu bị từ chối trước khi gọi AI. Gemini và Claude nhận tài liệu
+PDF gốc để đọc cả văn bản, bảng và trang scan; kết quả vẫn phải qua Review/Approve như ảnh.
+Tệp PDF gốc được lưu và hiển thị cạnh kết quả để đối chiếu, có liên kết tải xuống khi trình duyệt
+không hỗ trợ xem trực tiếp. Xem [chi tiết triển khai và kiểm thử](docs/pdf-intake.md).
 
 **Xử lý**
 
@@ -275,7 +282,7 @@ Tích hợp ERP thật, tối ưu tuyến đường, trang theo dõi dành cho n
 |---|---|---|
 | `GET` | `/api/inbox` | Hộp thư mẫu (email, ảnh viết tay, Excel trong `samples/`) |
 | `POST` | `/api/inbox/import` | Nhập một mục trong hộp thư mẫu như một lần tải lên, trả về đơn nháp |
-| `POST` | `/api/intake` | Ảnh / văn bản email / Excel → đơn nháp |
+| `POST` | `/api/intake` | Ảnh / PDF (văn bản hoặc scan) / văn bản email / Excel → đơn nháp |
 | `GET` | `/api/orders/{id}` | Đơn hàng kèm dòng hàng, trạng thái và audit log |
 | `POST` | `/api/orders/{id}/approve` | Các dòng đã kiểm tra (xác nhận bởi con người) |
 | `POST` | `/api/orders/{id}/plan` | Kế hoạch thực hiện đơn kèm ETA P50/P90 cho từng lô và cho cả đơn; lưu kế hoạch, chuyển đơn sang `planned` |
@@ -283,7 +290,7 @@ Tích hợp ERP thật, tối ưu tuyến đường, trang theo dõi dành cho n
 | `POST` | `/api/orders/{id}/confirm` | Ghi đặt giữ hàng vào ERP giả lập của từng nước (tất cả hoặc không), đóng băng kế hoạch và ETA, chuyển đơn sang `confirmed`. Trả 409 nếu thiếu hàng (trừ khi `allow_partial`), ETA bị trễ (trừ khi `accept_late_risk`) hoặc tồn kho đã bị đơn khác giữ |
 | `GET` | `/api/stock` | Tồn kho toàn tập đoàn qua các adapter, đã trừ hàng đã giữ; lọc theo nước, từ khóa, hàng sắp hết |
 | `GET` | `/api/orders` | Danh sách đơn (lọc `?status=`) |
-| `GET` | `/api/orders/{id}/source` | File gốc của đơn (ảnh, nội dung email hoặc bảng Excel) để đối chiếu |
+| `GET` | `/api/orders/{id}/source` | File gốc của đơn (ảnh, PDF, nội dung email hoặc bảng Excel) để đối chiếu |
 | `GET` | `/api/orders/{id}/availability` | Tiền kiểm tra từng dòng với tồn kho 3 nước |
 | `GET` / `PUT` | `/api/rules` | Quy tắc nghiệp vụ |
 | `GET` | `/api/model` | Chỉ số và đặc trưng của mô hình ETA |

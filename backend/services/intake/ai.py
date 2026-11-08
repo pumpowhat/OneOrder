@@ -14,6 +14,9 @@ class AIClient(Protocol):
     def extract_from_text(self, text: str) -> dict:
         """Read a free-text order email. Same return shape as extract_from_image."""
 
+    def extract_from_pdf(self, data: bytes) -> dict:
+        """Read all pages of a PDF, including scans. Same return shape as extract_from_image."""
+
     def map_excel_columns(self, headers: list[str], sample_rows: list[list]) -> dict:
         """Map a customer's own column layout.
 

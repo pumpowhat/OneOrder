@@ -16,8 +16,8 @@ from backend.services.intake import AIClient, DraftOrder
 router = APIRouter(prefix="/api", tags=["inbox"])
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-FOLDERS = {"emails": "email", "photos": "image", "excel": "excel"}
-EXTENSIONS = {".txt", ".eml", ".jpg", ".jpeg", ".png", ".webp", ".xlsx"}
+FOLDERS = {"emails": "email", "photos": "image", "excel": "excel", "pdf": "pdf"}
+EXTENSIONS = {".txt", ".eml", ".jpg", ".jpeg", ".png", ".webp", ".xlsx", ".pdf"}
 
 
 def inbox_dir() -> Path:
