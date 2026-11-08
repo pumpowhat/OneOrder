@@ -101,6 +101,7 @@ export default function OrderDetailPage() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 bg-surface border border-line rounded-card p-4">
           <Meta label={t("common.customer")} value={order.customer ?? "—"} />
+          <Meta label={t("common.customerPhone")} value={order.customer_phone ?? "—"} />
           <Meta label={t("common.site")} value={order.delivery_site ?? "—"} />
           <Meta label={t("common.requestedDate")} value={formatIsoDate(order.requested_date)} />
         </div>
@@ -139,8 +140,8 @@ export default function OrderDetailPage() {
               order={order}
               availability={availability.data ?? []}
               busy={busy}
-              onApprove={(corrections: LineCorrection[], confirmLines: number[], customer?: string) =>
-                run(() => approveOrder(order.id, corrections, confirmLines, customer), t("review.approved"))
+              onApprove={(corrections: LineCorrection[], confirmLines: number[], customer?: string, customerPhone?: string) =>
+                run(() => approveOrder(order.id, corrections, confirmLines, customer, customerPhone), t("review.approved"))
               }
             />
           </Card>

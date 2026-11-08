@@ -54,7 +54,7 @@ def make_order(client, text: str | None = None, name="dk_order.txt", approve=Tru
             {"line_index": i, "sku": line["matched_sku"] or "GYP-13-2400", "confirmed": True}
             for i, line in enumerate(order["lines"])
         ]
-        assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections}).status_code == 200
+        assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer_phone": "+45 00 00 00 01"}).status_code == 200
     if plan:
         res = client.post(f"/api/orders/{order['id']}/plan")
         assert res.status_code == 200, res.text

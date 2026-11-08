@@ -143,7 +143,7 @@ def approved_order(client, name="dk_order.txt") -> dict:
         {"line_index": i, "sku": line["matched_sku"] or "GYP-13-2400", "confirmed": True}
         for i, line in enumerate(order["lines"])
     ]
-    assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections}).status_code == 200
+    assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer_phone": "+45 00 00 00 01"}).status_code == 200
     return order
 
 

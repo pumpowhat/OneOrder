@@ -2,6 +2,7 @@
   "source_file": "dk-handwritten-1.jpg",
   "line_count": 5,
   "customer": "MT Højgaard",
+  "customer_phone": null,
   "delivery_site": "Sundkaj 7, 2150 Nordhavn, København",
   "requested_date": "2026-11-10",
   "lines": [

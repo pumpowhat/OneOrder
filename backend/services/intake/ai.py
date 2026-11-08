@@ -7,7 +7,7 @@ class AIClient(Protocol):
     def extract_from_image(self, data: bytes, media_type: str) -> dict:
         """Read a photo of a material list.
 
-        Returns {"customer", "delivery_site", "requested_date", "lines": [
+        Returns {"customer", "customer_phone", "delivery_site", "requested_date", "lines": [
         {"description", "quantity", "unit", "confidence", "source_text"}]}.
         """
 
@@ -18,7 +18,7 @@ class AIClient(Protocol):
         """Map a customer's own column layout.
 
         Returns {"description": <header>, "quantity": <header>, "unit": <header or None>,
-        "customer", "delivery_site", "requested_date"}; the last three are optional.
+        "customer", "customer_phone", "delivery_site", "requested_date"}; the last four are metadata values or null.
         """
 
     def match_product(self, description: str, candidates: list[dict]) -> str | None:

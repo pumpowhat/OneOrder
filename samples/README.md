@@ -32,3 +32,7 @@ Mỗi tệp đầu vào có một tệp tương ứng trong `samples/expected/<t
 - `line_count`: Số lượng dòng vật tư hợp lệ trích xuất được.
 - `customer`, `delivery_site`, `requested_date`: Thông tin chung của đơn hàng.
 - `lines`: Danh sách từng dòng kèm `matched_sku` và cờ `needs_review`.
+
+## Số điện thoại khách hàng
+
+Email và Excel mẫu có trường số điện thoại hư cấu để minh họa việc tự điền. Các ảnh viết tay cũ không có số nên kết quả đọc là `customer_phone: null`; cần nhập số hợp lệ ở Review trước khi duyệt. Expected JSON lưu cả trường này. Cột điện thoại trong Excel dùng kiểu text để giữ số 0 đầu. Không dùng các số mẫu làm thông tin liên lạc thật.

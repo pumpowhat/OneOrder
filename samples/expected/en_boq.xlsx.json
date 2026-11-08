@@ -2,6 +2,7 @@
   "source_file": "en_boq.xlsx",
   "line_count": 4,
   "customer": null,
+  "customer_phone": "+4500000004",
   "delivery_site": null,
   "requested_date": null,
   "lines": [

@@ -120,5 +120,5 @@ def test_new_plans_use_the_new_rules_version(client):
     assert client.put("/api/rules", json=body).status_code == 200
     order = client.post("/api/inbox/import", json={"id": "emails/dk_order.txt"}).json()
     corrections = [{"line_index": i, "sku": l["matched_sku"] or "GYP-13-2400", "confirmed": True} for i, l in enumerate(order["lines"])]
-    assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections}).status_code == 200
+    assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer_phone": "+45 00 00 00 01"}).status_code == 200
     assert client.post(f"/api/orders/{order['id']}/plan").json()["rules_version"] == 2

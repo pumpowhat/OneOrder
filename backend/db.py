@@ -30,6 +30,7 @@ class OrderModel(Base):
     source_type = Column(String(20), nullable=False)
     source_name = Column(String(255), nullable=True)
     customer = Column(String(255), nullable=True)
+    customer_phone = Column(String(64), nullable=True)  # required at approval, not at draft intake
     delivery_site = Column(String(255), nullable=True)
     requested_date = Column(String(20), nullable=True)
     warnings = Column(Text, nullable=True)
@@ -122,6 +123,8 @@ def _ensure_columns(target_engine) -> None:
         return
     existing = {col["name"] for col in inspector.get_columns("orders")}
     with target_engine.begin() as conn:
+        if "customer_phone" not in existing:
+            conn.execute(text("ALTER TABLE orders ADD COLUMN customer_phone VARCHAR(64)"))
         if "plan" not in existing:
             conn.execute(text("ALTER TABLE orders ADD COLUMN plan TEXT"))
         if "source_content" not in existing:
@@ -187,6 +190,7 @@ def save_draft_order(
         source_type=order.source_type.value if hasattr(order.source_type, "value") else str(order.source_type),
         source_name=order.source_name,
         customer=order.customer,
+        customer_phone=order.customer_phone,
         delivery_site=order.delivery_site,
         requested_date=order.requested_date.isoformat() if order.requested_date else None,
         warnings=json.dumps(order.warnings, ensure_ascii=False) if order.warnings else None,
@@ -293,6 +297,7 @@ def order_model_to_dict(model: OrderModel) -> dict:
         "source_type": model.source_type,
         "source_name": model.source_name,
         "customer": model.customer,
+        "customer_phone": model.customer_phone,
         "delivery_site": model.delivery_site,
         "requested_date": model.requested_date,
         "lines": lines,

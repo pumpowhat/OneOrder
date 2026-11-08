@@ -6,6 +6,7 @@ from pathlib import Path
 from openpyxl import load_workbook
 
 from .ai import AIClient
+from .phone import phone_from_columns
 from .schemas import DraftLine, DraftOrder, SourceType
 
 IMAGE_TYPES = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp"}
@@ -77,10 +78,15 @@ class IntakeService:
                 )
             )
 
+        phone_column, customer_phone = phone_from_columns(headers, body)
+        if phone_column and customer_phone is None:
+            warnings.append("Customer phone column is empty or contains conflicting numbers; enter the contact phone during review")
+
         order = DraftOrder(
             source_type=SourceType.EXCEL,
             source_name=name,
             customer=mapping.get("customer"),
+            customer_phone=customer_phone if phone_column else mapping.get("customer_phone"),
             delivery_site=mapping.get("delivery_site"),
             requested_date=_to_date(mapping.get("requested_date")),
             lines=lines,
@@ -114,6 +120,7 @@ class IntakeService:
             source_type=source,
             source_name=name,
             customer=payload.get("customer"),
+            customer_phone=payload.get("customer_phone"),
             delivery_site=payload.get("delivery_site"),
             requested_date=_to_date(payload.get("requested_date")),
             lines=lines,

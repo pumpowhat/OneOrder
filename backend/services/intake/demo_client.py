@@ -3,6 +3,9 @@ import json
 import re
 from pathlib import Path
 
+from .phone import PHONE_KEYS, phone_from_columns
+from backend.services.orders.phone import normalize_phone
+
 # Words (lower-case) that identify a spreadsheet column, in Danish, Swedish, Norwegian and English.
 COLUMN_WORDS = {
     "description": {"beskrivelse", "beskrivning", "benævnelse", "benämning", "varebeskrivelse", "vare", "artikel",
@@ -15,7 +18,7 @@ UNITS = r"stk|st|pcs|m2|m²|m|lm|pk|pkt|pakke|pack|rl|rulle|rull|sæk|sack|pall|
 NUM = r"\d+(?:[.,]\d+)?"
 QTY_FIRST = re.compile(rf"^({NUM})\s*(?:x\s*)?({UNITS})?\.?\s+(.+)$", re.IGNORECASE)
 QTY_LAST = re.compile(rf"^(.+?)\s*(?:[:\-–]|\s)\s*({NUM})\s*({UNITS})\.?$", re.IGNORECASE)
-KEYED = re.compile(r"^([^\W\d_]+(?: [^\W\d_]+)?)\s*:\s*(.+)$")
+KEYED = re.compile(r"^([^\W\d_]+(?: [^\W\d_]+)?)\.?\s*:\s*(.+)$")
 DATE = re.compile(r"\b(\d{4}-\d{2}-\d{2}|\d{1,2}[./-]\d{1,2}[./-]\d{4})\b")
 CUSTOMER_KEYS = {"kunde", "kund", "kunder", "customer", "firma", "company"}
 SITE_KEYS = {"leveringsadresse", "levering", "leveransadress", "leveransadresse", "adresse", "adress", "delivery",
@@ -53,7 +56,8 @@ class DemoClient:
         return self._load(text) or parse_email(text)
 
     def map_excel_columns(self, headers: list[str], sample_rows: list[list]) -> dict:
-        mapping = {"customer": None, "delivery_site": None, "requested_date": None}
+        mapping = {"customer": None, "customer_phone": None, "delivery_site": None, "requested_date": None}
+        _, mapping["customer_phone"] = phone_from_columns(headers, sample_rows)
         for field, words in COLUMN_WORDS.items():
             mapping[field] = next((h for h in headers if words & set(re.findall(r"\w+", h.lower()))), None)
         return mapping
@@ -70,22 +74,29 @@ class DemoClient:
 
 def parse_email(text: str) -> dict:
     customer = site = requested = None
+    phones = set()
     lines = []
     for raw in text.splitlines():
         line = re.sub(r"^[-*•]\s+", "", raw.strip())
         if not line:
             continue
-        if (date := DATE.search(line)) and requested is None:
-            requested = _iso(date.group(1))
-            continue
         if keyed := KEYED.match(line):
             key, value = keyed.group(1).lower(), keyed.group(2).strip()
+            if key.rstrip(".") in PHONE_KEYS:
+                try:
+                    phones.add(normalize_phone(value))
+                except ValueError:
+                    phones.add(value)
+                continue
             if key in CUSTOMER_KEYS:
                 customer = value
                 continue
             if key in SITE_KEYS:
                 site = value
                 continue
+        if (date := DATE.search(line)) and requested is None:
+            requested = _iso(date.group(1))
+            continue
         for pattern, qty_i, unit_i, desc_i in ((QTY_FIRST, 1, 2, 3), (QTY_LAST, 2, 3, 1)):
             if match := pattern.match(line):
                 lines.append({
@@ -96,7 +107,7 @@ def parse_email(text: str) -> dict:
                     "source_text": line,
                 })
                 break
-    return {"customer": customer, "delivery_site": site, "requested_date": requested, "lines": lines}
+    return {"customer": customer, "customer_phone": next(iter(phones)) if len(phones) == 1 else None, "delivery_site": site, "requested_date": requested, "lines": lines}
 
 
 def _iso(value: str) -> str | None:

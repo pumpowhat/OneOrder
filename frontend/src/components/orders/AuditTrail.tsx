@@ -4,6 +4,7 @@ import { formatTimestamp } from "../../lib/format.ts";
 import type { AuditLogEntry } from "../../types/api.ts";
 
 const ACTION_LABEL: Record<string, TranslationKey> = {
+  set_customer_phone: "audit.set_customer_phone",
   create_draft: "audit.create_draft",
   edit_line: "audit.edit_line",
   confirm_line: "audit.confirm_line",

@@ -2,6 +2,7 @@
   "source_file": "se_order.txt",
   "line_count": 5,
   "customer": "Skanska Sverige AB",
+  "customer_phone": "+4600000002",
   "delivery_site": "Solnavägen 12, 113 65 Stockholm",
   "requested_date": "2026-11-12",
   "lines": [

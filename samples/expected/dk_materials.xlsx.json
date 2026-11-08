@@ -2,6 +2,7 @@
   "source_file": "dk_materials.xlsx",
   "line_count": 5,
   "customer": null,
+  "customer_phone": "+4500000001",
   "delivery_site": null,
   "requested_date": null,
   "lines": [

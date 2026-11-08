@@ -3,6 +3,7 @@ Hej OneOrder,
 Hermed bestilling til vores byggeplads i Nordhavn.
 
 Kunde: MT Højgaard
+Telefon: +45 00 00 00 01
 Leveringsadresse: Sundkaj 7, 2150 Nordhavn, København
 Leveringsdato: 2026-11-10
 
