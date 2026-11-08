@@ -1,9 +1,11 @@
 import { useMemo, useState } from "react";
+import { PhoneInput } from "../ui/PhoneInput.tsx";
 import { Button } from "../ui/Button.tsx";
 import { Badge, type BadgeTone } from "../ui/Badge.tsx";
 import { useI18n } from "../../i18n/useI18n.ts";
 import type { TranslationKey } from "../../i18n/en.ts";
 import { formatQty } from "../../lib/format.ts";
+import { isValidCustomerPhone } from "../../lib/phone.ts";
 import { cn } from "../../lib/cn.ts";
 import type { AvailabilityStatus, LineAvailability, LineCorrection, Order, OrderLine } from "../../types/api.ts";
 
@@ -25,7 +27,7 @@ interface Props {
   order: Order;
   availability: LineAvailability[];
   busy: boolean;
-  onApprove: (corrections: LineCorrection[], confirmLines: number[], customer?: string) => void;
+  onApprove: (corrections: LineCorrection[], confirmLines: number[], customer?: string, customerPhone?: string) => void;
 }
 
 /** The extracted lines with confidence and stock pre-check; the clerk fixes and ticks the doubtful ones. */
@@ -34,6 +36,8 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
   const [edits, setEdits] = useState<Record<number, Edit>>({});
   const [checked, setChecked] = useState<Set<number>>(new Set());
   const [customer, setCustomer] = useState("");
+  const [customerPhone, setCustomerPhone] = useState(order.customer_phone ?? "");
+  const phoneInvalid = !isValidCustomerPhone(customerPhone);
   const needsCustomer = !order.customer?.trim();
   const customerMissing = needsCustomer && !customer.trim();
   const stock = useMemo(() => new Map(availability.map((a) => [a.line_index, a])), [availability]);
@@ -52,7 +56,7 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
       corrections.push({ line_index: Number(index), sku: e.sku, quantity: e.quantity, confirmed: true });
     }
     const confirmLines = [...checked].filter((i) => !(i in edits));
-    onApprove(corrections, confirmLines, needsCustomer ? customer.trim() : undefined);
+    onApprove(corrections, confirmLines, needsCustomer ? customer.trim() : undefined, customerPhone.trim());
   };
 
   return (
@@ -76,6 +80,18 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
           <p className="text-xs text-ink-muted">{t("review.customerHint")}</p>
         </div>
       )}
+      <div className={cn("px-5 py-4 border-b border-line space-y-1.5", phoneInvalid && "bg-warn-soft/40")}>
+        <label htmlFor="customer-phone" className="text-sm font-medium">{t("common.customerPhone")}</label>
+        <PhoneInput
+          id="customer-phone"
+          value={customerPhone}
+          onChange={setCustomerPhone}
+          invalid={phoneInvalid}
+          describedBy="customer-phone-hint"
+          disabled={busy}
+        />
+        <p id="customer-phone-hint" className="text-xs text-ink-muted">{t("review.phoneHint")}</p>
+      </div>
       <ul className="divide-y divide-line">
         {order.lines.map((line) => {
           const flagged = line.needs_review || !sku(line);
@@ -180,11 +196,13 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
         <span className="text-sm text-ink-muted">
           {customerMissing
             ? t("review.customerRequired")
-            : pending.length > 0
+            : phoneInvalid
+              ? t("review.phoneRequired")
+              : pending.length > 0
               ? t("review.pending", { n: pending.length })
               : t("review.allChecked")}
         </span>
-        <Button variant="accent" disabled={busy || pending.length > 0 || customerMissing} onClick={approve}>
+        <Button variant="accent" disabled={busy || pending.length > 0 || customerMissing || phoneInvalid} onClick={approve}>
           {busy ? t("common.working") : t("review.approve")}
         </Button>
       </div>

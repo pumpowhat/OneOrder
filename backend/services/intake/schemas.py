@@ -1,7 +1,9 @@
 from datetime import date
 from enum import Enum
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+
+from backend.services.orders.phone import normalize_phone
 
 # Review thresholds
 REVIEW_THRESHOLD = 0.85
@@ -82,10 +84,24 @@ class DraftOrder(BaseModel):
     source_type: SourceType
     source_name: str | None = None
     customer: str | None = None
+    customer_phone: str | None = None
     delivery_site: str | None = None
     requested_date: date | None = None
     lines: list[DraftLine] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
+
+    @field_validator("customer_phone", mode="before")
+    @classmethod
+    def _phone_for_review(cls, value):
+        if value is None:
+            return None
+        raw = str(value).strip()
+        if not raw:
+            return None
+        try:
+            return normalize_phone(raw)
+        except ValueError:
+            return raw  # keep doubtful extraction visible so the clerk can correct it
 
     @property
     def needs_review(self) -> bool:

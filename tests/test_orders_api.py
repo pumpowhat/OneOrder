@@ -150,6 +150,7 @@ def test_approve_succeeds_with_corrections_and_confirmations(client):
         ],
         "confirm_lines": [1, 2],
         "customer": "Byggefirma ApS",
+        "customer_phone": "+45 00 00 00 01",
     }
 
     approve_res = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
@@ -184,6 +185,7 @@ def test_approve_rejects_already_approved_order(client):
         ],
         "confirm_lines": [1, 2],
         "customer": "Byggefirma ApS",
+        "customer_phone": "+45 00 00 00 01",
     }
     res_first = client.post(f"/api/orders/{order_id}/approve", json=approve_payload)
     assert res_first.status_code == 200
@@ -241,6 +243,6 @@ def test_approve_requires_customer_name_when_ocr_found_none(client):
     assert "customer name" in blank.json()["detail"]
     assert client.get(f"/api/orders/{order['id']}").json()["status"] == "draft"
 
-    ok = client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer": " Byg ApS "})
+    ok = client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer": " Byg ApS ", "customer_phone": "+45 00 00 00 01"})
     assert ok.status_code == 200
     assert ok.json()["customer"] == "Byg ApS"

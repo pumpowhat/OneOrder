@@ -125,6 +125,9 @@ Nhà thầu gửi đơn              (ảnh viết tay / email / Excel)
 
 ### 3.2 Tính năng 1: Tiếp nhận đơn tự động
 
+**Thông tin khách hàng:** ngoài tên, đơn cần có số điện thoại hợp lệ trước khi duyệt. Hệ thống đọc số từ ảnh/email/Excel khi có; nhân viên có thể nhập bổ sung hoặc sửa ngay trong Review. Draft được phép thiếu số, các đơn cũ được giữ nguyên. Xem [quy tắc số điện thoại](docs/customer-phone.md).
+
+
 **Đầu vào**
 
 - Ảnh danh sách vật tư viết tay (OCR bằng mô hình AI thị giác).

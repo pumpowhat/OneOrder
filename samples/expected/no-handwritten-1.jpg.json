@@ -2,6 +2,7 @@
   "source_file": "no-handwritten-1.jpg",
   "line_count": 5,
   "customer": "Veidekke Entreprenør AS",
+  "customer_phone": null,
   "delivery_site": "Stenersgata 1, 0184 Oslo",
   "requested_date": "2026-11-15",
   "lines": [

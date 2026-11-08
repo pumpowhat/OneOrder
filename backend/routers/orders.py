@@ -16,6 +16,7 @@ from backend.services.eta import attach_eta
 from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
 from backend.services.orders import InvalidTransition, OrderStatus, require_transition
+from backend.services.orders.phone import normalize_phone
 from backend.services.orchestration import (
     FulfillmentPlan,
     PlanLineInput,
@@ -46,6 +47,7 @@ class ApproveOrderRequest(BaseModel):
     corrections: list[LineCorrection] = Field(default_factory=list)
     confirm_lines: list[int] = Field(default_factory=list)
     customer: str | None = Field(default=None, max_length=255, description="Required when OCR found no customer name")
+    customer_phone: str | None = Field(default=None, max_length=64, description="A valid phone is required before approval")
 
 
 def _require_transition(order: OrderModel, target: OrderStatus, hint: str | None = None) -> None:
@@ -299,6 +301,7 @@ def approve_order(
     - Returns 409 if the order has already been approved.
     - Returns 400 if any corrected SKU does not exist in the catalogue or quantity <= 0.
     - Returns 409 if any line lacks an SKU or has unresolved review requirements.
+    - Returns 409 when customer name is missing or the customer phone is missing/invalid.
 
     Transaction semantics:
     All corrections, confirmations, status updates, and audit logs are committed
@@ -429,6 +432,24 @@ def approve_order(
             detail=f"Cannot approve order {order_id}: customer name is missing, enter it to approve",
         )
 
+    # An explicitly blank correction must not silently fall back to an extracted phone.
+    phone_input = payload.customer_phone if "customer_phone" in payload.model_fields_set else order.customer_phone
+    try:
+        customer_phone = normalize_phone(phone_input)
+    except ValueError as exc:
+        raise HTTPException(status_code=409, detail=f"Cannot approve order {order_id}: {exc}") from exc
+
+    if customer_phone != order.customer_phone:
+        record_audit_log(
+            db,
+            order_id=order.id,
+            action="set_customer_phone",
+            user=payload.user,
+            payload_before={"customer_phone": order.customer_phone},
+            payload_after={"customer_phone": customer_phone},
+        )
+        order.customer_phone = customer_phone
+
     # Record a customer name entered by hand
     if customer_name != (order.customer or ""):
         record_audit_log(
@@ -479,6 +500,7 @@ def _order_summary(order: OrderModel) -> dict:
         "source_type": order.source_type,
         "source_name": order.source_name,
         "customer": order.customer,
+        "customer_phone": order.customer_phone,
         "delivery_site": order.delivery_site,
         "requested_date": order.requested_date,
         "line_count": len(order.lines),

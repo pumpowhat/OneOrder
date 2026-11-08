@@ -22,6 +22,7 @@ export interface OrderSummary {
   source_type: SourceType;
   source_name: string | null;
   customer: string | null;
+  customer_phone: string | null;
   delivery_site: string | null;
   requested_date: string | null;
   line_count: number;
@@ -80,6 +81,7 @@ export interface Order {
   source_type: SourceType;
   source_name: string | null;
   customer: string | null;
+  customer_phone: string | null;
   delivery_site: string | null;
   requested_date: string | null;
   lines: OrderLine[];

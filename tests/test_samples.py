@@ -85,6 +85,9 @@ def test_sample_intake_matches_expected(client, rel_path, filename, mime_type):
     assert order_res.status_code == 200
     stored_data = order_res.json()
 
+    assert data["customer_phone"] == expected["customer_phone"]
+    assert stored_data["customer_phone"] == expected["customer_phone"]
+
     for idx, (actual_line, stored_line, exp_line) in enumerate(
         zip(data["lines"], stored_data["lines"], expected["lines"])
     ):

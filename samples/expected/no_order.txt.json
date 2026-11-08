@@ -2,6 +2,7 @@
   "source_file": "no_order.txt",
   "line_count": 5,
   "customer": "Veidekke Entreprenør AS",
+  "customer_phone": "+4700000003",
   "delivery_site": "Dronning Eufemias gate 16, 0191 Oslo",
   "requested_date": "2026-11-15",
   "lines": [

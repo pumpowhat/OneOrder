@@ -2,6 +2,7 @@
   "source_file": "se_material.xlsx",
   "line_count": 5,
   "customer": null,
+  "customer_phone": "+4600000002",
   "delivery_site": null,
   "requested_date": null,
   "lines": [

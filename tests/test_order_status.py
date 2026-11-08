@@ -90,7 +90,7 @@ def approve(client, order_id: str) -> None:
         {"line_index": i, "sku": line["matched_sku"] or "GYP-13-2400", "confirmed": True}
         for i, line in enumerate(order["lines"])
     ]
-    assert client.post(f"/api/orders/{order_id}/approve", json={"corrections": corrections}).status_code == 200
+    assert client.post(f"/api/orders/{order_id}/approve", json={"corrections": corrections, "customer_phone": "+45 00 00 00 01"}).status_code == 200
 
 
 def status_of(client, order_id: str) -> str:
@@ -221,4 +221,4 @@ def test_init_db_adds_plan_column_to_old_database(tmp_path):
     init_db(engine)  # idempotent
     assert "plan" in {c["name"] for c in inspect(engine).get_columns("orders")}
     with engine.connect() as conn:
-        assert conn.execute(text("SELECT status, plan FROM orders")).one() == ("approved", None)
+        assert conn.execute(text("SELECT status, plan, customer_phone FROM orders")).one() == ("approved", None, None)

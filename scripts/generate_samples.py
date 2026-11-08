@@ -103,6 +103,7 @@ def create_photos_and_fixtures():
     dk_hash = hashlib.sha256(dk_bytes).hexdigest()
     dk_payload = {
         "customer": "MT Højgaard",
+        "customer_phone": None,
         "delivery_site": "Sundkaj 7, 2150 Nordhavn, København",
         "requested_date": "2026-11-10",
         "lines": [
@@ -170,6 +171,7 @@ def create_photos_and_fixtures():
     se_hash = hashlib.sha256(se_bytes).hexdigest()
     se_payload = {
         "customer": "Skanska Sverige AB",
+        "customer_phone": None,
         "delivery_site": "Solnavägen 12, 113 65 Stockholm",
         "requested_date": "2026-11-12",
         "lines": [
@@ -237,6 +239,7 @@ def create_photos_and_fixtures():
     no_hash = hashlib.sha256(no_bytes).hexdigest()
     no_payload = {
         "customer": "Veidekke Entreprenør AS",
+        "customer_phone": None,
         "delivery_site": "Dronning Eufemias gate 16, 0191 Oslo",
         "requested_date": "2026-11-15",
         "lines": [
@@ -289,6 +292,7 @@ def create_emails():
 Hermed bestilling til vores byggeplads i Nordhavn.
 
 Kunde: MT Højgaard
+Telefon: +45 00 00 00 01
 Leveringsadresse: Sundkaj 7, 2150 Nordhavn, København
 Leveringsdato: 2026-11-10
 
@@ -310,6 +314,7 @@ Lars Møller
 Vi behöver beställa följande material för Hagastaden-projektet.
 
 Kund: Skanska Sverige AB
+Telefon: +46 00 00 00 02
 Leveransadress: Solnavägen 12, 113 65 Stockholm
 Leveransdatum: 2026-11-12
 
@@ -331,6 +336,7 @@ Erik Lindqvist
 Bestilling for prosjekt i Oslo sentrum.
 
 Kunde: Veidekke Entreprenør AS
+Telefon: +47 00 00 00 03
 Leveringsadresse: Dronning Eufemias gate 16, 0191 Oslo
 Leveringsdato: 2026-11-15
 
@@ -353,6 +359,7 @@ Olav Johansen
 Please find our purchase order for the Carlsberg Byen site.
 
 Customer: NCC Construction Ltd
+Phone: +45 00 00 00 04
 Delivery: Pasteurs Vej 24, 1799 København V
 Delivery date: 2026-11-18
 
@@ -381,6 +388,10 @@ def create_excels():
     ws_dk.append(["Konstruktionstræ C24 45x145mm 4.2m", 20, "stk"])
     ws_dk.append(["Gipsskruer 3.9x40mm til træ", 10, "pk"])
     ws_dk.append(["Portland cement standard 25kg", 15, "stk"])
+    ws_dk.cell(1, 4, "Telefon")
+    for row in range(2, ws_dk.max_row + 1):
+        if ws_dk.cell(row, 1).value is not None:
+            ws_dk.cell(row, 4, "+45 00 00 00 01")
     wb_dk.save(EXCEL_DIR / "dk_materials.xlsx")
 
     # 2. SE materials
@@ -393,6 +404,10 @@ def create_excels():
     ws_se.append(["Regel C24 45x145mm 4.8m", 25, "st"])
     ws_se.append(["Gipsskruv 3.9x40", 15, "pk"])
     ws_se.append(["Cement standard 25kg", 30, "st"])
+    ws_se.cell(1, 4, "Telefon")
+    for row in range(2, ws_se.max_row + 1):
+        if ws_se.cell(row, 1).value is not None:
+            ws_se.cell(row, 4, "+46 00 00 00 02")
     wb_se.save(EXCEL_DIR / "se_material.xlsx")
 
     # 3. EN BOQ (with empty row and string quantity "12,5")
@@ -405,6 +420,10 @@ def create_excels():
     ws_en.append(["Timber C24 spruce 45x145mm 4.2m", "12,5", "m"])  # String qty with comma
     ws_en.append(["Glass wool insulation 100mm", 45, "m2"])
     ws_en.append(["Standard drywall screws 3.9x40", 8, "pk"])
+    ws_en.cell(1, 4, "Phone")
+    for row in range(2, ws_en.max_row + 1):
+        if ws_en.cell(row, 1).value is not None:
+            ws_en.cell(row, 4, "+45 00 00 00 04")
     wb_en.save(EXCEL_DIR / "en_boq.xlsx")
     print("Created 3 sample excel files.")
 
@@ -438,6 +457,7 @@ def generate_expected():
             "source_file": filename,
             "line_count": len(order.lines),
             "customer": order.customer,
+            "customer_phone": order.customer_phone,
             "delivery_site": order.delivery_site,
             "requested_date": str(order.requested_date) if order.requested_date else None,
             "lines": [

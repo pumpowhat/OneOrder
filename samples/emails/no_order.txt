@@ -3,6 +3,7 @@ Hei OneOrder,
 Bestilling for prosjekt i Oslo sentrum.
 
 Kunde: Veidekke Entreprenør AS
+Telefon: +47 00 00 00 03
 Leveringsadresse: Dronning Eufemias gate 16, 0191 Oslo
 Leveringsdato: 2026-11-15
 

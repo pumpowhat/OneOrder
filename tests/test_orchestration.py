@@ -328,7 +328,7 @@ def _approve_all(client, order: dict) -> None:
         {"line_index": i, "sku": line["matched_sku"] or "GYP-13-2400", "confirmed": True}
         for i, line in enumerate(order["lines"])
     ]
-    res = client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections})
+    res = client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer_phone": "+45 00 00 00 01"})
     assert res.status_code == 200, res.text
 
 

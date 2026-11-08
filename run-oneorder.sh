@@ -160,6 +160,7 @@ smoke() {
   if [ -n "$order_id" ]; then say "${DIM}-> upload order (id $order_id)${RESET} ${GREEN}ok${RESET}"; record "upload order" 0; else say "-> upload order ${RED}failed${RESET}"; record "upload order" 1; return; fi
 
   step "original file stored"          bash -c "curl -fsS $api/api/orders/$order_id/source | python3 -c 'import sys,json; d=json.load(sys.stdin); sys.exit(0 if d[\"kind\"]==\"text\" and \"Sundkaj\" in d[\"text\"] else 1)'"
+  step "customer phone extracted and stored" bash -c "curl -fsS $api/api/orders/$order_id | python3 -c 'import sys,json; d=json.load(sys.stdin); sys.exit(0 if d[\"customer_phone\"]==\"+4500000001\" else 1)'"
   step "stock pre-check per line"      bash -c "curl -fsS $api/api/orders/$order_id/availability | python3 -c 'import sys,json; d=json.load(sys.stdin); sys.exit(0 if d and all(r[\"status\"]==\"ok\" for r in d) else 1)'"
 
   local body

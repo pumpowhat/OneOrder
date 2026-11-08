@@ -68,7 +68,7 @@ def test_list_shows_eta_after_planning(client):
         {"line_index": i, "sku": l["matched_sku"] or "GYP-13-2400", "confirmed": True}
         for i, l in enumerate(order["lines"])
     ]
-    assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections}).status_code == 200
+    assert client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer_phone": "+45 00 00 00 01"}).status_code == 200
     assert client.post(f"/api/orders/{order['id']}/plan").status_code == 200
     row = client.get("/api/orders").json()[0]
     assert row["status"] == "planned" and row["shipment_count"] >= 1
@@ -146,7 +146,7 @@ def test_stock_reflects_confirmed_reservations(client):
         {"line_index": i, "sku": l["matched_sku"] or "GYP-13-2400", "confirmed": True}
         for i, l in enumerate(order["lines"])
     ]
-    client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections})
+    client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer_phone": "+45 00 00 00 01"})
     client.post(f"/api/orders/{order['id']}/plan")
     done = client.post(f"/api/orders/{order['id']}/confirm", json={"accept_late_risk": True, "allow_partial": True})
     assert done.status_code == 200

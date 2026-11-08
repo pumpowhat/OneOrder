@@ -108,6 +108,11 @@ export default function OrdersPage() {
                         <Icon className="w-4 h-4 text-ink-faint shrink-0" aria-hidden="true" />
                         <span className="min-w-0">
                           <span className="block truncate">{order.customer ?? t("common.unknownCustomer")}</span>
+                          {order.customer_phone && (
+                            <span className="block text-xs font-normal text-ink-muted tabular-nums" aria-label={t("common.customerPhone")}>
+                              {order.customer_phone}
+                            </span>
+                          )}
                           <span className="block text-xs font-normal text-ink-muted truncate">
                             {order.source_name} · {t("orders.lines", { n: order.line_count })}
                           </span>

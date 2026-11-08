@@ -6,6 +6,7 @@ ORDER_SCHEMA = {
     "type": "object",
     "properties": {
         "customer": _NULLABLE_STR,
+        "customer_phone": _NULLABLE_STR,
         "delivery_site": _NULLABLE_STR,
         "requested_date": {"type": ["string", "null"], "description": "ISO date YYYY-MM-DD"},
         "lines": {
@@ -24,7 +25,7 @@ ORDER_SCHEMA = {
             },
         },
     },
-    "required": ["customer", "delivery_site", "requested_date", "lines"],
+    "required": ["customer", "customer_phone", "delivery_site", "requested_date", "lines"],
     "additionalProperties": False,
 }
 
@@ -35,10 +36,11 @@ COLUMN_SCHEMA = {
         "quantity": _NULLABLE_STR,
         "unit": _NULLABLE_STR,
         "customer": _NULLABLE_STR,
+        "customer_phone": _NULLABLE_STR,
         "delivery_site": _NULLABLE_STR,
         "requested_date": _NULLABLE_STR,
     },
-    "required": ["description", "quantity", "unit", "customer", "delivery_site", "requested_date"],
+    "required": ["description", "quantity", "unit", "customer", "customer_phone", "delivery_site", "requested_date"],
     "additionalProperties": False,
 }
 
@@ -54,15 +56,21 @@ Rules:
   quantity, give your best reading with a low confidence rather than inventing a confident one.
 - `confidence` is how sure you are of description AND quantity together: 0.95+ for clear print,
   0.5-0.8 for doubtful handwriting, below 0.5 for guesses. Never give high confidence to a guess.
-- Use null for customer, delivery_site, requested_date or unit when they are not stated.
+- Read customer_phone only when a customer contact phone is explicitly stated. Preserve its
+  country code and leading zeros; never invent digits, infer a country code from the site,
+  or use a supplier phone. If several conflicting customer phones cannot be resolved, use null.
+- Use null for customer, customer_phone, delivery_site, requested_date or unit when they are not stated.
   `requested_date` must be YYYY-MM-DD; resolve it only if the year is clear."""
 
 COLUMN_RULES = """\
 You map the columns of a contractor's order spreadsheet. Given the header row and a few sample
 rows, return the exact header text of the column holding each field, or null if there is none.
 `description` is the material name, `quantity` the amount ordered, `unit` its unit of measure.
-Also return customer, delivery_site and requested_date (YYYY-MM-DD) only if they appear as values
-in the sample rows; otherwise null. Use header text exactly as given."""
+Also return customer, customer_phone, delivery_site and requested_date (YYYY-MM-DD) as actual
+metadata VALUES (not column headers) only if they appear in the sample rows; otherwise null.
+customer_phone must preserve leading zeros and the written country code. Never invent a phone
+or infer its country from the delivery site. If customer phone values conflict, return null.
+For description, quantity and unit use header text exactly as given."""
 
 MATCH_SCHEMA = {
     "type": "object",
