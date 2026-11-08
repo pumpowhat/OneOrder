@@ -80,22 +80,24 @@ def parse_email(text: str) -> dict:
         line = re.sub(r"^[-*•]\s+", "", raw.strip())
         if not line:
             continue
-        if keyed := KEYED.match(line):
-            key, value = keyed.group(1).lower(), keyed.group(2).strip()
-            if key.rstrip(".") in PHONE_KEYS:
-                try:
-                    phones.add(normalize_phone(value))
-                except ValueError:
-                    phones.add(value)
-                continue
-            if key in CUSTOMER_KEYS:
-                customer = value
-                continue
-            if key in SITE_KEYS:
-                site = value
-                continue
+        keyed = KEYED.match(line)
+        key, value = (keyed.group(1).lower(), keyed.group(2).strip()) if keyed else (None, None)
+        # Phone lines first: digits like 12-34-5678 must not be read as the requested date.
+        if key is not None and key.rstrip(".") in PHONE_KEYS:
+            try:
+                phones.add(normalize_phone(value))
+            except ValueError:
+                phones.add(value)
+            continue
+        # Dates before site keys, so "Delivery: 2025-03-12" is a date, not an address.
         if (date := DATE.search(line)) and requested is None:
             requested = _iso(date.group(1))
+            continue
+        if key in CUSTOMER_KEYS:
+            customer = value
+            continue
+        if key in SITE_KEYS:
+            site = value
             continue
         for pattern, qty_i, unit_i, desc_i in ((QTY_FIRST, 1, 2, 3), (QTY_LAST, 2, 3, 1)):
             if match := pattern.match(line):

@@ -60,6 +60,15 @@ def test_demo_email_reads_phone_labels(label):
     assert len(order.lines) == 1
 
 
+@pytest.mark.parametrize("label", ["Delivery", "Levering", "Leveringsadresse"])
+def test_dated_delivery_line_is_requested_date_not_site(label):
+    email = f"Kunde: Example Co\n{label}: 2025-03-12\nTlf: 12345678\n1 stk gips"
+    order = IntakeService(DemoClient("unused")).from_email(email)
+    assert str(order.requested_date) == "2025-03-12"
+    assert order.delivery_site is None
+    assert order.customer_phone == "12345678"
+
+
 def test_doubtful_ocr_is_kept_for_manual_correction():
     order = IntakeService(FakeAI({"customer_phone": "+45 OO 0000 01"})).from_email("order")
     assert order.customer_phone == "+45 OO 0000 01"
