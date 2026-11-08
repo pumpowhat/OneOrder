@@ -12,6 +12,7 @@ from .prompts import (  # noqa: F401  (re-exported for callers that import them 
     MATCH_SCHEMA,
     ORDER_RULES,
     ORDER_SCHEMA,
+    PDF_ORDER_PROMPT,
 )
 
 DEFAULT_MODEL = "claude-opus-5-5"
@@ -38,6 +39,19 @@ class ClaudeClient:
 
     def extract_from_text(self, text: str) -> dict:
         return self._ask(ORDER_RULES, f"Extract the order from this email:\n\n{text}", ORDER_SCHEMA)
+
+    def extract_from_pdf(self, data: bytes) -> dict:
+        content = [
+            {
+                "type": "document",
+                "source": {
+                    "type": "base64", "media_type": "application/pdf",
+                    "data": base64.standard_b64encode(data).decode(),
+                },
+            },
+            {"type": "text", "text": PDF_ORDER_PROMPT},
+        ]
+        return self._ask(ORDER_RULES, content, ORDER_SCHEMA)
 
     def map_excel_columns(self, headers: list[str], sample_rows: list[list]) -> dict:
         payload = json.dumps({"headers": headers, "sample_rows": sample_rows}, default=str, ensure_ascii=False)

@@ -530,7 +530,7 @@ def get_order_source(order_id: str, db: Session = Depends(get_db)) -> dict:
     """The original input of an order in a form the UI can show next to the extracted lines.
 
     ``kind`` is ``image`` (fetch the picture from ``/source/file``), ``text`` (email body) or
-    ``table`` (first rows of the spreadsheet).
+    ``table`` (first rows of the spreadsheet) or ``pdf`` (fetch from ``/source/file``).
     """
     order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
     if not order:
@@ -541,6 +541,8 @@ def get_order_source(order_id: str, db: Session = Depends(get_db)) -> dict:
     base = {"name": order.source_name, "mime": order.source_mime, "source_type": order.source_type}
     if order.source_type == "image":
         return {**base, "kind": "image"}
+    if order.source_type == "pdf":
+        return {**base, "kind": "pdf"}
     if order.source_type == "excel":
         try:
             sheet = load_workbook(io.BytesIO(order.source_content), read_only=True, data_only=True).active
@@ -557,11 +559,15 @@ def get_order_source(order_id: str, db: Session = Depends(get_db)) -> dict:
 
 @router.get("/{order_id}/source/file")
 def get_order_source_file(order_id: str, db: Session = Depends(get_db)) -> Response:
-    """The original bytes (photo, .xlsx or email text) exactly as uploaded."""
+    """The original bytes (photo, PDF, .xlsx or email text) exactly as uploaded."""
     order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
     if not order or order.source_content is None:
         raise HTTPException(status_code=404, detail=f"Order {order_id} has no stored original")
-    return Response(content=order.source_content, media_type=order.source_mime or "application/octet-stream")
+    return Response(
+        content=order.source_content,
+        media_type=order.source_mime or "application/octet-stream",
+        headers={"X-Content-Type-Options": "nosniff"},
+    )
 
 
 @router.get("/{order_id}/availability")

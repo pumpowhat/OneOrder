@@ -11,7 +11,7 @@ export interface HealthResponse {
 // --- orders -------------------------------------------------------------------------------------
 
 export type OrderStatus = "draft" | "approved" | "planned" | "confirmed" | "cancelled";
-export type SourceType = "image" | "excel" | "email";
+export type SourceType = "image" | "pdf" | "excel" | "email";
 export type EtaRisk = "on_time" | "at_risk" | "late";
 
 /** One row of GET /api/orders. */
@@ -96,6 +96,7 @@ export interface Order {
 
 export type OrderSource =
   | { kind: "image"; name: string | null; mime: string | null }
+  | { kind: "pdf"; name: string | null; mime: string | null }
   | { kind: "text"; name: string | null; mime: string | null; text: string }
   | { kind: "table"; name: string | null; mime: string | null; rows: string[][]; truncated: boolean };
 

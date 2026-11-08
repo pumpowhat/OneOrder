@@ -50,6 +50,20 @@ def test_extract_from_image_sends_jpeg_part_and_schema():
     assert config.response_json_schema == ORDER_SCHEMA
 
 
+def test_pdf_sent_as_native_document_with_order_schema():
+    from tests.test_pdf_intake import pdf_bytes
+
+    data = pdf_bytes(scanned=True)
+    reply = {"customer": "Acme", "lines": []}
+    client, models = make_client(reply)
+    assert client.extract_from_pdf(data) == reply
+    part, prompt = models.kwargs["contents"]
+    assert part.inline_data.mime_type == "application/pdf"
+    assert part.inline_data.data == data
+    assert "all pages" in prompt and "OCR" in prompt
+    assert models.kwargs["config"].response_json_schema == ORDER_SCHEMA
+
+
 def test_extract_from_text_and_map_columns_and_match_product():
     client, models = make_client({"customer": None, "delivery_site": None, "requested_date": None, "lines": []})
     client.extract_from_text("Hej, 40 stk gips")

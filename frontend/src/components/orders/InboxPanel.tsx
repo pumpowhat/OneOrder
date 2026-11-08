@@ -1,4 +1,4 @@
-import { FileImage, FileSpreadsheet, Mail } from "lucide-react";
+import { FileImage, FileSpreadsheet, FileText, Mail } from "lucide-react";
 import { listInbox } from "../../api/inbox.ts";
 import { useApi } from "../../hooks/useApi.ts";
 import { useI18n } from "../../i18n/useI18n.ts";
@@ -7,7 +7,7 @@ import { Card, CardHeader } from "../ui/Card.tsx";
 import type { SourceType } from "../../types/api.ts";
 import { useUpload } from "./useUpload.ts";
 
-const ICON: Record<SourceType, typeof Mail> = { image: FileImage, excel: FileSpreadsheet, email: Mail };
+const ICON: Record<SourceType, typeof Mail> = { image: FileImage, pdf: FileText, excel: FileSpreadsheet, email: Mail };
 
 /** The demo mailbox: pick a message and it goes through the same reading pipeline as an upload. */
 export function InboxPanel({ defaultOpen }: { defaultOpen: boolean }) {

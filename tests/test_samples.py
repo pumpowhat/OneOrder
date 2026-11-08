@@ -17,6 +17,7 @@ SAMPLES_DIR = Path("samples")
 EXPECTED_DIR = SAMPLES_DIR / "expected"
 
 SAMPLE_FILES = [
+    ("pdf/dk-scan.pdf", "dk-scan.pdf", "application/pdf"),
     ("photos/dk-handwritten-1.jpg", "dk-handwritten-1.jpg", "image/jpeg"),
     ("photos/se-handwritten-1.jpg", "se-handwritten-1.jpg", "image/jpeg"),
     ("photos/no-handwritten-1.jpg", "no-handwritten-1.jpg", "image/jpeg"),

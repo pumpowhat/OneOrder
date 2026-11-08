@@ -12,6 +12,7 @@ from .prompts import (
     MATCH_SCHEMA,
     ORDER_RULES,
     ORDER_SCHEMA,
+    PDF_ORDER_PROMPT,
 )
 
 DEFAULT_MODEL = "gemini-3.5-flash"
@@ -51,6 +52,10 @@ class GeminiClient:
 
     def extract_from_text(self, text: str) -> dict:
         return self._ask(ORDER_RULES, f"Extract the order from this email:\n\n{text}", ORDER_SCHEMA)
+
+    def extract_from_pdf(self, data: bytes) -> dict:
+        contents = [types.Part.from_bytes(data=data, mime_type="application/pdf"), PDF_ORDER_PROMPT]
+        return self._ask(ORDER_RULES, contents, ORDER_SCHEMA)
 
     def map_excel_columns(self, headers: list[str], sample_rows: list[list]) -> dict:
         payload = json.dumps({"headers": headers, "sample_rows": sample_rows}, default=str, ensure_ascii=False)

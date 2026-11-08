@@ -72,6 +72,22 @@ def test_extract_from_text_and_map_columns():
     assert "Hej" in messages.kwargs["messages"][0]["content"]
 
 
+def test_pdf_sent_as_native_document_with_order_schema():
+    from backend.services.intake.prompts import ORDER_SCHEMA
+    from tests.test_pdf_intake import pdf_bytes
+
+    data = pdf_bytes(scanned=True)
+    client, messages = make_client({"lines": []})
+    assert client.extract_from_pdf(data) == {"lines": []}
+    document, prompt = messages.kwargs["messages"][0]["content"]
+    assert document["type"] == "document"
+    assert document["source"]["type"] == "base64"
+    assert document["source"]["media_type"] == "application/pdf"
+    assert base64.b64decode(document["source"]["data"]) == data
+    assert "all pages" in prompt["text"] and "OCR" in prompt["text"]
+    assert messages.kwargs["output_config"]["format"]["schema"] == ORDER_SCHEMA
+
+
 @pytest.mark.parametrize("reason", ["refusal", "max_tokens"])
 def test_failed_stop_reason_raises(reason):
     client, _ = make_client({}, stop_reason=reason)

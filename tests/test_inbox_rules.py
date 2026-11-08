@@ -57,9 +57,10 @@ def test_inbox_lists_emails_photos_and_excel(client):
     assert by_id["emails/dk_order.txt"]["kind"] == "email" and "bestilling" in by_id["emails/dk_order.txt"]["preview"].lower()
     assert by_id["photos/dk-handwritten-1.jpg"]["kind"] == "image" and by_id["photos/dk-handwritten-1.jpg"]["preview"] is None
     assert by_id["excel/dk_materials.xlsx"]["kind"] == "excel" and by_id["excel/dk_materials.xlsx"]["size_bytes"] > 0
+    assert by_id["pdf/dk-scan.pdf"]["kind"] == "pdf"
 
 
-@pytest.mark.parametrize("item", ["emails/dk_order.txt", "photos/dk-handwritten-1.jpg", "excel/dk_materials.xlsx"])
+@pytest.mark.parametrize("item", ["emails/dk_order.txt", "photos/dk-handwritten-1.jpg", "excel/dk_materials.xlsx", "pdf/dk-scan.pdf"])
 def test_importing_an_inbox_item_creates_a_draft_with_its_original(client, item):
     res = client.post("/api/inbox/import", json={"id": item})
     assert res.status_code == 200, res.text

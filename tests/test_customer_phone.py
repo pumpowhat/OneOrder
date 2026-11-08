@@ -171,7 +171,7 @@ def test_old_database_upgrade_keeps_existing_confirmed_order_without_fabricating
 def test_samples_have_matching_phone_in_intake_and_storage(db, expected_path):
     expected = json.loads(expected_path.read_text())
     filename = expected["source_file"]
-    folder = "photos" if filename.endswith(".jpg") else "excel" if filename.endswith(".xlsx") else "emails"
+    folder = {".jpg": "photos", ".xlsx": "excel", ".pdf": "pdf"}.get(Path(filename).suffix, "emails")
     path = Path("samples") / folder / filename
     order = IntakeService(DemoClient("samples/fixtures")).process(filename, path.read_bytes())
     assert order.customer_phone == expected["customer_phone"]

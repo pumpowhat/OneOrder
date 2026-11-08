@@ -45,3 +45,14 @@ def test_photo_is_read_correctly(client, photo):
     assert got["requested_date"] == truth["requested_date"]
     assert [round(l["quantity"], 2) for l in got["lines"]] == [round(l["quantity"], 2) for l in truth["lines"]]
     assert all(0 <= l["confidence"] <= 1 for l in got["lines"])
+
+
+def test_scanned_pdf_is_read_correctly(client):
+    data = (SAMPLES / "pdf/dk-scan.pdf").read_bytes()
+    truth = json.loads((SAMPLES / "fixtures" / f"{hashlib.sha256(data).hexdigest()}.json").read_text("utf-8"))["payload"]
+    got = client.extract_from_pdf(data)
+    assert got["customer"] == truth["customer"]
+    assert got["delivery_site"] == truth["delivery_site"]
+    assert got["requested_date"] == truth["requested_date"]
+    assert [round(line["quantity"], 2) for line in got["lines"]] == [round(line["quantity"], 2) for line in truth["lines"]]
+    assert all(0 <= line["confidence"] <= 1 for line in got["lines"])

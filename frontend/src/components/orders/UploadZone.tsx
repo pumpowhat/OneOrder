@@ -5,7 +5,7 @@ import { useI18n } from "../../i18n/useI18n.ts";
 import { cn } from "../../lib/cn.ts";
 import { ACCEPTED_FILES, useUpload } from "./useUpload.ts";
 
-/** Drag a photo, spreadsheet or email here, or click to choose one. */
+/** Drag a photo, PDF, spreadsheet or email here, or click to choose one. */
 export function UploadZone() {
   const { t } = useI18n();
   const { upload, uploadText, busy } = useUpload();
