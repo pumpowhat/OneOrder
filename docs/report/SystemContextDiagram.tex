@@ -1,0 +1,131 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.4cm,top=1.2cm,bottom=1.0cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Liberation Sans}
+\usepackage{xcolor,tikz,tabularx,array,booktabs}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc}
+\definecolor{brand}{HTML}{1F4E79}
+\definecolor{accent}{HTML}{E07B00}
+\definecolor{soft}{HTML}{EAF1F8}
+\definecolor{warn}{HTML}{FFF3E0}
+\definecolor{grey}{HTML}{F1F1F1}
+\definecolor{ink}{HTML}{2B2B2B}
+\color{ink}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}\setlength{\parskip}{2pt}
+\newcommand{\h}[1]{\vspace{3pt}{\color{brand}\large\bfseries #1}\par\vspace{1pt}}
+\renewcommand{\arraystretch}{1.2}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\tikzset{
+  >=Stealth,
+  ext/.style={draw=ink!70,fill=grey,rounded corners=3pt,align=center,font=\footnotesize,inner sep=5pt},
+  sys/.style={draw=brand,fill=soft,rounded corners=3pt,align=center,font=\footnotesize,inner sep=4pt},
+  person/.style={draw=accent,fill=warn,rounded corners=3pt,align=center,font=\footnotesize,inner sep=5pt},
+  flow/.style={->,thick,brand},
+  lab/.style={font=\scriptsize,align=center,fill=white,inner sep=1.5pt},
+  n/.style={circle,fill=brand,text=white,font=\scriptsize\bfseries,inner sep=1.2pt,minimum size=11pt}
+}
+\begin{document}
+{\Large\bfseries\color{brand}OneOrder — System Context Diagram}\hfill{\footnotesize Netcompany IT Consultant Challenge 2026 · Team 3changlinhngulam}\\[-3pt]
+{\color{brand}\rule{\linewidth}{1.2pt}}
+
+\h{1. What is inside OneOrder and what is outside}
+\begin{center}
+\begin{tikzpicture}
+\tikzset{small/.style={font=\scriptsize,inner sep=1.5pt,align=center}}
+\def\cx{8.9}\def\rx{16.0}\def\lx{1.55}
+\node[ext,minimum width=3.0cm] (lars) at (\lx,11.0) {\textbf{Contractor}\\project customer,\\e.g.\ Lars};
+\node[person,minimum width=3.0cm] (anna) at (\lx,6.4) {\textbf{Sales desk}\\\textbf{employee}\\Company A, e.g.\ Anna};
+\node[sys,line width=1.6pt,minimum width=4.6cm,minimum height=7.2cm] (one) at (\cx,7.4) {};
+\node[font=\bfseries,color=brand] at (\cx,10.65) {OneOrder (MVP)};
+\node[sys,fill=white,minimum width=4.0cm] at (\cx,9.7) {Web app and REST API};
+\node[sys,fill=white,minimum width=4.0cm] at (\cx,8.6) {Intake: read file,\\match catalogue};
+\node[sys,fill=white,minimum width=4.0cm] at (\cx,7.4) {Orders: review, approve,\\audit log};
+\node[sys,fill=white,minimum width=4.0cm] at (\cx,6.2) {Planning: pick sources,\\build shipments};
+\node[sys,fill=white,minimum width=4.0cm] at (\cx,5.0) {ETA model (P50 / P90)};
+\node[ext,minimum width=3.7cm] (ai) at (\rx,11.0) {\textbf{AI model provider}\\Gemini or Claude\\(offline demo stub\\when no key is set)};
+\node[ext,minimum width=3.4cm] (dk) at (\rx,7.9) {\textbf{Danish ERP}\\CSV};
+\node[ext,minimum width=3.4cm] (se) at (\rx,6.2) {\textbf{Swedish ERP}\\JSON, Swedish fields};
+\node[ext,minimum width=3.4cm] (no) at (\rx,4.5) {\textbf{Norwegian ERP}\\JSON, English fields};
+\begin{scope}[on background layer]
+\node[draw=accent,dashed,thick,rounded corners=4pt,fit=(dk)(se)(no),inner sep=8pt,label={[font=\scriptsize,text=accent]above:Mock ERPs in the MVP}] (erps) {};
+\end{scope}
+\draw[flow,dashed,ink!70] (lars) -- node[midway,n] {1} (anna);
+\node[small,align=left,right=14pt] at ($(lars)!0.5!(anna)$) {outside OneOrder:\\email text, photo of\\handwritten list, Excel};
+\def\ax{4.55}
+\draw[flow] (\lx+1.5,6.95) -- node[midway,n] {2} (\cx-2.3,6.95);
+\draw[flow,accent] (\cx-2.3,5.85) -- node[midway,n] {3} (\lx+1.5,5.85);
+\node[small] at (\ax,7.65) {upload, review, approve,\\plan, confirm};
+\node[small] at (\ax,5.15) {draft, stock check,\\plan, ETA};
+\draw[flow] (\cx+2.3,11.35) -- node[midway,n] {4} (\rx-1.85,11.35);
+\draw[flow,accent] (\rx-1.85,10.65) -- node[midway,n] {5} (\cx+2.3,10.65);
+\node[small] at (12.65,12.0) {file content,\\catalogue lines};
+\node[small] at (12.65,10.0) {JSON lines,\\confidence};
+\draw[flow,accent] (\rx-2.1,7.5) -- node[midway,n] {6} (\cx+2.3,7.5);
+\draw[flow] (\cx+2.3,6.0) -- node[midway,n] {7} (\rx-2.1,6.0);
+\node[small] at (12.4,8.25) {stock in native\\format};
+\node[small] at (12.4,5.25) {reservations\\on confirm};
+\end{tikzpicture}
+\end{center}
+\vspace{-2pt}
+{\footnotesize Blue = inside OneOrder. Grey = outside. Orange = a person or simulated ERP. Numbers refer to the table.\par}
+\vspace{4pt}
+
+{\footnotesize
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.45cm}>{\bfseries}p{4.2cm}Y@{}}
+\toprule
+\# & Interaction & What flows \\
+\midrule
+1 & Contractor $\rightarrow$ Sales desk & The order arrives \emph{outside} OneOrder as an email, a photo or an Excel file. There is no contractor portal in the MVP. \\
+2 & Sales desk $\rightarrow$ OneOrder & Imports a sample email, uploads a file or pastes text; fixes flagged lines and types a missing customer name; approves; chooses delivery site; confirms or cancels (HTTPS, browser). \\
+3 & OneOrder $\rightarrow$ Sales desk & Draft order with confidence per line, stock pre-check, fulfilment plan with the reason for each source, ETA per shipment, late and shortage warnings. \\
+4 & OneOrder $\rightarrow$ AI provider & The photo, the email text or the Excel columns, plus catalogue candidates for hard-to-match lines. \\
+5 & AI provider $\rightarrow$ OneOrder & Structured JSON: customer, delivery site, requested date, lines with quantity, unit, description and confidence. \\
+6 & ERPs $\rightarrow$ OneOrder & Stock per warehouse in each ERP's own format, normalised by one adapter per country. \\
+7 & OneOrder $\rightarrow$ ERPs & A reservation per shipment line, written when the sales desk confirms. Later orders then see the stock as reserved. \\
+\bottomrule
+\end{tabularx}}
+
+\newpage
+\h{2. Inside OneOrder}
+\begin{center}
+\begin{tikzpicture}
+\tikzset{blk/.style={sys,fill=white,minimum width=4.2cm,minimum height=1.45cm},sm/.style={font=\scriptsize,inner sep=1.5pt,fill=white,align=center}}
+\node[person,minimum width=3.2cm] (user) at (1.6,15.4) {\textbf{Sales desk employee}\\uses a browser};
+\node[sys,minimum width=12.8cm,minimum height=1.3cm] (web) at (10.6,15.4) {\textbf{Web app} (React, TypeScript, Vite)\\Dashboard $\cdot$ Sample inbox $\cdot$ Order review $\cdot$ Plan and confirm $\cdot$ Stock $\cdot$ Rules};
+\draw[flow,<->] (user) -- node[sm] {HTTPS} (web);
+\begin{scope}[on background layer]
+\node[draw=brand,thick,rounded corners=4pt,fill=soft!35,anchor=north west,minimum width=17.2cm,minimum height=9.0cm] (api) at (0,13.7) {};
+\end{scope}
+\node[font=\bfseries\small,color=brand,anchor=north west] at (0.2,13.6) {Backend API (FastAPI, Python)};
+\draw[flow,<->] (web.south) -- node[sm] {REST / JSON} (web.south |- api.north);
+\node[blk] (intake) at (2.4,11.9) {\textbf{Intake service}\\image, email text,\\Excel columns};
+\node[blk] (match) at (8.6,11.9) {\textbf{Catalogue matcher}\\RapidFuzz + AI hint,\\both must agree};
+\node[blk] (orders) at (14.8,11.9) {\textbf{Orders and audit}\\status rules, review\\gate, audit log};
+\node[blk] (aic) at (2.4,9.4) {\textbf{AI client}\\Gemini, Claude or\\offline demo};
+\node[blk] (orch) at (8.6,9.4) {\textbf{Orchestration engine}\\source rules, shipments,\\vehicle choice};
+\node[blk] (res) at (14.8,9.4) {\textbf{Reservations}\\write on confirm,\\net stock view};
+\node[blk] (eta) at (8.6,6.9) {\textbf{ETA model}\\scikit-learn quantiles,\\P50 / P90};
+\node[blk] (adp) at (14.8,6.9) {\textbf{ERP adapters}\\DK, SE, NO into one\\stock model};
+\draw[flow] (intake) -- node[sm] {lines} (match);
+\draw[flow] (match) -- node[sm] {matched} (orders);
+\draw[flow] (intake) -- node[sm] {extract} (aic);
+\draw[flow] ([xshift=0.8cm]orders.south west) -- ++(0,-0.65) -| node[sm,pos=0.25] {plan} (orch.north);
+\draw[flow] (orders.south) -- node[sm] {confirm} (res.north);
+\draw[flow] (res.west) -- node[sm] {net stock} (orch.east);
+\draw[flow] (orch) -- node[sm] {shipments} (eta);
+\draw[flow] (adp.north) -- node[sm] {stock} (res.south);
+% outside backend
+\node[ext,minimum width=4.2cm,minimum height=1.4cm] (aiext) at (2.4,3.0) {\textbf{AI model provider}\\Gemini or Claude API};
+\node[draw=accent,rounded corners=3pt,fill=white,align=center,font=\footnotesize,minimum width=4.6cm,minimum height=1.4cm] (db) at (8.6,3.0) {\textbf{SQLite database}\\orders, lines, plans,\\audit log, reservations};
+\node[ext,minimum width=4.2cm,minimum height=1.4cm] (erpf) at (14.8,3.0) {\textbf{National ERP stock}\\DK CSV, SE JSON, NO JSON\\(mock, opening balance)};
+\node[draw=accent,rounded corners=3pt,fill=white,align=center,font=\footnotesize,minimum width=17.2cm,minimum height=1.0cm] (cfg) at (8.6,0.9) {\textbf{Configuration and data files:} rules.json, catalogue, warehouses, sites, drive times, ETA training data};
+\draw[flow,<->] (aic.south) -- node[sm] {HTTPS} (aic.south |- aiext.north);
+\draw[flow] (adp.south) -- node[sm] {read} (erpf.north);
+\draw[flow,<->] (eta.south) -- node[sm] {save and load} (db.north);
+\draw[flow] (5.4,1.4) -- node[sm,align=center] {read:\\rules,\\catalogue,\\sites} (5.4,4.7);
+\end{tikzpicture}
+\end{center}
+\vspace{-4pt}
+{\footnotesize Blue = OneOrder components. Grey = outside OneOrder. Orange outline = stored data. Arrows show the direction of the main data flow. The ERP stock files are the opening balance; reservations are kept in OneOrder's database and subtracted from them.\par}
+\end{document}

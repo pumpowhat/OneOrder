@@ -1,0 +1,106 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.4cm,top=1.2cm,bottom=1.1cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Liberation Sans}
+\usepackage{xcolor,tikz,tabularx,array,booktabs,enumitem}
+\usetikzlibrary{arrows.meta}
+\definecolor{brand}{HTML}{1F4E79}
+\definecolor{accent}{HTML}{E07B00}
+\definecolor{soft}{HTML}{EAF1F8}
+\definecolor{warn}{HTML}{FFF3E0}
+\definecolor{ink}{HTML}{2B2B2B}
+\color{ink}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}\setlength{\parskip}{2pt}
+\setlist{nosep,leftmargin=1.0em}
+\newcommand{\h}[1]{\vspace{4pt}{\color{brand}\large\bfseries #1}\par\vspace{1pt}}
+\renewcommand{\arraystretch}{1.25}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+{\Large\bfseries\color{brand}OneOrder — User Journey}\hfill{\footnotesize Netcompany IT Consultant Challenge 2026 · Team 3changlinhngulam}\\[-3pt]
+{\color{brand}\rule{\linewidth}{1.2pt}}
+
+\h{1. Persona and scenario}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{1.9cm}Y@{}}
+Who & \textbf{Anna}, sales desk employee at Company A in Denmark, handling B2B project orders all day. \\
+Trigger & \textbf{Lars}, a contractor, emails a long material list for a building site at \emph{Amager Strandvej 12} and asks for delivery by a fixed date. The same journey works for a photo of a handwritten list or an Excel file. \\
+Pain today & Anna retypes every line, sees stock of one country only, and cannot give Lars a delivery date she can trust. \\
+Goal & Turn the list into a confirmed order with reserved stock and a delivery date she can commit to, in one tool. \\
+\end{tabularx}
+
+\h{2. The journey at a glance}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,
+  box/.style={draw=brand,fill=soft,rounded corners=3pt,minimum width=2.72cm,minimum height=1.25cm,align=center,font=\scriptsize,inner sep=3pt},
+  human/.style={box,fill=warn,draw=accent}]
+\node[box] (a) at (0,0) {\textbf{1 Receive}\\Email, photo or\\Excel arrives};
+\node[box] (b) at (3.05,0) {\textbf{2 AI reads}\\Draft order with\\confidence per line};
+\node[human] (c) at (6.1,0) {\textbf{3 Anna reviews}\\Fixes doubtful lines,\\then approves};
+\node[box] (d) at (9.15,0) {\textbf{4 Plan}\\Stock in DK, SE, NO,\\shipments per source};
+\node[box] (e) at (12.2,0) {\textbf{5 ETA}\\P50 / P90 date per\\shipment vs. request};
+\node[human] (f) at (15.25,0) {\textbf{6 Confirm}\\Stock reserved,\\date committed};
+\foreach \x/\y in {a/b,b/c,c/d,d/e,e/f} \draw[->,brand,thick] (\x) -- (\y);
+\end{tikzpicture}
+\end{center}
+{\footnotesize\color{ink} Orange = a decision by a person. Blue = done by the system. A person always has the last word before stock is reserved.\par}
+
+\h{3. Main journey step by step}
+{\small
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.45cm}>{\raggedright\arraybackslash}p{2.5cm}Y Y@{}}
+\toprule
+\# & Step & What Anna does & What OneOrder does \\
+\midrule
+1 & Receive the order & Opens the \textbf{Sample inbox} (or uploads a file, or pastes the email text) and imports Lars's message. & Creates a \emph{draft} order and keeps the original file next to the result. \\
+2 & AI extraction & Looks at the \textbf{Dashboard}: the new order shows under \emph{To review}. & Reads customer, delivery site, requested date and every line (quantity, unit, description). Matches each line to the product catalogue. Lines under \textbf{85\%} confidence, or where fuzzy matching and AI disagree, are flagged. \\
+3 & Review and approve & Compares the original (left) with what the system read (right). Corrects the product or quantity on flagged lines and ticks them. If no customer name was found she \textbf{must type it}. Presses \emph{Approve}. & Blocks \emph{Approve} until every flagged line is checked and the customer is filled in. Shows a stock pre-check per line. Every change is written to the \textbf{audit log} (who, before, after). \\
+4 & Plan fulfilment & Chooses the delivery site and presses \emph{Plan}. & Reads stock from the Danish, Swedish and Norwegian ERPs through adapters. Picks sources by rule: nearest branch $\rightarrow$ national DC $\rightarrow$ DC in another country. Splits into shipments with weight, vehicle (van, truck, crane) and cross-border flag, and states \textbf{why} each source was chosen. Shows shortages. \\
+5 & See the delivery date & Reads the \textbf{ETA} per shipment and for the whole order. & A model predicts a \textbf{P50} (expected) and a \textbf{P90} (safe to promise) date from distance, source type, border, crane, weight, weekday and winter. Compares with Lars's date: \emph{on time}, \emph{at risk} or \emph{late}. \\
+6 & Confirm & Presses \emph{Confirm}. If there is a shortage or a late risk she must tick an explicit box to accept it. & Reserves the planned stock in the ERPs and freezes plan and ETA as the commitment, in one transaction. The \textbf{Stock} screen now shows the quantity as \emph{reserved}, so the next order cannot be promised the same goods. \\
+\bottomrule
+\end{tabularx}}
+
+\vspace{2pt}
+\h{4. Outcome of the main journey}
+\begin{tabularx}{\linewidth}{@{}Y Y@{}}
+\textbf{For Anna} &
+\textbf{For Lars and Company A} \\
+\begin{itemize}
+\item No retyping: she checks and corrects instead of typing.
+\item One view of stock across Denmark, Sweden and Norway.
+\item Knows before she answers whether the date is safe.
+\end{itemize}
+&
+\begin{itemize}
+\item A delivery date with a P90 safety margin, not a guess.
+\item Goods already reserved, so the promise holds.
+\item Full trace of who changed what, and why a source was chosen.
+\end{itemize}
+\end{tabularx}
+
+\newpage
+\h{5. Moments where the journey branches}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}p{3.9cm}Y@{}}
+\toprule
+Situation & What happens \\
+\midrule
+Low-confidence or unmatched line & Cannot approve until Anna picks the right product or confirms the line. \\
+Customer name not detected & The customer field is required and \emph{Approve} stays disabled until Anna types it. \\
+Stock is short in all countries & The plan lists the shortage. Confirm is refused unless Anna explicitly accepts a partial order. \\
+Predicted arrival after the requested date & The order is marked \emph{late}. Confirm needs an explicit \emph{accept late risk}. Anna can call Lars with a realistic P90 date instead. \\
+Stock taken by another order after planning & Confirm is refused (conflict); Anna plans again and gets a fresh plan. \\
+Lars changes his mind & Anna cancels the order before planning. The cancel is audited. \\
+\bottomrule
+\end{tabularx}
+
+\h{6. Screens used in the demo}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}p{3.9cm}Y@{}}
+Dashboard & Counters \emph{To review / Ready to plan / To confirm / Confirmed}, orders needing attention, upcoming deliveries. \\
+Sample inbox & Example emails, photos and Excel files to import as new orders. \\
+Order detail & Original vs. extracted lines, review and approve, plan with reasons, ETA, confirm, audit history. \\
+Stock & Stock per SKU for DK, SE and NO with on-hand, reserved and available. \\
+Rules & Source-selection rules that can differ by country. \\
+\end{tabularx}
+
+\h{7. What this journey proves}
+The MVP turns a messy contractor request into a committed order with a trustworthy date in six steps and a few minutes of the sales desk's time. It does this on top of the existing national ERPs, which are not replaced. Time saved and fewer ``where is my order?'' calls are the team's hypotheses for the pilot, not measured results.
+\end{document}
