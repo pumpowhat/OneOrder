@@ -1,0 +1,133 @@
+% OneOrder report theme (navy / orange on warm paper). Shared by SystemContextDiagram.tex and UserJourney.tex.
+% Build (XeLaTeX, from this folder):
+%   TEXINPUTS=/usr/share/texmf-dist/tex/latex/colortbl//: xelatex SystemContextDiagram.tex
+% (the TEXINPUTS part is only needed when `colortbl` is not in your TeX tree; run xelatex twice for the footer.)
+% Fonts: Space Grotesk, Inter, JetBrains Mono (SIL OFL), static instances in ./fonts.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{oneorder-theme}[2026/11/08 OneOrder report theme]
+
+% ---------- page ----------
+\RequirePackage[a4paper,left=18mm,right=18mm,top=20mm,bottom=22mm,footskip=11mm]{geometry}
+\RequirePackage{fontspec,xcolor,tikz,array,tabularx,longtable,colortbl,enumitem,fancyhdr,tcolorbox}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc}
+\tcbuselibrary{skins,breakable}
+
+% ---------- colour tokens ----------
+\definecolor{navy}{HTML}{15233F}
+\definecolor{navytwo}{HTML}{22345A}
+\definecolor{orange}{HTML}{D9622B}
+\definecolor{orangetext}{HTML}{B8501F}
+\definecolor{orangesoft}{HTML}{F2A27A}
+\definecolor{orangetint}{HTML}{FBE3D5}
+\definecolor{blue}{HTML}{2F5D8C}
+\definecolor{bluetint}{HTML}{DCE6F1}
+\definecolor{paper}{HTML}{F5F2EC}
+\definecolor{papertwo}{HTML}{ECE7DD}
+\definecolor{card}{HTML}{FFFDF9}
+\definecolor{line}{HTML}{E2DDD3}
+\definecolor{rule}{HTML}{D8D2C6}
+\definecolor{textbody}{HTML}{3B4660}
+\definecolor{textmuted}{HTML}{55607A}
+\definecolor{onnavy}{HTML}{F5F2EC}
+\definecolor{onnavymuted}{HTML}{D3D9E6}
+% status chips (background / text)
+\definecolor{okbg}{HTML}{E3F1EA}\definecolor{oktx}{HTML}{1F6A48}
+\definecolor{riskbg}{HTML}{FBE3D5}\definecolor{risktx}{HTML}{9A3F14}
+\definecolor{latebg}{HTML}{F6D9D6}\definecolor{latetx}{HTML}{8E1B12}
+\definecolor{infobg}{HTML}{DCE6F1}\definecolor{infotx}{HTML}{234A72}
+
+% ---------- fonts ----------
+\setmainfont{Inter-Regular.ttf}[Path=./fonts/,BoldFont=Inter-Bold.ttf,ItalicFont=Inter-Medium.ttf,BoldItalicFont=Inter-SemiBold.ttf]
+\newfontfamily\sgfont{SpaceGrotesk-Bold.ttf}[Path=./fonts/]
+\newfontfamily\sgmedium{SpaceGrotesk-Medium.ttf}[Path=./fonts/]
+\newfontfamily\monofont{JetBrainsMono-Medium.ttf}[Path=./fonts/]
+\newfontfamily\semibold{Inter-SemiBold.ttf}[Path=./fonts/]
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{10.5}{15.2}}
+\renewcommand\small{\@setfontsize\small{9.5}{13.2}}
+\renewcommand\footnotesize{\@setfontsize\footnotesize{8.5}{11.5}}
+\renewcommand\scriptsize{\@setfontsize\scriptsize{7.5}{10}}
+\makeatother
+\normalsize
+\pagecolor{paper}\color{textbody}
+\setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+\setlist{nosep,leftmargin=1.1em,itemsep=2pt}
+\renewcommand{\labelitemi}{\textcolor{orange}{\textbullet}}
+\newcommand{\mono}[1]{{\monofont\color{blue}#1}}
+
+% ---------- headings ----------
+\newcommand{\kicker}[1]{{\fontsize{8}{10}\selectfont\bfseries\addfontfeatures{LetterSpace=23}\color{orangetext}\MakeUppercase{#1}}\par}
+\newcommand{\hone}[1]{{\sgfont\fontsize{24}{26.4}\selectfont\addfontfeatures{LetterSpace=-1.5}\color{navy}#1}\par}
+\newcommand{\htwo}[1]{\vspace{6pt}{\sgfont\fontsize{16}{18.4}\selectfont\addfontfeatures{LetterSpace=-1.5}\color{navy}#1}\par\vspace{3pt}}
+\newcommand{\hthree}[1]{{\bfseries\fontsize{12}{15}\selectfont\color{navy}#1}\par}
+\newcommand{\figurenote}[1]{{\footnotesize\color{textmuted}#1\par}}
+
+% ---------- logo and wordmark ----------
+\newcommand{\oologo}[1][10mm]{%
+ \begin{tikzpicture}[x=#1/120,y=#1/120,baseline=0pt,line cap=round,line width=9*#1/120/1pt*1pt]
+  \fill[navy,rounded corners=28*#1/120] (0,0) rectangle (120,120);
+  \draw[onnavy,line width=9*#1/120] (22,86) .. controls (50,86) and (56,60) .. (80,60);
+  \draw[onnavy,line width=9*#1/120] (22,60) -- (80,60);
+  \draw[onnavy,line width=9*#1/120] (22,34) .. controls (50,34) and (56,60) .. (80,60);
+  \draw[orange,line width=9*#1/120] (76,60) -- (92,60);
+  \fill[orange] (98,60) circle (9);
+ \end{tikzpicture}}
+\newcommand{\wordmark}[1][16]{{\fontsize{#1}{#1}\selectfont{\sgmedium\color{orangetext}One}{\sgfont\color{navy}Order}}}
+\newcommand{\wordmarkdark}[1][16]{{\fontsize{#1}{#1}\selectfont{\sgmedium\color{orangesoft}One}{\sgfont\color{onnavy}Order}}}
+% document masthead: logo + wordmark, kicker, title
+\newcommand{\masthead}[2]{%
+ {\raisebox{-0.6mm}{\oologo[9mm]}\hspace{6pt}\wordmark[15]\hfill{\footnotesize\color{textmuted}IT Consultant Challenge 2026 · Round 2}\par}
+ \vspace{12pt}\kicker{#1}\vspace{5pt}\hone{#2}\vspace{2pt}}
+
+% ---------- footer ----------
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{{\color{line}\hrule width\headwidth height 0.5pt\vskip 4pt}}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyfoot[L]{\footnotesize\color{textmuted}OneOrder · Team 3changlinhngulam}
+\fancyfoot[R]{\footnotesize\color{textmuted}\thepage}
+
+% ---------- cards, statement box ----------
+\tcbset{oocard/.style={enhanced,colback=card,colframe=line,boxrule=0.5pt,arc=4mm,left=4.5mm,right=4.5mm,top=2.8mm,bottom=2.8mm,
+  boxsep=0pt,before skip=6pt,after skip=6pt,breakable=false,fontupper=\small\color{textbody}\raggedright},
+ accenttop/.style={borderline north={1.5pt}{0pt}{orange}},
+ bluetop/.style={borderline north={1.5pt}{0pt}{blue}},
+ accentleft/.style={borderline west={1.5pt}{0pt}{orange}}}
+\newtcolorbox{oocard}[1][]{oocard,#1}
+\newtcolorbox{statement}{enhanced,colback=navy,colframe=navy,arc=4mm,left=6mm,right=6mm,top=3.5mm,bottom=3.5mm,boxsep=0pt,
+  before skip=6pt,after skip=4pt,breakable=false,fontupper=\sgfont\fontsize{14}{18}\selectfont\color{onnavy}\raggedright}
+
+% ---------- tables: no vertical lines, 2px navy header rule, 1px row rules ----------
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{6pt}
+\setlength{\arrayrulewidth}{0.5pt}\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}
+\newcommand{\thead}{\noalign{\global\arrayrulewidth=1.5pt}\arrayrulecolor{navy}\hline\noalign{\global\arrayrulewidth=0.5pt}\arrayrulecolor{rule}}
+\newcommand{\trow}{\arrayrulecolor{rule}\hline}
+% highlighted row: put \hl at the start of every cell of the row (\rowcolor does not work inside tabularx here)
+\newcommand{\hl}{\cellcolor{orangetint}\bfseries}
+
+% ---------- chips ----------
+\newcommand{\chip}[3]{\tikz[baseline=(c.base)]\node[fill=#1,text=#2,rounded corners=4.5pt,inner xsep=6pt,inner ysep=2pt,font=\semibold\fontsize{8.5}{10}\selectfont](c){#3};\kern-2.5pt}
+\newcommand{\chipok}[1]{\chip{okbg}{oktx}{#1}}
+\newcommand{\chiprisk}[1]{\chip{riskbg}{risktx}{#1}}
+\newcommand{\chiplate}[1]{\chip{latebg}{latetx}{#1}}
+\newcommand{\chipinfo}[1]{\chip{infobg}{infotx}{#1}}
+
+% ---------- diagram styles ----------
+\tikzset{
+  >=Stealth,
+  oofont/.style={font=\fontsize{8}{10}\selectfont},
+  % card: outside actor or stored data; add accenttop / bluetop / accentleft
+  ooc/.style={oofont,draw=line,line width=0.6pt,fill=card,text=navy,rounded corners=6pt,align=center,inner sep=5pt},
+  accentleft/.style={path picture={\fill[orange] (path picture bounding box.north west) rectangle ([xshift=2.2pt]path picture bounding box.south west);}},
+  accenttop/.style={path picture={\fill[orange] (path picture bounding box.north west) rectangle ([yshift=-2.2pt]path picture bounding box.north east);}},
+  bluetop/.style={path picture={\fill[blue] (path picture bounding box.north west) rectangle ([yshift=-2.2pt]path picture bounding box.north east);}},
+  oonavy/.style={fill=navy,draw=navy,rounded corners=8pt},
+  oomod/.style={oofont,fill=navytwo,draw=navytwo,text=onnavy,rounded corners=6pt,align=center,inner sep=4pt},
+  ooadp/.style={oofont,fill=bluetint,draw=blue!35,line width=0.6pt,text=navy,rounded corners=6pt,align=center,inner sep=5pt},
+  flow/.style={->,line width=1.1pt,orange},
+  lab/.style={font=\fontsize{7.5}{9}\selectfont,text=textbody,align=center,fill=paper,inner sep=1.5pt},
+  n/.style={circle,fill=navy,text=onnavy,font=\bfseries\fontsize{7.5}{8}\selectfont,inner sep=0pt,minimum size=11pt}
+}
+\endinput
