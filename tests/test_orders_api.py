@@ -246,3 +246,27 @@ def test_approve_requires_customer_name_when_ocr_found_none(client):
     ok = client.post(f"/api/orders/{order['id']}/approve", json={"corrections": corrections, "customer": " Byg ApS ", "customer_phone": "+45 00 00 00 01"})
     assert ok.status_code == 200
     assert ok.json()["customer"] == "Byg ApS"
+
+
+def test_approve_can_correct_formerly_unflagged_sku(client, test_db):
+    from backend.db import OrderModel, OrderLineModel
+
+    with test_db() as db:
+        order = OrderModel(source_type="email", customer="Byg ApS", customer_phone="+4512345678")
+        order.lines = [OrderLineModel(
+            line_index=0, description="stone wool insulation 100mm", quantity=1,
+            confidence=0.95, match_score=0.9643, matched_sku="ISO-ROCK-150",
+            ambiguous=0, confirmed=0,
+        )]
+        db.add(order)
+        db.commit()
+        order_id = order.id
+
+    before = client.get(f"/api/orders/{order_id}").json()
+    assert before["lines"][0]["needs_review"] is False
+    response = client.post(f"/api/orders/{order_id}/approve", json={
+        "corrections": [{"line_index": 0, "sku": "ISO-ROCK-100", "confirmed": True}],
+    })
+    assert response.status_code == 200
+    assert response.json()["lines"][0]["matched_sku"] == "ISO-ROCK-100"
+    assert any(log["action"] == "edit_line" for log in response.json()["audit_logs"])

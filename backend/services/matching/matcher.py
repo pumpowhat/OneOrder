@@ -30,6 +30,40 @@ def normalize_text(text: str) -> str:
     return " ".join(text.split())
 
 
+# Parse before normalize_text, which removes decimal points and dimension separators.
+_NUMBER = r"\d+(?:[.,]\d+)?"
+_MEASURE = re.compile(
+    rf"(?<![\w.,])({_NUMBER}(?:\s*[x×]\s*{_NUMBER})*)\s*(mm|cm|m|kg|g|ml|l)\b",
+    re.IGNORECASE,
+)
+_UNIT_SCALE = {
+    "mm": ("length", 1), "cm": ("length", 10), "m": ("length", 1000),
+    "g": ("mass", 1), "kg": ("mass", 1000),
+    "ml": ("volume", 1), "l": ("volume", 1000),
+}
+
+
+def specifications(text: str) -> dict[str, set[float]]:
+    """Extract explicit measurements in base units, including 45x145mm."""
+    result: dict[str, set[float]] = {}
+    for match in _MEASURE.finditer(text.replace("Ø", " ").replace("ø", " ")):
+        kind, scale = _UNIT_SCALE[match[2].lower()]
+        values = result.setdefault(kind, set())
+        for number in re.split(r"\s*[x×]\s*", match[1]):
+            values.add(round(float(number.replace(",", ".")) * scale, 6))
+    return result
+
+
+def compatible_specifications(requested: dict[str, set[float]], item: CatalogItem) -> bool:
+    # The product name is authoritative; aliases may omit specifications or round them.
+    available = specifications(item.name)
+    for alias in item.aliases:
+        for kind, values in specifications(alias).items():
+            if kind not in available:
+                available[kind] = values
+    return all(values <= available.get(kind, set()) for kind, values in requested.items())
+
+
 class CatalogueMatcher:
     """Fuzzy-matches order lines against a product catalogue using RapidFuzz and AI."""
 
@@ -43,10 +77,13 @@ class CatalogueMatcher:
         if not q_norm:
             return []
 
+        requested = specifications(text)
         q_tokens = set(q_norm.split())
         scored = []
 
         for item in self.catalog:
+            if not compatible_specifications(requested, item):
+                continue
             targets = [item.name] + list(item.aliases)
             best = 0.0
 
@@ -123,7 +160,8 @@ class CatalogueMatcher:
                 except Exception:
                     chosen = None
             # Fallback to top candidate if AI unavailable or returns None
-            line.matched_sku = chosen or (candidates[0].sku if candidates else None)
+            valid_skus = {candidate.sku for candidate in candidates}
+            line.matched_sku = chosen if chosen in valid_skus else candidates[0].sku
         else:
             line.matched_sku = None
 

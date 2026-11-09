@@ -147,34 +147,21 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
               </div>
 
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pl-7">
-                {flagged ? (
-                  options.length > 0 ? (
-                    <select
-                      value={sku(line)}
-                      onChange={(e) => edit(line, { sku: e.target.value })}
-                      aria-label={t("review.product")}
-                      className="h-8 w-full max-w-[420px] min-w-0 px-2 rounded-md border border-line-strong bg-surface text-sm"
-                    >
-                      {!sku(line) && <option value="">{t("review.choose")}</option>}
-                      {options.map((c) => (
-                        <option key={c.sku} value={c.sku}>
-                          {c.name} · {c.sku}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <input
-                      type="text"
-                      value={sku(line)}
-                      placeholder={t("review.typeSku")}
-                      onChange={(e) => setEdits((p) => ({ ...p, [line.line_index]: { ...p[line.line_index], sku: e.target.value.trim() } }))}
-                      aria-label={t("review.product")}
-                      className="h-8 w-48 px-2 rounded-md border border-line-strong bg-surface text-sm font-mono"
-                    />
-                  )
-                ) : (
-                  <span className="text-xs font-mono text-info">{sku(line)}</span>
-                )}
+                <input
+                  type="text"
+                  list={`sku-options-${line.line_index}`}
+                  value={sku(line)}
+                  placeholder={t("review.typeSku")}
+                  onChange={(e) => edit(line, { sku: e.target.value.trim() })}
+                  aria-label={t("review.product")}
+                  disabled={busy}
+                  className="h-8 w-full max-w-[420px] min-w-0 px-2 rounded-md border border-line-strong bg-surface text-sm font-mono"
+                />
+                <datalist id={`sku-options-${line.line_index}`}>
+                  {options.map((c) => (
+                    <option key={c.sku} value={c.sku}>{c.name}</option>
+                  ))}
+                </datalist>
                 <Badge tone={line.confidence >= REVIEW_THRESHOLD ? "success" : "warn"}>
                   {t("review.ai", { pct: Math.round(line.confidence * 100) })}
                   {line.confidence < REVIEW_THRESHOLD && ` · ${t("review.check")}`}

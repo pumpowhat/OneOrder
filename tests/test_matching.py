@@ -43,7 +43,7 @@ def test_exact_matching(catalog):
 
     assert matched.matched_sku == "GYP-13-2400"
     assert matched.match_score == 1.0
-    assert len(matched.candidates) == 3
+    assert len(matched.candidates) == 1
     assert matched.candidates[0].sku == "GYP-13-2400"
     assert matched.needs_review is False
 
@@ -122,3 +122,48 @@ def test_low_score_leaves_sku_empty_and_needs_review(catalog):
     # Order containing this line must flag needs_review
     order = DraftOrder(source_type=SourceType.EMAIL, lines=[matched])
     assert order.needs_review is True
+
+
+@pytest.mark.parametrize("query", ["stone wool insulation 100mm", "stone wool insulation 10 cm", "stone wool insulation 0.1m"])
+def test_conflicting_thickness_cannot_win_even_with_exact_alias(query):
+    from backend.services.matching.catalog import CatalogItem
+
+    wrong = CatalogItem("wrong", "Stone wool insulation 150mm", aliases=(query,))
+    line = CatalogueMatcher([wrong]).match_line(DraftLine(description=query, quantity=1, confidence=0.99))
+    assert line.matched_sku is None
+    assert line.needs_review
+    assert line.candidates == []
+
+
+def test_ai_cannot_return_excluded_sku():
+    from backend.services.matching.catalog import CatalogItem
+
+    class AI:
+        def match_product(self, description, candidates):
+            return "wrong"
+
+    catalog = [CatalogItem("wrong", "Stone wool insulation 150mm"),
+               CatalogItem("compatible", "Wool insulation 100mm")]
+    line = CatalogueMatcher(catalog, ai=AI()).match_line(
+        DraftLine(description="stone wool insulation 100mm", quantity=1, confidence=0.99))
+    assert line.matched_sku != "wrong"
+
+
+def test_missing_board_length_requires_review():
+    line = CatalogueMatcher(load_catalog()).match_line(
+        DraftLine(description="gipspalde 13mm", quantity=1, confidence=0.99))
+    assert line.needs_review
+
+
+@pytest.mark.parametrize("query,name,compatible", [
+    ("insulation 10 cm", "Insulation 100mm", True),
+    ("board 12,5mm", "Board 12.5mm", True),
+    ("board 12.5mm", "Board 125mm", False),
+    ("pipe Ø110mm", "Pipe Ø160mm", False),
+    ("timber 45×145mm", "Timber 45x95mm", False),
+])
+def test_numeric_unit_compatibility(query, name, compatible):
+    from backend.services.matching.catalog import CatalogItem
+    from backend.services.matching.matcher import compatible_specifications, specifications
+
+    assert compatible_specifications(specifications(query), CatalogItem("test", name)) is compatible

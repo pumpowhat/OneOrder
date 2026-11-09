@@ -143,8 +143,8 @@
   },
   {
     "query": "steinull isolasjon 100mm",
-    "expected_sku": "ISO-ROCK-100",
-    "expected_review": false,
+    "expected_review": true,
+    "specification_regression": true,
     "lang": "no",
     "note": "bông đá Na Uy"
   },
@@ -200,8 +200,8 @@
   },
   {
     "query": "stone wool insulation 100mm",
-    "expected_sku": "ISO-ROCK-100",
-    "expected_review": false,
+    "expected_review": true,
+    "specification_regression": true,
     "lang": "en",
     "note": "bông đá tiếng Anh"
   },

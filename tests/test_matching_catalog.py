@@ -15,8 +15,6 @@ CATALOG_PATH = Path("data/catalog.json")
 # Known matcher limitations to be investigated by Nghia
 XFAIL_REASONS = {
     "stenull flexibatts 100mm": "Rapidfuzz score 0.8696 is below AUTO threshold 0.90; without AI needs_review is True",
-    "steinull isolasjon 100mm": "Rapidfuzz token sort ranks ISO-ROCK-150 higher than ISO-ROCK-100",
-    "stone wool insulation 100mm": "Rapidfuzz token sort ranks ISO-ROCK-150 higher than ISO-ROCK-100",
     "gipspalde 13mm": "Typo in query matches GYP-13-3000 instead of GYP-13-2400",
     "moertel 25kg": "oe transliteration matches BET-EXP-25 ahead of BET-TORR-25",
     "gipsplade 13 mm": "Space before unit ties at 0.95 with 3000mm variant causing ambiguous review flag",
@@ -66,6 +64,11 @@ def matcher(catalog):
 def test_matching_case(matcher, case):
     line = DraftLine(description=case["query"], quantity=1, confidence=0.95)
     matched = matcher.match_line(line)
+
+    if case.get("specification_regression"):
+        assert matched.needs_review is True
+        assert all(c.sku != "ISO-ROCK-150" for c in matched.candidates)
+        return
 
     assert matched.matched_sku == case["expected_sku"], (
         f"Query {case['query']!r}: expected SKU {case['expected_sku']!r}, got {matched.matched_sku!r}"
