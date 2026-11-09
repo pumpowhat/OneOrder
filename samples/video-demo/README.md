@@ -9,18 +9,18 @@ Tạo lại bằng `python -m scripts.generate_video_samples`. PDF có fixture r
 
 | Tệp | Loại | Case bao phủ |
 |---|---|---|
-| `pdf/dk-nordhavn-materialeliste.pdf` | PDF có lớp văn bản, tiếng Đan Mạch | **Đơn chính của video.** Ô *Kunde / firma* để trống nên **thiếu tên khách**. Có số điện thoại, địa chỉ Nordhavn (khớp `SITE-DK-01`) và ngày giao 2026-11-12. Dòng 5 *Skruer til gips* bị match **sai** sang tấm gips `GYP-13-2400`, phải chọn lại `SCR-GIP-40`. Dòng 4 dầm HEA 200 cần xác nhận. Gỗ thông Thụy Điển và dầm HEA 200 **chỉ có ở SE**, nên plan đi **cross-border** và dầm cần **xe cẩu**. |
-| `excel/se-goteborg-materiallista.xlsx` | Excel tiếng Thụy Điển | **Thiếu tên khách**, thiếu địa chỉ và ngày giao (phải chọn công trường khi plan). Có cột *Telefon*, nên số điện thoại được tự điền. Dòng 3 **thiếu số lượng** (cảnh báo, confidence 0.40). `"12,5"` đọc thành 12.5. *Ljuddämpande golvmatta* không có trong catalog và bị match sai sang tấm gips. |
+| `pdf/dk-nordhavn-materialeliste.pdf` | PDF có lớp văn bản, tiếng Đan Mạch | **Đơn chính của video.** Ô *Kunde / firma* để trống nên **thiếu tên khách**. Có số điện thoại, địa chỉ Nordhavn (khớp `SITE-DK-01`) và ngày giao 2026-11-12. Dòng 5 *Skruer til gips, ca. 40 mm* được gợi ý `SCR-GIP-40` nhưng cần xác nhận vì mô tả mơ hồ. Dòng 4 dầm HEA 200 cũng cần xác nhận. (Trước PR #27, dòng 5 bị match sai sang tấm gips `GYP-13-2400`.) Gỗ thông Thụy Điển và dầm HEA 200 **chỉ có ở SE**, nên plan đi **cross-border** và dầm cần **xe cẩu**. |
+| `excel/se-goteborg-materiallista.xlsx` | Excel tiếng Thụy Điển | **Thiếu tên khách**, thiếu địa chỉ và ngày giao (phải chọn công trường khi plan). Có cột *Telefon*, nên số điện thoại được tự điền. Dòng 3 **thiếu số lượng** (cảnh báo, confidence 0.40). `"12,5"` đọc thành 12.5. *Ljuddämpande golvmatta* không có trong catalog: hệ thống gợi ý tạm một SKU không đúng nhưng gắn cờ review. |
 | `photos/se-handwritten-1.jpg` | Ảnh viết tay tiếng Thụy Điển | **Thiếu số điện thoại.** 2 dòng **confidence thấp** (0.72 và 0.70) cần kiểm tra. Chữ viết vội, có gạch xóa. |
 | `emails/en_order.txt` | Email tiếng Anh | Đủ tên khách và số điện thoại. Cả 5 dòng đều cần xác nhận, vì email đọc bằng rule không bao giờ vượt ngưỡng tin cậy ở chế độ demo. |
 
 ## Kết quả kiểm thử (chạy ngày 9/11/2026, chế độ demo, DB tạm)
 
-Đơn PDF, sau khi nhập khách *Lars Byg ApS*, sửa dòng 5 và xác nhận dòng 4:
+Chạy lại sau khi merge PR #27 và #28. Đơn PDF, sau khi nhập khách *Lars Byg ApS* và xác nhận dòng 4, 5:
 
 | Shipment | Kho | Hàng | Xe | ETA P50 / P90 |
 |---|---|---|---|---|
-| 1 | DK-BR-01 København Sydhavn (9.5 km) | Gips 40, Rockwool 30 m2, vít 10 pk | small_truck | 9/11 / 9/11 |
+| 1 | DK-BR-01 København Sydhavn (9.5 km) | Gips 40, Rockwool 30 m2, vít 10 pk | small_truck | 10/11 / 10/11 (chạy sau 11:00, quá giờ cắt đơn của chi nhánh) |
 | 2 | SE-DC-01 Jönköping (324.5 km), cross-border | Dầm HEA 200 × 4 | crane_truck | 10/11 / 12/11 |
 | 3 | SE-DC-01 Jönköping, cross-border | Gỗ thông 60 m | small_truck | 10/11 / 12/11 |
 

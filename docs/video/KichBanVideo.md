@@ -9,7 +9,7 @@ Import **4 đơn**, chỉ **plan 2 đơn**:
 | Đơn | Làm gì |
 |---|---|
 | **Ảnh viết tay (Thụy Điển)** | Review, nhập số điện thoại, plan **luôn**, Confirm. |
-| **PDF (Đan Mạch)** | Review, nhập tên khách, sửa dòng sai, plan, **đổi rules, plan lại**, Confirm. |
+| **PDF (Đan Mạch)** | Review, nhập tên khách, kiểm tra 2 dòng bị gắn cờ, plan, **đổi rules, plan lại**, Confirm. |
 | Excel (Thụy Điển) | Chỉ xem lỗi ở màn hình Review, **không duyệt**. |
 | Email (tiếng Anh) | Chỉ import, **không duyệt**. |
 
@@ -103,7 +103,7 @@ Về chế độ demo: kết quả đọc PDF và ảnh là kết quả **Gemini
 |---|---|
 | Mở đơn **PDF**. Chỉ vào *Original file* và *What the system read*, rồi vào ô **Customer name** trống. | "Quay lại đơn của anh Lars. Ô tên khách trong PDF bị bỏ trống, nên hệ thống bắt buộc phải nhập tên trước khi duyệt." |
 | Gõ `Lars Byg ApS`. | |
-| Dòng 5 *Skruer til gips*: chỉ vào SKU `GYP-13-2400`. Mở *Choose a product*, chọn **SCR-GIP-40**. | "Đây là một lỗi thật: 'vít bắt thạch cao' bị ghép nhầm với chính tấm thạch cao. Tôi chọn lại đúng sản phẩm: vít thạch cao 3,9 nhân 40." |
+| Dòng 5 *Skruer til gips, ca. 40 mm*: chỉ nhãn *check*. Bấm vào ô mã sản phẩm để mở menu 3 gợi ý, giữ **SCR-GIP-40**, rồi tick xác nhận. | "Dòng này khách ghi khá mơ hồ: 'vít thạch cao, khoảng 40 li'. Hệ thống gợi ý vít thạch cao 3,9 nhân 40 nhưng vẫn bắt người kiểm tra. Nếu gợi ý sai, tôi chọn sản phẩm khác ngay tại đây, hoặc gõ mã sản phẩm. Gợi ý này đúng, nên tôi xác nhận." |
 | Dòng 4 dầm HEA 200: tick xác nhận. | "Dầm thép ghép đúng, nên tôi chỉ xác nhận." |
 | Bấm **Approve OCR result**. | "Đơn đã sẵn sàng lên kế hoạch." |
 
@@ -125,7 +125,7 @@ Về chế độ demo: kết quả đọc PDF và ảnh là kết quả **Gemini
 | Quay lại đơn PDF, bấm **Re-plan**. Chỉ khung *Some items are not fully in stock*. | "Lập lại kế hoạch: gỗ thông và dầm thép giờ thành thiếu hàng, kèm lý do cụ thể. Quy tắc đổi thì quyết định đổi theo, và hệ thống giải thích được vì sao." |
 | Vào **Rules**, bật lại cross-border, **Save**. Quay lại đơn, **Re-plan**. | "Bật lại, và kế hoạch đầy đủ quay trở lại. Đơn Confirm trước đó (đơn Thụy Điển) vẫn giữ nguyên kế hoạch cũ, vì kế hoạch đã xác nhận được khóa với phiên bản quy tắc lúc tạo." |
 
-> Câu cuối của dòng này dựa trên ghi chú trong [rules.py](../../backend/routers/rules.py): "plans already stored keep the rules_version they were made with". Nếu không muốn nói ý này trong video thì bỏ câu cuối đi.
+> Câu cuối đã được chạy thử: sau khi tắt cross-border, đơn Thụy Điển đã Confirm vẫn giữ nguyên 2 shipment cũ.
 
 ## Cảnh 9: Đơn PDF, Confirm (5:40–6:05)
 
