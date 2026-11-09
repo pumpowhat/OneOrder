@@ -125,7 +125,7 @@ export const en = {
   "brand.tagline": "Many inputs. One order. One delivery promise.",
   "review.ai": "AI {pct}%",
   "review.check": "check",
-  "review.byPerson": "Reviewed by person",
+  "review.byPerson": "Reviewed",
   "source.title": "Original file",
   "source.missing": "No original file stored for this order.",
   "source.download": "Download original",

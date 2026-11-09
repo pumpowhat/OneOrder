@@ -95,7 +95,12 @@ def test_every_item_is_available_somewhere(group_items):
 
 
 def test_catalog_aliases_are_not_generic():
-    """No alias may be fully contained in another SKU's name or alias, or it would be auto-picked wrongly."""
+    """Aliases resolve to their SKU; unclear measurement roles still require review."""
+    review_aliases = {
+        "gipsplade 3m", "gipsskiva 3000mm", "gipsplate 3m lang", "drywall board 3000mm",
+        "gulvvarmerør 20mm 120m", "golvvärmerör pex 20mm 120m",
+        "gulvvarmerør pex 20mm", "underfloor heating pex pipe 20mm 120m",
+    }
     clear_catalog_cache()
     catalog = load_catalog()
     matcher = CatalogueMatcher(catalog)
@@ -103,7 +108,7 @@ def test_catalog_aliases_are_not_generic():
         for alias in item.aliases:
             line = matcher.match_line(DraftLine(description=alias, quantity=1, confidence=0.95))
             assert line.matched_sku == item.sku, alias
-            assert not line.ambiguous, alias
+            assert line.needs_review is (alias in review_aliases), alias
 
 
 def test_dk_csv_uses_unix_line_endings():
