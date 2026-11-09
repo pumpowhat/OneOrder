@@ -1,114 +1,103 @@
-import { useMemo, useState } from "react";
-import { PhoneInput } from "../ui/PhoneInput.tsx";
+import { useState } from "react";
 import { Button } from "../ui/Button.tsx";
 import { Badge, type BadgeTone } from "../ui/Badge.tsx";
 import { useI18n } from "../../i18n/useI18n.ts";
 import type { TranslationKey } from "../../i18n/en.ts";
 import { formatQty } from "../../lib/format.ts";
 import { isValidCustomerPhone } from "../../lib/phone.ts";
-import { cn } from "../../lib/cn.ts";
-import type { AvailabilityStatus, LineAvailability, LineCorrection, Order, OrderLine } from "../../types/api.ts";
+import type {
+  AvailabilityStatus,
+  LineAvailability,
+  LineCorrection,
+  Order,
+} from "../../types/api.ts";
 
-const AVAIL: Record<AvailabilityStatus, { tone: BadgeTone; label: TranslationKey }> = {
+const AVAIL: Record<
+  AvailabilityStatus,
+  { tone: BadgeTone; label: TranslationKey }
+> = {
   ok: { tone: "success", label: "avail.ok" },
   partial: { tone: "warn", label: "avail.partial" },
   none: { tone: "danger", label: "avail.none" },
   unmatched: { tone: "neutral", label: "avail.unmatched" },
 };
 
-const REVIEW_THRESHOLD = 0.85;
-
-interface Edit {
-  sku?: string;
-  quantity?: number;
-}
-
-interface Props {
+/** Review saved data. Editing is handled by OrderDraftForm so approval never loses unsaved edits. */
+export function ReviewLines({
+  order,
+  availability,
+  busy,
+  onApprove,
+}: {
   order: Order;
   availability: LineAvailability[];
   busy: boolean;
-  onApprove: (corrections: LineCorrection[], confirmLines: number[], customer?: string, customerPhone?: string) => void;
-}
-
-/** The extracted lines with confidence and stock pre-check; the clerk fixes and ticks the doubtful ones. */
-export function ReviewLines({ order, availability, busy, onApprove }: Props) {
+  onApprove: (
+    corrections: LineCorrection[],
+    confirmLines: number[],
+    customer?: string,
+    customerPhone?: string,
+  ) => void;
+}) {
   const { t } = useI18n();
-  const [edits, setEdits] = useState<Record<number, Edit>>({});
   const [checked, setChecked] = useState<Set<number>>(new Set());
-  const [customer, setCustomer] = useState("");
-  const [customerPhone, setCustomerPhone] = useState(order.customer_phone ?? "");
-  const phoneInvalid = !isValidCustomerPhone(customerPhone);
-  const needsCustomer = !order.customer?.trim();
-  const customerMissing = needsCustomer && !customer.trim();
-  const stock = useMemo(() => new Map(availability.map((a) => [a.line_index, a])), [availability]);
-
-  const sku = (line: OrderLine) => edits[line.line_index]?.sku ?? line.matched_sku ?? "";
-  const pending = order.lines.filter((l) => (l.needs_review && !checked.has(l.line_index)) || !sku(l));
-
-  const edit = (line: OrderLine, patch: Edit) => {
-    setEdits((prev) => ({ ...prev, [line.line_index]: { ...prev[line.line_index], ...patch } }));
-    setChecked((prev) => new Set(prev).add(line.line_index));
-  };
-
-  const approve = () => {
-    const corrections: LineCorrection[] = [];
-    for (const [index, e] of Object.entries(edits)) {
-      corrections.push({ line_index: Number(index), sku: e.sku, quantity: e.quantity, confirmed: true });
-    }
-    const confirmLines = [...checked].filter((i) => !(i in edits));
-    onApprove(corrections, confirmLines, needsCustomer ? customer.trim() : undefined, customerPhone.trim());
-  };
-
+  const missingCustomer = !order.customer?.trim();
+  const invalidPhone = !isValidCustomerPhone(order.customer_phone ?? "");
+  const pending = order.lines.filter(
+    (l) => !l.matched_sku || (l.needs_review && !checked.has(l.line_index)),
+  );
   return (
     <div>
-      {needsCustomer && (
-        <div className={cn("px-5 py-4 border-b border-line space-y-1.5", customerMissing && "bg-warn-soft/40")}>
-          <label htmlFor="customer-name" className="text-sm font-medium">
-            {t("review.customerLabel")}
-          </label>
-          <input
-            id="customer-name"
-            type="text"
-            value={customer}
-            maxLength={255}
-            required
-            aria-required="true"
-            placeholder={t("review.customerPlaceholder")}
-            onChange={(e) => setCustomer(e.target.value)}
-            className="h-9 w-full max-w-[420px] px-2 rounded-md border border-line-strong bg-surface text-sm"
-          />
-          <p className="text-xs text-ink-muted">{t("review.customerHint")}</p>
-        </div>
+      <p className="px-5 py-4 text-sm text-ink-muted border-b border-line">
+        {t("draft.reviewHint")}
+      </p>
+      {order.lines.length === 0 && (
+        <p className="px-5 py-6 text-sm text-ink-muted">{t("draft.empty")}</p>
       )}
-      <div className={cn("px-5 py-4 border-b border-line space-y-1.5", phoneInvalid && "bg-warn-soft/40")}>
-        <label htmlFor="customer-phone" className="text-sm font-medium">{t("common.customerPhone")}</label>
-        <PhoneInput
-          id="customer-phone"
-          value={customerPhone}
-          onChange={setCustomerPhone}
-          invalid={phoneInvalid}
-          describedBy="customer-phone-hint"
-          disabled={busy}
-        />
-        <p id="customer-phone-hint" className="text-xs text-ink-muted">{t("review.phoneHint")}</p>
-      </div>
       <ul className="divide-y divide-line">
         {order.lines.map((line) => {
-          const flagged = line.needs_review || !sku(line);
-          const done = checked.has(line.line_index);
-          const avail = stock.get(line.line_index);
-          const quantity = edits[line.line_index]?.quantity ?? line.quantity;
-          const options = line.candidates.some((c) => c.sku === sku(line))
-            ? line.candidates
-            : [...(sku(line) ? [{ sku: sku(line), name: sku(line), score: line.match_score ?? 0 }] : []), ...line.candidates];
-
+          const avail = availability.find(
+            (a) => a.line_index === line.line_index,
+          );
           return (
-            <li key={line.line_index} className={cn("px-5 py-4 space-y-2.5", flagged && !done && "bg-warn-soft/40")}>
-              <div className="flex items-start gap-3">
-                {flagged ? (
+            <li key={line.line_index} className="px-5 py-5 space-y-3">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0 space-y-1">
+                  <div className="font-medium text-sm break-words">
+                    {line.description}
+                  </div>
+                  <div className="font-mono text-xs text-ink-muted">
+                    {line.matched_sku || t("review.choose")}
+                  </div>
+                </div>
+                <span className="shrink-0 text-sm tabular-nums">
+                  {formatQty(line.quantity)} {line.unit}
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                {line.source_text && (
+                  <Badge tone={line.confidence >= 0.85 ? "success" : "warn"}>
+                    {t("review.ai", { pct: Math.round(line.confidence * 100) })}
+                  </Badge>
+                )}
+                {(line.confirmed || checked.has(line.line_index)) && (
+                  <Badge tone="neutral">{t("review.byPerson")}</Badge>
+                )}
+                {avail && (
+                  <Badge tone={AVAIL[avail.status].tone}>
+                    {t(AVAIL[avail.status].label)}
+                    {avail.status !== "unmatched" &&
+                      ` · ${formatQty(avail.available)}`}
+                  </Badge>
+                )}
+              </div>
+              {line.needs_review && (
+                <label className="flex gap-2.5 items-start text-sm text-ink-muted">
                   <input
                     type="checkbox"
-                    checked={done}
+                    disabled={busy || !line.matched_sku}
+                    checked={checked.has(line.line_index)}
+                    className="mt-1 accent-[var(--brand)]"
                     onChange={(e) =>
                       setChecked((prev) => {
                         const next = new Set(prev);
@@ -117,92 +106,35 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
                         return next;
                       })
                     }
-                    aria-label={t("review.checkLine", { n: line.line_index + 1 })}
-                    className="mt-1 w-4 h-4 accent-[var(--brand)]"
                   />
-                ) : (
-                  <span className="mt-1 w-4 h-4" aria-hidden="true" />
-                )}
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium break-words">{line.description}</div>
-                  {line.source_text && line.source_text !== line.description && (
-                    <div className="text-xs text-ink-muted break-words">“{line.source_text}”</div>
-                  )}
-                </div>
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <input
-                    type="number"
-                    min={0}
-                    step="any"
-                    value={quantity}
-                    onChange={(e) => {
-                      const value = Number(e.target.value);
-                      if (value > 0) edit(line, { quantity: value });
-                    }}
-                    aria-label={t("review.quantity")}
-                    className="w-20 h-8 px-2 rounded-md border border-line-strong bg-surface text-sm text-right tabular-nums"
-                  />
-                  <span className="text-xs text-ink-muted w-8">{line.unit}</span>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pl-7">
-                {flagged ? (
-                  options.length > 0 ? (
-                    <select
-                      value={sku(line)}
-                      onChange={(e) => edit(line, { sku: e.target.value })}
-                      aria-label={t("review.product")}
-                      className="h-8 w-full max-w-[420px] min-w-0 px-2 rounded-md border border-line-strong bg-surface text-sm"
-                    >
-                      {!sku(line) && <option value="">{t("review.choose")}</option>}
-                      {options.map((c) => (
-                        <option key={c.sku} value={c.sku}>
-                          {c.name} · {c.sku}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <input
-                      type="text"
-                      value={sku(line)}
-                      placeholder={t("review.typeSku")}
-                      onChange={(e) => setEdits((p) => ({ ...p, [line.line_index]: { ...p[line.line_index], sku: e.target.value.trim() } }))}
-                      aria-label={t("review.product")}
-                      className="h-8 w-48 px-2 rounded-md border border-line-strong bg-surface text-sm font-mono"
-                    />
-                  )
-                ) : (
-                  <span className="text-xs font-mono text-info">{sku(line)}</span>
-                )}
-                <Badge tone={line.confidence >= REVIEW_THRESHOLD ? "success" : "warn"}>
-                  {t("review.ai", { pct: Math.round(line.confidence * 100) })}
-                  {line.confidence < REVIEW_THRESHOLD && ` · ${t("review.check")}`}
-                </Badge>
-                {avail && (
-                  <Badge tone={AVAIL[avail.status].tone}>
-                    {t(AVAIL[avail.status].label)}
-                    {avail.status !== "unmatched" && ` · ${formatQty(avail.available)}`}
-                  </Badge>
-                )}
-                {(done || line.confirmed) && <Badge tone="neutral">{t("review.byPerson")}</Badge>}
-              </div>
+                  {t("draft.checked")}
+                </label>
+              )}
             </li>
           );
         })}
       </ul>
-
-      <div className="flex items-center justify-between gap-4 px-5 py-4 border-t border-line bg-surface-2 rounded-b-card">
-        <span className="text-sm text-ink-muted">
-          {customerMissing
+      <div className="px-5 py-5 border-t border-line space-y-4">
+        <p className="text-sm text-ink-muted">
+          {missingCustomer
             ? t("review.customerRequired")
-            : phoneInvalid
+            : invalidPhone
               ? t("review.phoneRequired")
-              : pending.length > 0
-              ? t("review.pending", { n: pending.length })
-              : t("review.allChecked")}
-        </span>
-        <Button variant="accent" disabled={busy || pending.length > 0 || customerMissing || phoneInvalid} onClick={approve}>
+              : pending.length
+                ? t("review.pending", { n: pending.length })
+                : t("review.allChecked")}
+        </p>
+        <Button
+          variant="accent"
+          disabled={
+            busy ||
+            missingCustomer ||
+            invalidPhone ||
+            pending.length > 0 ||
+            order.lines.length === 0
+          }
+          onClick={() => onApprove([], [...checked])}
+        >
           {busy ? t("common.working") : t("review.approve")}
         </Button>
       </div>

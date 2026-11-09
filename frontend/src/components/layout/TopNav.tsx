@@ -17,12 +17,12 @@ export function TopNav() {
 
   return (
     <header className="sticky top-0 z-20 bg-surface border-b border-line">
-      <div className="mx-auto max-w-[1200px] px-6 h-14 flex items-center gap-8">
+      <div className="mx-auto max-w-[1200px] px-6 py-3 sm:py-0 sm:h-14 flex flex-wrap sm:flex-nowrap items-center gap-x-4 gap-y-3 sm:gap-8">
         <NavLink to="/" className="shrink-0" aria-label="OneOrder">
           <Logo />
         </NavLink>
 
-        <nav aria-label="Main" className="flex items-center gap-1">
+        <nav aria-label="Main" className="order-last sm:order-none w-full sm:w-auto flex items-center gap-1 overflow-x-auto">
           {items.map((item) => (
             <NavLink
               key={item.to}

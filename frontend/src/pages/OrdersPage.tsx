@@ -8,6 +8,7 @@ import type { TranslationKey } from "../i18n/en.ts";
 import { errorMessage } from "../lib/errors.ts";
 import { formatIsoDate } from "../lib/format.ts";
 import type { OrderStatus, OrderSummary, SourceType } from "../types/api.ts";
+import { Button } from "../components/ui/Button.tsx";
 import { Badge } from "../components/ui/Badge.tsx";
 import { Card, CardBody } from "../components/ui/Card.tsx";
 import { EmptyState } from "../components/ui/EmptyState.tsx";
@@ -26,7 +27,7 @@ const TABS: Array<{ value: Tab; label: TranslationKey }> = [
   { value: "all", label: "orders.tabAll" },
 ];
 
-const SOURCE_ICON: Record<SourceType, typeof Mail> = { image: FileImage, pdf: FileText, excel: FileSpreadsheet, email: Mail };
+const SOURCE_ICON: Record<SourceType, typeof Mail> = { image: FileImage, pdf: FileText, excel: FileSpreadsheet, email: Mail, manual: FileText };
 
 function note(order: OrderSummary, t: ReturnType<typeof useI18n>["t"]) {
   if (order.status === "draft" && order.review_lines > 0) {
@@ -57,7 +58,7 @@ export default function OrdersPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title={t("nav.orders")} subtitle={t("orders.subtitle")} />
+      <PageHeader title={t("nav.orders")} subtitle={t("orders.subtitle")} actions={<Link to="/orders/new"><Button variant="accent">{t("draft.create")}</Button></Link>} />
       <UploadZone />
       <InboxPanel defaultOpen={!loading && orders.length === 0} />
 
@@ -114,7 +115,7 @@ export default function OrdersPage() {
                             </span>
                           )}
                           <span className="block text-xs font-normal text-ink-muted truncate">
-                            {order.source_name} · {t("orders.lines", { n: order.line_count })}
+                            {order.source_type === "manual" ? t("draft.manual") : order.source_name} · {t("orders.lines", { n: order.line_count })}
                           </span>
                         </span>
                       </Link>

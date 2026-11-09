@@ -2,6 +2,8 @@ from datetime import datetime
 import io
 import json
 import logging
+import math
+import uuid
 
 from fastapi import APIRouter, Body, Depends, HTTPException, Response
 from openpyxl import load_workbook
@@ -17,6 +19,8 @@ from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
 from backend.services.orders import InvalidTransition, OrderStatus, require_transition
 from backend.services.orders.phone import normalize_phone
+from backend.services.orders.schemas import DraftOrderInput
+from backend.services.orders.drafts import catalog_items, update_draft
 from backend.services.orchestration import (
     FulfillmentPlan,
     PlanLineInput,
@@ -32,6 +36,35 @@ from backend.services.orchestration import (
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/orders", tags=["orders"])
+
+
+@router.get("/catalog")
+def get_catalog() -> list[dict]:
+    return [{"sku": p.sku, "name": p.name, "unit": p.unit} for p in catalog_items()]
+
+
+@router.post("", status_code=201)
+def create_manual_order(payload: DraftOrderInput, db: Session = Depends(get_db)) -> dict:
+    if any(line.line_index is not None for line in payload.lines or []):
+        raise HTTPException(400, "New orders cannot reference existing line indices")
+    order = OrderModel(id=str(uuid.uuid4()), status="draft", source_type="manual", source_name="Manual entry")
+    db.add(order)
+    update_draft(db, order, payload)
+    record_audit_log(db, order.id, "create_draft", payload.user, None, {"source_type": "manual"})
+    db.commit()
+    db.refresh(order)
+    return order_model_to_dict(order)
+
+
+@router.patch("/{order_id}")
+def edit_draft_order(order_id: str, payload: DraftOrderInput, db: Session = Depends(get_db)) -> dict:
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(404, f"Order {order_id} not found")
+    update_draft(db, order, payload)
+    db.commit()
+    db.refresh(order)
+    return order_model_to_dict(order)
 
 
 class LineCorrection(BaseModel):
@@ -328,7 +361,7 @@ def approve_order(
 
     # Validate correction fields before applying
     for corr in payload.corrections:
-        if corr.quantity is not None and corr.quantity <= 0:
+        if corr.quantity is not None and (not math.isfinite(corr.quantity) or corr.quantity <= 0):
             raise HTTPException(
                 status_code=400,
                 detail=f"Line quantity must be greater than 0, got {corr.quantity}",
@@ -398,8 +431,13 @@ def approve_order(
                 payload_after={"line_index": idx, "confirmed": True},
             )
 
+    if not order.lines:
+        raise HTTPException(409, "Cannot approve order: at least one line is required")
+
     # Validate that all lines are ready for approval
     for line in order.lines:
+        if not math.isfinite(line.quantity) or line.quantity <= 0:
+            raise HTTPException(400, "Line quantity must be greater than 0 and finite")
         if not line.matched_sku:
             raise HTTPException(
                 status_code=409,
