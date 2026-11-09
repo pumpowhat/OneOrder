@@ -1,10 +1,11 @@
-"""Build the demo-video inbox in samples/video-demo/ (one PDF, one Excel sheet, one photo, one email).
+"""Build the demo-video inbox in samples/video-demo/ (one email, one photo, one Excel sheet, one PDF).
 
     python -m scripts.generate_video_samples
 
 Each file covers different review cases, see samples/video-demo/README.md. Run the app with
 INBOX_DIR=samples/video-demo to show only these files in the sample inbox. The PDF's demo fixture
-is recorded separately with ``python -m scripts.record_fixture samples/video-demo/pdf/<name>.pdf``.
+and the email's are recorded separately with live AI:
+``python -m scripts.record_fixture samples/video-demo/pdf/<name>.pdf`` (and the same for the email).
 """
 
 import shutil
@@ -17,6 +18,30 @@ OUT = ROOT / "samples" / "video-demo"
 
 PDF_NAME = "dk-nordhavn-materialeliste.pdf"
 XLSX_NAME = "se-goteborg-materiallista.xlsx"
+EMAIL_NAME = "dk-odense-order.txt"
+
+# The "ideal" order: customer, phone, address and date present, and every line is named exactly like the
+# catalogue, so nothing needs review. Its demo fixture is recorded with live AI (see the module docstring).
+EMAIL_TEXT = """\
+Dear OneOrder team,
+
+Please find our purchase order for the Odense harbour site.
+
+Customer: Hoffmann Byg A/S
+Phone: +45 33 12 45 78
+Delivery: Havnegade 45, 5000 Odense C
+Delivery date: 2026-11-13
+
+Items:
+- 60 stk Gipsplade standard 13mm 1200x2400
+- Rockwool flexibatts 100mm - 40 m2
+- 30 sæk Portland cement standard 25kg
+- Konstruktionstræ C24 45x145mm 4.2m - 25 stk
+- 20 pcs White acrylic sealant 300ml
+
+Best regards,
+Mette Hoffmann
+"""
 
 
 # --- PDF (text layer, Helvetica, WinAnsi) -----------------------------------------------------
@@ -115,7 +140,7 @@ def build_xlsx(path: Path) -> None:
         ("Brandgipsskiva 15mm", 40, "st", "+46 70 123 45 67", None),
         ("Glasull isolering 100mm", "12,5", "m2", "+46 70 123 45 67", "decimal med komma"),
         ("Regel C24 45x145mm 4.8m", None, "st", "+46 70 123 45 67", "antal saknas"),
-        ("Ljuddämpande golvmatta 5mm", 20, "m2", "+46 70 123 45 67", None),
+        ("Träskruv 5x80mm", 20, "pk", "+46 70 123 45 67", "beskrivning oklar"),
         ("Gipsskruv 3.9x40", 15, "pk", "+46 70 123 45 67", None),
     ]
     for row in rows:
@@ -134,9 +159,9 @@ def main() -> None:
         (OUT / sub).mkdir(parents=True, exist_ok=True)
     (OUT / "pdf" / PDF_NAME).write_bytes(build_pdf())
     build_xlsx(OUT / "excel" / XLSX_NAME)
-    # Reused as-is so their recorded demo fixtures still match (fixtures are keyed by SHA-256).
+    # The photo is reused as-is so its recorded demo fixture still matches (fixtures are keyed by SHA-256).
     shutil.copyfile(ROOT / "samples/photos/se-handwritten-1.jpg", OUT / "photos/se-handwritten-1.jpg")
-    shutil.copyfile(ROOT / "samples/emails/en_order.txt", OUT / "emails/en_order.txt")
+    (OUT / "emails" / EMAIL_NAME).write_text(EMAIL_TEXT, encoding="utf-8")
     print(f"Wrote demo inbox to {OUT}")
 
 
