@@ -105,7 +105,7 @@ export const vi: Record<TranslationKey, string> = {
   "brand.tagline": "Many inputs. One order. One delivery promise.",
   "review.ai": "AI {pct}%",
   "review.check": "kiểm tra",
-  "review.byPerson": "Người đã kiểm",
+  "review.byPerson": "Đã kiểm",
   "source.title": "File gốc",
   "source.missing": "Không có file gốc cho đơn này.",
   "source.download": "Tải file gốc",
