@@ -167,3 +167,30 @@ def test_numeric_unit_compatibility(query, name, compatible):
     from backend.services.matching.matcher import compatible_specifications, specifications
 
     assert compatible_specifications(specifications(query), CatalogItem("test", name)) is compatible
+
+
+@pytest.mark.parametrize("query", ["gipsplade 3m", "gipsskiva 3000mm", "drywall board 3000mm"])
+def test_catalogue_board_dimensions_preserve_compatible_length_alias(query):
+    line = CatalogueMatcher(load_catalog()).match_line(
+        DraftLine(description=query, quantity=1, confidence=0.99))
+    assert line.matched_sku == "GYP-13-3000"
+    assert line.match_score == 1.0
+    assert not line.needs_review
+    assert all(c.sku != "GYP-13-2400" for c in line.candidates)
+
+
+def test_rounded_catalogue_alias_cannot_override_explicit_thickness():
+    from backend.services.matching.catalog import CatalogItem
+
+    item = CatalogItem("wind", "Vindgips 9.5mm 1200x2700", aliases=("vindgips 9mm",))
+    line = CatalogueMatcher([item]).match_line(
+        DraftLine(description="vindgips 9mm", quantity=1, confidence=0.99))
+    assert line.matched_sku is None
+    assert line.needs_review
+
+
+def test_specification_filter_resolves_explicit_timber_length():
+    line = CatalogueMatcher(load_catalog()).match_line(
+        DraftLine(description="Konstruktionstræ C24 45x145mm 4.2m", quantity=1, confidence=0.99))
+    assert line.matched_sku == "TIM-SPRU-45145-42"
+    assert not line.needs_review

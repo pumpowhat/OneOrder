@@ -36,6 +36,10 @@ _MEASURE = re.compile(
     rf"(?<![\w.,])({_NUMBER}(?:\s*[x×]\s*{_NUMBER})*)\s*(mm|cm|m|kg|g|ml|l)\b",
     re.IGNORECASE,
 )
+_DIMENSION = re.compile(
+    rf"(?<![\w.,])({_NUMBER}(?:\s*[x×]\s*{_NUMBER})+)\s*(mm|cm|m)?\b",
+    re.IGNORECASE,
+)
 _UNIT_SCALE = {
     "mm": ("length", 1), "cm": ("length", 10), "m": ("length", 1000),
     "g": ("mass", 1), "kg": ("mass", 1000),
@@ -43,7 +47,7 @@ _UNIT_SCALE = {
 }
 
 
-def specifications(text: str) -> dict[str, set[float]]:
+def specifications(text: str, *, catalog_dimensions: bool = False) -> dict[str, set[float]]:
     """Extract explicit measurements in base units, including 45x145mm."""
     result: dict[str, set[float]] = {}
     for match in _MEASURE.finditer(text.replace("Ø", " ").replace("ø", " ")):
@@ -51,12 +55,21 @@ def specifications(text: str) -> dict[str, set[float]]:
         values = result.setdefault(kind, set())
         for number in re.split(r"\s*[x×]\s*", match[1]):
             values.add(round(float(number.replace(",", ".")) * scale, 6))
+    if catalog_dimensions:
+        # Catalogue names use millimetres for unlabelled board dimensions such as
+        # 1200x3000. This does not supply missing dimensions in a customer request.
+        for match in _DIMENSION.finditer(text):
+            if match[2] is None:
+                result.setdefault("length", set()).update(
+                    round(float(number.replace(",", ".")), 6)
+                    for number in re.split(r"\s*[x×]\s*", match[1])
+                )
     return result
 
 
 def compatible_specifications(requested: dict[str, set[float]], item: CatalogItem) -> bool:
     # The product name is authoritative; aliases may omit specifications or round them.
-    available = specifications(item.name)
+    available = specifications(item.name, catalog_dimensions=True)
     for alias in item.aliases:
         for kind, values in specifications(alias).items():
             if kind not in available:

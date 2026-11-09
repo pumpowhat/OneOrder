@@ -20,7 +20,7 @@
       "quantity": 20.0,
       "unit": "stk",
       "matched_sku": "TIM-SPRU-45145-42",
-      "needs_review": true
+      "needs_review": false
     },
     {
       "line_number": 3,
