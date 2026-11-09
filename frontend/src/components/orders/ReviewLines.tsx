@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { ProductCodeInput } from "./ProductCodeInput.tsx";
 import { PhoneInput } from "../ui/PhoneInput.tsx";
 import { Button } from "../ui/Button.tsx";
 import { Badge, type BadgeTone } from "../ui/Badge.tsx";
@@ -98,9 +99,6 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
           const done = checked.has(line.line_index);
           const avail = stock.get(line.line_index);
           const quantity = edits[line.line_index]?.quantity ?? line.quantity;
-          const options = line.candidates.some((c) => c.sku === sku(line))
-            ? line.candidates
-            : [...(sku(line) ? [{ sku: sku(line), name: sku(line), score: line.match_score ?? 0 }] : []), ...line.candidates];
 
           return (
             <li key={line.line_index} className={cn("px-5 py-4 space-y-2.5", flagged && !done && "bg-warn-soft/40")}>
@@ -147,21 +145,14 @@ export function ReviewLines({ order, availability, busy, onApprove }: Props) {
               </div>
 
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pl-7">
-                <input
-                  type="text"
-                  list={`sku-options-${line.line_index}`}
+                <ProductCodeInput
                   value={sku(line)}
+                  candidates={line.candidates}
+                  label={t("review.product")}
                   placeholder={t("review.typeSku")}
-                  onChange={(e) => edit(line, { sku: e.target.value.trim() })}
-                  aria-label={t("review.product")}
                   disabled={busy}
-                  className="h-8 w-full max-w-[420px] min-w-0 px-2 rounded-md border border-line-strong bg-surface text-sm font-mono"
+                  onChange={(value) => edit(line, { sku: value })}
                 />
-                <datalist id={`sku-options-${line.line_index}`}>
-                  {options.map((c) => (
-                    <option key={c.sku} value={c.sku}>{c.name}</option>
-                  ))}
-                </datalist>
                 <Badge tone={line.confidence >= REVIEW_THRESHOLD ? "success" : "warn"}>
                   {t("review.ai", { pct: Math.round(line.confidence * 100) })}
                   {line.confidence < REVIEW_THRESHOLD && ` · ${t("review.check")}`}
