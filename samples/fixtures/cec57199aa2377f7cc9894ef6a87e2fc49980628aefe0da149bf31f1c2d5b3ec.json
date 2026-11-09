@@ -1,0 +1,46 @@
+{
+  "source": "dk-nordhavn-materialeliste.pdf",
+  "payload": {
+    "customer": null,
+    "customer_phone": "+45 31 24 56 78",
+    "delivery_site": "Sundkaj 7, 2150 Nordhavn, København",
+    "requested_date": "2026-11-12",
+    "lines": [
+      {
+        "description": "Gipsplade standard 13mm 1200x2400",
+        "quantity": 40,
+        "unit": "stk",
+        "confidence": 0.99,
+        "source_text": "Gipsplade standard 13mm 1200x2400 40 stk"
+      },
+      {
+        "description": "Rockwool flexibatts 100mm",
+        "quantity": 30,
+        "unit": "m2",
+        "confidence": 0.99,
+        "source_text": "Rockwool flexibatts 100mm 30 m2"
+      },
+      {
+        "description": "Svensk furu kärnvirke 45x195 C30 (Norrland)",
+        "quantity": 60,
+        "unit": "m",
+        "confidence": 0.99,
+        "source_text": "Svensk furu kärnvirke 45x195 C30 (Norrland) 60 m"
+      },
+      {
+        "description": "Stålbjælke HEA 200, 6 m - kran nødvendig",
+        "quantity": 4,
+        "unit": "stk",
+        "confidence": 0.99,
+        "source_text": "Stålbjælke HEA 200, 6 m - kran nødvendig 4 stk"
+      },
+      {
+        "description": "Skruer til gips, ca. 40 mm",
+        "quantity": 10,
+        "unit": "pk",
+        "confidence": 0.99,
+        "source_text": "Skruer til gips, ca. 40 mm 10 pk"
+      }
+    ]
+  }
+}
