@@ -43,6 +43,7 @@ def line_needs_review(
 
 
 class SourceType(str, Enum):
+    MANUAL = "manual"
     IMAGE = "image"
     PDF = "pdf"
     EMAIL = "email"

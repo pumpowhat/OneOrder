@@ -11,7 +11,7 @@ export interface HealthResponse {
 // --- orders -------------------------------------------------------------------------------------
 
 export type OrderStatus = "draft" | "approved" | "planned" | "confirmed" | "cancelled";
-export type SourceType = "image" | "pdf" | "excel" | "email";
+export type SourceType = "manual" | "image" | "pdf" | "excel" | "email";
 export type EtaRisk = "on_time" | "at_risk" | "late";
 
 /** One row of GET /api/orders. */
@@ -276,4 +276,14 @@ export interface Rules {
   distance: { road_factor: number };
   vehicles: VehicleRule[];
   country_lead_time_buffer_days: Record<string, number>;
+}
+
+
+export interface CatalogProduct { sku: string; name: string; unit: string | null }
+export interface DraftOrderInput {
+  customer: string | null;
+  customer_phone: string | null;
+  delivery_site: string | null;
+  requested_date: string | null;
+  lines: { line_index?: number; sku: string | null; description: string; quantity: number; confirmed: boolean }[];
 }

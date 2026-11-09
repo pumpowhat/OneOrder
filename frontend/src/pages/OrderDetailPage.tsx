@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
-import { approveOrder, cancelOrder, confirmOrder, getAvailability, getOrder, listSites, planOrder } from "../api/orders.ts";
+import { saveOrderDraft, approveOrder, cancelOrder, confirmOrder, getAvailability, getOrder, listSites, planOrder } from "../api/orders.ts";
 import { useApi } from "../hooks/useApi.ts";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.ts";
 import { useI18n } from "../i18n/useI18n.ts";
@@ -15,6 +15,7 @@ import { useToast } from "../components/ui/useToast.ts";
 import { AuditTrail } from "../components/orders/AuditTrail.tsx";
 import { PlanView } from "../components/orders/PlanView.tsx";
 import { ReservationList } from "../components/orders/ReservationList.tsx";
+import { OrderDraftForm } from "../components/orders/OrderDraftForm.tsx";
 import { ReviewLines } from "../components/orders/ReviewLines.tsx";
 import { SourceViewer } from "../components/orders/SourceViewer.tsx";
 import { Stepper } from "../components/orders/Stepper.tsx";
@@ -36,12 +37,14 @@ export default function OrderDetailPage() {
   const { data: loaded, error, loading, reload } = useApi((signal) => getOrder(id, signal), [id]);
   const order = loaded && loaded.id === id ? loaded : null;
   const status = order?.status;
+  const [revision, setRevision] = useState(0);
   const availability = useApi(
     (signal) => (status === "draft" ? getAvailability(id, signal) : Promise.resolve([])),
-    [id, status],
+    [id, status, revision],
   );
   const sites = useApi((signal) => (status === "approved" ? listSites(signal) : Promise.resolve([])), [status]);
 
+  const [editing, setEditing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [siteId, setSiteId] = useState("");
   const [acceptShortage, setAcceptShortage] = useState(false);
@@ -95,7 +98,7 @@ export default function OrderDetailPage() {
               <h1 className="font-display text-2xl font-semibold tracking-tight">{order.customer ?? t("common.unknownCustomer")}</h1>
               <StatusBadge status={order.status} />
             </div>
-            <p className="text-sm text-ink-muted">{order.source_name}</p>
+            <p className="text-sm text-ink-muted">{order.source_type === "manual" ? t("draft.manual") : order.source_name}</p>
           </div>
           {order.status !== "cancelled" && <Stepper status={order.status} />}
         </div>
@@ -123,27 +126,33 @@ export default function OrderDetailPage() {
 
       {/* Step 1: compare the original with what the system read, then approve */}
       {order.status === "draft" && (
-        <div className="grid lg:grid-cols-2 gap-6 items-start">
-          <Card>
+        <div className={order.has_source ? "grid xl:grid-cols-2 gap-6 items-start" : "max-w-4xl mx-auto"}>
+          {order.has_source && <Card>
             <CardHeader>
               <h2 className="text-sm font-semibold">{t("review.original")}</h2>
             </CardHeader>
             {order.has_source ? <SourceViewer orderId={order.id} /> : <CardBody className="text-sm text-ink-muted">{t("source.missing")}</CardBody>}
-          </Card>
+          </Card>}
           <Card>
             <CardHeader>
-              <h2 className="text-sm font-semibold">{t("review.result")}</h2>
-              <span className="text-xs text-ink-muted">{t("orders.lines", { n: order.lines.length })}</span>
+              <h2 className="text-sm font-semibold">{order.source_type === "manual" ? t("draft.review") : t("review.result")}</h2>
+              {!editing && <Button size="sm" disabled={busy || loading} onClick={() => setEditing(true)}>{t("draft.edit")}</Button>}
             </CardHeader>
-            <ReviewLines
-              key={order.id}
+            {editing ? <OrderDraftForm key={order.id} order={order} onCancel={() => setEditing(false)} onSave={async (payload) => {
+              await saveOrderDraft(order.id, payload);
+              setEditing(false);
+              setRevision((value) => value + 1);
+              reload();
+              pushToast({ tone: "success", title: t("draft.saved") });
+            }} /> : <ReviewLines
+              key={`${order.id}-${revision}`}
               order={order}
               availability={availability.data ?? []}
-              busy={busy}
+              busy={busy || loading}
               onApprove={(corrections: LineCorrection[], confirmLines: number[], customer?: string, customerPhone?: string) =>
                 run(() => approveOrder(order.id, corrections, confirmLines, customer, customerPhone), t("review.approved"))
               }
-            />
+            />}
           </Card>
         </div>
       )}
@@ -247,7 +256,7 @@ export default function OrderDetailPage() {
 
       <AuditTrail logs={order.audit_logs} />
 
-      {order.status === "draft" && (
+      {order.status === "draft" && !editing && (
         <div>
           <Button variant="ghost" disabled={busy} onClick={() => run(() => cancelOrder(order.id), t("order.cancelDone"))}>
             {t("order.cancel")}

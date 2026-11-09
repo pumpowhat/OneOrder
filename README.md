@@ -482,3 +482,30 @@ Chất lượng kỹ thuật, kiến trúc hợp lý, sử dụng AI phù hợp 
 ---
 
 <p align="center"><sub>Đội 3changlinhngulam · IT Consultant Challenge 2026</sub></p>
+
+### Manual entry and draft editing
+
+On **Orders**, choose **Create manual order** to enter customer/delivery details and add
+products from the catalogue without uploading a file or calling AI. Save the draft, then
+review and approve it through the existing planning and confirmation workflow.
+
+For an extracted order, choose **Edit draft** in the review panel to correct customer,
+phone, delivery site, requested date, product, description or quantity, and add/remove
+lines. **Save draft** persists changes without approving; **Discard changes** returns to
+the saved version. Original uploaded files and extracted source text remain available.
+All editing is restricted to `draft` orders and changes are audit logged. A draft may
+have incomplete customer details or no lines; approval requires at least one valid line,
+a customer name, a valid phone and completion of required line reviews. Product units
+come from the catalogue. Manually edited lines require explicit human confirmation.
+
+API additions:
+
+- `GET /api/orders/catalog`: catalogue SKU, name and unit (independent of stock).
+- `POST /api/orders`: create a manual draft; returns the stored order (`201`).
+- `PATCH /api/orders/{id}`: update supplied header fields; `null` clears a header.
+  If `lines` is supplied as an array, it represents the complete desired line list:
+  retain existing `line_index` values to edit, omit an index to add, omit a saved
+  line to delete. Existing indices remain stable and deleted indices are not reused.
+  Each line accepts `sku` (nullable for an unresolved draft), `description`, a positive
+  finite `quantity`, and `confirmed`. New order lines must omit `line_index`.
+  Creation/update and audit entries are committed together; invalid input is not saved.

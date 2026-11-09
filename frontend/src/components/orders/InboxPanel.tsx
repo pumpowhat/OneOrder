@@ -7,7 +7,7 @@ import { Card, CardHeader } from "../ui/Card.tsx";
 import type { SourceType } from "../../types/api.ts";
 import { useUpload } from "./useUpload.ts";
 
-const ICON: Record<SourceType, typeof Mail> = { image: FileImage, pdf: FileText, excel: FileSpreadsheet, email: Mail };
+const ICON: Record<SourceType, typeof Mail> = { image: FileImage, pdf: FileText, excel: FileSpreadsheet, email: Mail, manual: FileText };
 
 /** The demo mailbox: pick a message and it goes through the same reading pipeline as an upload. */
 export function InboxPanel({ defaultOpen }: { defaultOpen: boolean }) {

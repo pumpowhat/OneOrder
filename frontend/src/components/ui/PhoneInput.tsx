@@ -11,13 +11,14 @@ interface Props {
   invalid?: boolean;
   describedBy?: string;
   disabled?: boolean;
+  required?: boolean;
 }
 
 const PRIORITY = ["DK", "SE", "NO", "VN"];
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/gi, "d").toLowerCase();
 
 /** Searchable calling-code picker plus national-number input; stores one phone string. */
-export function PhoneInput({ id, value, onChange, invalid, describedBy, disabled }: Props) {
+export function PhoneInput({ id, value, onChange, invalid, describedBy, disabled, required = true }: Props) {
   const { locale, t } = useI18n();
   const uid = useId();
   const listId = `${uid}-countries`;
@@ -93,8 +94,8 @@ export function PhoneInput({ id, value, onChange, invalid, describedBy, disabled
         type="tel"
         inputMode="tel"
         autoComplete="tel-national"
-        required
-        aria-required="true"
+        required={required}
+        aria-required={required}
         aria-invalid={invalid}
         aria-describedby={describedBy}
         disabled={disabled}
