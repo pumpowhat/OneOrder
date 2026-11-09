@@ -175,7 +175,8 @@ def test_catalogue_board_dimensions_preserve_compatible_length_alias(query):
         DraftLine(description=query, quantity=1, confidence=0.99))
     assert line.matched_sku == "GYP-13-3000"
     assert line.match_score == 1.0
-    assert not line.needs_review
+    # Catalogue names do not label the role of the scalar versus board dimensions.
+    assert line.needs_review
     assert all(c.sku != "GYP-13-2400" for c in line.candidates)
 
 
@@ -193,4 +194,56 @@ def test_specification_filter_resolves_explicit_timber_length():
     line = CatalogueMatcher(load_catalog()).match_line(
         DraftLine(description="Konstruktionstræ C24 45x145mm 4.2m", quantity=1, confidence=0.99))
     assert line.matched_sku == "TIM-SPRU-45145-42"
+    assert not line.needs_review
+
+
+@pytest.mark.parametrize("query,name", [
+    ("timber C24 45x145mm 4.2m", "Timber C18 45x145mm 4.2m"),
+    ("timber 45x145mm", "Timber 45x95mm 145x200mm"),
+    ("board 100x100mm", "Board 100x150mm"),
+])
+def test_grade_or_grouped_dimensions_cannot_be_substituted(query, name):
+    from backend.services.matching.catalog import CatalogItem
+
+    line = CatalogueMatcher([CatalogItem("wrong", name)]).match_line(
+        DraftLine(description=query, quantity=1, confidence=0.99))
+    assert line.matched_sku is None
+    assert line.needs_review
+
+
+def test_scalar_cannot_silently_match_width_instead_of_thickness():
+    from backend.services.matching.catalog import CatalogItem
+
+    item = CatalogItem("wrong", "Insulation 150mm 100x1000mm", aliases=("insulation 100mm",))
+    line = CatalogueMatcher([item]).match_line(
+        DraftLine(description="insulation 100mm", quantity=1, confidence=0.99))
+    assert line.match_score == 1.0
+    assert line.needs_review
+    assert line.ambiguous
+
+
+@pytest.mark.parametrize("query,expected_review", [
+    ("Konstruktionstræ C24 45x145mm 4.2m", False),
+    ("Konstruktionstræ C24 45x145mm", True),
+])
+def test_timber_length_information_controls_review(query, expected_review):
+    line = CatalogueMatcher(load_catalog()).match_line(
+        DraftLine(description=query, quantity=1, confidence=0.99))
+    assert line.needs_review is expected_review
+
+
+@pytest.mark.parametrize("requested,offered", [("9", "9.5"), ("9.5", "9")])
+def test_no_rounded_thickness_substitution(requested, offered):
+    from backend.services.matching.catalog import CatalogItem
+
+    line = CatalogueMatcher([CatalogItem("wrong", f"Wind board {offered}mm")]).match_line(
+        DraftLine(description=f"Wind board {requested}mm", quantity=1, confidence=0.99))
+    assert line.matched_sku is None
+    assert line.needs_review
+
+
+def test_c_code_in_profile_alias_remains_usable():
+    line = CatalogueMatcher(load_catalog()).match_line(
+        DraftLine(description="stender c70", quantity=1, confidence=0.99))
+    assert line.matched_sku == "GYP-PROF-C70"
     assert not line.needs_review

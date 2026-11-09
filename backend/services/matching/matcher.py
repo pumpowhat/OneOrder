@@ -67,14 +67,55 @@ def specifications(text: str, *, catalog_dimensions: bool = False) -> dict[str, 
     return result
 
 
-def compatible_specifications(requested: dict[str, set[float]], item: CatalogItem) -> bool:
+def dimension_groups(text: str, *, catalog_dimensions: bool = False) -> set[tuple[float, ...]]:
+    """Keep dimensions together: 45x145 must not match 45x95 plus 145x200."""
+    groups = set()
+    for match in _DIMENSION.finditer(text):
+        if match[2] is None and not catalog_dimensions:
+            continue
+        scale = _UNIT_SCALE[(match[2] or "mm").lower()][1]
+        groups.add(tuple(round(float(n.replace(",", ".")) * scale, 6)
+                         for n in re.split(r"\s*[x×]\s*", match[1])))
+    return groups
+
+
+def standalone_lengths(text: str) -> set[float]:
+    return {
+        round(float(match[1].replace(",", ".")) * _UNIT_SCALE[match[2].lower()][1], 6)
+        for match in _MEASURE.finditer(text.replace("Ø", " ").replace("ø", " "))
+        if _UNIT_SCALE[match[2].lower()][0] == "length"
+        and not re.search(r"[x×]", match[1])
+    }
+
+
+def uncertain_measurement_roles(text: str, item: CatalogItem) -> bool:
+    # A scalar matching only part of a dimension group is not proof of the same
+    # role (e.g. requested thickness versus catalogue width). Keep it for review.
+    requested = standalone_lengths(text)
+    available = standalone_lengths(item.name)
+    if not specifications(item.name).get("length"):
+        available.update(value for alias in item.aliases for value in standalone_lengths(alias))
+    return bool(available) and not requested <= available
+
+
+def compatible_specifications(requested: dict[str, set[float]], item: CatalogItem, text: str = "") -> bool:
     # The product name is authoritative; aliases may omit specifications or round them.
     available = specifications(item.name, catalog_dimensions=True)
     for alias in item.aliases:
         for kind, values in specifications(alias).items():
             if kind not in available:
                 available[kind] = values
-    return all(values <= available.get(kind, set()) for kind, values in requested.items())
+    if not all(values <= available.get(kind, set()) for kind, values in requested.items()):
+        return False
+    if not dimension_groups(text) <= dimension_groups(item.name, catalog_dimensions=True):
+        return False
+    # Preserve explicit C codes (e.g. timber C24 or steel profile C70).
+    requested_grades = set(re.findall(r"\bC\d{2}\b", text.upper()))
+    product_grades = set(re.findall(r"\bC\d{2}\b", item.name.upper()))
+    if not product_grades:
+        product_grades = {grade for alias in item.aliases
+                          for grade in re.findall(r"\bC\d{2}\b", alias.upper())}
+    return requested_grades <= product_grades
 
 
 class CatalogueMatcher:
@@ -95,7 +136,7 @@ class CatalogueMatcher:
         scored = []
 
         for item in self.catalog:
-            if not compatible_specifications(requested, item):
+            if not compatible_specifications(requested, item, text):
                 continue
             targets = [item.name] + list(item.aliases)
             best = 0.0
@@ -160,6 +201,9 @@ class CatalogueMatcher:
             if gap < 0.05:
                 is_ambiguous = True
 
+        if candidates:
+            item = next(item for item in self.catalog if item.sku == candidates[0].sku)
+            is_ambiguous = is_ambiguous or uncertain_measurement_roles(line.description, item)
         line.ambiguous = is_ambiguous
 
         if top_score >= MATCH_AUTO_THRESHOLD and not is_ambiguous:
