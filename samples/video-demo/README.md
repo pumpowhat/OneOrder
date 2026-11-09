@@ -17,14 +17,16 @@ Tạo lại bằng `python -m scripts.generate_video_samples`. Email, ảnh và 
 
 ## Kết quả kiểm thử
 
-Chạy ngày 9/11/2026, chế độ demo, DB trống, đủ 4 đơn từ import đến Confirm. Cả 4 đơn đều thành `confirmed`.
+Chạy ngày 9/11/2026 trên code đã có PR #27, #28, #29 (sửa qua form Edit draft, API `PATCH /api/orders/{id}`), chế độ demo, DB trống, đủ 4 đơn từ import đến Confirm. Cả 4 đơn đều thành `confirmed`.
+
+Lưu ý: sau khi Save draft, dòng có đơn vị khác cách viết với catalog (ví dụ "st" so với "stk", "säck" so với "sæk") bị coi là đã sửa và phải kiểm tra lại, nên đơn Ảnh và Excel cần tick cả 5 dòng. Đơn PDF chỉ cần tick 2 dòng.
 
 | Đơn | Thao tác của người | Công trường | Shipment | ETA P50 / P90 |
 |---|---|---|---|---|
 | 1 Email | Chỉ bấm Approve | SITE-DK-04 (tự nhận) | DK-BR-02 (107.8 km, heavy_truck): gips, bông khoáng. DK-BR-03 (1.4 km, small_truck): xi măng, gỗ, keo. | 10/11 / 11/11 |
-| 2 Ảnh | Nhập SĐT, xác nhận dòng 2 và 4 | SITE-SE-01 (tự nhận) | SE-BR-01 (8.4 km): gips chống cháy, bông thủy tinh. SE-DC-01 (369.2 km): gỗ, vít, xi măng. | 10/11 / 11/11 |
-| 3 Excel | Nhập tên, sửa số lượng dòng 3 thành 25, xác nhận dòng 4, **chọn SITE-SE-02** | SITE-SE-02 (chọn tay) | SE-BR-02 (1.6 km): gips, vít gỗ, vít gips. SE-DC-01 (171.8 km): bông thủy tinh, gỗ. | 10/11 / 11/11 |
-| 4 PDF | Nhập tên, xác nhận dòng 4 và 5 | SITE-DK-01 (tự nhận) | DK-BR-01 (9.5 km): gips, bông khoáng, vít. SE-DC-01 cross-border (324.5 km): dầm HEA 200 (**crane_truck**) và gỗ thông. | 10/11 / 12/11 |
+| 2 Ảnh | **Edit draft**: nhập SĐT, tick kiểm tra cả 5 dòng, Save draft | SITE-SE-01 (tự nhận) | SE-BR-01 (8.4 km): gips chống cháy, bông thủy tinh. SE-DC-01 (369.2 km): gỗ, vít, xi măng. | 10/11 / 11/11 |
+| 3 Excel | **Edit draft**: nhập tên, sửa số lượng dòng 3 thành 25, tick cả 5 dòng, Save draft; rồi **chọn SITE-SE-02** | SITE-SE-02 (chọn tay) | SE-BR-02 (1.6 km): gips, vít gỗ, vít gips. SE-DC-01 (171.8 km): bông thủy tinh, gỗ. | 10/11 / 11/11 |
+| 4 PDF | **Edit draft**: nhập tên, tick dòng 4 và 5, Save draft | SITE-DK-01 (tự nhận) | DK-BR-01 (9.5 km): gips, bông khoáng, vít. SE-DC-01 cross-border (324.5 km): dầm HEA 200 (**crane_truck**) và gỗ thông. | 10/11 / 12/11 |
 
 - Đơn 4, tắt *Allow cross-border delivery* rồi plan lại: dầm HEA 200 và gỗ thông thành **shortage**, chỉ còn shipment DK-BR-01. Bật lại thì plan trở về như cũ.
 - Đổi rules **không** làm thay đổi plan của đơn 2 (đã confirm).
