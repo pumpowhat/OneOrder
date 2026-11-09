@@ -1,5 +1,7 @@
 import { apiClient } from "./client.ts";
 import type {
+  CatalogProduct,
+  DraftOrderInput,
   LineAvailability,
   LineCorrection,
   FulfillmentPlan,
@@ -66,3 +68,8 @@ export function cancelOrder(id: string) {
 export function listSites(signal?: AbortSignal) {
   return apiClient<Site[]>("/api/sites", { signal });
 }
+
+
+export const listCatalog = (signal?: AbortSignal) => apiClient<CatalogProduct[]>("/api/orders/catalog", { signal });
+export const createManualOrder = (body: DraftOrderInput) => apiClient<Order>("/api/orders", { method: "POST", body });
+export const saveOrderDraft = (id: string, body: DraftOrderInput) => apiClient<Order>(`/api/orders/${id}`, { method: "PATCH", body });
