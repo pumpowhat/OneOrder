@@ -14,7 +14,7 @@ Opal Tower, 92 Nguyễn Hữu Cảnh; cả Nghĩa, Nhật, Khang cần có mặt
 | D — CRM tests | 19/11 | Fixture và test chờ backend Nghĩa; skip không có nghĩa đã kiểm thử CRM |
 | E — hình cho slide | 20/11 | [Assets và nguồn sửa được](assets/README.md); chờ Nhật đưa vào slide và Nghĩa xác nhận B3 |
 | F3 — diễn tập | 20/11 | [Báo cáo kiểm tra](demo-rehearsal.md); máy hiện tại không phải máy pitch |
-| H3 — video dự phòng | 20/11 | [Kịch bản rút gọn](backup-video.md); chờ kịch bản Round 3 của Nghĩa và bản quay duyệt |
+| H3 — video dự phòng | 20/11 | [Video nháp 1080p, 1:52,88 và kịch bản](backup-video.md); chờ Nghĩa duyệt và phát thử máy pitch |
 | H4 — QnA | 20/11 | [Bản nháp](qna.md); chờ Nghĩa/Nhật duyệt |
 
 Đầu yêu cầu ghi C/D hạn 19/11 nhưng mục C và bảng tổng hợp ghi 18/11;
@@ -32,7 +32,8 @@ dùng **mốc sớm hơn 18/11 cho C** để chuẩn bị.
 - [ ] **20/11 — máy pitch:** người dùng xác nhận máy hiện tại không phải máy mang đi pitch;
   chạy lại từ DB trống, tắt mạng thật, đo khởi động và đi đủ 4 đơn qua giao diện.
 - [ ] **20/11 — video:** Nghĩa duyệt kịch bản 1–2 phút; quay 1920×1080 không thuyết minh,
-  xem lại từ đầu đến cuối, thử phát không mạng trên máy pitch.
+  bản nháp đã có đủ 4 đơn và đã kiểm tra metadata/keyframe; xem lại từ đầu đến cuối,
+  thử phát không mạng trên máy pitch trước khi chốt.
 - [ ] **20/11 — Khang:** laptop, sạc, đầu chuyển HDMI; cắm thử vào màn hình ngoài.
 - [ ] **20/11 — USB:** chép slide PDF/PPTX đã chốt và video; mở từng file từ USB trên máy pitch,
   kiểm tra font, hình, âm lượng và thời lượng. Chưa có slide/USB được cung cấp.

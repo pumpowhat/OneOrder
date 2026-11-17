@@ -1,0 +1,111 @@
+{
+  "draft": true,
+  "reviewed_by_nghia": false,
+  "crm_shown": false,
+  "created_at": "2026-11-17T15:33:50.953Z",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "mode": "AI_MODE=demo; isolated SQLite DB; samples/video-demo",
+  "events": [
+    {
+      "seconds": 0.4,
+      "name": "Opened real Dashboard in demo mode"
+    },
+    {
+      "seconds": 9.2,
+      "name": "Imported dk-odense-order.txt"
+    },
+    {
+      "seconds": 14,
+      "name": "Explicitly accepted late ETA on historical demo sample"
+    },
+    {
+      "seconds": 15.4,
+      "name": "Confirmed order; backend stock reservation succeeded"
+    },
+    {
+      "seconds": 29.3,
+      "name": "Imported se-handwritten-1.jpg"
+    },
+    {
+      "seconds": 32,
+      "name": "Saved real draft corrections and human line checks"
+    },
+    {
+      "seconds": 34.2,
+      "name": "Explicitly accepted late ETA on historical demo sample"
+    },
+    {
+      "seconds": 35.6,
+      "name": "Confirmed order; backend stock reservation succeeded"
+    },
+    {
+      "seconds": 51.3,
+      "name": "Imported se-goteborg-materiallista.xlsx"
+    },
+    {
+      "seconds": 53.8,
+      "name": "Saved real draft corrections and human line checks"
+    },
+    {
+      "seconds": 57.3,
+      "name": "Confirmed order; backend stock reservation succeeded"
+    },
+    {
+      "seconds": 74.3,
+      "name": "Imported dk-nordhavn-materialeliste.pdf"
+    },
+    {
+      "seconds": 76.8,
+      "name": "Saved real draft corrections and human line checks"
+    },
+    {
+      "seconds": 80.8,
+      "name": "Displayed actual cross-border shipment and vehicle plan"
+    },
+    {
+      "seconds": 80.8,
+      "name": "Explicitly accepted late ETA on historical demo sample"
+    },
+    {
+      "seconds": 82.2,
+      "name": "Confirmed order; backend stock reservation succeeded"
+    },
+    {
+      "seconds": 101.5,
+      "name": "Displayed actual post-confirm stock"
+    },
+    {
+      "seconds": 102.6,
+      "name": "Verified four actual confirmed orders via read-only API"
+    }
+  ],
+  "browser_errors": [],
+  "external_requests": [],
+  "final_orders": [
+    {
+      "id": "8b33b309-4d95-4b29-9629-bdaeea772ebb",
+      "customer": "Lars Byg ApS",
+      "status": "confirmed"
+    },
+    {
+      "id": "d76c1307-d332-4d6d-89dc-4650c664140b",
+      "customer": "Bygg Väst AB",
+      "status": "confirmed"
+    },
+    {
+      "id": "fafc3863-5b1d-416a-8b97-d3ea460553b0",
+      "customer": "Skanska Sverige AB",
+      "status": "confirmed"
+    },
+    {
+      "id": "e5e226a5-f6c0-4efc-9d0d-474234a39ec7",
+      "customer": "Hoffmann Byg A/S",
+      "status": "confirmed"
+    }
+  ],
+  "output": "docs\\round3\\evidence\\oneorder-backup-DRAFT.mp4",
+  "bytes": 3612938
+}

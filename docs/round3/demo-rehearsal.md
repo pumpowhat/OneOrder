@@ -71,3 +71,15 @@ và chạy thử lệnh trước ngày 20/11; tránh chạy trực tiếp trên 
 - [ ] Khởi động lại DB sạch trước lượt trình diễn/quay cuối; xác nhận rules cross-border đã phục hồi.
 
 Video dự phòng và trạng thái duyệt: [backup-video.md](backup-video.md).
+
+## Quan sát khi quay UI hiện tại
+
+Hộp thư đang đóng hiển thị nhãn mặc định **Details**, thay vì **Sample inbox** như
+kịch bản. Cần mở disclosure này để thấy các file; ghi nhận cho Nhật kiểm tra nhãn/bố cục
+trước pitch. Chưa sửa frontend trong PR này.
+
+Đã quay [video nháp từ UI thật](evidence/oneorder-backup-DRAFT.mp4): 112,88 giây,
+1080p/25 fps/H.264, không audio; đủ 4 luồng đến Confirm, cross-border/xe cẩu và tồn kho.
+[Nhật ký](evidence/backup-draft-recording.json) xác minh 4 đơn confirmed, không browser error
+và không request ngoài localhost. [QA video](evidence/backup-draft-qa.json) xác nhận metadata,
+hash và các khung hình đã xem; bản quay chờ Nghĩa duyệt, chưa phát thử trên máy pitch/USB.
