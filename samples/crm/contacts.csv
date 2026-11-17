@@ -1,0 +1,19 @@
+FirstName,LastName,Phone,Email,AccountName
+Asta,Prøve01,+45 33 12 45 78,demo01@crm.example.invalid,Hoffmann Byg A/S
+Mika,Testsson02,+46 70 555 12 34,demo02@crm.example.invalid,Skanska Sverige AB
+Lova,Testsson03,+46 70 123 45 67,demo03@crm.example.invalid,Bygg Väst AB
+Emil,Prøve04,+45 31 24 56 78,demo04@crm.example.invalid,Lars Byg ApS
+Freja,Prøve05,+45 00 00 10 01,demo05@crm.example.invalid,Hoffmann Byg ApS
+Otto,Prøve06,+45 00 00 10 02,demo06@crm.example.invalid,Hofmann Byg A/S
+Ida,Prøve07,+45 33 12 45 78,demo07@crm.example.invalid,Moseglimt Materialer ApS
+Nohr,Prøve08,+4533124578,demo08@crm.example.invalid,Kobberengen Byg ApS
+Alma,Prøve09,33 12 45 78,demo09@crm.example.invalid,Stenlunden Handel ApS
+Elis,Testsson10,+46 70 555 12 34,demo10@crm.example.invalid,Skansbro Projekt AB
+Nora,Testsson11,+46 00 000 10 03,demo11@crm.example.invalid,Bygg Vaest AB
+Vilma,Testsson12,+46 00 000 10 04,demo12@crm.example.invalid,Västglimt Material AB
+Asger,Prøve13,+45 00 00 10 05,demo13@crm.example.invalid,Ravnekorn Montage ApS
+Signe,Prøve14,+45 00 00 10 06,demo14@crm.example.invalid,Birkelys Projekt ApS
+Eira,Prøve15,+47 00 00 10 07,demo15@crm.example.invalid,Fjordmosaikk Bygg AS
+Iver,Prøve16,+47 00 00 10 08,demo16@crm.example.invalid,Granmåne Handel AS
+Saga,Prøve17,+45 00 00 10 09,demo17@crm.example.invalid,Sølveng Entreprise ApS
+Alve,Testsson18,+46 00 000 10 10,demo18@crm.example.invalid,Månglimt Logistik AB
