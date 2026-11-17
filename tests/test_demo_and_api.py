@@ -51,7 +51,9 @@ def test_demo_replays_recorded_fixture(tmp_path):
 
 
 @pytest.fixture
-def api(tmp_path):
+def api(tmp_path, monkeypatch):
+    # The health endpoint reads AI_MODE directly, independently of the client override.
+    monkeypatch.setenv("AI_MODE", "demo")
     app.dependency_overrides[get_ai_client] = lambda: DemoClient(tmp_path)
     yield TestClient(app)
     app.dependency_overrides.clear()
