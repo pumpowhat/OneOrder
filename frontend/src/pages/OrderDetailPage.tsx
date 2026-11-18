@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { saveOrderDraft, approveOrder, cancelOrder, confirmOrder, getAvailability, getOrder, listSites, planOrder, retryCrmSync } from "../api/orders.ts";
@@ -6,7 +6,7 @@ import { useApi } from "../hooks/useApi.ts";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.ts";
 import { useI18n } from "../i18n/useI18n.ts";
 import { errorMessage } from "../lib/errors.ts";
-import { formatIsoDate } from "../lib/format.ts";
+import { formatCrmTimestamp, formatIsoDate } from "../lib/format.ts";
 import type { LineCorrection } from "../types/api.ts";
 import { Button } from "../components/ui/Button.tsx";
 import { Card, CardBody, CardHeader } from "../components/ui/Card.tsx";
@@ -44,12 +44,18 @@ export default function OrderDetailPage() {
   );
   const sites = useApi((signal) => (status === "approved" ? listSites(signal) : Promise.resolve([])), [status]);
 
-  const [editing, setEditing] = useState<"draft" | "manualCustomer" | null>(null);
+  const [editing, setEditing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [siteId, setSiteId] = useState("");
   const [acceptShortage, setAcceptShortage] = useState(false);
   const [acceptLate, setAcceptLate] = useState(false);
   useDocumentTitle(order?.customer ?? t("nav.orders"));
+  const pendingSync = order?.crm_sync?.status === "pending";
+  useEffect(() => {
+    if (!pendingSync || loading || busy) return;
+    const timer = window.setTimeout(reload, 15_000);
+    return () => window.clearTimeout(timer);
+  }, [pendingSync, loading, busy, reload]);
 
   /** Run one backend action, show a toast either way and refresh the order. */
   const run = async (action: () => Promise<unknown>, okTitle: string) => {
@@ -58,8 +64,10 @@ export default function OrderDetailPage() {
       await action();
       pushToast({ tone: "success", title: okTitle });
       reload();
+      return true;
     } catch (err) {
       pushToast({ tone: "danger", title: t("error.actionFailed"), description: errorMessage(err, t) });
+      return false;
     } finally {
       setBusy(false);
     }
@@ -138,11 +146,11 @@ export default function OrderDetailPage() {
           <Card>
             <CardHeader>
               <h2 className="text-sm font-semibold">{order.source_type === "manual" ? t("draft.review") : t("review.result")}</h2>
-              {!editing && <Button size="sm" disabled={busy || loading} onClick={() => setEditing("draft")}>{t("draft.edit")}</Button>}
+              {!editing && <Button size="sm" disabled={busy || loading} onClick={() => setEditing(true)}>{t("draft.edit")}</Button>}
             </CardHeader>
-            {editing ? <OrderDraftForm key={order.id} order={order} manualCustomer={editing === "manualCustomer"} onCancel={() => setEditing(null)} onSave={async (payload) => {
+            {editing ? <OrderDraftForm key={order.id} order={order} onCancel={() => setEditing(false)} onSave={async (payload) => {
               await saveOrderDraft(order.id, payload);
-              setEditing(null);
+              setEditing(false);
               setRevision((value) => value + 1);
               reload();
               pushToast({ tone: "success", title: t("draft.saved") });
@@ -151,15 +159,20 @@ export default function OrderDetailPage() {
               order={order}
               availability={availability.data ?? []}
               busy={busy || loading}
-              onSelectCustomer={(candidate) =>
+              onSelectCustomer={(candidate, phone) =>
                 run(() => saveOrderDraft(order.id, {
                   customer: candidate.name,
-                  customer_phone: candidate.phone,
+                  customer_phone: candidate.phone ?? (phone.trim() || null),
                   crm_account_id: candidate.crm_account_id,
                   crm_contact_id: candidate.crm_contact_id,
                 }), t("crm.customerSaved"))
               }
-              onManualCustomer={() => setEditing("manualCustomer")}
+              onUnlinkCustomer={() =>
+                run(() => saveOrderDraft(order.id, {
+                  crm_account_id: null,
+                  crm_contact_id: null,
+                }), t("crm.auditUnlinked"))
+              }
               onApprove={(corrections: LineCorrection[], confirmLines: number[], customer?: string, customerPhone?: string) =>
                 run(() => approveOrder(order.id, corrections, confirmLines, customer, customerPhone), t("review.approved"))
               }
@@ -255,20 +268,24 @@ export default function OrderDetailPage() {
         </div>
       )}
 
-      {crmSync?.reason === "no_account" && (
-        <p className="rounded-card border border-line bg-surface px-5 py-4 text-sm text-ink-muted">
-          {t("crm.notLinked")}
-        </p>
-      )}
-      {crmSync && crmSync.status !== "not_applicable" && (
+      {crmSync && (
         <Card>
           <CardHeader>
             <h2 className="text-sm font-semibold">{t("crm.sync")}</h2>
-            <CrmSyncBadge status={crmSync.status} />
+            <CrmSyncBadge status={crmSync.status} reason={crmSync.reason} />
           </CardHeader>
-          {(crmSync.last_error || canRetryCrm) && (
+          {canRetryCrm && (
             <CardBody className="space-y-3">
-              {crmSync.last_error && <p className="break-words text-sm text-danger">{crmSync.last_error}</p>}
+              {crmSync.status === "pending" && crmSync.next_attempt_at && (
+                <p className="text-sm text-ink-muted">
+                  {t("crm.nextAttempt", { time: formatCrmTimestamp(crmSync.next_attempt_at) })}
+                </p>
+              )}
+              {crmSync.last_error && (
+                <p className={`break-words text-sm ${crmSync.status === "failed" ? "text-danger" : "text-warn"}`}>
+                  {crmSync.last_error}
+                </p>
+              )}
               {canRetryCrm && (
                 <Button
                   size="sm"

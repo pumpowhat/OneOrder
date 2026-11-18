@@ -49,6 +49,11 @@ export const vi: Record<TranslationKey, string> = {
   "crm.pendingOrdersHint": "Đồng bộ đang chờ hoặc thất bại",
   "crm.auditLinked": "Đã liên kết tài khoản CRM",
   "crm.auditUnlinked": "Đã bỏ liên kết tài khoản CRM",
+  "crm.ambiguous": "Kết quả khớp chưa chắc chắn. Kiểm tra kỹ khách hàng trước khi chọn.",
+  "crm.disabledCountry": "Chưa đồng bộ (quốc gia không dùng CRM)",
+  "crm.customerUnlinked": "Chưa đồng bộ (khách chưa liên kết với CRM)",
+  "crm.nextAttempt": "Tự động thử lại lúc {time}",
+  "crm.auditAttempt": "Lần thử {n}",
   "crm.none": "Không dùng",
 
   "common.loading": "Đang tải...",

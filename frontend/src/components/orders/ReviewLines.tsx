@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CustomerCandidates } from "./CustomerCandidates.tsx";
 import { Button } from "../ui/Button.tsx";
 import { Badge, type BadgeTone } from "../ui/Badge.tsx";
@@ -25,20 +25,20 @@ const AVAIL: Record<
   unmatched: { tone: "neutral", label: "avail.unmatched" },
 };
 
-/** Review saved data. Editing is handled by OrderDraftForm so approval never loses unsaved edits. */
+/** Review saved lines and edit customer details before approving. */
 export function ReviewLines({
   order,
   availability,
   busy,
   onApprove,
   onSelectCustomer,
-  onManualCustomer,
+  onUnlinkCustomer,
 }: {
   order: Order;
   availability: LineAvailability[];
   busy: boolean;
-  onSelectCustomer: (candidate: CustomerCandidate) => void;
-  onManualCustomer: () => void;
+  onSelectCustomer: (candidate: CustomerCandidate, phone: string) => Promise<boolean>;
+  onUnlinkCustomer: () => Promise<boolean>;
   onApprove: (
     corrections: LineCorrection[],
     confirmLines: number[],
@@ -48,8 +48,12 @@ export function ReviewLines({
 }) {
   const { t } = useI18n();
   const [checked, setChecked] = useState<Set<number>>(new Set());
-  const [customer, setCustomer] = useState(order.customer ?? "");
-  const [phone, setPhone] = useState(order.customer_phone ?? "");
+  const customerInput = useRef<HTMLInputElement>(null);
+  const [typedCustomer, setTypedCustomer] = useState<string>();
+  const [typedPhone, setTypedPhone] = useState<string>();
+  const customer = typedCustomer ?? order.customer ?? "";
+  const phone = typedPhone ?? order.customer_phone ?? "";
+  const customerEdited = customer !== (order.customer ?? "") || phone !== (order.customer_phone ?? "");
   const missingCustomer = !customer.trim();
   const invalidPhone = !isValidCustomerPhone(phone);
   const pending = order.lines.filter(
@@ -60,19 +64,6 @@ export function ReviewLines({
       <p className="px-5 py-4 text-sm text-ink-muted border-b border-line">
         {t("draft.reviewHint")}
       </p>
-      <div className="px-5 empty:hidden [&:not(:empty)]:pt-4">
-        <CustomerCandidates
-          orderId={order.id}
-          key={JSON.stringify([order.customer, order.customer_phone])}
-          link={{
-            crm_account_id: order.crm_account_id ?? null,
-            crm_contact_id: order.crm_contact_id ?? null,
-          }}
-          disabled={busy}
-          onSelect={onSelectCustomer}
-          onManual={onManualCustomer}
-        />
-      </div>
       {order.lines.length === 0 && (
         <p className="px-5 py-6 text-sm text-ink-muted">{t("draft.empty")}</p>
       )}
@@ -82,10 +73,11 @@ export function ReviewLines({
           <input
             className="w-full min-w-0 h-10 rounded-md border border-line-strong bg-surface px-3 text-sm text-ink focus-visible:outline-2 focus-visible:outline-[var(--brand)]"
             value={customer}
+            ref={customerInput}
             maxLength={255}
             disabled={busy}
             aria-invalid={missingCustomer}
-            onChange={(e) => setCustomer(e.target.value)}
+            onChange={(e) => setTypedCustomer(e.target.value)}
           />
         </label>
         <div className="space-y-2 text-sm">
@@ -93,11 +85,32 @@ export function ReviewLines({
           <PhoneInput
             id="review-phone"
             value={phone}
-            onChange={setPhone}
+            onChange={setTypedPhone}
             disabled={busy}
             invalid={invalidPhone}
           />
         </div>
+      </div>
+      <div className="px-5 empty:hidden [&:not(:empty)]:py-4">
+        <CustomerCandidates
+          orderId={order.id}
+          lookup={{ name: customer, phone }}
+          link={customerEdited ? undefined : {
+            crm_account_id: order.crm_account_id ?? null,
+            crm_contact_id: order.crm_contact_id ?? null,
+          }}
+          disabled={busy}
+          onSelect={async (candidate) => {
+            if (await onSelectCustomer(candidate, phone)) {
+              setTypedCustomer(undefined);
+              setTypedPhone(undefined);
+            }
+          }}
+          onManual={() => {
+            customerInput.current?.focus();
+            if (order.crm_account_id) void onUnlinkCustomer();
+          }}
+        />
       </div>
       <ul className="divide-y divide-line">
         {order.lines.map((line) => {

@@ -40,7 +40,8 @@ export function CustomerCandidates({
   const refreshing = loading || name !== settled?.name || phone !== settled?.phone;
   // Older backends have no candidates endpoint.
   if (error?.status === 404 || data?.crm === "none" || (!data && !error)) return null;
-  const candidates = data?.candidates ?? [];
+  const candidates = error ? [] : (data?.candidates ?? []);
+  const lookupFailed = !!(error || data?.error);
 
   return (
     <section aria-label={t("crm.candidates")} className="space-y-2 rounded-lg border border-line bg-surface-2 p-3">
@@ -51,16 +52,20 @@ export function CustomerCandidates({
           <Badge tone="info">{t("crm.salesforce")}</Badge>
         </div>
       </div>
-      {refreshing ? (
-        <p role="status" className="text-sm text-ink-muted">{t("common.loading")}</p>
-      ) : error ? (
-        <div role="alert" className="flex flex-wrap items-center gap-2 text-sm text-danger">
+      {refreshing && <p role="status" className="text-sm text-ink-muted">{t("common.loading")}</p>}
+      {!refreshing && lookupFailed && (
+        <div role="status" className="flex flex-wrap items-center gap-2 text-sm text-warn">
           <span>{t("crm.lookupError")}</span>
           <Button size="sm" disabled={disabled} onClick={reload}>{t("common.retry")}</Button>
         </div>
-      ) : candidates.length === 0 ? (
+      )}
+      {!refreshing && !lookupFailed && candidates.length === 0 && (
         <p role="status" className="text-sm text-ink-muted">{t("crm.customerNotFound")}</p>
-      ) : (
+      )}
+      {!refreshing && candidates.length > 0 && data?.ambiguous && (
+        <p role="status" className="text-sm text-warn">{t("crm.ambiguous")}</p>
+      )}
+      {!refreshing && candidates.length > 0 && (
         <ul className="space-y-2">
           {candidates.map((candidate) => {
             const selected = candidate.crm_account_id === link?.crm_account_id

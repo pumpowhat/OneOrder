@@ -47,6 +47,11 @@ export const en = {
   "crm.pendingOrdersHint": "Pending or failed sync",
   "crm.auditLinked": "Linked CRM account",
   "crm.auditUnlinked": "Unlinked CRM account",
+  "crm.ambiguous": "Verify the customer before selecting a match.",
+  "crm.disabledCountry": "Not synced (no CRM for this country)",
+  "crm.customerUnlinked": "Not synced (customer not linked to CRM)",
+  "crm.nextAttempt": "Next retry at {time}",
+  "crm.auditAttempt": "Attempt {n}",
   "crm.none": "None",
 
   "common.loading": "Loading...",

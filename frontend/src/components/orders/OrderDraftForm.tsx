@@ -25,19 +25,15 @@ export function OrderDraftForm({
   order,
   onSave,
   onCancel,
-  manualCustomer = false,
 }: {
   order?: Order;
   onSave: (payload: DraftOrderInput & Partial<CrmCustomerLink>) => Promise<unknown>;
-  manualCustomer?: boolean;
   onCancel?: () => void;
 }) {
   const { t } = useI18n();
   const catalog = useApi((signal) => listCatalog(signal), []);
   const customerInput = useRef<HTMLInputElement>(null);
-  const [linkChange, setLinkChange] = useState<CrmCustomerLink | undefined>(
-    manualCustomer ? NO_CRM_LINK : undefined,
-  );
+  const [linkChange, setLinkChange] = useState<CrmCustomerLink>();
   const crmLink = linkChange ?? {
     crm_account_id: order?.crm_account_id ?? null,
     crm_contact_id: order?.crm_contact_id ?? null,
@@ -110,7 +106,6 @@ export function OrderDraftForm({
               <input
                 className={input}
                 ref={customerInput}
-                autoFocus={manualCustomer}
                 value={customer}
                 maxLength={255}
                 onChange={(e) => {
@@ -163,7 +158,7 @@ export function OrderDraftForm({
                   crm_contact_id: candidate.crm_contact_id,
                 });
                 setCustomer(candidate.name);
-                setPhone(candidate.phone ?? "");
+                if (candidate.phone) setPhone(candidate.phone);
               }}
               onManual={() => {
                 setLinkChange(NO_CRM_LINK);

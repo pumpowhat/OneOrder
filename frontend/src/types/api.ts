@@ -23,6 +23,7 @@ export interface CrmSync {
   crm_record_id: string | null;
   last_error: string | null;
   last_attempt_at: string | null;
+  next_attempt_at: string | null;
 }
 
 export interface CrmCustomerLink {
@@ -44,6 +45,8 @@ export interface CustomerCandidatesResponse {
   crm: CrmProvider;
   countries: NordicCountry[];
   candidates: CustomerCandidate[];
+  ambiguous: boolean;
+  error: string | null;
 }
 
 export interface CustomerLookup {
