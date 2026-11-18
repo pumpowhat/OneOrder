@@ -1,9 +1,15 @@
 import { useI18n } from "../../i18n/useI18n.ts";
 import type { TranslationKey } from "../../i18n/en.ts";
 import { formatTimestamp } from "../../lib/format.ts";
-import type { AuditLogEntry } from "../../types/api.ts";
+import { CrmSyncBadge } from "./StatusBadge.tsx";
+import type { AuditLogEntry, CrmSync } from "../../types/api.ts";
 
 const ACTION_LABEL: Record<string, TranslationKey> = {
+  link_crm_account: "crm.auditLinked",
+  unlink_crm_account: "crm.auditUnlinked",
+  crm_sync: "crm.synced",
+  crm_sync_failed: "crm.failed",
+  crm_sync_retry: "crm.retryRequested",
   add_line: "audit.add_line",
   delete_line: "audit.delete_line",
   edit_order: "audit.edit_order",
@@ -18,7 +24,7 @@ const ACTION_LABEL: Record<string, TranslationKey> = {
 };
 
 /** Who did what and when, oldest first. Every change to an order is logged by the backend. */
-export function AuditTrail({ logs }: { logs: AuditLogEntry[] }) {
+export function AuditTrail({ logs, crmSync }: { logs: AuditLogEntry[]; crmSync?: CrmSync | null }) {
   const { t } = useI18n();
   return (
     <details className="bg-surface border border-line rounded-card">
@@ -34,6 +40,14 @@ export function AuditTrail({ logs }: { logs: AuditLogEntry[] }) {
           </li>
         ))}
       </ol>
+      {crmSync?.last_attempt_at && crmSync.status !== "not_applicable" && (
+        <div className="flex flex-wrap items-center gap-3 border-t border-line px-5 py-3 text-sm">
+          <span className="text-xs text-ink-muted tabular-nums">{formatTimestamp(crmSync.last_attempt_at)}</span>
+          <span>{t("crm.lastAttempt")}</span>
+          <CrmSyncBadge status={crmSync.status} />
+          {crmSync.crm_record_id && <code className="text-xs text-ink-muted">{crmSync.crm_record_id}</code>}
+        </div>
+      )}
     </details>
   );
 }

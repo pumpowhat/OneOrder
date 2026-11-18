@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CustomerCandidates } from "./CustomerCandidates.tsx";
 import { Button } from "../ui/Button.tsx";
 import { Badge, type BadgeTone } from "../ui/Badge.tsx";
 import { useI18n } from "../../i18n/useI18n.ts";
@@ -7,6 +8,7 @@ import { formatQty } from "../../lib/format.ts";
 import { isValidCustomerPhone } from "../../lib/phone.ts";
 import type {
   AvailabilityStatus,
+  CustomerCandidate,
   LineAvailability,
   LineCorrection,
   Order,
@@ -28,10 +30,14 @@ export function ReviewLines({
   availability,
   busy,
   onApprove,
+  onSelectCustomer,
+  onManualCustomer,
 }: {
   order: Order;
   availability: LineAvailability[];
   busy: boolean;
+  onSelectCustomer: (candidate: CustomerCandidate) => void;
+  onManualCustomer: () => void;
   onApprove: (
     corrections: LineCorrection[],
     confirmLines: number[],
@@ -51,6 +57,19 @@ export function ReviewLines({
       <p className="px-5 py-4 text-sm text-ink-muted border-b border-line">
         {t("draft.reviewHint")}
       </p>
+      <div className="px-5 empty:hidden [&:not(:empty)]:pt-4">
+        <CustomerCandidates
+          orderId={order.id}
+          key={JSON.stringify([order.customer, order.customer_phone])}
+          link={{
+            crm_account_id: order.crm_account_id ?? null,
+            crm_contact_id: order.crm_contact_id ?? null,
+          }}
+          disabled={busy}
+          onSelect={onSelectCustomer}
+          onManual={onManualCustomer}
+        />
+      </div>
       {order.lines.length === 0 && (
         <p className="px-5 py-6 text-sm text-ink-muted">{t("draft.empty")}</p>
       )}

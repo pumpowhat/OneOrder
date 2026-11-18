@@ -7,11 +7,13 @@ import { useI18n } from "../i18n/useI18n.ts";
 import type { TranslationKey } from "../i18n/en.ts";
 import { errorMessage } from "../lib/errors.ts";
 import { VEHICLE_LABEL } from "../lib/status.ts";
-import type { Rules, SourcingTier } from "../types/api.ts";
+import type { NordicCountry, Rules, SourcingTier } from "../types/api.ts";
 import { Button } from "../components/ui/Button.tsx";
 import { Card, CardBody, CardHeader } from "../components/ui/Card.tsx";
 import { PageHeader } from "../components/ui/PageHeader.tsx";
 import { useToast } from "../components/ui/useToast.ts";
+
+const CRM_COUNTRIES: NordicCountry[] = ["DK", "SE", "NO"];
 
 const TIER_LABEL: Record<SourcingTier, TranslationKey> = {
   branch: "rules.tier.branch",
@@ -110,6 +112,33 @@ export default function RulesPage() {
           </>
         }
       />
+
+      {rules.crm && (
+        <Card>
+          <CardHeader>
+            <h2 className="text-sm font-semibold">{t("crm.byCountry")}</h2>
+          </CardHeader>
+          <CardBody className="grid gap-4 sm:grid-cols-3">
+            {CRM_COUNTRIES.map((country) => (
+              <label key={country} className="space-y-1.5 text-sm">
+                <span className="block font-medium">{country}</span>
+                <select
+                  value={rules.crm?.[country] ?? "none"}
+                  disabled={saving}
+                  className="h-9 w-full rounded-md border border-line-strong bg-surface px-2"
+                  onChange={(event) => {
+                    const provider = event.target.value === "salesforce" ? "salesforce" : "none";
+                    set((r) => r.crm ? { ...r, crm: { ...r.crm, [country]: provider } } : r);
+                  }}
+                >
+                  <option value="none">{t("crm.none")}</option>
+                  <option value="salesforce">{t("crm.salesforce")}</option>
+                </select>
+              </label>
+            ))}
+          </CardBody>
+        </Card>
+      )}
 
       <Card>
         <CardHeader>

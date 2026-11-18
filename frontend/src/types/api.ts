@@ -13,6 +13,43 @@ export interface HealthResponse {
 export type OrderStatus = "draft" | "approved" | "planned" | "confirmed" | "cancelled";
 export type SourceType = "manual" | "image" | "pdf" | "excel" | "email";
 export type EtaRisk = "on_time" | "at_risk" | "late";
+export type CrmProvider = "salesforce" | "none";
+export type CrmSyncStatus = "synced" | "pending" | "failed" | "not_applicable";
+
+export interface CrmSync {
+  status: CrmSyncStatus;
+  reason: "crm_disabled" | "no_account" | null;
+  attempts: number;
+  crm_record_id: string | null;
+  last_error: string | null;
+  last_attempt_at: string | null;
+}
+
+export interface CrmCustomerLink {
+  crm_account_id: string | null;
+  crm_contact_id: string | null;
+}
+
+export interface CustomerCandidate extends CrmCustomerLink {
+  crm_account_id: string;
+  name: string;
+  phone: string | null;
+  city: string | null;
+  score: number;
+  country: NordicCountry;
+  matched_on: "phone" | "name";
+}
+
+export interface CustomerCandidatesResponse {
+  crm: CrmProvider;
+  countries: NordicCountry[];
+  candidates: CustomerCandidate[];
+}
+
+export interface CustomerLookup {
+  name: string;
+  phone: string;
+}
 
 /** One row of GET /api/orders. */
 export interface OrderSummary {
@@ -25,6 +62,7 @@ export interface OrderSummary {
   customer_phone: string | null;
   delivery_site: string | null;
   requested_date: string | null;
+  crm_sync_status?: CrmSyncStatus | null;
   line_count: number;
   review_lines: number;
   shortage_count: number;
@@ -90,6 +128,9 @@ export interface Order {
   plan: FulfillmentPlan | null;
   has_source: boolean;
   created_at: string | null;
+  crm_account_id?: string | null;
+  crm_contact_id?: string | null;
+  crm_sync?: CrmSync | null;
   reservations: Reservation[];
   audit_logs: AuditLogEntry[];
 }
@@ -265,6 +306,7 @@ export interface VehicleRule {
 /** GET/PUT /api/rules. `intake` and `country_lead_time_buffer_days` are kept as received. */
 export interface Rules {
   version: number;
+  crm?: Record<NordicCountry, CrmProvider>;
   intake: { min_confidence: number };
   sourcing: {
     priority: SourcingTier[];
@@ -287,3 +329,5 @@ export interface DraftOrderInput {
   requested_date: string | null;
   lines: { line_index?: number; sku: string | null; description: string; quantity: number; confirmed: boolean }[];
 }
+
+export type DraftOrderPatch = Partial<DraftOrderInput & CrmCustomerLink>;

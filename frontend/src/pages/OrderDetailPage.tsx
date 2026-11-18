@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
-import { saveOrderDraft, approveOrder, cancelOrder, confirmOrder, getAvailability, getOrder, listSites, planOrder } from "../api/orders.ts";
+import { saveOrderDraft, approveOrder, cancelOrder, confirmOrder, getAvailability, getOrder, listSites, planOrder, retryCrmSync } from "../api/orders.ts";
 import { useApi } from "../hooks/useApi.ts";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.ts";
 import { useI18n } from "../i18n/useI18n.ts";
@@ -19,7 +19,7 @@ import { OrderDraftForm } from "../components/orders/OrderDraftForm.tsx";
 import { ReviewLines } from "../components/orders/ReviewLines.tsx";
 import { SourceViewer } from "../components/orders/SourceViewer.tsx";
 import { Stepper } from "../components/orders/Stepper.tsx";
-import { StatusBadge } from "../components/orders/StatusBadge.tsx";
+import { CrmSyncBadge, StatusBadge } from "../components/orders/StatusBadge.tsx";
 
 function Meta({ label, value }: { label: string; value: string }) {
   return (
@@ -44,7 +44,7 @@ export default function OrderDetailPage() {
   );
   const sites = useApi((signal) => (status === "approved" ? listSites(signal) : Promise.resolve([])), [status]);
 
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState<"draft" | "manualCustomer" | null>(null);
   const [busy, setBusy] = useState(false);
   const [siteId, setSiteId] = useState("");
   const [acceptShortage, setAcceptShortage] = useState(false);
@@ -81,6 +81,8 @@ export default function OrderDetailPage() {
   }
 
   const plan = order.plan;
+  const crmSync = order.status === "confirmed" ? order.crm_sync : null;
+  const canRetryCrm = crmSync?.status === "failed" || crmSync?.status === "pending";
   const needsShortageOk = !!plan && plan.shortages.length > 0;
   const needsLateOk = plan?.order_eta?.risk === "late";
   const canConfirm = (!needsShortageOk || acceptShortage) && (!needsLateOk || acceptLate);
@@ -136,11 +138,11 @@ export default function OrderDetailPage() {
           <Card>
             <CardHeader>
               <h2 className="text-sm font-semibold">{order.source_type === "manual" ? t("draft.review") : t("review.result")}</h2>
-              {!editing && <Button size="sm" disabled={busy || loading} onClick={() => setEditing(true)}>{t("draft.edit")}</Button>}
+              {!editing && <Button size="sm" disabled={busy || loading} onClick={() => setEditing("draft")}>{t("draft.edit")}</Button>}
             </CardHeader>
-            {editing ? <OrderDraftForm key={order.id} order={order} onCancel={() => setEditing(false)} onSave={async (payload) => {
+            {editing ? <OrderDraftForm key={order.id} order={order} manualCustomer={editing === "manualCustomer"} onCancel={() => setEditing(null)} onSave={async (payload) => {
               await saveOrderDraft(order.id, payload);
-              setEditing(false);
+              setEditing(null);
               setRevision((value) => value + 1);
               reload();
               pushToast({ tone: "success", title: t("draft.saved") });
@@ -149,6 +151,15 @@ export default function OrderDetailPage() {
               order={order}
               availability={availability.data ?? []}
               busy={busy || loading}
+              onSelectCustomer={(candidate) =>
+                run(() => saveOrderDraft(order.id, {
+                  customer: candidate.name,
+                  customer_phone: candidate.phone,
+                  crm_account_id: candidate.crm_account_id,
+                  crm_contact_id: candidate.crm_contact_id,
+                }), t("crm.customerSaved"))
+              }
+              onManualCustomer={() => setEditing("manualCustomer")}
               onApprove={(corrections: LineCorrection[], confirmLines: number[], customer?: string, customerPhone?: string) =>
                 run(() => approveOrder(order.id, corrections, confirmLines, customer, customerPhone), t("review.approved"))
               }
@@ -244,6 +255,34 @@ export default function OrderDetailPage() {
         </div>
       )}
 
+      {crmSync?.reason === "no_account" && (
+        <p className="rounded-card border border-line bg-surface px-5 py-4 text-sm text-ink-muted">
+          {t("crm.notLinked")}
+        </p>
+      )}
+      {crmSync && crmSync.status !== "not_applicable" && (
+        <Card>
+          <CardHeader>
+            <h2 className="text-sm font-semibold">{t("crm.sync")}</h2>
+            <CrmSyncBadge status={crmSync.status} />
+          </CardHeader>
+          {(crmSync.last_error || canRetryCrm) && (
+            <CardBody className="space-y-3">
+              {crmSync.last_error && <p className="break-words text-sm text-danger">{crmSync.last_error}</p>}
+              {canRetryCrm && (
+                <Button
+                  size="sm"
+                  disabled={busy || loading}
+                  onClick={() => run(() => retryCrmSync(order.id), t("crm.retryRequested"))}
+                >
+                  {t("crm.retrySync")}
+                </Button>
+              )}
+            </CardBody>
+          )}
+        </Card>
+      )}
+
       {order.status === "confirmed" && <ReservationList reservations={order.reservations} plan={plan} />}
 
       {/* Original input stays reachable after the review step */}
@@ -254,7 +293,7 @@ export default function OrderDetailPage() {
         </details>
       )}
 
-      <AuditTrail logs={order.audit_logs} />
+      <AuditTrail logs={order.audit_logs} crmSync={crmSync} />
 
       {order.status === "draft" && !editing && (
         <div>

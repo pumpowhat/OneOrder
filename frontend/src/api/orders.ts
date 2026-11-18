@@ -1,7 +1,11 @@
 import { apiClient } from "./client.ts";
 import type {
   CatalogProduct,
+  CrmSync,
+  CustomerCandidatesResponse,
+  CustomerLookup,
   DraftOrderInput,
+  DraftOrderPatch,
   LineAvailability,
   LineCorrection,
   FulfillmentPlan,
@@ -72,4 +76,13 @@ export function listSites(signal?: AbortSignal) {
 
 export const listCatalog = (signal?: AbortSignal) => apiClient<CatalogProduct[]>("/api/orders/catalog", { signal });
 export const createManualOrder = (body: DraftOrderInput) => apiClient<Order>("/api/orders", { method: "POST", body });
-export const saveOrderDraft = (id: string, body: DraftOrderInput) => apiClient<Order>(`/api/orders/${id}`, { method: "PATCH", body });
+export const saveOrderDraft = (id: string, body: DraftOrderPatch) => apiClient<Order>(`/api/orders/${id}`, { method: "PATCH", body });
+
+export function getCustomerCandidates(id: string, signal: AbortSignal, lookup?: CustomerLookup) {
+  const query = lookup ? `?${new URLSearchParams({ name: lookup.name, phone: lookup.phone })}` : "";
+  return apiClient<CustomerCandidatesResponse>(`/api/orders/${id}/customer-candidates${query}`, { signal });
+}
+
+export function retryCrmSync(id: string) {
+  return apiClient<CrmSync>(`/api/orders/${id}/crm-sync/retry`, { method: "POST" });
+}
