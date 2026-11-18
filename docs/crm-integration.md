@@ -93,3 +93,21 @@ Khi Confirm, CRM lỗi không được chặn việc xác nhận đơn: đơn v�
 - Số điện thoại đổi sang một số khác. Chỉ đổi định dạng (`+45 33 12 45 78` thành `+4533124578`) thì không tính.
 
 Mỗi lần liên kết hoặc bỏ liên kết đều ghi audit log với action `link_crm_account` hoặc `unlink_crm_account`, kèm ID trước và sau.
+
+## Đồng bộ đơn khi Confirm (D4)
+
+Confirm luôn xác nhận đơn và giữ hàng trong ERP trước, trong một transaction riêng. Sau đó OneOrder mới ghi đơn lên CRM. **CRM lỗi không bao giờ làm Confirm thất bại.**
+
+| `crm_sync.status` | Khi nào | Tiếp theo |
+| --- | --- | --- |
+| `not_applicable` | Nước của công trường không có CRM (`reason: crm_disabled`), hoặc đơn chưa liên kết khách CRM (`reason: no_account`) | Không làm gì thêm |
+| `synced` | CRM đã nhận Order. `crm_record_id` là ID của Order trên Salesforce. | Xong |
+| `pending` | Lỗi tạm thời (timeout, 429, 5xx) | Worker tự thử lại sau 30 giây, rồi sau 120 giây, hoặc sau `Retry-After` nếu Salesforce yêu cầu lâu hơn |
+| `failed` | CRM từ chối Order (4xx), hoặc đã thử đủ 3 lần | Nhân viên bấm Retry |
+
+- `POST /api/orders/{id}/crm-sync/retry` nhận đơn đang `pending` hoặc `failed`, bắt đầu lại một lượt 3 lần thử, và trả khối `crm_sync` mới. Các trạng thái khác trả 409.
+- `GET /api/orders` có thêm `crm_sync_status` ở mỗi dòng, để Dashboard đếm số đơn đang chờ đồng bộ.
+- Audit log ghi `crm_sync` khi thành công, `crm_sync_failed` khi lỗi (kèm lần thử và thời điểm thử lại), `crm_sync_retry` khi nhân viên bấm Retry. Trường hợp `not_applicable` không ghi audit, vì không có lần gọi CRM nào.
+- Worker thử lại chạy cùng app. Tắt bằng `CRM_SYNC_WORKER=0`, đổi chu kỳ bằng `CRM_SYNC_INTERVAL` (mặc định 15 giây). Bộ test luôn tắt worker và ép `CRM_MODE=mock` (`tests/conftest.py`).
+
+Order ghi lên Salesforce: `AccountId` (và `ShipToContactId` nếu có), `EffectiveDate` là ngày Confirm, `Status = Draft`, `OneOrder_Id__c` là mã đơn. `Description` gồm khách hàng, công trường, ngày yêu cầu, ngày dự kiến (P50), ngày cam kết (P90) và các dòng hàng.

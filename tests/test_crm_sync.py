@@ -1,52 +1,42 @@
-"""CRM acceptance tests prepared before Nghĩa's backend PR is merged.
+"""CRM sync at confirm: acceptance tests prepared in issue #32 (Khang), wired to the backend in D4.
 
-All tests are explicitly skipped until that PR lands. To enable them:
-1. Wire ``mock_crm`` to the actual CRM dependency (the import below is a proposed
-   boundary, not a module that exists on main today).
-2. Adapt only the mock's signature/error type to the merged adapter interface.
-3. Remove ``requires_crm_backend`` and run this file with the complete suite.
-
-Proposed adapter contract: ``upsert_order(external_id, payload)`` receives the
-OneOrder order ID as Salesforce's unique External ID and raises on CRM failure.
-The router must catch that failure after preserving the confirmed order and
-its reservations. No live Salesforce client or credentials are used here.
+The adapter below is the real mock Salesforce with a switch for an outage. It records every write it is asked
+to make, so the tests can check that the OneOrder order id is the only key ever used (no duplicate CRM orders).
 """
 
 from datetime import date, timedelta
 
 import pytest
 
+from backend.crm import CrmOrder, CrmRegistry, CrmTransientError, MockSalesforceDirectory, get_crm_registry
 from backend.main import app
 from tests.test_confirm import client, session_factory  # noqa: F401
 
+DK_ACCOUNT = "001MK0000000000001"  # a CRM customer picked at review (a well-formed Salesforce id)
 
-requires_crm_backend = pytest.mark.skip(reason="chờ PR CRM của Nghĩa")
 
-
-class MockCRMAdapter:
+class MockCRMAdapter(MockSalesforceDirectory):
     """Salesforce-like unique External ID store, with a controllable outage."""
 
     def __init__(self):
+        super().__init__([], country="DK")
         self.available = True
         self.records = {}
         self.attempted_external_ids = []
 
-    def upsert_order(self, external_id: str, payload: dict) -> dict:
-        self.attempted_external_ids.append(external_id)
+    def push_order(self, order: CrmOrder) -> str:
+        self.attempted_external_ids.append(order.order_id)
         if not self.available:
-            raise ConnectionError("Simulated Salesforce outage")
-        self.records[external_id] = dict(payload)
-        return {"id": f"mock-{external_id}", "external_id": external_id}
+            raise CrmTransientError("Simulated Salesforce outage")
+        record_id = super().push_order(order)
+        self.records[order.order_id] = self.orders[order.order_id]
+        return record_id
 
 
 @pytest.fixture
 def mock_crm(monkeypatch):
-    # Proposed import: replace with Nghĩa's actual dependency after merge.
-    # Keep it inside the skipped fixture so current main still collects tests.
-    from backend.services.crm import get_crm_adapter
-
     adapter = MockCRMAdapter()
-    monkeypatch.setitem(app.dependency_overrides, get_crm_adapter, lambda: adapter)
+    monkeypatch.setitem(app.dependency_overrides, get_crm_registry, lambda: CrmRegistry({"DK": adapter}))
     return adapter
 
 
@@ -60,6 +50,7 @@ def planned_order(client, country="DK") -> dict:
     created = client.post("/api/orders", json={
         "customer": customer,
         "customer_phone": phone,
+        **({"crm_account_id": DK_ACCOUNT} if country == "DK" else {}),
         "requested_date": (date.today() + timedelta(days=30)).isoformat(),
         "lines": [{"sku": "GYP-13-2400", "description": "Plasterboard",
                    "quantity": 1, "confirmed": True}],
@@ -87,7 +78,6 @@ def assert_one_crm_order(adapter, order):
     assert set(adapter.attempted_external_ids) == {order["id"]}
 
 
-@requires_crm_backend
 def test_dk_confirm_syncs_order(client, mock_crm):
     order = planned_order(client)
     body = confirm(client, order)
@@ -96,7 +86,6 @@ def test_dk_confirm_syncs_order(client, mock_crm):
     assert_one_crm_order(mock_crm, order)
 
 
-@requires_crm_backend
 def test_crm_outage_keeps_confirm_and_stock_reservations(client, mock_crm):
     mock_crm.available = False
     order = planned_order(client)
@@ -111,7 +100,6 @@ def test_crm_outage_keeps_confirm_and_stock_reservations(client, mock_crm):
     assert mock_crm.attempted_external_ids == [order["id"]]
 
 
-@requires_crm_backend
 def test_retry_after_recovery_syncs_without_reserving_again(client, mock_crm):
     mock_crm.available = False
     order = planned_order(client)
@@ -127,7 +115,6 @@ def test_retry_after_recovery_syncs_without_reserving_again(client, mock_crm):
     assert_one_crm_order(mock_crm, order)
 
 
-@requires_crm_backend
 def test_confirm_twice_does_not_duplicate_salesforce_order(client, mock_crm):
     order = planned_order(client)
     confirmed = confirm(client, order)
@@ -139,7 +126,6 @@ def test_confirm_twice_does_not_duplicate_salesforce_order(client, mock_crm):
     assert_one_crm_order(mock_crm, order)
 
 
-@requires_crm_backend
 def test_retry_twice_uses_order_id_and_does_not_duplicate(client, mock_crm):
     mock_crm.available = False
     order = planned_order(client)
@@ -157,7 +143,6 @@ def test_retry_twice_uses_order_id_and_does_not_duplicate(client, mock_crm):
     assert_one_crm_order(mock_crm, order)
 
 
-@requires_crm_backend
 @pytest.mark.parametrize("country", ["SE", "NO"])
 def test_non_dk_confirm_does_not_call_crm(client, mock_crm, country):
     order = planned_order(client, country)
