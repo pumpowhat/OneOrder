@@ -10,10 +10,10 @@ Tạo lại bằng `python -m scripts.generate_video_samples`. Email, ảnh và 
 
 | # | Tệp | Loại | Case bao phủ |
 |---|---|---|---|
-| 1 | `emails/dk-odense-order.txt` | Email tiếng Anh | **Đơn lý tưởng.** Đủ tên khách (*Hoffmann Byg A/S*), số điện thoại, địa chỉ Odense (khớp `SITE-DK-04`) và ngày giao 2026-11-13. Cả 5 dòng khớp đúng tên sản phẩm, độ tin cậy 0.99, **không dòng nào cần review**. Duyệt ngay không sửa gì. |
+| 1 | `emails/dk-odense-order.txt` | Email tiếng Anh | **Đơn lý tưởng.** Đủ tên khách (*Hoffmann Byg A/S*), số điện thoại, địa chỉ Odense (khớp `SITE-DK-04`) và ngày giao 2026-11-28. Cả 5 dòng khớp đúng tên sản phẩm, độ tin cậy 0.98, **không dòng nào cần review**. Duyệt ngay không sửa gì. |
 | 2 | `photos/se-handwritten-1.jpg` | Ảnh viết tay tiếng Thụy Điển | **Thiếu số điện thoại.** 2 dòng **độ tin cậy thấp** (0.72 và 0.70) cần xác nhận. |
 | 3 | `excel/se-goteborg-materiallista.xlsx` | Excel tiếng Thụy Điển | **Thiếu tên khách.** Dòng 3 **thiếu số lượng** (đọc thành 0, confidence 0.40, cảnh báo). Dòng 4 *Träskruv 5x80mm* mô tả mơ hồ, gợi ý đúng `SCR-WOOD-580` nhưng cần xác nhận. `"12,5"` đọc thành 12.5. **Không có địa chỉ giao hàng**, nên phải **chọn công trường tay** khi plan (không chọn thì API trả 422). Số điện thoại tự điền từ cột *Telefon*. |
-| 4 | `pdf/dk-nordhavn-materialeliste.pdf` | PDF có lớp văn bản, tiếng Đan Mạch | **Thiếu tên khách** (ô *Kunde / firma* trống). Dòng 4 dầm HEA 200 và dòng 5 *Skruer til gips* cần xác nhận. Gỗ thông Thụy Điển và dầm HEA 200 **chỉ có ở SE**, nên plan đi **cross-border** và dầm cần **xe cẩu**. Đổi rules (tắt cross-border) thì hai dòng này thành shortage. |
+| 4 | `pdf/dk-nordhavn-materialeliste.pdf` | PDF có lớp văn bản, tiếng Đan Mạch | **Thiếu tên khách** (ô *Kunde / firma* trống). Ngày giao 2026-11-27. Dòng 4 dầm HEA 200 và dòng 5 *Skruer til gips* cần xác nhận. Gỗ thông Thụy Điển và dầm HEA 200 **chỉ có ở SE**, nên plan đi **cross-border** và dầm cần **xe cẩu**. Đổi rules (tắt cross-border) thì hai dòng này thành shortage. |
 
 ## Kết quả kiểm thử
 
@@ -43,4 +43,4 @@ Lưu ý: sau khi Save draft, dòng có đơn vị khác cách viết với catal
 | TIM-SE-PINE45 | SE-DC-01 | 45 → 105 | 3455 → 3395 | 4 |
 | ARM-BEAM-HEA200 | SE-DC-01 | 45 → 49 | 805 → 801 | 4 |
 
-ETA tính theo ngày chạy. Nếu quay sau 9/11, ngày có thể dịch và đơn có thể chuyển sang `at_risk` hoặc `late`.
+ETA trong bảng là kết quả lịch sử ngày 9/11. Đọc ETA trên màn hình khi quay. Email và PDF đã dời sang 28/11 và 27/11 cho buổi pitch. Đơn ảnh viết tay giữ ngày trên ảnh gốc và cần tick chấp nhận trễ khi Confirm.

@@ -8,10 +8,10 @@ Import **cả 4 đơn** một lần, rồi xử lý **từng đơn một, từ r
 
 | # | Đơn | Nguồn | Cần làm gì | Chỉ ra điều gì |
 |---|---|---|---|---|
-| 1 | Hoffmann Byg A/S | Email | **Không cần sửa gì**, Approve rồi plan | Trường hợp lý tưởng: AI đọc đúng hết, người chỉ bấm duyệt. |
+| 1 | Hoffmann Byg A/S | Email | **Không cần sửa gì**, giao 28/11/2026, Approve rồi plan | Trường hợp lý tưởng: AI đọc đúng hết, người chỉ bấm duyệt. |
 | 2 | Skanska Sverige AB | Ảnh viết tay | **Nhập số điện thoại**, xác nhận 2 dòng độ tin cậy thấp | Hệ thống không tin AI mù quáng. |
 | 3 | (thiếu tên) | Excel | **Nhập tên khách**, **sửa số lượng** thiếu, xác nhận 1 dòng, **chọn công trường tay** | Nhiều thiếu sót cùng lúc, nhưng vẫn đi hết luồng. |
-| 4 | (thiếu tên) | PDF | **Nhập tên khách**, xác nhận 2 dòng, plan cross-border + xe cẩu, **đổi rules rồi plan lại** | Quy tắc nghiệp vụ đổi được tại chỗ. |
+| 4 | (thiếu tên) | PDF | **Nhập tên khách**, giao 27/11/2026, xác nhận 2 dòng, plan cross-border + xe cẩu, **đổi rules rồi plan lại** | Quy tắc nghiệp vụ đổi được tại chỗ. |
 
 ## Chuẩn bị trước khi quay
 
@@ -73,9 +73,9 @@ Nhịp rất chặt: mỗi đơn dưới 1 phút, nên đọc nhanh và thao tá
 
 | Thao tác | Lời thoại |
 |---|---|
-| Mở đơn **Hoffmann Byg A/S**. Chỉ cả 5 dòng không có nhãn *check*, tên khách và số điện thoại đã điền sẵn. | "Đơn đầu tiên là trường hợp lý tưởng: khách ghi rõ tên, số điện thoại, địa chỉ, ngày giao, và từng sản phẩm khớp đúng danh mục. AI đọc với độ tin cậy 99%, không dòng nào bị gắn cờ." |
+| Mở đơn **Hoffmann Byg A/S**. Chỉ cả 5 dòng không có nhãn *check*, tên khách và số điện thoại đã điền sẵn. | "Đơn đầu tiên là trường hợp lý tưởng: khách ghi rõ tên, số điện thoại, địa chỉ, ngày giao, và từng sản phẩm khớp đúng danh mục. AI đọc với độ tin cậy 98%, không dòng nào bị gắn cờ." |
 | Bấm **Approve OCR result**, không sửa gì. | "Với đơn như vậy, nhân viên chỉ cần bấm duyệt, một cú click." |
-| Bấm **Make plan** (để *Detect from address*). Chỉ *Deliver to* nhận ra công trường Odense, lướt 2 shipment. | "Công trường được nhận ra tự động từ địa chỉ. Hệ thống xem tồn kho cả ba ERP, chọn chi nhánh đủ hàng trước, và giải thích lý do cho từng shipment. Ngày dự kiến là 10, ngày an toàn có thể hứa là 11." |
+| Bấm **Make plan** (để *Detect from address*). Chỉ *Deliver to* nhận ra công trường Odense, lướt 2 shipment. | "Công trường được nhận ra tự động từ địa chỉ. Hệ thống xem tồn kho cả ba ERP, chọn chi nhánh đủ hàng trước, và giải thích lý do cho từng shipment. Đối chiếu ngày dự kiến và ngày an toàn đang hiển thị với ngày giao yêu cầu 28/11." |
 | Bấm **Confirm order**. | "Xác nhận một lần: giữ hàng trong ERP và khóa kế hoạch cùng ngày đã hứa." |
 | Bấm **All orders**. | |
 
@@ -87,7 +87,7 @@ Nhịp rất chặt: mỗi đơn dưới 1 phút, nên đọc nhanh và thao tá
 | Chỉ dòng 2 và dòng 4 có nhãn *check* (AI 72% và 70%). | "Hệ thống không tin AI mù quáng: dòng nào độ tin cậy dưới 85% đều bị gắn cờ. Ở đây có hai dòng chữ viết vội." |
 | Chỉ nút **Approve OCR result** đang khóa và dòng nhắc nhập số điện thoại. Bấm **Edit draft**. | "Tờ ghi chú không có số điện thoại, nên nút Approve vẫn khóa. Muốn sửa thông tin, nhân viên bấm Edit draft." |
 | Trong form: gõ `+46 70 555 12 34` vào ô điện thoại (giữ cờ Thụy Điển). **Tick "I have checked this product and quantity" ở cả 5 dòng.** Bấm **Save draft**. | "Tôi nhập số điện thoại. Rồi tôi đối chiếu từng dòng với ảnh gốc: hai dòng chữ viết vội đều đúng. Tôi đánh dấu đã kiểm tra, rồi lưu nháp." |
-| Quay lại màn hình Review, chỉ *All lines checked*. Bấm **Approve OCR result**. Bấm **Make plan**. Lướt 2 shipment (chi nhánh Stockholm 8 km, DC Jönköping). Bấm **Confirm order**, **All orders**. | "Mọi dòng đã kiểm, nên duyệt được. Lên kế hoạch: tấm thạch cao và bông thủy tinh từ chi nhánh Stockholm cách tám cây số, phần còn lại từ trung tâm Jönköping. Ngày dự kiến 10, an toàn 11. Xác nhận." |
+| Quay lại màn hình Review, chỉ *All lines checked*. Bấm **Approve OCR result**. Bấm **Make plan**. Lướt 2 shipment (chi nhánh Stockholm 8 km, DC Jönköping). Tick **Confirm even though delivery is predicted after the requested date**, rồi bấm **Confirm order**, **All orders**. | "Mọi dòng đã kiểm, nên duyệt được. Lên kế hoạch: tấm thạch cao và bông thủy tinh từ chi nhánh Stockholm cách tám cây số, phần còn lại từ trung tâm Jönköping. Tôi đọc ngày dự kiến và ngày an toàn trên màn hình. Đơn viết tay này đã quá ngày yêu cầu, nên tôi chấp nhận trễ trước khi xác nhận." |
 
 ## Cảnh 5: Đơn 3, Excel, thiếu tên, số lượng và công trường (2:50–3:55)
 
@@ -110,7 +110,7 @@ Nhịp rất chặt: mỗi đơn dưới 1 phút, nên đọc nhanh và thao tá
 | Bấm **Approve OCR result**, **Make plan**. Chỉ **3 shipment**. | "Duyệt xong, lên kế hoạch." |
 | Shipment 1: chỉ lý do *Nearest branch with full stock: DK-BR-01 (9.5 km)*. | "Thạch cao, bông khoáng và vít lấy từ chi nhánh Sydhavn ở Đan Mạch, cách chín cây số rưỡi." |
 | Shipment 2 và 3: chỉ nhãn **Cross-border** và **Crane needed**. | "Gỗ thông Thụy Điển và dầm HEA 200 không có ở kho Đan Mạch nào, nên được lấy từ trung tâm Jönköping bên Thụy Điển. Dầm nặng hơn hai trăm rưỡi ký mỗi cây, cần cẩu lên sàn, nên hệ thống tự xếp xe cẩu." |
-| Chỉ **Expected (P50)** 10/11 và **Safe commitment (P90)** 12/11. | "Dự kiến giao ngày 10, mốc an toàn là 12, vẫn kịp ngày khách yêu cầu." |
+| Chỉ **Expected (P50)** và **Safe commitment (P90)** đang hiển thị, so với ngày giao yêu cầu 27/11. | "Đây là ngày dự kiến và mốc an toàn để đối chiếu với ngày khách yêu cầu." |
 
 ## Cảnh 7: Đơn 4, PDF, đổi rules, plan lại, Confirm (5:00–6:05)
 
@@ -152,7 +152,7 @@ Mở **Stock**, dùng ô tìm kiếm, mở dòng từng kho. Số liệu dưới
 
 ## Lưu ý khi quay
 
-- **ETA phụ thuộc ngày quay.** Các ngày 10, 11, 12/11 trong lời thoại là kết quả chạy thử ngày 9/11. Nếu quay ngày khác, ngày sẽ dịch, và đơn có thể thành `at_risk` hoặc `late`. Hãy đọc ngày thật trên màn hình thay vì đọc theo kịch bản.
+- **ETA phụ thuộc ngày quay.** Đọc ngày trên màn hình. Email giao 28/11/2026 và PDF giao 27/11/2026. Ảnh viết tay giữ ngày cũ trong ảnh gốc: khi Confirm, tick **Confirm even though delivery is predicted after the requested date**.
 - **Số liệu tồn kho** lấy từ DB trống. Nếu bạn chạy thử mà không tắt và khởi động lại app, số sẽ lệch.
 - **Sau khi bấm Save draft, một số dòng bị đòi kiểm tra lại**, kể cả dòng bạn chưa sửa (đơn Ảnh và đơn Excel, vì đơn vị "st" bị đổi thành "stk"). Vì vậy kịch bản bảo tick "I have checked…" ở cả 5 dòng ngay trong form. Đơn PDF chỉ cần tick 2 dòng. Nếu quên, nút Approve vẫn khóa và hiện số dòng còn lại cần kiểm.
 - **Dòng index trong UI** đánh số từ 1: "dòng 3 của Excel" là *Regel C24*, "dòng 4" là *Träskruv*.

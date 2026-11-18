@@ -30,7 +30,7 @@ Please find our purchase order for the Odense harbour site.
 Customer: Hoffmann Byg A/S
 Phone: +45 33 12 45 78
 Delivery: Havnegade 45, 5000 Odense C
-Delivery date: 2026-11-13
+Delivery date: 2026-11-28
 
 Items:
 - 60 stk Gipsplade standard 13mm 1200x2400
@@ -94,7 +94,7 @@ def build_pdf() -> bytes:
         ("Kontaktperson:", "Lars (formand)"),
         ("Telefon:", "+45 31 24 56 78"),
         ("Leveringsadresse:", "Sundkaj 7, 2150 Nordhavn, København"),
-        ("Ønsket levering:", "2026-11-12 (senest kl. 07:00)"),
+        ("Ønsket levering:", "2026-11-27 (senest kl. 07:00)"),
     ]
     y = 740
     for label, value in fields:
