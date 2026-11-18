@@ -12,7 +12,7 @@ from pathlib import Path
 from backend.services.orchestration import load_rules
 
 from .base import CustomerDirectory, NoCrmDirectory
-from .mock import DEFAULT_MOCK_DIR, MockSalesforceDirectory
+from .mock import DEFAULT_MOCK_DIR, MockSalesforceDirectory, parse_fail_modes
 from .salesforce import SalesforceDirectory
 
 
@@ -27,7 +27,9 @@ def _shared_directory(system: str, mode: str, country: str) -> CustomerDirectory
         if mode == "live":
             return SalesforceDirectory.from_env(country)
         mock_dir = Path(os.getenv("CRM_MOCK_DIR") or DEFAULT_MOCK_DIR)
-        return MockSalesforceDirectory.from_csv(mock_dir, country)
+        mock = MockSalesforceDirectory.from_csv(mock_dir, country)
+        mock.fail_modes = parse_fail_modes(os.getenv("CRM_MOCK_FAIL"))  # the starting state; the API can change it
+        return mock
     raise ValueError(f"Unknown CRM system '{system}'")
 
 

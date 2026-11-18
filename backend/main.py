@@ -8,7 +8,7 @@ load_dotenv()
 
 from backend.ai import ai_mode  # noqa: E402  (after load_dotenv so AI_MODE is read from .env)
 from backend.db import init_db  # noqa: E402
-from backend.routers import inbox, intake, mock_erp, model, orders, rules, stock  # noqa: E402
+from backend.routers import crm, inbox, intake, mock_erp, model, orders, rules, stock  # noqa: E402
 from backend.services.orders.crm_worker import crm_sync_worker, worker_enabled  # noqa: E402
 
 
@@ -32,6 +32,7 @@ app.include_router(stock.router)
 app.include_router(mock_erp.router)
 app.include_router(inbox.router)
 app.include_router(rules.router)
+app.include_router(crm.router)
 
 
 @app.get("/api/health")

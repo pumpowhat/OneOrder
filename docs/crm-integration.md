@@ -111,3 +111,31 @@ Confirm luôn xác nhận đơn và giữ hàng trong ERP trước, trong một 
 - Worker thử lại chạy cùng app. Tắt bằng `CRM_SYNC_WORKER=0`, đổi chu kỳ bằng `CRM_SYNC_INTERVAL` (mặc định 15 giây). Bộ test luôn tắt worker và ép `CRM_MODE=mock` (`tests/conftest.py`).
 
 Order ghi lên Salesforce: `AccountId` (và `ShipToContactId` nếu có), `EffectiveDate` là ngày Confirm, `Status = Draft`, `OneOrder_Id__c` là mã đơn. `Description` gồm khách hàng, công trường, ngày yêu cầu, ngày dự kiến (P50), ngày cam kết (P90) và các dòng hàng.
+
+## Giả lập Salesforce bị lỗi khi demo (`CRM_MOCK_FAIL`)
+
+Chỉ dùng được với `CRM_MODE=mock`. Với org thật, endpoint trả 409, nên không thể giả lập lỗi trên CRM thật.
+
+| Chế độ | Ảnh hưởng |
+| --- | --- |
+| `search` | Gợi ý khách ở bước Review báo lỗi (`error`). Nhân viên nhập tay khách. |
+| `transient` | Ghi Order bị timeout: `crm_sync` chuyển `pending`, rồi tự thử lại khi hết lỗi. |
+| `permanent` | Salesforce từ chối Order: `crm_sync` chuyển `failed`, phải bấm Retry. |
+
+Có hai cách bật:
+- **Lúc khởi động:** `CRM_MOCK_FAIL=transient ./run-oneorder.sh start`. Có thể ghép nhiều chế độ, ví dụ `search,transient`.
+- **Lúc app đang chạy:** mở `http://localhost:8000/docs`, chọn `PUT /api/crm/mock-failure`, hoặc gọi `curl`:
+
+  ```bash
+  curl -X PUT localhost:8000/api/crm/mock-failure -H 'Content-Type: application/json' -d '{"modes": ["transient"]}'
+  curl -X PUT localhost:8000/api/crm/mock-failure -H 'Content-Type: application/json' -d '{"modes": []}'   # hết lỗi
+  curl localhost:8000/api/crm/status
+  ```
+
+**Kịch bản demo "CRM sập mà đơn vẫn chạy" (khoảng 1 phút):**
+1. Bật `transient`.
+2. Mở đơn email Hoffmann, chọn khách từ gợi ý, duyệt, lập kế hoạch, Confirm. Đơn ở trạng thái `confirmed`, đã giữ hàng, badge hiện *Pending sync*.
+3. Tắt lỗi bằng `{"modes": []}`.
+4. Bấm **Retry sync**: badge đổi thành *Synced to Salesforce*. Nếu không bấm, worker tự đồng bộ trong khoảng 30–45 giây (30 giây chờ sau lần lỗi đầu, cộng chu kỳ worker 15 giây).
+
+Trạng thái lỗi giả lập chỉ lưu trong bộ nhớ của mock, khởi động lại app là mất. Giá trị ban đầu lấy lại từ `CRM_MOCK_FAIL`.
