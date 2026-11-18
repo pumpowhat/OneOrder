@@ -1,0 +1,125 @@
+{
+  "value": [
+    {
+      "name": "Fjordværk Projekt ApS",
+      "telephone1": "+45 70 99 90 01",
+      "address1_city": "Odense",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Nordglimt Byg ApS",
+      "telephone1": "+45 70 99 90 01",
+      "address1_city": "Aarhus",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Bøgehavn Montage A/S",
+      "telephone1": "+45 70 99 90 03",
+      "address1_city": "Aalborg",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Sundbro Materialer ApS",
+      "telephone1": "+45 70 99 90 04",
+      "address1_city": "København",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Klintengen Projekt ApS",
+      "telephone1": "+45 70 99 90 05",
+      "address1_city": "Vejle",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Havly Konstruktion A/S",
+      "telephone1": "+45 70 99 90 06",
+      "address1_city": "Roskilde",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Lilleholm Byg ApS",
+      "telephone1": "+45 70 99 90 07",
+      "address1_city": "Odense",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Mølleengen Montage A/S",
+      "telephone1": "+45 70 99 90 08",
+      "address1_city": "Aarhus",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Sølys Projekt ApS",
+      "telephone1": "+45 70 99 90 09",
+      "address1_city": "Aalborg",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Kystfalk Konstruktion ApS",
+      "telephone1": "+45 70 99 90 10",
+      "address1_city": "København",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Birkedal Anlæg A/S",
+      "telephone1": "+45 70 99 90 11",
+      "address1_city": "Vejle",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Tjørnebakke Byg ApS",
+      "telephone1": "+45 70 99 90 12",
+      "address1_city": "Roskilde",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Solbugt Montage A/S",
+      "telephone1": "+45 70 99 90 13",
+      "address1_city": "Odense",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Østerly Anlæg ApS",
+      "telephone1": "+45 70 99 90 14",
+      "address1_city": "Aarhus",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Fjordspor Byg A/S",
+      "telephone1": "+45 70 99 90 15",
+      "address1_city": "Aalborg",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Lundhavn Projekt ApS",
+      "telephone1": null,
+      "address1_city": "København",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": " FJORDVÆRK  PROJEKT ApS ",
+      "telephone1": "004570999001",
+      "address1_city": "Odense",
+      "address1_country": "Denmark",
+      "address1_line1": "Demogade 1"
+    },
+    {
+      "name": "Bøgehavn Montage A/S",
+      "telephone1": "+45 (70) 99-90-03",
+      "address1_city": "Aalborg",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": " ",
+      "telephone1": "+45 70 99 90 05",
+      "address1_city": "Vejle",
+      "address1_country": "Denmark"
+    },
+    {
+      "name": "Havly Konstruktion A/S",
+      "telephone1": "abc",
+      "address1_city": "Roskilde",
+      "address1_country": "Denmark"
+    }
+  ]
+}
