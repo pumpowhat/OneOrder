@@ -1,5 +1,6 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage{oneorder-theme}
+\renewcommand{\reportRound}{Round 3}
 \begin{document}
 \masthead{03 · The solution · User journey}{User journey}
 
@@ -11,21 +12,22 @@ Who & \textbf{Anna}, sales desk employee at Company A in Denmark, handling B2B p
 Trigger & \textbf{Lars}, a contractor, emails a long material list for a building site at \emph{Amager Strandvej 12} and asks for delivery by a fixed date. The same journey works for a photo of a handwritten list, a PDF or an Excel file. \\
 Pain today & Anna retypes every line, sees stock of one country only, and cannot give Lars a delivery date she can trust. \\
 Goal & Turn the list into a confirmed order with reserved stock and a delivery date she can commit to, in one tool. \\
+Account owner & \textbf{Freja}, who manages Hoffmann Byg A/S, sees the confirmed project order in Salesforce and can follow up with the contractor from there. \\
 \end{tabularx}
 \end{oocard}
 
 \htwo{2. The journey at a glance}
 \begin{center}
-\begin{tikzpicture}[scale=1,transform shape]
+\begin{tikzpicture}[scale=0.98,transform shape]
 \tikzset{jstep/.style={ooc,minimum width=2.45cm,minimum height=2.15cm,inner sep=4pt,align=center},
          num/.style={font=\sgfont\fontsize{14}{14}\selectfont,text=orange}}
 \def\g{2.99}
 \node[jstep,bluetop]   (a) at (0*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}1}\\[1pt]\textbf{Receive}\\Email, photo,\\PDF or Excel\\arrives};
 \node[jstep,bluetop]   (b) at (1*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}2}\\[1pt]\textbf{AI reads}\\Draft order,\\confidence\\per line};
-\node[jstep,accenttop] (c) at (2*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}3}\\[1pt]\textbf{Anna reviews}\\Fixes doubtful\\lines, then\\approves};
+\node[jstep,accenttop] (c) at (2*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}3}\\[1pt]\textbf{Anna reviews}\\Checks lines\\and Salesforce\\customer};
 \node[jstep,bluetop]   (d) at (3*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}4}\\[1pt]\textbf{Plan}\\Stock in DK,\\SE, NO; shipments\\per source};
 \node[jstep,bluetop]   (e) at (4*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}5}\\[1pt]\textbf{ETA}\\P50 / P90 date\\per shipment\\vs.\ request};
-\node[jstep,accenttop] (f) at (5*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}6}\\[1pt]\textbf{Confirm}\\Stock reserved,\\date committed};
+\node[jstep,accenttop] (f) at (5*\g,0) {{\sgfont\fontsize{14}{14}\selectfont\color{orange}6}\\[1pt]\textbf{Confirm}\\Reserves stock,\\syncs order to\\Salesforce};
 \foreach \x/\y in {a/b,b/c,c/d,d/e,e/f} \draw[flow] (\x.east) -- (\y.west);
 \end{tikzpicture}
 \end{center}
@@ -41,16 +43,16 @@ Goal & Turn the list into a confirmed order with reserved stock and a delivery d
 \# & Step & What Anna does & What OneOrder does \\ \thead \endhead
 1 & Receive the order & Opens the \textbf{Sample inbox} (or uploads a file, or pastes the email text) and imports Lars's message. & Creates a \emph{draft} order and keeps the original file next to the result. \\ \trow
 2 & AI extraction & Looks at the \textbf{Dashboard}: the new order shows under \emph{To review}. & Reads customer, delivery site, requested date and every line (quantity, unit, description). Matches each line to the product catalogue. Lines under \textbf{85\%} confidence, or where fuzzy matching and AI disagree, are flagged. \\ \trow
-\hl 3 & \hl Review and approve & \hl Compares the original (left) with what the system read (right). Corrects the product or quantity on flagged lines and ticks them. If no customer name was found she \textbf{must type it}. Presses \emph{Approve}. & \hl Blocks \emph{Approve} until every flagged line is checked and the customer is filled in. Shows a stock pre-check per line. Every change is written to the \textbf{audit log} (who, before, after). \\ \trow
+\hl 3 & \hl Review and approve & \hl Compares the original (left) with what the system read (right). Corrects the product or quantity on flagged lines and ticks them. Checks \textbf{Hoffmann Byg A/S} and its phone against the Salesforce suggestion, or types the name if there is no match. Presses \emph{Approve}. & \hl Blocks \emph{Approve} until every flagged line is checked and the customer is filled in. Shows a stock pre-check per line. On selection: \emph{Khách đã khớp trong Salesforce: Hoffmann Byg A/S}. Every change is written to the \textbf{audit log} (who, before, after). \\ \trow
 4 & Plan fulfilment & Chooses the delivery site and presses \emph{Plan}. & Reads stock from the Danish, Swedish and Norwegian ERPs through adapters. Picks sources by rule: nearest branch → national DC → DC in another country. Splits into shipments with weight, vehicle (van, truck, crane) and cross-border flag, and states \textbf{why} each source was chosen. Shows shortages. \\ \trow
 5 & See the delivery date & Reads the \textbf{ETA} per shipment and for the whole order. & A model predicts a \textbf{P50} (expected) and a \textbf{P90} (safe to promise) date from distance, source type, border, crane, weight, weekday and winter. Compares with Lars's date: \chipok{on time}, \chiprisk{at risk} or \chiplate{late}. \\ \trow
-6 & Confirm & Presses \emph{Confirm}. If there is a shortage or a late risk she must tick an explicit box to accept it. & Reserves the planned stock in the ERPs and freezes plan and ETA as the commitment, in one transaction. The \textbf{Stock} screen now shows the quantity as \emph{reserved}, so the next order cannot be promised the same goods. \\
+6 & Confirm & Presses \emph{Confirm}. If there is a shortage or a late risk she must tick an explicit box to accept it. & Reserves the planned stock in the ERPs and freezes plan and ETA as the commitment, in one transaction. Sends the order to Salesforce independently of the stock commitment. On success: \emph{Đã đồng bộ lên Salesforce}. Freja can view it in Salesforce. \\
 \end{longtable}}
 
 \htwo{4. Outcome of the main journey}
 \vspace{2pt}
 \noindent\begin{minipage}[t]{0.485\linewidth}
-\begin{oocard}[accenttop,before skip=0pt,after skip=0pt,height=3.95cm]
+\begin{oocard}[accenttop,before skip=0pt,after skip=0pt,height=3.15cm]
 \hthree{For Anna}\vspace{3pt}
 \begin{itemize}
 \item No retyping: she checks and corrects instead of typing.
@@ -60,7 +62,7 @@ Goal & Turn the list into a confirmed order with reserved stock and a delivery d
 \end{oocard}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.485\linewidth}
-\begin{oocard}[bluetop,before skip=0pt,after skip=0pt,height=3.95cm]
+\begin{oocard}[bluetop,before skip=0pt,after skip=0pt,height=3.15cm]
 \hthree{For Lars and Company A}\vspace{3pt}
 \begin{itemize}
 \item A delivery date with a P90 safety margin, not a guess.
@@ -77,6 +79,7 @@ Goal & Turn the list into a confirmed order with reserved stock and a delivery d
 Situation & What happens \\ \thead
 Low-confidence or unmatched line & Cannot approve until Anna picks the right product or confirms the line. \\ \trow
 Customer name not detected & The customer field is required and \emph{Approve} stays disabled until Anna types it. \\ \trow
+Salesforce does not respond & Confirm succeeds and stock remains reserved. OneOrder shows \emph{Pending sync} while the queued order waits to be sent again. \\ \trow
 Stock is short in all countries & The plan lists the shortage. Confirm is refused unless Anna explicitly accepts a partial order. \\ \trow
 Predicted arrival after the requested date & The order is marked \chiplate{late}. Confirm needs an explicit \emph{accept late risk}. Anna can call Lars with a realistic P90 date instead. \\ \trow
 Stock taken by another order after planning & Confirm is refused (conflict); Anna plans again and gets a fresh plan. \\ \trow
@@ -91,14 +94,13 @@ Sourcing policy changes & A lead edits the \emph{Rules} screen. Saved without re
 Screen & What it shows \\ \thead
 Dashboard & Counters \emph{To review / Ready to plan / To confirm / Confirmed}, attention list, deliveries. \\ \trow
 Sample inbox & Example emails, photos, PDFs and Excel files to import as new orders. \\ \trow
-Order detail & Original vs.\ extracted lines, review, plan with reasons, ETA, confirm, audit. \\ \trow
+Order detail & Original vs.\ extracted lines, review, plan with reasons, ETA, confirm, CRM status and audit. \\ \trow
 Stock & Stock per SKU for DK, SE and NO with on-hand, reserved and available. \\ \trow
 Rules & View and edit source priority, cross-border switch, branch radius, vehicles. \\
 \end{tabularx}}
 
-\htwo{7. What this journey proves}
 \begin{statement}
-The MVP turns a messy contractor request into a committed order with a trustworthy date in six steps and a few minutes of the sales desk's time, on top of the existing national ERPs, which are not replaced.
+The sales desk commits a delivery date with stock reserved. The account owner sees the Danish order in Salesforce. The existing national ERPs supply stock and reservation data.
 \end{statement}
 \figurenote{Time saved and fewer ``where is my order?'' calls are the team's hypotheses for the pilot, not measured results.}
 \end{document}

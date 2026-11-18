@@ -1,11 +1,12 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage{oneorder-theme}
+\renewcommand{\reportRound}{Round 3}
 \begin{document}
 \masthead{03 · The solution · System context}{System context diagram}
 
 \htwo{1. What is inside OneOrder and what is outside}
 \begin{center}
-\begin{tikzpicture}[scale=0.94,transform shape]
+\begin{tikzpicture}[scale=0.88,transform shape]
 \tikzset{small/.style={font=\fontsize{7.5}{9}\selectfont,inner sep=1.5pt,align=center,text=textbody}}
 \def\cx{8.9}\def\rx{16.0}\def\lx{1.55}
 \node[ooc,minimum width=3.0cm] (lars) at (\lx,11.0) {\textbf{Contractor}\\project customer,\\e.g.\ Lars};
@@ -25,6 +26,12 @@
 \begin{scope}[on background layer]
 \node[draw=textmuted,dashed,line width=0.7pt,rounded corners=8pt,fit=(dk)(se)(no),inner sep=8pt,label={[font=\fontsize{7.5}{9}\selectfont\bfseries,text=textmuted]above:Mock ERPs in the MVP}] (erps) {};
 \end{scope}
+\node[ooc,fill=green!8,draw=green!55!black,minimum width=3.5cm] (sf) at (1.75,3.93) {\textbf{Salesforce CRM (DK)}\\Customer lookup\\and order visibility};
+\node[ooc,dashed,minimum width=4.0cm] (dyn) at (8.9,2.1) {\textbf{Microsoft Dynamics 365 (DK)}\\Legacy migration source};
+\draw[flow,<->,green!55!black] (sf.east) -- node[midway,n] {8} (one.west |- sf.east);
+\node[small] at (4.95,4.53) {tra khách · ghi đơn\\(REST API, OAuth 2.0)};
+\draw[flow,dashed,textmuted] (dyn.west) -| (sf.south);
+\node[small] at (4.35,2.57) {migration một lần\\(Bulk API 2.0)};
 \draw[flow,dashed,textmuted] (lars) -- node[midway,n] {1} (anna);
 \node[small,align=left,right=14pt] at ($(lars)!0.5!(anna)$) {outside OneOrder:\\email text, photo of\\handwritten list, Excel};
 \def\ax{4.55}
@@ -43,7 +50,7 @@
 \end{tikzpicture}
 \end{center}
 \vspace{-6pt}
-\figurenote{Navy = OneOrder. Cards = outside OneOrder; the orange edge marks the person. Light blue = ERP integrations (simulated in the MVP). Numbers refer to the table.}
+\figurenote{Navy = OneOrder. Cards = outside OneOrder; the orange edge marks the person. Light blue = ERP integrations (simulated in the MVP). Green = Salesforce integration. Dashed legacy path = one-time migration. Numbers refer to the table.}
 \vspace{2pt}
 
 {\small
@@ -55,7 +62,8 @@
 4 & OneOrder → AI provider & The photo, the email text or the Excel columns, plus catalogue candidates for hard-to-match lines. \\ \trow
 5 & AI provider → OneOrder & Structured JSON: customer, delivery site, requested date, lines with quantity, unit, description and confidence. \\ \trow
 6 & ERPs → OneOrder & Stock per warehouse in each ERP's own format, normalised by one adapter per country. \\ \trow
-7 & OneOrder → ERPs & A reservation per shipment line, written when the sales desk confirms. Later orders then see the stock as reserved. \\
+7 & OneOrder → ERPs & A reservation per shipment line, written when the sales desk confirms. Later orders then see the stock as reserved. \\ \trow
+8 & OneOrder ↔ Salesforce (DK) & Suggest customer at Review. After Confirm, write the order through the CRM adapter; on failure leave it queued for retry. Dynamics exports only into the migration path. \\
 \end{tabularx}}
 
 \newpage
@@ -67,7 +75,7 @@
 \node[oomod,minimum width=12.8cm,minimum height=1.3cm] (web) at (10.6,15.4) {\textbf{Web app} (React, TypeScript, Vite)\\Dashboard · Sample inbox · Order review · Plan and confirm · Stock · Rules};
 \draw[flow,<->] (user) -- node[sm] {HTTPS} (web);
 \begin{scope}[on background layer]
-\node[oonavy,anchor=north west,minimum width=17.2cm,minimum height=9.0cm] (api) at (0,13.7) {};
+\node[oonavy,anchor=north west,minimum width=17.2cm,minimum height=9.45cm] (api) at (0,13.7) {};
 \end{scope}
 \node[anchor=north west,text=onnavy] at (0.25,13.55) {\wordmarkdark[10]\ {\fontsize{9}{10}\selectfont\bfseries\color{onnavy}· Backend API (FastAPI, Python)}};
 \draw[flow,<->] (web.south) -- node[sm] {REST / JSON} (web.south |- api.north);
@@ -79,6 +87,9 @@
 \node[blk] (res) at (14.8,9.4) {\textbf{Reservations}\\write on confirm,\\net stock view};
 \node[blk] (eta) at (8.6,6.9) {\textbf{ETA model}\\scikit-learn quantiles,\\P50 / P90};
 \node[blk,fill=bluetint,text=navy,draw=blue!35] (adp) at (14.8,6.9) {\textbf{ERP adapters}\\DK, SE, NO into one\\stock model};
+\node[blk,minimum width=3.3cm,minimum height=1.0cm,fill=green!11,text=navy,draw=green!55!black] (cust) at (4.95,6.27) {\textbf{Khớp khách hàng}\\Suggestions for\\staff to verify};
+\node[blk,minimum width=3.3cm,minimum height=1.0cm,fill=green!11,text=navy,draw=green!55!black] (crm) at (4.95,4.89) {\textbf{CRM adapter}\\Look up, enqueue and retry};
+\draw[flow,green!55!black,<->] (cust) -- (crm);
 \draw[flow] (intake) -- node[sm] {lines} (match);
 \draw[flow] (match) -- node[sm] {matched} (orders);
 \draw[flow] (intake) -- node[sm] {extract} (aic);
@@ -88,16 +99,18 @@
 \draw[flow] (orch) -- node[sm] {shipments} (eta);
 \draw[flow] (adp.north) -- node[sm] {stock} (res.south);
 % outside the backend
-\node[ooc,bluetop,minimum width=4.2cm,minimum height=1.4cm] (aiext) at (2.4,3.0) {\textbf{AI model provider}\\Gemini or Claude API};
-\node[ooc,bluetop,minimum width=4.6cm,minimum height=1.4cm] (db) at (8.6,3.0) {\textbf{SQLite database}\\orders, lines, plans,\\audit log, reservations};
+\node[ooc,bluetop,minimum width=4.2cm,minimum height=1.4cm] (aiext) at (2.1,3.0) {\textbf{AI model provider}\\Gemini or Claude API};
+\node[ooc,fill=green!8,draw=green!55!black,minimum width=2.6cm,minimum height=1.4cm] (sf2) at (5.5,3.0) {\textbf{Salesforce (DK)}};
+\draw[flow,<->,green!55!black] (crm.south) -- (crm.south |- sf2.north);
+\node[ooc,bluetop,minimum width=4.6cm,minimum height=1.4cm] (db) at (9.55,3.0) {\textbf{SQLite database}\\orders, lines, plans,\\audit log, reservations};
 \node[ooadp,minimum width=4.2cm,minimum height=1.4cm] (erpf) at (14.8,3.0) {\textbf{National ERP stock}\\DK CSV, SE JSON, NO JSON\\(mock, opening balance)};
 \node[oofont,fill=papertwo,draw=rule,line width=0.6pt,rounded corners=6pt,align=center,text=navy,minimum width=17.2cm,minimum height=1.0cm] (cfg) at (8.6,0.9) {\textbf{Configuration and data files:} \mono{rules.json}, catalogue, warehouses, sites, drive times, ETA training data};
 \draw[flow,<->] (aic.south) -- node[sm] {HTTPS} (aic.south |- aiext.north);
 \draw[flow] (adp.south) -- node[sm] {read} (erpf.north);
 \draw[flow,<->] (eta.south) -- node[sm] {save and load} (db.north);
-\draw[flow] (5.4,1.4) -- node[sm,align=center] {read:\\rules,\\catalogue,\\sites} (5.4,4.7);
+
 \end{tikzpicture}
 \end{center}
 \vspace{-4pt}
-\figurenote{Navy = OneOrder components. Cards = outside OneOrder or stored data (blue edge). Light blue = ERP integration. Arrows show the direction of the main data flow. The ERP stock files are the opening balance; reservations are kept in OneOrder's database and subtracted from them.}
+\figurenote{Navy = OneOrder components. Cards = outside OneOrder or stored data (blue edge). Light blue = ERP integration. Green = new CRM modules and service. Arrows show the direction of the main data flow. The ERP stock files are the opening balance; reservations are kept in OneOrder's database and subtracted from them.}
 \end{document}
