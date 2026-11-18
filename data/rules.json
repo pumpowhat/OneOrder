@@ -23,5 +23,10 @@
     "DK": 0,
     "SE": 1,
     "NO": 1
+  },
+  "crm": {
+    "DK": "salesforce",
+    "SE": "none",
+    "NO": "none"
   }
 }

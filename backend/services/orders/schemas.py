@@ -23,11 +23,17 @@ class DraftLineInput(BaseModel):
         return value
 
 
+CRM_ID_PATTERN = r"^[A-Za-z0-9]{15}(?:[A-Za-z0-9]{3})?$"  # a Salesforce record id, 15 or 18 characters
+
+
 class DraftOrderInput(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
     user: str = Field(default="sales_desk", min_length=1, max_length=100)
     customer: str | None = Field(default=None, max_length=255)
     customer_phone: str | None = Field(default=None, max_length=64)
+    # Set from a picked CRM suggestion; null unlinks. Left out: the link stays, unless the customer itself changes.
+    crm_account_id: str | None = Field(default=None, pattern=CRM_ID_PATTERN)
+    crm_contact_id: str | None = Field(default=None, pattern=CRM_ID_PATTERN)
     delivery_site: str | None = Field(default=None, max_length=255)
     requested_date: date | None = None
     lines: list[DraftLineInput] | None = Field(default=None, max_length=500)

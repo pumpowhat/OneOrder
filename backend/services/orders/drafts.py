@@ -3,6 +3,7 @@ import json
 from fastapi import HTTPException
 from backend.db import OrderLineModel, order_model_to_dict, record_audit_log
 from backend.services.matching import load_catalog
+from backend.services.orders.crm_link import set_crm_link, unlink_if_customer_changed
 
 
 def catalog_items():
@@ -30,6 +31,15 @@ def update_draft(db, order, payload):
         if name in payload.model_fields_set:
             value = getattr(payload, name)
             setattr(order, name, value.isoformat() if name == "requested_date" and value else value or None)
+    link_fields = {"crm_account_id", "crm_contact_id"} & payload.model_fields_set
+    if link_fields:
+        account = payload.crm_account_id if "crm_account_id" in link_fields else order.crm_account_id
+        contact = payload.crm_contact_id if "crm_contact_id" in link_fields else order.crm_contact_id
+        if "crm_account_id" in link_fields and account != order.crm_account_id and "crm_contact_id" not in link_fields:
+            contact = None  # a new (or no) account never keeps the previous account's contact
+        set_crm_link(db, order, account, contact, payload.user)
+    else:
+        unlink_if_customer_changed(db, order, before["customer"], before["customer_phone"], payload.user)
     if incoming is not None:
         # Include deleted lines in the high-water mark so indices never change meaning.
         historic = []

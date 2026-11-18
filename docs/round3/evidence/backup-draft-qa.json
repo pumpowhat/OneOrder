@@ -1,0 +1,32 @@
+{
+  "file": "docs/round3/evidence/oneorder-backup-DRAFT.mp4",
+  "draft": true,
+  "reviewed_by_nghia": false,
+  "bytes": 3612938,
+  "sha256": "b81433dd117e5d809b9bf63d4d9d16e99e3a7383ff8c124e26d5f8ec10261ca4",
+  "duration_seconds": 112.88,
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "codec": "H.264 High / yuv420p",
+  "audio_streams": 0,
+  "metadata_method": "ffmpeg input probe and frame decode",
+  "visually_inspected_encoded_keyframes_seconds": [
+    40,
+    80,
+    108
+  ],
+  "visual_findings": [
+    "40s: Skanska confirmed, five stock reservation lines, real ETA shown",
+    "80s: Lars PDF plan, cross-border badges and crane truck visible",
+    "108s: Dashboard shows four confirmed orders and real late-ETA alerts"
+  ],
+  "browser_errors": [],
+  "external_requests": [],
+  "limitations": [
+    "Draft awaits Nghia review of shortened Round 3 script",
+    "Current app has no Salesforce CRM UI; none depicted",
+    "Exact pitch laptop and USB playback still pending",
+    "Historical samples require explicit late-risk acceptance"
+  ]
+}

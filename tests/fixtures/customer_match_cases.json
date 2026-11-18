@@ -1,0 +1,233 @@
+[
+  {
+    "query_name": "Hoffmann Byg A/S",
+    "query_phone": "+45 33 12 45 78",
+    "expected_account": "Hoffmann Byg A/S",
+    "expected_review": true,
+    "note": "Khách email chính; tên khớp nhưng số điện thoại dùng chung với nhiều account, nhân viên phải chọn."
+  },
+  {
+    "query_name": "Skanska Sverige AB",
+    "query_phone": "+46 70 555 12 34",
+    "expected_account": "Skanska Sverige AB",
+    "expected_review": true,
+    "note": "Khách ảnh viết tay; số dùng chung với Skansbro Projekt AB."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+46 70 123 45 67",
+    "expected_account": "Bygg Väst AB",
+    "expected_review": false,
+    "note": "Khách Excel: số quốc tế đầy đủ chỉ khớp một account. Không có cờ mơ hồ; nhân viên vẫn chốt ở Review."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+45 31 24 56 78",
+    "expected_account": "Lars Byg ApS",
+    "expected_review": false,
+    "note": "Khách PDF: khớp chính xác số điện thoại duy nhất."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+46701234567",
+    "expected_account": "Bygg Väst AB",
+    "expected_review": false,
+    "note": "Bỏ khoảng trắng khỏi số quốc tế."
+  },
+  {
+    "query_name": null,
+    "query_phone": "0045 31 24 56 78",
+    "expected_account": "Lars Byg ApS",
+    "expected_review": false,
+    "note": "Chuẩn hóa tiền tố 00 thành +."
+  },
+  {
+    "query_name": "Hoffmann Byg A/S",
+    "query_phone": "+4533124578",
+    "expected_account": "Hoffmann Byg A/S",
+    "expected_review": true,
+    "note": "Cùng số với Kobberengen Byg ApS sau khi bỏ khoảng trắng; tên chỉ là gợi ý chọn khách."
+  },
+  {
+    "query_name": "Hoffmann Byg A/S",
+    "query_phone": "0045 33 12 45 78",
+    "expected_account": "Hoffmann Byg A/S",
+    "expected_review": true,
+    "note": "Đổi 00 thành + vẫn phải giữ cờ nhiều account dùng chung số."
+  },
+  {
+    "query_name": "Hoffmann Byg A/S",
+    "query_phone": "+45 (33) 12-45-78",
+    "expected_account": "Hoffmann Byg A/S",
+    "expected_review": true,
+    "note": "Dấu ngoặc và gạch nối không được làm mất cảnh báo trùng số."
+  },
+  {
+    "query_name": "Skanska Sverige AB",
+    "query_phone": "+46705551234",
+    "expected_account": "Skanska Sverige AB",
+    "expected_review": true,
+    "note": "Số SE không có khoảng trắng; vẫn mơ hồ với Skansbro Projekt AB."
+  },
+  {
+    "query_name": "Skanska Sverige AB",
+    "query_phone": "0046 70 555 12 34",
+    "expected_account": "Skanska Sverige AB",
+    "expected_review": true,
+    "note": "Số SE có tiền tố 00 và có nhiều account."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+45-31-24-56-78",
+    "expected_account": "Lars Byg ApS",
+    "expected_review": false,
+    "note": "Chuẩn hóa gạch nối, một kết quả duy nhất."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+46 (70) 123 45 67",
+    "expected_account": "Bygg Väst AB",
+    "expected_review": false,
+    "note": "Chuẩn hóa dấu ngoặc ở đầu số di động."
+  },
+  {
+    "query_name": "Hoffman Byg",
+    "query_phone": null,
+    "expected_account": "Hoffmann Byg A/S",
+    "expected_review": true,
+    "note": "Thiếu một chữ n và hậu tố; gợi ý khách email nhưng phải hiển thị cả các tên gần trùng."
+  },
+  {
+    "query_name": "Hoffmann Bygg A/S",
+    "query_phone": null,
+    "expected_account": "Hoffmann Byg A/S",
+    "expected_review": true,
+    "note": "Thừa chữ g; tên gần Hoffmann Byg ApS và Hofmann Byg A/S."
+  },
+  {
+    "query_name": "Skanka Sverige AB",
+    "query_phone": null,
+    "expected_account": "Skanska Sverige AB",
+    "expected_review": true,
+    "note": "Sai chính tả trong tên khách ảnh viết tay."
+  },
+  {
+    "query_name": "Byg Vast AB",
+    "query_phone": null,
+    "expected_account": "Bygg Väst AB",
+    "expected_review": true,
+    "note": "Thiếu chữ g và dấu ä; cạnh tranh với Bygg Vaest AB."
+  },
+  {
+    "query_name": "Lars Bygg ApS",
+    "query_phone": null,
+    "expected_account": "Lars Byg ApS",
+    "expected_review": true,
+    "note": "Thừa chữ g; khớp fuzzy cần nhân viên kiểm tra."
+  },
+  {
+    "query_name": "Hoffmann Byg ApS",
+    "query_phone": null,
+    "expected_account": "Hoffmann Byg ApS",
+    "expected_review": true,
+    "note": "Hậu tố ApS khác A/S: không gộp hai pháp nhân chỉ vì tên giống nhau."
+  },
+  {
+    "query_name": "Hofmann Byg A/S",
+    "query_phone": null,
+    "expected_account": "Hofmann Byg A/S",
+    "expected_review": true,
+    "note": "Tên exact chỉ có một chữ f; phải phân biệt với Hoffmann Byg A/S có hai chữ f."
+  },
+  {
+    "query_name": "Hoffmann Byg ApS",
+    "query_phone": "+45 00 00 10 01",
+    "expected_account": "Hoffmann Byg ApS",
+    "expected_review": false,
+    "note": "Số duy nhất xác định account ApS, không tự chuyển sang A/S có tên gần giống."
+  },
+  {
+    "query_name": "Moseglimt Materialer ApS",
+    "query_phone": "+45 33 12 45 78",
+    "expected_account": "Moseglimt Materialer ApS",
+    "expected_review": true,
+    "note": "Tên khác nhưng cùng số với Hoffmann; không dùng số dùng chung để tự chốt khách."
+  },
+  {
+    "query_name": "Kobberengen Byg ApS",
+    "query_phone": "+45 33 12 45 78",
+    "expected_account": "Kobberengen Byg ApS",
+    "expected_review": true,
+    "note": "Account lưu số +4533124578; chuẩn hóa thành cùng số quốc tế với nhóm Hoffmann."
+  },
+  {
+    "query_name": "Stenlunden Handel ApS",
+    "query_phone": "33 12 45 78",
+    "expected_account": "Stenlunden Handel ApS",
+    "expected_review": true,
+    "note": "Số nội địa lưu đúng như CSV; không tự suy mã +45 từ công trường. Thiếu mã quốc gia cần Review."
+  },
+  {
+    "query_name": "Skansbro Projekt AB",
+    "query_phone": "+46 70 555 12 34",
+    "expected_account": "Skansbro Projekt AB",
+    "expected_review": true,
+    "note": "Cùng số với Skanska; tên khách phải được nhân viên xác nhận."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+46 00 000 10 03",
+    "expected_account": "Bygg Vaest AB",
+    "expected_review": false,
+    "note": "Số duy nhất phân biệt Bygg Vaest AB với Bygg Väst AB."
+  },
+  {
+    "query_name": "Zzz Testkunde 999",
+    "query_phone": "+45 00 00 99 99",
+    "expected_account": null,
+    "expected_review": true,
+    "note": "Không tìm thấy cả tên lẫn số; nhập/chọn thủ công, không tạo gợi ý chắc chắn."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+46 00 000 99 99",
+    "expected_account": null,
+    "expected_review": true,
+    "note": "Số hợp lệ về cú pháp nhưng không tồn tại trong dữ liệu CRM mẫu."
+  },
+  {
+    "query_name": "Qzxw 999",
+    "query_phone": null,
+    "expected_account": null,
+    "expected_review": true,
+    "note": "Tên không có ứng viên đủ phù hợp; không ép chọn kết quả fuzzy thấp."
+  },
+  {
+    "query_name": null,
+    "query_phone": null,
+    "expected_account": null,
+    "expected_review": true,
+    "note": "Thiếu cả tên và số, bắt buộc nhân viên bổ sung thông tin."
+  },
+  {
+    "query_name": null,
+    "query_phone": "+47 00 00 10 07",
+    "expected_account": "Fjordmosaikk Bygg AS",
+    "expected_review": false,
+    "note": "Khách Na Uy tồn tại trong bộ dữ liệu CRM; việc có account không khiến đơn NO phải đồng bộ CRM."
+  },
+  {
+    "query_name": "Fjordmosaik Bygg AS",
+    "query_phone": null,
+    "expected_account": "Fjordmosaikk Bygg AS",
+    "expected_review": true,
+    "note": "Tên khách Na Uy thiếu một chữ k."
+  },
+  {
+    "query_name": null,
+    "query_phone": "0045 00 00 10 05",
+    "expected_account": "Ravnekorn Montage ApS",
+    "expected_review": false,
+    "note": "Khách thêm mới duy nhất; chuẩn hóa 00 không làm sai ánh xạ account."
+  }
+]

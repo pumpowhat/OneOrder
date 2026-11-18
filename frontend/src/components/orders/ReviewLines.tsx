@@ -6,6 +6,7 @@ import { useI18n } from "../../i18n/useI18n.ts";
 import type { TranslationKey } from "../../i18n/en.ts";
 import { formatQty } from "../../lib/format.ts";
 import { isValidCustomerPhone } from "../../lib/phone.ts";
+import { PhoneInput } from "../ui/PhoneInput.tsx";
 import type {
   AvailabilityStatus,
   CustomerCandidate,
@@ -47,8 +48,10 @@ export function ReviewLines({
 }) {
   const { t } = useI18n();
   const [checked, setChecked] = useState<Set<number>>(new Set());
-  const missingCustomer = !order.customer?.trim();
-  const invalidPhone = !isValidCustomerPhone(order.customer_phone ?? "");
+  const [customer, setCustomer] = useState(order.customer ?? "");
+  const [phone, setPhone] = useState(order.customer_phone ?? "");
+  const missingCustomer = !customer.trim();
+  const invalidPhone = !isValidCustomerPhone(phone);
   const pending = order.lines.filter(
     (l) => !l.matched_sku || (l.needs_review && !checked.has(l.line_index)),
   );
@@ -73,6 +76,29 @@ export function ReviewLines({
       {order.lines.length === 0 && (
         <p className="px-5 py-6 text-sm text-ink-muted">{t("draft.empty")}</p>
       )}
+      <div className="grid sm:grid-cols-2 gap-5 px-5 py-5 border-b border-line">
+        <label className="block space-y-2 text-sm">
+          <span>{t("common.customer")}</span>
+          <input
+            className="w-full min-w-0 h-10 rounded-md border border-line-strong bg-surface px-3 text-sm text-ink focus-visible:outline-2 focus-visible:outline-[var(--brand)]"
+            value={customer}
+            maxLength={255}
+            disabled={busy}
+            aria-invalid={missingCustomer}
+            onChange={(e) => setCustomer(e.target.value)}
+          />
+        </label>
+        <div className="space-y-2 text-sm">
+          <label htmlFor="review-phone">{t("common.customerPhone")}</label>
+          <PhoneInput
+            id="review-phone"
+            value={phone}
+            onChange={setPhone}
+            disabled={busy}
+            invalid={invalidPhone}
+          />
+        </div>
+      </div>
       <ul className="divide-y divide-line">
         {order.lines.map((line) => {
           const avail = availability.find(
@@ -152,7 +178,7 @@ export function ReviewLines({
             pending.length > 0 ||
             order.lines.length === 0
           }
-          onClick={() => onApprove([], [...checked])}
+          onClick={() => onApprove([], [...checked], customer.trim(), phone.trim())}
         >
           {busy ? t("common.working") : t("review.approve")}
         </Button>
