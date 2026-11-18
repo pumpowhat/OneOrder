@@ -1,0 +1,1079 @@
+{
+  "scope": "API technical preflight on the current computer; not the pitch laptop, browser UI, shell startup, or physical offline rehearsal",
+  "generated_at_utc": "2026-11-17T15:30:41+00:00",
+  "generated_at_vietnam": "2026-11-17T22:30:41+07:00",
+  "git_revision": "770decad3b445464cbac6ba3ab47038a3ef738cb",
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.4",
+    "dependencies": {
+      "fastapi": "0.162.0",
+      "starlette": "1.10.0",
+      "httpx": "0.28.1",
+      "SQLAlchemy": "2.1.6",
+      "scikit-learn": "1.9.1",
+      "pypdf": "7.1.0",
+      "openpyxl": "3.1.5"
+    },
+    "ai_mode": "demo",
+    "transport": "FastAPI TestClient (in process)",
+    "inbox": "samples/video-demo",
+    "database": "fresh temporary SQLite",
+    "rules": "temporary copy; real GET/PUT API used without changing data/rules.json",
+    "network": "process-level DNS and external IPv4/IPv6 sockets blocked; loopback allowed for the Windows event loop"
+  },
+  "protected_file_sha256": {
+    "data\\rules.json": "994dc46cb67cf06d71b9e1d91957635d4203582117a65de9ef1bcab44b01e43e",
+    "samples\\fixtures\\401f4153b80bcaacbbb7a233b557fad6430deeb70f4d0b5066bf74fac4cbfb40.json": "48cb5e7107920c154af039bb8991c53246d534d59827c667a3c03398ca266946",
+    "samples\\fixtures\\404ae214c49a14c7b1f6edc9b09ef624b4f4648f8ca166a7236c5870be7d22eb.json": "f46db4e97b2a8378d44d39579bb040027968e618b0a28bcb9caf36aafb1b2e4e",
+    "samples\\fixtures\\6d517be1126f7febd16fd05d79cc05d950023dbd3d0191e61458b453f55d9594.json": "d1d79a7f666dbce7bc848a04043578db891c826087fcb966aa79df46b7657b90",
+    "samples\\fixtures\\7997366477dca6e71d705b7214e073ffe78e2f496ecd835de33657f591ececbb.json": "43a3dbee5f34c5d2bccab3c8808dfafa05b9e9a8b7be2adf49bf4363a521f4f3",
+    "samples\\fixtures\\cec57199aa2377f7cc9894ef6a87e2fc49980628aefe0da149bf31f1c2d5b3ec.json": "0be258129c64ec30b0ba6717c11a2bc7e12d16344ee6d51770ffd570ea135783",
+    "samples\\fixtures\\d40031b6b5e28900b1108bc5b205ea180c7d7848052d8d281bb98faaf4f2df1d.json": "b8a159c2aed176b27a98c2f04311a80d49666df36b68fdc269d36772e7ad782d",
+    "samples\\video-demo\\emails\\dk-odense-order.txt": "401f4153b80bcaacbbb7a233b557fad6430deeb70f4d0b5066bf74fac4cbfb40",
+    "samples\\video-demo\\photos\\se-handwritten-1.jpg": "7997366477dca6e71d705b7214e073ffe78e2f496ecd835de33657f591ececbb",
+    "samples\\video-demo\\excel\\se-goteborg-materiallista.xlsx": "b4cbcb3dc5f4e6f245ca5a88b0c8954b30b6457e4c94e5ca92f36e79f0dd2cba",
+    "samples\\video-demo\\pdf\\dk-nordhavn-materialeliste.pdf": "cec57199aa2377f7cc9894ef6a87e2fc49980628aefe0da149bf31f1c2d5b3ec"
+  },
+  "network_attempts": [],
+  "allowed_loopback_operations": 1,
+  "steps": [
+    {
+      "label": "Health (demo)",
+      "method": "GET",
+      "path": "/api/health",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 15.62,
+      "response_sha256": "84c40fd97bd1a2742d164e14d8e7b7c1afaa39508b0ecfcec0078419f3a688e4"
+    },
+    {
+      "label": "List video inbox",
+      "method": "GET",
+      "path": "/api/inbox",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 4.57,
+      "response_sha256": "1eca629663e385f722ce9a5b7a75d9ba21690e86d31f2bd3c32732c52ccee43f"
+    },
+    {
+      "label": "Stock before all confirmations",
+      "method": "GET",
+      "path": "/api/stock",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 34.03,
+      "response_sha256": "6b0aa21e7a317eb058983e8c859e1af3ada4084a9ce026f00b7662bf058dc27f"
+    },
+    {
+      "label": "Import emails/dk-odense-order.txt",
+      "method": "POST",
+      "path": "/api/inbox/import",
+      "request_json": {
+        "id": "emails/dk-odense-order.txt"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 48.37,
+      "response_sha256": "cdf7b602205f34c296b468e3f53d978edcb86670d92c0ae72c5a938f86da15e3"
+    },
+    {
+      "label": "Import photos/se-handwritten-1.jpg",
+      "method": "POST",
+      "path": "/api/inbox/import",
+      "request_json": {
+        "id": "photos/se-handwritten-1.jpg"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 52.04,
+      "response_sha256": "2c73d559a8f36e66823bc14f20a5f8c4833ba54cc664f08a3674847e69b16e5e"
+    },
+    {
+      "label": "Import excel/se-goteborg-materiallista.xlsx",
+      "method": "POST",
+      "path": "/api/inbox/import",
+      "request_json": {
+        "id": "excel/se-goteborg-materiallista.xlsx"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 52.7,
+      "response_sha256": "503975f85f9a0908f5aae2bcd68ed93765e560da9240f2e65edbe56139256f0b"
+    },
+    {
+      "label": "Import pdf/dk-nordhavn-materialeliste.pdf",
+      "method": "POST",
+      "path": "/api/inbox/import",
+      "request_json": {
+        "id": "pdf/dk-nordhavn-materialeliste.pdf"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 44.45,
+      "response_sha256": "2563946ab8c9f25301c5a308daedeeb4338d091452a55d0d62b64015335d84ee"
+    },
+    {
+      "label": "Read order 1",
+      "method": "GET",
+      "path": "/api/orders/e9984fd3-0b38-4d83-b9f3-44a468e9d23e",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 8.03,
+      "response_sha256": "ea0a067d3e2e80e8f387aa00bf3ac45041cb39aa73bb2499812ca3c272a256c8"
+    },
+    {
+      "label": "Approve order 1",
+      "method": "POST",
+      "path": "/api/orders/e9984fd3-0b38-4d83-b9f3-44a468e9d23e/approve",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 12.95,
+      "response_sha256": "bcf5bf8b1f7719d55f06cbf46786b78ccd0bb0fc260e5d0a66fae07d26f6159a"
+    },
+    {
+      "label": "Plan order 1",
+      "method": "POST",
+      "path": "/api/orders/e9984fd3-0b38-4d83-b9f3-44a468e9d23e/plan",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 273.0,
+      "response_sha256": "2bb05bba64ea1300a78506aca8a7fff0e09e1824555313b758dc77ba7924b26f"
+    },
+    {
+      "label": "Order 1 rejects unaccepted late risk",
+      "method": "POST",
+      "path": "/api/orders/e9984fd3-0b38-4d83-b9f3-44a468e9d23e/confirm",
+      "request_json": {},
+      "status_code": 409,
+      "expected_status": 409,
+      "duration_ms": 5.49,
+      "response_sha256": "c67474568370e74428646a8560b6041a5d677302e7b0df3f1b7c730a92f3bd7c",
+      "response_json": {
+        "detail": "Order e9984fd3-0b38-4d83-b9f3-44a468e9d23e: predicted arrival 2026-11-18 (P50) is after the requested date 2026-11-13. Send accept_late_risk=true to confirm anyway"
+      }
+    },
+    {
+      "label": "Confirm order 1",
+      "method": "POST",
+      "path": "/api/orders/e9984fd3-0b38-4d83-b9f3-44a468e9d23e/confirm",
+      "request_json": {
+        "accept_late_risk": true
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 21.45,
+      "response_sha256": "c2673bd3e669bfdb1a126536ae95a043b45602b5a59734f85e2a0b4699510a2f"
+    },
+    {
+      "label": "Read order 2",
+      "method": "GET",
+      "path": "/api/orders/3444a0e1-bfaa-43b4-853f-de58e9879026",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 4.06,
+      "response_sha256": "57a164655f41524fa47b4097a4d0837c8db420ed4ac054e52c10e1fef106d5ca"
+    },
+    {
+      "label": "Review/Edit draft order 2",
+      "method": "PATCH",
+      "path": "/api/orders/3444a0e1-bfaa-43b4-853f-de58e9879026",
+      "request_json": {
+        "lines": [
+          {
+            "line_index": 0,
+            "sku": "GYP-15-FIRE",
+            "description": "Brandgipsskiva 15mm",
+            "quantity": 40.0,
+            "confirmed": true
+          },
+          {
+            "line_index": 1,
+            "sku": "ISO-GLAS-100",
+            "description": "Glasull isolering 100mm",
+            "quantity": 50.0,
+            "confirmed": true
+          },
+          {
+            "line_index": 2,
+            "sku": "TIM-SPRU-45145-48",
+            "description": "Regel C24 45x145mm 4.8m",
+            "quantity": 15.0,
+            "confirmed": true
+          },
+          {
+            "line_index": 3,
+            "sku": "SCR-GIP-40",
+            "description": "Gipsskruv 3.9x40",
+            "quantity": 10.0,
+            "confirmed": true
+          },
+          {
+            "line_index": 4,
+            "sku": "CEM-PORT-25",
+            "description": "Cement standard 25kg",
+            "quantity": 20.0,
+            "confirmed": true
+          }
+        ],
+        "customer_phone": "+46 70 555 12 34"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 13.64,
+      "response_sha256": "7de6943e632bc8526906d851a872773a26a1e280d809cb21585623b772f2607a"
+    },
+    {
+      "label": "Approve order 2",
+      "method": "POST",
+      "path": "/api/orders/3444a0e1-bfaa-43b4-853f-de58e9879026/approve",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 12.51,
+      "response_sha256": "582db575515430ae04a3cf0d925d69748bfcd73a13417ccbb4044b86f66ee54c"
+    },
+    {
+      "label": "Plan order 2",
+      "method": "POST",
+      "path": "/api/orders/3444a0e1-bfaa-43b4-853f-de58e9879026/plan",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 26.31,
+      "response_sha256": "8e38370a2e7f5abece570cb9c9a4ee32ff27befb198375b0328d2016c787b5d5"
+    },
+    {
+      "label": "Order 2 rejects unaccepted late risk",
+      "method": "POST",
+      "path": "/api/orders/3444a0e1-bfaa-43b4-853f-de58e9879026/confirm",
+      "request_json": {},
+      "status_code": 409,
+      "expected_status": 409,
+      "duration_ms": 3.14,
+      "response_sha256": "e2696e8d9853c93b7d2bdccb5c75e1d6bac3c9e18a6f32c714120513c0b0e4f5",
+      "response_json": {
+        "detail": "Order 3444a0e1-bfaa-43b4-853f-de58e9879026: predicted arrival 2026-11-19 (P50) is after the requested date 2026-11-12. Send accept_late_risk=true to confirm anyway"
+      }
+    },
+    {
+      "label": "Confirm order 2",
+      "method": "POST",
+      "path": "/api/orders/3444a0e1-bfaa-43b4-853f-de58e9879026/confirm",
+      "request_json": {
+        "accept_late_risk": true
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 18.73,
+      "response_sha256": "ea3f4293adcd8f2223e220a885d2b95edf4ad274dcdcc6ac661ab5f68a4f434a"
+    },
+    {
+      "label": "Read order 3",
+      "method": "GET",
+      "path": "/api/orders/0f35fab0-47cc-4551-b202-6b4671cdec40",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 3.94,
+      "response_sha256": "b510cbedb76caa6e584b2fd264fccf717108fbb931692902f717bce2f2fbd29a"
+    },
+    {
+      "label": "Review/Edit draft order 3",
+      "method": "PATCH",
+      "path": "/api/orders/0f35fab0-47cc-4551-b202-6b4671cdec40",
+      "request_json": {
+        "lines": [
+          {
+            "line_index": 0,
+            "sku": "GYP-15-FIRE",
+            "description": "Brandgipsskiva 15mm",
+            "quantity": 40.0,
+            "confirmed": true
+          },
+          {
+            "line_index": 1,
+            "sku": "ISO-GLAS-100",
+            "description": "Glasull isolering 100mm",
+            "quantity": 12.5,
+            "confirmed": true
+          },
+          {
+            "line_index": 2,
+            "sku": "TIM-SPRU-45145-48",
+            "description": "Regel C24 45x145mm 4.8m",
+            "quantity": 25,
+            "confirmed": true
+          },
+          {
+            "line_index": 3,
+            "sku": "SCR-WOOD-580",
+            "description": "Träskruv 5x80mm",
+            "quantity": 20.0,
+            "confirmed": true
+          },
+          {
+            "line_index": 4,
+            "sku": "SCR-GIP-40",
+            "description": "Gipsskruv 3.9x40",
+            "quantity": 15.0,
+            "confirmed": true
+          }
+        ],
+        "customer": "Bygg Väst AB"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 15.29,
+      "response_sha256": "2b37387c7c317f5663dd040a23b1eb1cd3a3c95797f61d64698d369d2fd57680"
+    },
+    {
+      "label": "Approve order 3",
+      "method": "POST",
+      "path": "/api/orders/0f35fab0-47cc-4551-b202-6b4671cdec40/approve",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 9.97,
+      "response_sha256": "4f202d69034f8b257770db5f767cbaa8278b198f4724f44b6a0adc26f89ab739"
+    },
+    {
+      "label": "Excel rejects missing site",
+      "method": "POST",
+      "path": "/api/orders/0f35fab0-47cc-4551-b202-6b4671cdec40/plan",
+      "request_json": {},
+      "status_code": 422,
+      "expected_status": 422,
+      "duration_ms": 12.71,
+      "response_sha256": "dae796796ab9818705cb333bb0de34c25b05640067b24b499eac8a89817be71f",
+      "response_json": {
+        "detail": "Cannot resolve delivery site 'None'. Send a site_id, one of: SITE-DK-01, SITE-DK-02, SITE-DK-03, SITE-DK-04, SITE-SE-01, SITE-SE-02, SITE-SE-03, SITE-NO-01, SITE-NO-02, SITE-NO-03"
+      }
+    },
+    {
+      "label": "Plan order 3",
+      "method": "POST",
+      "path": "/api/orders/0f35fab0-47cc-4551-b202-6b4671cdec40/plan",
+      "request_json": {
+        "site_id": "SITE-SE-02"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 25.26,
+      "response_sha256": "d1c1534e4f0e04f4530e5e4fc50a08e27cac447da1e15f9cb48df8276eb19b2b"
+    },
+    {
+      "label": "Confirm order 3",
+      "method": "POST",
+      "path": "/api/orders/0f35fab0-47cc-4551-b202-6b4671cdec40/confirm",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 19.08,
+      "response_sha256": "a467b14bd0f74f969c47cb0dfa48342a261d6d40be02206fb6ff72668a89ec97"
+    },
+    {
+      "label": "Read order 4",
+      "method": "GET",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 3.75,
+      "response_sha256": "1cff4b509f2ba898b5ff7dc671fe5a036859ae5229d152906d6189770734c374"
+    },
+    {
+      "label": "Review/Edit draft order 4",
+      "method": "PATCH",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1",
+      "request_json": {
+        "lines": [
+          {
+            "line_index": 0,
+            "sku": "GYP-13-2400",
+            "description": "Gipsplade standard 13mm 1200x2400",
+            "quantity": 40.0,
+            "confirmed": false
+          },
+          {
+            "line_index": 1,
+            "sku": "ISO-ROCK-100",
+            "description": "Rockwool flexibatts 100mm",
+            "quantity": 30.0,
+            "confirmed": false
+          },
+          {
+            "line_index": 2,
+            "sku": "TIM-SE-PINE45",
+            "description": "Svensk furu kärnvirke 45x195 C30 (Norrland)",
+            "quantity": 60.0,
+            "confirmed": false
+          },
+          {
+            "line_index": 3,
+            "sku": "ARM-BEAM-HEA200",
+            "description": "Stålbjælke HEA 200, 6 m - kran nødvendig",
+            "quantity": 4.0,
+            "confirmed": true
+          },
+          {
+            "line_index": 4,
+            "sku": "SCR-GIP-40",
+            "description": "Skruer til gips, ca. 40 mm",
+            "quantity": 10.0,
+            "confirmed": true
+          }
+        ],
+        "customer": "Lars Byg ApS"
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 11.42,
+      "response_sha256": "4fdc92e226cc07338d81d9ad7fc4d0a7a481f16b458d2772b986c319d6329bb8"
+    },
+    {
+      "label": "Approve order 4",
+      "method": "POST",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1/approve",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 11.37,
+      "response_sha256": "d6378e0bfc2c44de9dc4a0880a205ae04665749cdc6625f98943ff9018285ec8"
+    },
+    {
+      "label": "Plan order 4",
+      "method": "POST",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1/plan",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 23.86,
+      "response_sha256": "878255d0d33916b1f2cef3b47b38717099affc7895e05730c8aab7fb4ef7cc59"
+    },
+    {
+      "label": "Read temporary rules",
+      "method": "GET",
+      "path": "/api/rules",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 3.17,
+      "response_sha256": "261a1c1445ad72096a9abccf6c27ff58c0c43917c9fffbfc42e8afe614d2fd0d"
+    },
+    {
+      "label": "Disable cross-border in temporary rules",
+      "method": "PUT",
+      "path": "/api/rules",
+      "request_json": {
+        "version": 1,
+        "intake": {
+          "min_confidence": 0.85
+        },
+        "sourcing": {
+          "priority": [
+            "branch",
+            "domestic_dc",
+            "cross_border_dc"
+          ],
+          "allow_cross_border": true,
+          "allow_line_split": true,
+          "branch_max_distance_km": 150.0,
+          "max_shipments_per_order": 4
+        },
+        "distance": {
+          "road_factor": 1.3
+        },
+        "vehicles": [
+          {
+            "type": "small_truck",
+            "max_weight_kg": 1500.0,
+            "crane": false
+          },
+          {
+            "type": "heavy_truck",
+            "max_weight_kg": 12000.0,
+            "crane": false
+          },
+          {
+            "type": "crane_truck",
+            "max_weight_kg": 10000.0,
+            "crane": true
+          }
+        ],
+        "country_lead_time_buffer_days": {
+          "DK": 0,
+          "SE": 1,
+          "NO": 1
+        }
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 3.58,
+      "response_sha256": "f667bc4581460a250ff7483a05f4fbe5ec490def5ab1cd9b5480d3ceebe8d13e"
+    },
+    {
+      "label": "PDF re-plan cross-border disabled",
+      "method": "POST",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1/plan",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 24.45,
+      "response_sha256": "cfe31dd27d8c99ce210520769260a981f2526c27f316eee30eb0b88dbeb489e2"
+    },
+    {
+      "label": "Restore cross-border in temporary rules",
+      "method": "PUT",
+      "path": "/api/rules",
+      "request_json": {
+        "version": 1,
+        "intake": {
+          "min_confidence": 0.85
+        },
+        "sourcing": {
+          "priority": [
+            "branch",
+            "domestic_dc",
+            "cross_border_dc"
+          ],
+          "allow_cross_border": true,
+          "allow_line_split": true,
+          "branch_max_distance_km": 150.0,
+          "max_shipments_per_order": 4
+        },
+        "distance": {
+          "road_factor": 1.3
+        },
+        "vehicles": [
+          {
+            "type": "small_truck",
+            "max_weight_kg": 1500.0,
+            "crane": false
+          },
+          {
+            "type": "heavy_truck",
+            "max_weight_kg": 12000.0,
+            "crane": false
+          },
+          {
+            "type": "crane_truck",
+            "max_weight_kg": 10000.0,
+            "crane": true
+          }
+        ],
+        "country_lead_time_buffer_days": {
+          "DK": 0,
+          "SE": 1,
+          "NO": 1
+        }
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 3.06,
+      "response_sha256": "2fa017154b58585ba9e4ba4328c6f85f65d0a7a56db0d78186595f656fd03847"
+    },
+    {
+      "label": "PDF re-plan cross-border restored",
+      "method": "POST",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1/plan",
+      "request_json": {},
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 24.8,
+      "response_sha256": "b05a58fcac23297a926abd61e8b82a929de6bd255dd3e9426c6e01b8d4de2828"
+    },
+    {
+      "label": "Read earlier confirmed plan after rules change",
+      "method": "GET",
+      "path": "/api/orders/e9984fd3-0b38-4d83-b9f3-44a468e9d23e",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 4.17,
+      "response_sha256": "c2673bd3e669bfdb1a126536ae95a043b45602b5a59734f85e2a0b4699510a2f"
+    },
+    {
+      "label": "Read earlier confirmed plan after rules change",
+      "method": "GET",
+      "path": "/api/orders/3444a0e1-bfaa-43b4-853f-de58e9879026",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 3.7,
+      "response_sha256": "ea3f4293adcd8f2223e220a885d2b95edf4ad274dcdcc6ac661ab5f68a4f434a"
+    },
+    {
+      "label": "Read earlier confirmed plan after rules change",
+      "method": "GET",
+      "path": "/api/orders/0f35fab0-47cc-4551-b202-6b4671cdec40",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 3.96,
+      "response_sha256": "a467b14bd0f74f969c47cb0dfa48342a261d6d40be02206fb6ff72668a89ec97"
+    },
+    {
+      "label": "Order 4 rejects unaccepted late risk",
+      "method": "POST",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1/confirm",
+      "request_json": {},
+      "status_code": 409,
+      "expected_status": 409,
+      "duration_ms": 2.55,
+      "response_sha256": "74995f50dfb3ad4b6673d9dbaa5f97488fcfba44c6bcffe94143c3b63eb889ba",
+      "response_json": {
+        "detail": "Order 88b6fd3b-354f-424b-b36e-59079791ebf1: predicted arrival 2026-11-19 (P50) is after the requested date 2026-11-12. Send accept_late_risk=true to confirm anyway"
+      }
+    },
+    {
+      "label": "Confirm order 4",
+      "method": "POST",
+      "path": "/api/orders/88b6fd3b-354f-424b-b36e-59079791ebf1/confirm",
+      "request_json": {
+        "accept_late_risk": true
+      },
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 65.26,
+      "response_sha256": "914dcd7056ecf402b9248089a67a7a6d4a5e99c2e8107cbbbf8dee83d53059f5"
+    },
+    {
+      "label": "Stock after all confirmations",
+      "method": "GET",
+      "path": "/api/stock",
+      "request_json": null,
+      "status_code": 200,
+      "expected_status": 200,
+      "duration_ms": 18.85,
+      "response_sha256": "e6ca22d3a1a3cd2df232fac1b6d330371d40d532b605f1bda5fc1cc6b7684b58"
+    }
+  ],
+  "orders": [
+    {
+      "id": "e9984fd3-0b38-4d83-b9f3-44a468e9d23e",
+      "source": "emails/dk-odense-order.txt",
+      "customer": "Hoffmann Byg A/S",
+      "customer_phone": "+4533124578",
+      "status": "confirmed",
+      "site_id": "SITE-DK-04",
+      "requested_date": "2026-11-13",
+      "eta": {
+        "p50_date": "2026-11-18",
+        "p90_date": "2026-11-19",
+        "risk": "late"
+      },
+      "accept_late_risk": true,
+      "shipment_count": 2,
+      "reservations": [
+        {
+          "warehouse_code": "DK-BR-02",
+          "sku": "GYP-13-2400",
+          "quantity": 60.0,
+          "unit": "stk",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:46.746080"
+        },
+        {
+          "warehouse_code": "DK-BR-02",
+          "sku": "ISO-ROCK-100",
+          "quantity": 40.0,
+          "unit": "m2",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:46.746082"
+        },
+        {
+          "warehouse_code": "DK-BR-03",
+          "sku": "CEM-PORT-25",
+          "quantity": 30.0,
+          "unit": "sæk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.746083"
+        },
+        {
+          "warehouse_code": "DK-BR-03",
+          "sku": "TIM-SPRU-45145-42",
+          "quantity": 25.0,
+          "unit": "stk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.746083"
+        },
+        {
+          "warehouse_code": "DK-BR-03",
+          "sku": "FUG-ACR-300",
+          "quantity": 20.0,
+          "unit": "stk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.746083"
+        }
+      ]
+    },
+    {
+      "id": "3444a0e1-bfaa-43b4-853f-de58e9879026",
+      "source": "photos/se-handwritten-1.jpg",
+      "customer": "Skanska Sverige AB",
+      "customer_phone": "+46705551234",
+      "status": "confirmed",
+      "site_id": "SITE-SE-01",
+      "requested_date": "2026-11-12",
+      "eta": {
+        "p50_date": "2026-11-19",
+        "p90_date": "2026-11-20",
+        "risk": "late"
+      },
+      "accept_late_risk": true,
+      "shipment_count": 2,
+      "reservations": [
+        {
+          "warehouse_code": "SE-BR-01",
+          "sku": "GYP-15-FIRE",
+          "quantity": 40.0,
+          "unit": "stk",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:46.827078"
+        },
+        {
+          "warehouse_code": "SE-BR-01",
+          "sku": "ISO-GLAS-100",
+          "quantity": 50.0,
+          "unit": "m2",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:46.827080"
+        },
+        {
+          "warehouse_code": "SE-DC-01",
+          "sku": "TIM-SPRU-45145-48",
+          "quantity": 15.0,
+          "unit": "stk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.827080"
+        },
+        {
+          "warehouse_code": "SE-DC-01",
+          "sku": "SCR-GIP-40",
+          "quantity": 10.0,
+          "unit": "pk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.827081"
+        },
+        {
+          "warehouse_code": "SE-DC-01",
+          "sku": "CEM-PORT-25",
+          "quantity": 20.0,
+          "unit": "sæk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.827081"
+        }
+      ]
+    },
+    {
+      "id": "0f35fab0-47cc-4551-b202-6b4671cdec40",
+      "source": "excel/se-goteborg-materiallista.xlsx",
+      "customer": "Bygg Väst AB",
+      "customer_phone": "+46701234567",
+      "status": "confirmed",
+      "site_id": "SITE-SE-02",
+      "requested_date": null,
+      "eta": {
+        "p50_date": "2026-11-19",
+        "p90_date": "2026-11-20",
+        "risk": null
+      },
+      "accept_late_risk": false,
+      "shipment_count": 2,
+      "reservations": [
+        {
+          "warehouse_code": "SE-BR-02",
+          "sku": "GYP-15-FIRE",
+          "quantity": 40.0,
+          "unit": "stk",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:46.914171"
+        },
+        {
+          "warehouse_code": "SE-BR-02",
+          "sku": "SCR-WOOD-580",
+          "quantity": 20.0,
+          "unit": "pk",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:46.914173"
+        },
+        {
+          "warehouse_code": "SE-BR-02",
+          "sku": "SCR-GIP-40",
+          "quantity": 15.0,
+          "unit": "pk",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:46.914173"
+        },
+        {
+          "warehouse_code": "SE-DC-01",
+          "sku": "ISO-GLAS-100",
+          "quantity": 12.5,
+          "unit": "m2",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.914174"
+        },
+        {
+          "warehouse_code": "SE-DC-01",
+          "sku": "TIM-SPRU-45145-48",
+          "quantity": 25.0,
+          "unit": "stk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:46.914174"
+        }
+      ]
+    },
+    {
+      "id": "88b6fd3b-354f-424b-b36e-59079791ebf1",
+      "source": "pdf/dk-nordhavn-materialeliste.pdf",
+      "customer": "Lars Byg ApS",
+      "customer_phone": "+4531245678",
+      "status": "confirmed",
+      "site_id": "SITE-DK-01",
+      "requested_date": "2026-11-12",
+      "eta": {
+        "p50_date": "2026-11-19",
+        "p90_date": "2026-11-23",
+        "risk": "late"
+      },
+      "accept_late_risk": true,
+      "shipment_count": 3,
+      "reservations": [
+        {
+          "warehouse_code": "DK-BR-01",
+          "sku": "GYP-13-2400",
+          "quantity": 40.0,
+          "unit": "stk",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:47.105784"
+        },
+        {
+          "warehouse_code": "DK-BR-01",
+          "sku": "ISO-ROCK-100",
+          "quantity": 30.0,
+          "unit": "m2",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:47.105785"
+        },
+        {
+          "warehouse_code": "DK-BR-01",
+          "sku": "SCR-GIP-40",
+          "quantity": 10.0,
+          "unit": "pk",
+          "shipment_index": 1,
+          "created_at": "2026-11-17T15:30:47.105786"
+        },
+        {
+          "warehouse_code": "SE-DC-01",
+          "sku": "ARM-BEAM-HEA200",
+          "quantity": 4.0,
+          "unit": "stk",
+          "shipment_index": 2,
+          "created_at": "2026-11-17T15:30:47.105786"
+        },
+        {
+          "warehouse_code": "SE-DC-01",
+          "sku": "TIM-SE-PINE45",
+          "quantity": 60.0,
+          "unit": "m",
+          "shipment_index": 3,
+          "created_at": "2026-11-17T15:30:47.105787"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Current computer is not the laptop that will be taken to the pitch.",
+    "No browser/UI, camera/screen recording, shell start command, or physical network disconnection verified.",
+    "No Salesforce login/import or live CRM synchronization performed.",
+    "API timings do not measure frontend rendering or production latency."
+  ],
+  "in_process_setup_ms": 5044.68,
+  "stock_deltas": [
+    {
+      "warehouse": "DK-BR-01",
+      "sku": "GYP-13-2400",
+      "newly_reserved": 40.0,
+      "available_before": 96,
+      "available_after": 56.0,
+      "reserved_before": 6,
+      "reserved_after": 46.0
+    },
+    {
+      "warehouse": "DK-BR-01",
+      "sku": "ISO-ROCK-100",
+      "newly_reserved": 30.0,
+      "available_before": 142,
+      "available_after": 112.0,
+      "reserved_before": 7,
+      "reserved_after": 37.0
+    },
+    {
+      "warehouse": "DK-BR-01",
+      "sku": "SCR-GIP-40",
+      "newly_reserved": 10.0,
+      "available_before": 67,
+      "available_after": 57.0,
+      "reserved_before": 7,
+      "reserved_after": 17.0
+    },
+    {
+      "warehouse": "DK-BR-02",
+      "sku": "GYP-13-2400",
+      "newly_reserved": 60.0,
+      "available_before": 67,
+      "available_after": 7.0,
+      "reserved_before": 5,
+      "reserved_after": 65.0
+    },
+    {
+      "warehouse": "DK-BR-02",
+      "sku": "ISO-ROCK-100",
+      "newly_reserved": 40.0,
+      "available_before": 111,
+      "available_after": 71.0,
+      "reserved_before": 9,
+      "reserved_after": 49.0
+    },
+    {
+      "warehouse": "DK-BR-03",
+      "sku": "CEM-PORT-25",
+      "newly_reserved": 30.0,
+      "available_before": 78,
+      "available_after": 48.0,
+      "reserved_before": 9,
+      "reserved_after": 39.0
+    },
+    {
+      "warehouse": "DK-BR-03",
+      "sku": "FUG-ACR-300",
+      "newly_reserved": 20.0,
+      "available_before": 146,
+      "available_after": 126.0,
+      "reserved_before": 7,
+      "reserved_after": 27.0
+    },
+    {
+      "warehouse": "DK-BR-03",
+      "sku": "TIM-SPRU-45145-42",
+      "newly_reserved": 25.0,
+      "available_before": 60,
+      "available_after": 35.0,
+      "reserved_before": 6,
+      "reserved_after": 31.0
+    },
+    {
+      "warehouse": "SE-BR-01",
+      "sku": "GYP-15-FIRE",
+      "newly_reserved": 40.0,
+      "available_before": 149,
+      "available_after": 109.0,
+      "reserved_before": 18,
+      "reserved_after": 58.0
+    },
+    {
+      "warehouse": "SE-BR-01",
+      "sku": "ISO-GLAS-100",
+      "newly_reserved": 50.0,
+      "available_before": 103,
+      "available_after": 53.0,
+      "reserved_before": 11,
+      "reserved_after": 61.0
+    },
+    {
+      "warehouse": "SE-BR-02",
+      "sku": "GYP-15-FIRE",
+      "newly_reserved": 40.0,
+      "available_before": 141,
+      "available_after": 101.0,
+      "reserved_before": 9,
+      "reserved_after": 49.0
+    },
+    {
+      "warehouse": "SE-BR-02",
+      "sku": "SCR-GIP-40",
+      "newly_reserved": 15.0,
+      "available_before": 140,
+      "available_after": 125.0,
+      "reserved_before": 12,
+      "reserved_after": 27.0
+    },
+    {
+      "warehouse": "SE-BR-02",
+      "sku": "SCR-WOOD-580",
+      "newly_reserved": 20.0,
+      "available_before": 135,
+      "available_after": 115.0,
+      "reserved_before": 15,
+      "reserved_after": 35.0
+    },
+    {
+      "warehouse": "SE-DC-01",
+      "sku": "ARM-BEAM-HEA200",
+      "newly_reserved": 4.0,
+      "available_before": 805,
+      "available_after": 801.0,
+      "reserved_before": 45,
+      "reserved_after": 49.0
+    },
+    {
+      "warehouse": "SE-DC-01",
+      "sku": "CEM-PORT-25",
+      "newly_reserved": 20.0,
+      "available_before": 1242,
+      "available_after": 1222.0,
+      "reserved_before": 122,
+      "reserved_after": 142.0
+    },
+    {
+      "warehouse": "SE-DC-01",
+      "sku": "ISO-GLAS-100",
+      "newly_reserved": 12.5,
+      "available_before": 1139,
+      "available_after": 1126.5,
+      "reserved_before": 72,
+      "reserved_after": 84.5
+    },
+    {
+      "warehouse": "SE-DC-01",
+      "sku": "SCR-GIP-40",
+      "newly_reserved": 10.0,
+      "available_before": 626,
+      "available_after": 616.0,
+      "reserved_before": 69,
+      "reserved_after": 79.0
+    },
+    {
+      "warehouse": "SE-DC-01",
+      "sku": "TIM-SE-PINE45",
+      "newly_reserved": 60.0,
+      "available_before": 3455,
+      "available_after": 3395.0,
+      "reserved_before": 45,
+      "reserved_after": 105.0
+    },
+    {
+      "warehouse": "SE-DC-01",
+      "sku": "TIM-SPRU-45145-48",
+      "newly_reserved": 40.0,
+      "available_before": 1436,
+      "available_after": 1396.0,
+      "reserved_before": 159,
+      "reserved_after": 199.0
+    }
+  ],
+  "stock_verified": true,
+  "confirmed_orders": 4,
+  "protected_files_unchanged": true,
+  "total_duration_ms": 6016.33,
+  "result": "passed"
+}

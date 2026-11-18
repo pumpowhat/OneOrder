@@ -1,0 +1,44 @@
+[
+  {
+    "workstream": "Pilot Thụy Điển",
+    "from_month": 0,
+    "to_month": 3,
+    "kind": "se"
+  },
+  {
+    "workstream": "Go-live Thụy Điển",
+    "from_month": 3,
+    "to_month": 6,
+    "kind": "se"
+  },
+  {
+    "workstream": "Migration CRM Đan Mạch",
+    "from_month": 1,
+    "to_month": 4,
+    "kind": "crm"
+  },
+  {
+    "workstream": "Salesforce chạy ở DK",
+    "from_month": 4,
+    "to_month": 4,
+    "kind": "milestone"
+  },
+  {
+    "workstream": "Salesforce adapter",
+    "from_month": 4,
+    "to_month": 6,
+    "kind": "crm"
+  },
+  {
+    "workstream": "Go-live DK trên Salesforce",
+    "from_month": 6,
+    "to_month": 12,
+    "kind": "crm"
+  },
+  {
+    "workstream": "Na Uy",
+    "from_month": null,
+    "to_month": null,
+    "kind": "deferred"
+  }
+]
