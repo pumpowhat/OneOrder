@@ -10,7 +10,7 @@ from openpyxl import load_workbook
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from backend.db import OrderModel, get_db, order_model_to_dict, record_audit_log
+from backend.db import OrderModel, crm_sync_dict, get_db, order_model_to_dict, record_audit_log
 from backend.erp import get_group_inventory
 from backend.erp.mock_erp import ReservationRejected, reserve_for_order
 from backend.erp.reservations import apply_reservations
@@ -22,6 +22,7 @@ from backend.services.orders.phone import normalize_phone
 from backend.crm import CrmError, CrmRegistry, get_crm_registry
 from backend.crm.matching import is_ambiguous
 from backend.services.orders.crm_link import unlink_if_customer_changed
+from backend.services.orders.crm_sync import RETRYABLE, retry_sync, start_sync
 from backend.services.orders.schemas import DraftOrderInput
 from backend.services.orders.drafts import catalog_items, update_draft
 from backend.services.orchestration import (
@@ -210,6 +211,7 @@ def confirm_order(
     order_id: str,
     payload: ConfirmOrderRequest = Body(default_factory=ConfirmOrderRequest),
     db: Session = Depends(get_db),
+    crm: CrmRegistry = Depends(get_crm_registry),
 ) -> dict:
     """Reserve the planned stock in the (mock) ERPs and mark the order `confirmed`. Final.
 
@@ -219,6 +221,8 @@ def confirm_order(
     - 409 plan has shortages (unless `allow_partial`) or its ETA is `late` (unless `accept_late_risk`);
     - 409 stock was taken by another order since planning (plan again);
     - 503 stock data unavailable.
+    After the commit the order is written to the CRM of the delivery country (see `crm_sync` in the reply);
+    a CRM failure never fails the confirmation.
     """
     order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
     if not order:
@@ -276,8 +280,44 @@ def confirm_order(
         },
     )
     db.commit()
+
+    # The order is confirmed and its stock reserved, whatever the CRM does next: a CRM failure only leaves
+    # crm_sync pending or failed, to be retried, and is never turned into an error of this request.
+    try:
+        start_sync(db, order, crm, payload.user)
+        db.commit()
+    except Exception:  # noqa: BLE001 - even a bug in the CRM step must not hide a committed confirmation
+        db.rollback()
+        logger.exception("CRM sync could not start for confirmed order %s", order_id)
     db.refresh(order)
     return order_model_to_dict(order)
+
+
+class RetryCrmSyncRequest(BaseModel):
+    user: str = "sales_desk"
+
+
+@router.post("/{order_id}/crm-sync/retry")
+def retry_crm_sync(
+    order_id: str,
+    payload: RetryCrmSyncRequest = Body(default_factory=RetryCrmSyncRequest),
+    db: Session = Depends(get_db),
+    crm: CrmRegistry = Depends(get_crm_registry),
+) -> dict | None:
+    """Try the CRM write again now, for a `pending` or `failed` sync. Returns the new `crm_sync` block.
+
+    409 when there is nothing to retry: the order is not confirmed yet, already synced, or not for a CRM.
+    """
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+    if order.crm_sync_status not in RETRYABLE:
+        state = order.crm_sync_status or f"order is {order.status}"
+        raise HTTPException(status_code=409, detail=f"Order {order_id}: CRM sync cannot be retried ({state})")
+    retry_sync(db, order, crm, payload.user)
+    db.commit()
+    db.refresh(order)
+    return crm_sync_dict(order)
 
 
 class CancelOrderRequest(BaseModel):
@@ -598,6 +638,7 @@ def _order_summary(order: OrderModel) -> dict:
         "p50_date": order_eta["p50_date"] if order_eta else None,
         "p90_date": order_eta["p90_date"] if order_eta else None,
         "risk": order_eta["risk"] if order_eta else None,
+        "crm_sync_status": order.crm_sync_status,
     }
 
 

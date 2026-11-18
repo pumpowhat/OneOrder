@@ -33,6 +33,14 @@ class OrderModel(Base):
     customer_phone = Column(String(64), nullable=True)  # required at approval, not at draft intake
     crm_account_id = Column(String(18), nullable=True)  # CRM customer a person linked at review (Salesforce Account)
     crm_contact_id = Column(String(18), nullable=True)  # optional contact person on that account
+    # CRM sync of a confirmed order (backend/services/orders/crm_sync.py); all null until /confirm
+    crm_sync_status = Column(String(20), nullable=True)  # synced | pending | failed | not_applicable
+    crm_sync_reason = Column(String(20), nullable=True)  # crm_disabled | no_account, when not_applicable
+    crm_record_id = Column(String(18), nullable=True)  # the CRM's id for the order (Salesforce Order)
+    crm_sync_error = Column(Text, nullable=True)
+    crm_sync_attempts = Column(Integer, nullable=True)
+    crm_sync_last_at = Column(DateTime, nullable=True)
+    crm_sync_next_at = Column(DateTime, nullable=True)  # when the worker tries a pending sync again
     delivery_site = Column(String(255), nullable=True)
     requested_date = Column(String(20), nullable=True)
     warnings = Column(Text, nullable=True)
@@ -137,6 +145,17 @@ def _ensure_columns(target_engine) -> None:
             conn.execute(text("ALTER TABLE orders ADD COLUMN crm_account_id VARCHAR(18)"))
         if "crm_contact_id" not in existing:
             conn.execute(text("ALTER TABLE orders ADD COLUMN crm_contact_id VARCHAR(18)"))
+        for name, sql_type in (
+            ("crm_sync_status", "VARCHAR(20)"),
+            ("crm_sync_reason", "VARCHAR(20)"),
+            ("crm_record_id", "VARCHAR(18)"),
+            ("crm_sync_error", "TEXT"),
+            ("crm_sync_attempts", "INTEGER"),
+            ("crm_sync_last_at", "DATETIME"),
+            ("crm_sync_next_at", "DATETIME"),
+        ):
+            if name not in existing:
+                conn.execute(text(f"ALTER TABLE orders ADD COLUMN {name} {sql_type}"))
 
 
 def init_db(target_engine=None) -> None:
@@ -237,6 +256,27 @@ def save_draft_order(
     return db_order
 
 
+def _iso(value: datetime | None) -> str | None:
+    if value is None:
+        return None
+    return (value if value.tzinfo else value.replace(tzinfo=timezone.utc)).isoformat()
+
+
+def crm_sync_dict(model: OrderModel) -> dict | None:
+    """The order's CRM sync state for the API; null before the order is confirmed."""
+    if not model.crm_sync_status:
+        return None
+    return {
+        "status": model.crm_sync_status,
+        "reason": model.crm_sync_reason,
+        "crm_record_id": model.crm_record_id,
+        "last_error": model.crm_sync_error,
+        "attempts": model.crm_sync_attempts or 0,
+        "last_attempt_at": _iso(model.crm_sync_last_at),
+        "next_attempt_at": _iso(model.crm_sync_next_at),
+    }
+
+
 def order_model_to_dict(model: OrderModel) -> dict:
     """Convert an OrderModel and its lines/audit logs into a serializable dict."""
     lines = []
@@ -306,6 +346,7 @@ def order_model_to_dict(model: OrderModel) -> dict:
         "customer_phone": model.customer_phone,
         "crm_account_id": model.crm_account_id,
         "crm_contact_id": model.crm_contact_id,
+        "crm_sync": crm_sync_dict(model),
         "delivery_site": model.delivery_site,
         "requested_date": model.requested_date,
         "lines": lines,
