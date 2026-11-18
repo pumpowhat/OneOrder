@@ -234,21 +234,35 @@ def test_salesforce_requires_configuration():
 def test_salesforce_search_merges_accounts_and_contacts():
     fake = FakeSalesforce()
     fake.queue(
-        "GET /services/data/v62.0/search",
-        httpx.Response(200, json={"searchRecords": [
+        "GET /services/data/v62.0/query",
+        httpx.Response(200, json={"records": []}),  # no Account has the number itself
+        httpx.Response(200, json={"records": [
             {"attributes": {"type": "Contact"}, "Id": "003L", "Name": "Lars Nielsen", "Phone": "+45 31 24 56 78",
              "AccountId": "001C", "Account": {"Name": "Lars Byg ApS", "Phone": "+45 70 20 31 31", "ShippingCity": "København"}},
         ]}),
+    )
+    fake.queue(
+        "GET /services/data/v62.0/search",
         httpx.Response(200, json={"searchRecords": [
             {"attributes": {"type": "Account"}, "Id": "001C", "Name": "Lars Byg ApS", "Phone": "+45 70 20 31 31"},
         ]}),
     )
     [hit] = _sf(fake).find_customers("Lars Byg", "+45 31 24 56 78")
     assert (hit.crm_account_id, hit.crm_contact_id, hit.city, hit.matched_on) == ("001C", "003L", "København", "phone")
-    searches = [c for c in fake.calls if c.url.path.endswith("/search/")]
-    assert "IN PHONE FIELDS" in searches[0].url.params["q"] and "31245678" in searches[0].url.params["q"]
-    assert "IN NAME FIELDS" in searches[1].url.params["q"]
-    assert searches[0].headers["Authorization"] == "Bearer tok1"
+    account_q, contact_q = [c.url.params["q"] for c in fake.calls if c.url.path.endswith("/query/")]
+    assert "FROM Account WHERE Phone LIKE '%3%1%2%4%5%6%7%8'" in account_q
+    assert "FROM Contact" in contact_q and "MobilePhone LIKE '%3%1%2%4%5%6%7%8'" in contact_q
+    [name_search] = [c for c in fake.calls if c.url.path.endswith("/search/")]
+    assert "IN NAME FIELDS" in name_search.url.params["q"]
+    assert name_search.headers["Authorization"] == "Bearer tok1"
+
+
+def test_phone_pattern_uses_digits_only():
+    from backend.crm.salesforce import phone_like_pattern
+
+    assert phone_like_pattern("4533124578") == "%3%3%1%2%4%5%7%8"
+    assert phone_like_pattern("1234567") == "%1%2%3%4%5%6%7"
+    assert phone_like_pattern("45' OR Name != '1234") == "%4%5%1%2%3%4"  # nothing but digits reaches the query
 
 
 def test_salesforce_logs_in_again_when_the_session_expires():

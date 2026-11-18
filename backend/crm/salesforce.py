@@ -16,12 +16,26 @@ from .matching import MIN_PHONE_DIGITS, phone_digits, rank_accounts
 DEFAULT_API_VERSION = "62.0"
 DEFAULT_EXTERNAL_ID_FIELD = "OneOrder_Id__c"
 SEARCH_LIMIT = 20
+PHONE_PATTERN_DIGITS = 8  # the national part of a Danish / Norwegian number; long enough to keep the result small
+ACCOUNT_FIELDS = "Id, Name, Phone, BillingCity, ShippingCity"
+CONTACT_FIELDS = (
+    "Id, Name, Phone, MobilePhone, Email, AccountId, Account.Name, Account.Phone, Account.BillingCity, Account.ShippingCity"
+)
 # characters SOSL treats as operators; escaped so a customer name cannot change the query
 _SOSL_RESERVED = re.compile(r"""([?&|!{}\[\]()^~*:\\"'+\-])""")
 
 
 def sosl_escape(term: str) -> str:
     return _SOSL_RESERVED.sub(r"\\\1", term.strip())
+
+
+def phone_like_pattern(digits: str) -> str:
+    """SOQL LIKE pattern for a number stored with any separators: "4533124578" -> "%3%3%1%2%4%5%7%8".
+
+    Anchored at the end (no trailing %), so the stored number must end with these digits. Built from digits
+    only, so nothing from the order can break out of the quoted string."""
+    tail = re.sub(r"\D", "", digits)[-PHONE_PATTERN_DIGITS:]
+    return "%" + "%".join(tail)
 
 
 class SalesforceDirectory:
@@ -110,10 +124,20 @@ class SalesforceDirectory:
         accounts: dict[str, CrmAccount] = {}
         digits = phone_digits(phone)
         if len(digits) >= MIN_PHONE_DIGITS:
-            # search the national part too, so "+45 33 12 45 78" also finds an account stored as "33 12 45 78"
-            self._search(f"FIND {{{digits[-8:]}}} IN PHONE FIELDS RETURNING {self._returning(contacts=True)}", accounts)
+            # SOQL, not SOSL: tested on a Developer org (Nov 2026), SOSL "IN PHONE FIELDS" found no number in any
+            # format, while LIKE finds it at once. The pattern only narrows the search; phones_match decides.
+            pattern = phone_like_pattern(digits)
+            self._ingest(self._query(f"SELECT {ACCOUNT_FIELDS} FROM Account WHERE Phone LIKE '{pattern}' LIMIT {SEARCH_LIMIT}"), accounts)
+            self._ingest(
+                self._query(
+                    f"SELECT {CONTACT_FIELDS} FROM Contact WHERE AccountId != null "
+                    f"AND (Phone LIKE '{pattern}' OR MobilePhone LIKE '{pattern}') LIMIT {SEARCH_LIMIT}"
+                ),
+                accounts,
+            )
         if name and len(name.strip()) >= 2:
-            self._search(f"FIND {{{sosl_escape(name)}}} IN NAME FIELDS RETURNING {self._returning()}", accounts)
+            sosl = f"FIND {{{sosl_escape(name)}}} IN NAME FIELDS RETURNING Account({ACCOUNT_FIELDS} LIMIT {SEARCH_LIMIT})"
+            self._ingest(self._request("GET", "/search/", params={"q": sosl}).json().get("searchRecords", []), accounts)
         return rank_accounts(accounts.values(), name, phone, limit)
 
     def push_order(self, order: CrmOrder) -> str:
@@ -136,19 +160,11 @@ class SalesforceDirectory:
 
     # --- helpers -----------------------------------------------------------------------------------
 
-    @staticmethod
-    def _returning(contacts: bool = False) -> str:
-        account = f"Account(Id, Name, Phone, BillingCity, ShippingCity LIMIT {SEARCH_LIMIT})"
-        if not contacts:
-            return account
-        contact = (
-            "Contact(Id, Name, Phone, MobilePhone, Email, AccountId, Account.Name, Account.Phone, "
-            f"Account.BillingCity, Account.ShippingCity LIMIT {SEARCH_LIMIT})"
-        )
-        return f"{account}, {contact}"
+    def _query(self, soql: str) -> list[dict]:
+        return self._request("GET", "/query/", params={"q": soql}).json().get("records", [])
 
-    def _search(self, sosl: str, accounts: dict[str, CrmAccount]) -> None:
-        records = self._request("GET", "/search/", params={"q": sosl}).json().get("searchRecords", [])
+    def _ingest(self, records: list[dict], accounts: dict[str, CrmAccount]) -> None:
+        """Add Account and Contact records (from SOQL or SOSL) to ``accounts``, attaching contacts to their account."""
         contacts: dict[str, list[CrmContact]] = {}
         for rec in records:
             kind = rec.get("attributes", {}).get("type")

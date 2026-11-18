@@ -62,9 +62,9 @@ directory.failures = [CrmTransientError("timeout")]
    SF_CLIENT_SECRET=...
    ```
 
-Ở chế độ live, adapter tìm khách bằng SOSL: tìm theo 8 chữ số cuối của số điện thoại trong các trường phone, và theo tên trong các trường name. Sau đó điểm vẫn được chấm lại bằng `backend/crm/matching.py`.
+Ở chế độ live, adapter tìm theo số điện thoại bằng **SOQL `LIKE`** trên `Account.Phone`, `Contact.Phone` và `Contact.MobilePhone`. Mẫu tìm là 8 chữ số cuối, cho phép ký tự phân cách giữa các chữ số (`%3%3%1%2%4%5%7%8`). Tìm theo tên thì dùng SOSL trên các trường name. Sau đó điểm vẫn được chấm lại bằng `backend/crm/matching.py`.
 
-**Cần chạy thử trên org thật** để xác nhận cách Salesforce tìm theo số điện thoại ở các định dạng khác nhau.
+Đã chạy thử trên Developer org ngày 18/11/2026: SOSL `IN PHONE FIELDS` không tìm ra số nào, dù viết theo định dạng nào, nên phần tìm theo số dùng SOQL. Mẫu `LIKE` có ký tự đại diện ở đầu sẽ quét toàn bảng; với org nhiều khách hàng cần đánh giá lại hiệu năng.
 
 ## Xử lý lỗi
 
