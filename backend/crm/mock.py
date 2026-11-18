@@ -6,7 +6,6 @@ so one file seeds both the Developer org and this mock. Ids are generated in Sal
 """
 
 import csv
-import os
 from pathlib import Path
 
 from .base import CrmAccount, CrmContact, CrmError, CrmOrder, CrmPermanentError, CrmTransientError, CustomerCandidate
