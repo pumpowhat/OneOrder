@@ -2,7 +2,7 @@
 
 Chuẩn bị ngày **17/11/2026**. Có **18 Business Accounts và 18 Contacts**, gồm 4 khách bắt buộc và 14 khách bổ sung. Tên của 4 khách bắt buộc và 2 biến thể Hoffmann/Hofmann được giữ theo đề bài; mọi bản ghi trong bộ này chỉ là dữ liệu demo. Các công ty bổ sung được đặt tên cho kịch bản, không lấy thông tin từ danh bạ doanh nghiệp; đường phố và người liên hệ đều được tự tạo. Email dùng miền `example.invalid`; không gửi email hoặc gọi các số demo.
 
-**Trạng thái:** CSV đã chuẩn bị; **chưa nạp vào Salesforce, chưa xác minh tìm kiếm và chưa có ảnh chụp kết quả**. Cần Developer org của Nghĩa để thực hiện các bước bên dưới. Không đưa tài khoản, mật khẩu, token hoặc cookie vào repo/PR.
+**Trạng thái (18/11/2026):** đã nạp 18 Account và 18 Contact vào Salesforce Developer org của nhóm qua REST API (`/composite/sobjects`, Contact nối Account theo tên). Mỗi bản ghi có `Description` là "OneOrder Round 3 demo data (samples/crm)" để nhận biết. **33/33 ca trong `tests/fixtures/customer_match_cases.json` đều đạt khi chạy với org thật.** Còn thiếu: ảnh chụp màn hình kết quả nạp và kết quả tìm kiếm trong Salesforce. Không đưa tài khoản, mật khẩu, token hoặc cookie vào repo/PR.
 
 ## Mỗi khách dùng để demo gì?
 
