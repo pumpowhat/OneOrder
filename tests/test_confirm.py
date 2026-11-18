@@ -1,6 +1,7 @@
 """POST /api/orders/{id}/confirm: reservations, guards, atomicity and the effect on later plans."""
 
 from dataclasses import replace
+from datetime import date, timedelta
 from pathlib import Path
 import re
 
@@ -44,11 +45,19 @@ def client(session_factory):
     app.dependency_overrides.clear()
 
 
-def make_order(client, text: str | None = None, name="dk_order.txt", approve=True, plan=True) -> dict:
+def make_order(client, text: str | None = None, name="dk_order.txt", approve=True, plan=True, *, keep_requested_date=False) -> dict:
     data = (text or (SAMPLES_DIR / "emails" / name).read_text(encoding="utf-8")).encode("utf-8")
     res = client.post("/api/intake", files={"file": (name, data, "text/plain")})
     assert res.status_code == 200, res.text
     order = res.json()
+    if not keep_requested_date:
+        # Confirmation tests exercise reservations, not the ageing date in a recorded AI response.
+        res = client.patch(
+            f"/api/orders/{order['id']}",
+            json={"requested_date": (date.today() + timedelta(days=30)).isoformat()},
+        )
+        assert res.status_code == 200, res.text
+        order = res.json()
     if approve:
         corrections = [
             {"line_index": i, "sku": line["matched_sku"] or "GYP-13-2400", "confirmed": True}
@@ -123,7 +132,7 @@ def test_shortage_blocks_confirm_unless_allow_partial(client, monkeypatch):
 
 def test_late_eta_blocks_confirm_unless_accepted(client):
     text = re.sub(r"20\d\d-\d\d-\d\d", "2020-01-01", (SAMPLES_DIR / "emails" / "dk_order.txt").read_text(encoding="utf-8"))
-    order = make_order(client, text=text)
+    order = make_order(client, text=text, keep_requested_date=True)
     stored = client.get(f"/api/orders/{order['id']}").json()
     assert stored["requested_date"] == "2020-01-01"
     assert stored["plan"]["order_eta"]["risk"] == "late"

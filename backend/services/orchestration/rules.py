@@ -4,6 +4,8 @@ from functools import lru_cache
 import json
 import os
 from pathlib import Path
+import re
+from typing import Literal
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 
@@ -12,6 +14,7 @@ DEFAULT_RULES_FILE = REPO_ROOT / "data" / "rules.json"
 RULES_PATH_ENV = "RULES_PATH"
 
 TIERS = ("branch", "domestic_dc", "cross_border_dc")
+CrmSystem = Literal["salesforce", "none"]
 
 
 class IntakeRules(BaseModel):
@@ -55,6 +58,17 @@ class Rules(BaseModel):
     distance: DistanceRules = Field(default_factory=DistanceRules)
     vehicles: list[VehicleRule]
     country_lead_time_buffer_days: dict[str, int] = Field(default_factory=dict)
+    # CRM per country (ISO code). A country left out has no CRM: customers are typed in, nothing is synced.
+    crm: dict[str, CrmSystem] = Field(default_factory=dict)
+
+    @field_validator("crm")
+    @classmethod
+    def _crm_countries(cls, value: dict[str, str]) -> dict[str, str]:
+        normalized = {code.strip().upper(): system for code, system in value.items()}
+        bad = [code for code in normalized if not re.fullmatch(r"[A-Z]{2}", code)]
+        if bad:
+            raise ValueError(f"CRM country codes must be two letters, e.g. DK: {bad}")
+        return normalized
 
     @model_validator(mode="after")
     def _vehicle_fleet(self) -> "Rules":
