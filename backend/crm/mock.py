@@ -8,11 +8,27 @@ so one file seeds both the Developer org and this mock. Ids are generated in Sal
 import csv
 from pathlib import Path
 
-from .base import CrmAccount, CrmContact, CrmError, CrmOrder, CustomerCandidate
+from .base import CrmAccount, CrmContact, CrmError, CrmOrder, CrmPermanentError, CrmTransientError, CustomerCandidate
 from .matching import rank_accounts
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MOCK_DIR = REPO_ROOT / "samples" / "crm"
+
+# Simulated outages for demos, set by CRM_MOCK_FAIL (comma-separated) or PUT /api/crm/mock-failure:
+#   search    - customer lookup at review fails (the UI shows the error and the clerk types the customer)
+#   transient - writing an order times out: crm_sync goes "pending" and is retried automatically
+#   permanent - Salesforce rejects the order: crm_sync goes "failed" until someone retries
+FAIL_MODES = ("search", "transient", "permanent")
+
+
+def parse_fail_modes(value: str | None) -> set[str]:
+    modes = {m.strip().lower() for m in (value or "").split(",") if m.strip()}
+    unknown = modes - set(FAIL_MODES)
+    if unknown:
+        raise ValueError(f"Unknown CRM_MOCK_FAIL mode(s) {sorted(unknown)}; use any of {list(FAIL_MODES)}")
+    if {"transient", "permanent"} <= modes:
+        raise ValueError("CRM_MOCK_FAIL cannot be both transient and permanent")
+    return modes
 
 
 def _sf_id(prefix: str, n: int) -> str:
@@ -31,8 +47,9 @@ class MockSalesforceDirectory:
         self.country = country
         self.accounts = accounts
         self.orders: dict[str, dict] = {}  # OneOrder order id -> what was written, with its "Id"
-        # Errors raised by the next push_order calls, first one first: lets tests and demos show a CRM outage.
+        # Errors raised by the next push_order calls, first one first: lets tests show a CRM outage.
         self.failures: list[CrmError] = []
+        self.fail_modes: set[str] = set()  # a lasting simulated outage (FAIL_MODES), for demos
 
     @classmethod
     def from_csv(cls, directory: str | Path = DEFAULT_MOCK_DIR, country: str = "DK") -> "MockSalesforceDirectory":
@@ -74,11 +91,17 @@ class MockSalesforceDirectory:
         return cls(accounts, country=country)
 
     def find_customers(self, name: str | None, phone: str | None, limit: int = 5) -> list[CustomerCandidate]:
+        if "search" in self.fail_modes:
+            raise CrmTransientError("Simulated Salesforce outage (CRM_MOCK_FAIL=search)")
         return rank_accounts(self.accounts, name, phone, limit)
 
     def push_order(self, order: CrmOrder) -> str:
         if self.failures:
             raise self.failures.pop(0)
+        if "transient" in self.fail_modes:
+            raise CrmTransientError("Simulated Salesforce timeout (CRM_MOCK_FAIL=transient)")
+        if "permanent" in self.fail_modes:
+            raise CrmPermanentError("Simulated rejection: INVALID_CROSS_REFERENCE_KEY (CRM_MOCK_FAIL=permanent)")
         existing = self.orders.get(order.order_id)
         record_id = existing["Id"] if existing else _sf_id("801", len(self.orders) + 1)
         self.orders[order.order_id] = {
