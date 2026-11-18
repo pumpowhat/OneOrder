@@ -6,6 +6,7 @@ mock and Salesforce suggest the same customers for the same data.
 
 from collections.abc import Iterable
 import re
+import unicodedata
 
 from rapidfuzz import fuzz
 
@@ -81,7 +82,27 @@ def rank_accounts(
             )
         if candidate and (account.account_id not in best or candidate.score > best[account.account_id].score):
             best[account.account_id] = candidate
-    return sorted(best.values(), key=lambda c: (-c.score, c.name))[:limit]
+    # Ties: the exact legal name wins ("Hoffmann Byg ApS" over "Hoffmann Byg A/S" when ApS was asked for), then the
+    # spelling without Nordic transliteration ("Byg Vast" is "Bygg Väst" rather than "Bygg Vaest").
+    full, folded = normalize_text(name or ""), _fold(name)
+    return sorted(
+        best.values(),
+        key=lambda c: (-c.score, -fuzz.ratio(full, normalize_text(c.name)), -fuzz.ratio(folded, _fold(c.name)), c.name),
+    )[:limit]
+
+
+def _fold(text: str | None) -> str:
+    """Lowercase without accents and without transliteration: "Väst" -> "vast", "Søndergade" -> "søndergade"."""
+    decomposed = unicodedata.normalize("NFKD", (text or "").lower())
+    return " ".join("".join(ch for ch in decomposed if not unicodedata.combining(ch)).split())
+
+
+def is_ambiguous(candidates: list[CustomerCandidate]) -> bool:
+    """True unless exactly one customer matches the phone number.
+
+    A name-only match is never certain (two legal entities can share a name), and a phone shared by several
+    accounts does not say which one ordered. The person still picks either way; this only says how carefully."""
+    return sum(1 for c in candidates if c.matched_on == "phone") != 1
 
 
 def _candidate(

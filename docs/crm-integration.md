@@ -76,3 +76,20 @@ directory.failures = [CrmTransientError("timeout")]
 | HTTP 400, 403, 404 | `CrmPermanentError` (kèm `errorCode`) | Dữ liệu hoặc cấu hình sai, thử lại cũng không được |
 
 Khi Confirm, CRM lỗi không được chặn việc xác nhận đơn: đơn vẫn chuyển sang `confirmed`, còn phần đồng bộ được xử lý riêng (task D4).
+
+## API cho bước Review (E1)
+
+| Endpoint | Mô tả |
+| --- | --- |
+| `GET /api/orders/{id}/customer-candidates?name=&phone=` | Gợi ý khách từ mọi nước đang bật CRM. Bỏ trống `name`/`phone` thì dùng giá trị đang lưu trên đơn. Trả `{crm, countries, candidates, ambiguous, error}`. |
+| `PATCH /api/orders/{id}` có `crm_account_id`, `crm_contact_id` | Liên kết khách đã chọn, hoặc gửi `null` để bỏ liên kết. ID phải đúng dạng Salesforce (15 hoặc 18 ký tự). Gửi Contact mà không có Account thì trả 422. |
+
+- `crm == "none"`: không nước nào bật CRM. Giao diện ẩn toàn bộ phần CRM.
+- `ambiguous == false` chỉ khi có **đúng một** khách khớp số điện thoại. Chỉ khớp theo tên, hoặc nhiều khách dùng chung một số, thì là `true` để giao diện nhắc nhân viên kiểm tra kỹ.
+- `error`: CRM lỗi thì endpoint vẫn trả 200, kèm lý do ở đây. Nhân viên nhập tay khách như bình thường.
+
+**Khi nào liên kết bị bỏ tự động** (khi `PATCH` hoặc duyệt đơn mà không chọn lại khách):
+- Tên khách đổi. Đổi chữ hoa/thường hay khoảng trắng không tính. Đổi hậu tố pháp nhân thì có tính, vì "A/S" và "ApS" là hai pháp nhân khác nhau.
+- Số điện thoại đổi sang một số khác. Chỉ đổi định dạng (`+45 33 12 45 78` thành `+4533124578`) thì không tính.
+
+Mỗi lần liên kết hoặc bỏ liên kết đều ghi audit log với action `link_crm_account` hoặc `unlink_crm_account`, kèm ID trước và sau.

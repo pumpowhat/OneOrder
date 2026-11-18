@@ -5,7 +5,7 @@ import logging
 import math
 import uuid
 
-from fastapi import APIRouter, Body, Depends, HTTPException, Response
+from fastapi import APIRouter, Body, Depends, HTTPException, Query, Response
 from openpyxl import load_workbook
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
@@ -19,6 +19,9 @@ from backend.services.intake.schemas import line_needs_review
 from backend.services.matching import load_catalog
 from backend.services.orders import InvalidTransition, OrderStatus, require_transition
 from backend.services.orders.phone import normalize_phone
+from backend.crm import CrmError, CrmRegistry, get_crm_registry
+from backend.crm.matching import is_ambiguous
+from backend.services.orders.crm_link import unlink_if_customer_changed
 from backend.services.orders.schemas import DraftOrderInput
 from backend.services.orders.drafts import catalog_items, update_draft
 from backend.services.orchestration import (
@@ -322,6 +325,49 @@ def get_order(order_id: str, db: Session = Depends(get_db)) -> dict:
     return order_model_to_dict(order)
 
 
+@router.get("/{order_id}/customer-candidates")
+def customer_candidates(
+    order_id: str,
+    name: str | None = Query(default=None, max_length=255, description="Search this name instead of the order's"),
+    phone: str | None = Query(default=None, max_length=64, description="Search this phone instead of the order's"),
+    db: Session = Depends(get_db),
+    crm: CrmRegistry = Depends(get_crm_registry),
+) -> dict:
+    """CRM customers that may be the one on this order, best first, for a person to pick at review.
+
+    Searches every country whose CRM is enabled in rules.json, so it works before the delivery site is known;
+    each candidate names its country. ``crm == "none"`` means no country has a CRM: the UI hides the CRM part.
+    ``ambiguous`` is false only when exactly one customer matches the phone. A CRM that fails does not fail the
+    request: ``error`` says why and the clerk types the customer in.
+    """
+    order = db.query(OrderModel).filter(OrderModel.id == order_id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail=f"Order {order_id} not found")
+    countries = crm.enabled_countries()
+    if not countries:
+        return {"crm": "none", "countries": [], "candidates": [], "ambiguous": False, "error": None}
+
+    search_name = order.customer if name is None else name
+    search_phone = order.customer_phone if phone is None else phone
+    found, errors = [], []
+    for country in countries:
+        try:
+            found.extend(crm.for_country(country).find_customers(search_name, search_phone))
+        except CrmError as exc:
+            logger.warning("CRM lookup failed for %s (%s): %s", order_id, country, exc)
+            errors.append(f"{country}: {exc}")
+    found.sort(key=lambda c: -c.score)  # each country's list is already ranked; stable sort keeps that order on ties
+    candidates = found[:5]
+    systems = {crm.system_for(c) for c in countries}
+    return {
+        "crm": systems.pop() if len(systems) == 1 else "multiple",
+        "countries": countries,
+        "candidates": [c.to_dict() for c in candidates],
+        "ambiguous": is_ambiguous(candidates),
+        "error": "; ".join(errors) or None,
+    }
+
+
 @router.post("/{order_id}/approve")
 def approve_order(
     order_id: str,
@@ -477,6 +523,7 @@ def approve_order(
     except ValueError as exc:
         raise HTTPException(status_code=409, detail=f"Cannot approve order {order_id}: {exc}") from exc
 
+    old_customer, old_phone = order.customer, order.customer_phone
     if customer_phone != order.customer_phone:
         record_audit_log(
             db,
@@ -499,6 +546,9 @@ def approve_order(
             payload_after={"customer": customer_name},
         )
         order.customer = customer_name
+
+    # A different customer typed at approval no longer matches the CRM account picked earlier
+    unlink_if_customer_changed(db, order, old_customer, old_phone, payload.user)
 
     # Mark order as approved
     before_status = order.status

@@ -31,6 +31,8 @@ class OrderModel(Base):
     source_name = Column(String(255), nullable=True)
     customer = Column(String(255), nullable=True)
     customer_phone = Column(String(64), nullable=True)  # required at approval, not at draft intake
+    crm_account_id = Column(String(18), nullable=True)  # CRM customer a person linked at review (Salesforce Account)
+    crm_contact_id = Column(String(18), nullable=True)  # optional contact person on that account
     delivery_site = Column(String(255), nullable=True)
     requested_date = Column(String(20), nullable=True)
     warnings = Column(Text, nullable=True)
@@ -131,6 +133,10 @@ def _ensure_columns(target_engine) -> None:
             conn.execute(text("ALTER TABLE orders ADD COLUMN source_content BLOB"))
         if "source_mime" not in existing:
             conn.execute(text("ALTER TABLE orders ADD COLUMN source_mime VARCHAR(100)"))
+        if "crm_account_id" not in existing:
+            conn.execute(text("ALTER TABLE orders ADD COLUMN crm_account_id VARCHAR(18)"))
+        if "crm_contact_id" not in existing:
+            conn.execute(text("ALTER TABLE orders ADD COLUMN crm_contact_id VARCHAR(18)"))
 
 
 def init_db(target_engine=None) -> None:
@@ -298,6 +304,8 @@ def order_model_to_dict(model: OrderModel) -> dict:
         "source_name": model.source_name,
         "customer": model.customer,
         "customer_phone": model.customer_phone,
+        "crm_account_id": model.crm_account_id,
+        "crm_contact_id": model.crm_contact_id,
         "delivery_site": model.delivery_site,
         "requested_date": model.requested_date,
         "lines": lines,
