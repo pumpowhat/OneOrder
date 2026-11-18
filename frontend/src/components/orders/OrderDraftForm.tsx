@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { CustomerCandidates } from "./CustomerCandidates.tsx";
 import { useApi } from "../../hooks/useApi.ts";
 import { listCatalog } from "../../api/orders.ts";
-import type { DraftOrderInput, Order } from "../../types/api.ts";
+import type { CrmCustomerLink, DraftOrderInput, Order } from "../../types/api.ts";
 import { useI18n } from "../../i18n/useI18n.ts";
 import { errorMessage } from "../../lib/errors.ts";
 import { Button } from "../ui/Button.tsx";
@@ -9,6 +10,8 @@ import { PhoneInput } from "../ui/PhoneInput.tsx";
 
 const input =
   "w-full min-w-0 h-10 rounded-md border border-line-strong bg-surface px-3 text-sm text-ink focus-visible:outline-2 focus-visible:outline-[var(--brand)]";
+const NO_CRM_LINK: CrmCustomerLink = { crm_account_id: null, crm_contact_id: null };
+
 type Row = {
   key: string;
   line_index?: number;
@@ -24,11 +27,17 @@ export function OrderDraftForm({
   onCancel,
 }: {
   order?: Order;
-  onSave: (payload: DraftOrderInput) => Promise<unknown>;
+  onSave: (payload: DraftOrderInput & Partial<CrmCustomerLink>) => Promise<unknown>;
   onCancel?: () => void;
 }) {
   const { t } = useI18n();
   const catalog = useApi((signal) => listCatalog(signal), []);
+  const customerInput = useRef<HTMLInputElement>(null);
+  const [linkChange, setLinkChange] = useState<CrmCustomerLink>();
+  const crmLink = linkChange ?? {
+    crm_account_id: order?.crm_account_id ?? null,
+    crm_contact_id: order?.crm_contact_id ?? null,
+  };
   const [customer, setCustomer] = useState(order?.customer ?? "");
   const [phone, setPhone] = useState(order?.customer_phone ?? "");
   const [site, setSite] = useState(order?.delivery_site ?? "");
@@ -46,6 +55,10 @@ export function OrderDraftForm({
   );
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
+  const clearCrmLink = () => {
+    if (crmLink.crm_account_id || crmLink.crm_contact_id) setLinkChange(NO_CRM_LINK);
+  };
+
   const patch = (key: string, values: Partial<Row>) =>
     setRows((prev) =>
       prev.map((r) => (r.key === key ? { ...r, ...values } : r)),
@@ -60,6 +73,7 @@ export function OrderDraftForm({
         try {
           await onSave({
             customer: customer.trim() || null,
+            ...linkChange,
             customer_phone: phone.trim() || null,
             delivery_site: site.trim() || null,
             requested_date: date || null,
@@ -91,9 +105,13 @@ export function OrderDraftForm({
               <span>{t("common.customer")}</span>
               <input
                 className={input}
+                ref={customerInput}
                 value={customer}
                 maxLength={255}
-                onChange={(e) => setCustomer(e.target.value)}
+                onChange={(e) => {
+                  setCustomer(e.target.value);
+                  clearCrmLink();
+                }}
               />
             </label>
             <div className="space-y-2 text-sm">
@@ -102,7 +120,10 @@ export function OrderDraftForm({
                 required={false}
                 id="draft-phone"
                 value={phone}
-                onChange={setPhone}
+                onChange={(value) => {
+                  setPhone(value);
+                  if (value !== phone) clearCrmLink();
+                }}
                 disabled={busy}
               />
             </div>
@@ -125,6 +146,26 @@ export function OrderDraftForm({
               />
             </label>
           </div>
+          {order && (
+            <CustomerCandidates
+              orderId={order.id}
+              lookup={{ name: customer, phone }}
+              link={crmLink}
+              disabled={busy}
+              onSelect={(candidate) => {
+                setLinkChange({
+                  crm_account_id: candidate.crm_account_id,
+                  crm_contact_id: candidate.crm_contact_id,
+                });
+                setCustomer(candidate.name);
+                if (candidate.phone) setPhone(candidate.phone);
+              }}
+              onManual={() => {
+                setLinkChange(NO_CRM_LINK);
+                customerInput.current?.focus();
+              }}
+            />
+          )}
         </div>
         <div className="space-y-4 border-t border-line pt-6">
           <h3 className="font-semibold text-sm">{t("draft.lines")}</h3>

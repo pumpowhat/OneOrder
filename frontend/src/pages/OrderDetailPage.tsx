@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
-import { saveOrderDraft, approveOrder, cancelOrder, confirmOrder, getAvailability, getOrder, listSites, planOrder } from "../api/orders.ts";
+import { saveOrderDraft, approveOrder, cancelOrder, confirmOrder, getAvailability, getOrder, listSites, planOrder, retryCrmSync } from "../api/orders.ts";
 import { useApi } from "../hooks/useApi.ts";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.ts";
 import { useI18n } from "../i18n/useI18n.ts";
 import { errorMessage } from "../lib/errors.ts";
-import { formatIsoDate } from "../lib/format.ts";
+import { formatCrmTimestamp, formatIsoDate } from "../lib/format.ts";
 import type { LineCorrection } from "../types/api.ts";
 import { Button } from "../components/ui/Button.tsx";
 import { Card, CardBody, CardHeader } from "../components/ui/Card.tsx";
@@ -19,7 +19,7 @@ import { OrderDraftForm } from "../components/orders/OrderDraftForm.tsx";
 import { ReviewLines } from "../components/orders/ReviewLines.tsx";
 import { SourceViewer } from "../components/orders/SourceViewer.tsx";
 import { Stepper } from "../components/orders/Stepper.tsx";
-import { StatusBadge } from "../components/orders/StatusBadge.tsx";
+import { CrmSyncBadge, StatusBadge } from "../components/orders/StatusBadge.tsx";
 
 function Meta({ label, value }: { label: string; value: string }) {
   return (
@@ -50,6 +50,12 @@ export default function OrderDetailPage() {
   const [acceptShortage, setAcceptShortage] = useState(false);
   const [acceptLate, setAcceptLate] = useState(false);
   useDocumentTitle(order?.customer ?? t("nav.orders"));
+  const pendingSync = order?.crm_sync?.status === "pending";
+  useEffect(() => {
+    if (!pendingSync || loading || busy) return;
+    const timer = window.setTimeout(reload, 15_000);
+    return () => window.clearTimeout(timer);
+  }, [pendingSync, loading, busy, reload]);
 
   /** Run one backend action, show a toast either way and refresh the order. */
   const run = async (action: () => Promise<unknown>, okTitle: string) => {
@@ -58,8 +64,10 @@ export default function OrderDetailPage() {
       await action();
       pushToast({ tone: "success", title: okTitle });
       reload();
+      return true;
     } catch (err) {
       pushToast({ tone: "danger", title: t("error.actionFailed"), description: errorMessage(err, t) });
+      return false;
     } finally {
       setBusy(false);
     }
@@ -81,6 +89,8 @@ export default function OrderDetailPage() {
   }
 
   const plan = order.plan;
+  const crmSync = order.status === "confirmed" ? order.crm_sync : null;
+  const canRetryCrm = crmSync?.status === "failed" || crmSync?.status === "pending";
   const needsShortageOk = !!plan && plan.shortages.length > 0;
   const needsLateOk = plan?.order_eta?.risk === "late";
   const canConfirm = (!needsShortageOk || acceptShortage) && (!needsLateOk || acceptLate);
@@ -149,6 +159,20 @@ export default function OrderDetailPage() {
               order={order}
               availability={availability.data ?? []}
               busy={busy || loading}
+              onSelectCustomer={(candidate, phone) =>
+                run(() => saveOrderDraft(order.id, {
+                  customer: candidate.name,
+                  customer_phone: candidate.phone ?? (phone.trim() || null),
+                  crm_account_id: candidate.crm_account_id,
+                  crm_contact_id: candidate.crm_contact_id,
+                }), t("crm.customerSaved"))
+              }
+              onUnlinkCustomer={() =>
+                run(() => saveOrderDraft(order.id, {
+                  crm_account_id: null,
+                  crm_contact_id: null,
+                }), t("crm.auditUnlinked"))
+              }
               onApprove={(corrections: LineCorrection[], confirmLines: number[], customer?: string, customerPhone?: string) =>
                 run(() => approveOrder(order.id, corrections, confirmLines, customer, customerPhone), t("review.approved"))
               }
@@ -244,6 +268,38 @@ export default function OrderDetailPage() {
         </div>
       )}
 
+      {crmSync && (
+        <Card>
+          <CardHeader>
+            <h2 className="text-sm font-semibold">{t("crm.sync")}</h2>
+            <CrmSyncBadge status={crmSync.status} reason={crmSync.reason} />
+          </CardHeader>
+          {canRetryCrm && (
+            <CardBody className="space-y-3">
+              {crmSync.status === "pending" && crmSync.next_attempt_at && (
+                <p className="text-sm text-ink-muted">
+                  {t("crm.nextAttempt", { time: formatCrmTimestamp(crmSync.next_attempt_at) })}
+                </p>
+              )}
+              {crmSync.last_error && (
+                <p className={`break-words text-sm ${crmSync.status === "failed" ? "text-danger" : "text-warn"}`}>
+                  {crmSync.last_error}
+                </p>
+              )}
+              {canRetryCrm && (
+                <Button
+                  size="sm"
+                  disabled={busy || loading}
+                  onClick={() => run(() => retryCrmSync(order.id), t("crm.retryRequested"))}
+                >
+                  {t("crm.retrySync")}
+                </Button>
+              )}
+            </CardBody>
+          )}
+        </Card>
+      )}
+
       {order.status === "confirmed" && <ReservationList reservations={order.reservations} plan={plan} />}
 
       {/* Original input stays reachable after the review step */}
@@ -254,7 +310,7 @@ export default function OrderDetailPage() {
         </details>
       )}
 
-      <AuditTrail logs={order.audit_logs} />
+      <AuditTrail logs={order.audit_logs} crmSync={crmSync} />
 
       {order.status === "draft" && !editing && (
         <div>

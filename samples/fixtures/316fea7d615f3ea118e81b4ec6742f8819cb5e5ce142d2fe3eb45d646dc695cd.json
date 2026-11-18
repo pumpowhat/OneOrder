@@ -4,41 +4,41 @@
     "customer": "Hoffmann Byg A/S",
     "customer_phone": "+45 33 12 45 78",
     "delivery_site": "Havnegade 45, 5000 Odense C",
-    "requested_date": "2026-11-13",
+    "requested_date": "2026-11-28",
     "lines": [
       {
         "description": "Gipsplade standard 13mm 1200x2400",
         "quantity": 60,
         "unit": "stk",
-        "confidence": 0.99,
+        "confidence": 0.98,
         "source_text": "60 stk Gipsplade standard 13mm 1200x2400"
       },
       {
         "description": "Rockwool flexibatts 100mm",
         "quantity": 40,
         "unit": "m2",
-        "confidence": 0.99,
+        "confidence": 0.98,
         "source_text": "Rockwool flexibatts 100mm - 40 m2"
       },
       {
         "description": "Portland cement standard 25kg",
         "quantity": 30,
         "unit": "sæk",
-        "confidence": 0.99,
+        "confidence": 0.98,
         "source_text": "30 sæk Portland cement standard 25kg"
       },
       {
         "description": "Konstruktionstræ C24 45x145mm 4.2m",
         "quantity": 25,
         "unit": "stk",
-        "confidence": 0.99,
+        "confidence": 0.98,
         "source_text": "Konstruktionstræ C24 45x145mm 4.2m - 25 stk"
       },
       {
         "description": "White acrylic sealant 300ml",
         "quantity": 20,
         "unit": "pcs",
-        "confidence": 0.99,
+        "confidence": 0.98,
         "source_text": "20 pcs White acrylic sealant 300ml"
       }
     ]

@@ -33,6 +33,8 @@ export default function DashboardPage() {
   const { data, error, loading, reload } = useApi((signal) => listOrders(undefined, signal), []);
   const orders = data ?? [];
 
+  const pendingSync = orders.filter((order) => order.crm_sync_status === "pending" || order.crm_sync_status === "failed").length;
+  const syncCountAvailable = orders.every((order) => order.status !== "confirmed" || order.crm_sync_status !== undefined);
   const count = (status: OrderStatus) => orders.filter((o) => o.status === status).length;
 
   const attention: Attention[] = [];
@@ -74,7 +76,7 @@ export default function DashboardPage() {
         </Card>
       )}
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {STATS.map((stat) => (
           <Link
             key={stat.status}
@@ -86,6 +88,15 @@ export default function DashboardPage() {
             <div className="text-xs text-ink-muted">{t(stat.hint)}</div>
           </Link>
         ))}
+        <Card>
+          <CardBody className="p-5">
+            <div className="font-display text-3xl font-semibold tabular-nums">
+              {loading ? "…" : !syncCountAvailable ? "—" : pendingSync}
+            </div>
+            <div className="mt-1 text-sm font-medium">{t("crm.pendingOrders")}</div>
+            <div className="text-xs text-ink-muted">{t("crm.pendingOrdersHint")}</div>
+          </CardBody>
+        </Card>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">

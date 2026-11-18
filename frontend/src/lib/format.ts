@@ -31,3 +31,8 @@ export function formatTimestamp(iso: string | null | undefined): string {
   const p = (n: number) => String(n).padStart(2, "0");
   return `${p(d.getDate())}/${p(d.getMonth() + 1)}/${d.getFullYear()} ${p(d.getHours())}:${p(d.getMinutes())}`;
 }
+
+/** SQLite can return a CRM timestamp without its UTC offset. */
+export function formatCrmTimestamp(iso: string): string {
+  return formatTimestamp(/(?:Z|[+-]\d{2}:\d{2})$/i.test(iso) ? iso : `${iso}Z`);
+}
