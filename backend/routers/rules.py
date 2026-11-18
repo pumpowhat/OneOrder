@@ -38,6 +38,8 @@ def put_rules(rules: Rules) -> dict:
         raise HTTPException(status_code=503, detail=f"Rules unavailable: {exc}") from exc
 
     updated = {**current, **_rules_json(rules)}
+    if "crm" not in rules.model_fields_set and "crm" in current:
+        updated["crm"] = current["crm"]  # a client that does not know the CRM block must not wipe it
     updated["version"] = int(current.get("version", 1)) + 1
 
     # write to a temp file next to the target, then swap it in: a crash never leaves half a file
