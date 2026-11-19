@@ -13,20 +13,20 @@
   },
   {
     "workstream": "Migration CRM Đan Mạch",
-    "from_month": 1,
+    "from_month": 0,
     "to_month": 4,
     "kind": "crm"
   },
   {
     "workstream": "Salesforce chạy ở DK",
-    "from_month": 4,
-    "to_month": 4,
+    "from_month": 3.5,
+    "to_month": 3.5,
     "kind": "milestone"
   },
   {
     "workstream": "Salesforce adapter",
-    "from_month": 4,
-    "to_month": 6,
+    "from_month": 3,
+    "to_month": 5,
     "kind": "crm"
   },
   {

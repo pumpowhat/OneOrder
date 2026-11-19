@@ -6,76 +6,83 @@
 
 \htwo{1. What is inside OneOrder and what is outside}
 \begin{center}
-\begin{tikzpicture}[scale=0.88,transform shape]
+\begin{tikzpicture}[scale=0.86,transform shape]
 \tikzset{small/.style={font=\fontsize{7.5}{9}\selectfont,inner sep=1.5pt,align=center,text=textbody}}
 \def\cx{8.9}\def\rx{16.0}\def\lx{1.55}
-\node[ooc,minimum width=3.0cm] (lars) at (\lx,11.0) {\textbf{Contractor}\\project customer,\\e.g.\ Lars};
+\node[ooc,minimum width=3.0cm] (mette) at (\lx,11.0) {\textbf{Contractor}\\project customer,\\e.g.\ Mette Hoffmann};
 \node[ooc,accentleft,minimum width=3.0cm] (anna) at (\lx,6.4) {\textbf{Sales desk}\\\textbf{employee}\\Company A, e.g.\ Anna};
-% OneOrder core platform: navy panel with navy-2 modules
 \node[oonavy,minimum width=4.6cm,minimum height=7.2cm] (one) at (\cx,7.4) {};
 \node at (\cx,10.65) {\wordmarkdark[11]\ {\fontsize{9}{10}\selectfont\bfseries\color{onnavymuted}(MVP)}};
 \node[oomod,minimum width=4.0cm] at (\cx,9.7) {Web app and REST API};
 \node[oomod,minimum width=4.0cm] at (\cx,8.6) {Intake: read file,\\match catalogue};
-\node[oomod,minimum width=4.0cm] at (\cx,7.4) {Orders: review, approve,\\audit log};
+\node[oomod,minimum width=4.0cm] at (\cx,7.4) {Orders: review, approve,\\CRM customer, audit log};
 \node[oomod,minimum width=4.0cm] at (\cx,6.2) {Planning: pick sources,\\build shipments};
-\node[oomod,minimum width=4.0cm] at (\cx,5.0) {ETA model (P50 / P90)};
+\node[oomod,minimum width=4.0cm] at (\cx,5.0) {ETA model · CRM sync queue};
 \node[ooc,bluetop,minimum width=3.7cm] (ai) at (\rx,11.0) {\textbf{AI model provider}\\Gemini or Claude\\(offline demo stub\\when no key is set)};
 \node[ooadp,minimum width=3.4cm] (dk) at (\rx,7.9) {\textbf{Danish ERP}\\CSV};
 \node[ooadp,minimum width=3.4cm] (se) at (\rx,6.2) {\textbf{Swedish ERP}\\JSON, Swedish fields};
-\node[ooadp,minimum width=3.4cm] (no) at (\rx,4.5) {\textbf{Norwegian ERP}\\JSON, English fields};
+\node[ooadp,dashed,minimum width=3.4cm] (no) at (\rx,4.5) {\textbf{Norwegian ERP}\\connected in year 2};
 \begin{scope}[on background layer]
-\node[draw=textmuted,dashed,line width=0.7pt,rounded corners=8pt,fit=(dk)(se)(no),inner sep=8pt,label={[font=\fontsize{7.5}{9}\selectfont\bfseries,text=textmuted]above:Mock ERPs in the MVP}] (erps) {};
+\node[draw=textmuted,dashed,line width=0.7pt,rounded corners=8pt,fit=(dk)(se)(no),inner sep=8pt,label={[font=\fontsize{7.5}{9}\selectfont\bfseries,text=textmuted]above:National ERPs (mock in the MVP)}] (erps) {};
 \end{scope}
-\node[ooc,fill=green!8,draw=green!55!black,minimum width=3.5cm] (sf) at (1.75,3.93) {\textbf{Salesforce CRM (DK)}\\Customer lookup\\and order visibility};
-\node[ooc,dashed,minimum width=4.0cm] (dyn) at (8.9,2.1) {\textbf{Microsoft Dynamics 365 (DK)}\\Legacy migration source};
-\draw[flow,<->,green!55!black] (sf.east) -- node[midway,n] {8} (one.west |- sf.east);
-\node[small] at (4.95,4.53) {tra khách · ghi đơn\\(REST API, OAuth 2.0)};
-\draw[flow,dashed,textmuted] (dyn.west) -| (sf.south);
-\node[small] at (4.35,2.57) {migration một lần\\(Bulk API 2.0)};
-\draw[flow,dashed,textmuted] (lars) -- node[midway,n] {1} (anna);
-\node[small,align=left,right=14pt] at ($(lars)!0.5!(anna)$) {outside OneOrder:\\email text, photo of\\handwritten list, Excel};
+\node[ooc,fill=green!8,draw=green!55!black,minimum width=4.4cm] (sf) at (\cx,1.55) {\textbf{Salesforce CRM (Denmark)}\\accounts, contacts, orders\\one org, ready for SE and NO};
+\node[ooc,dashed,minimum width=3.9cm] (dyn) at (2.15,1.55) {\textbf{Microsoft Dynamics 365}\\Denmark, legacy CRM;\\read-only after cut-over};
+% contractor and sales desk
+\draw[flow,dashed,textmuted] (mette) -- node[midway,n] {1} (anna);
+\node[small,align=left,right=14pt] at ($(mette)!0.5!(anna)$) {outside OneOrder:\\email text, photo of a\\handwritten list, PDF, Excel};
 \def\ax{4.55}
 \draw[flow] (\lx+1.5,6.95) -- node[midway,n] {2} (\cx-2.3,6.95);
 \draw[flow] (\cx-2.3,5.85) -- node[midway,n] {3} (\lx+1.5,5.85);
-\node[small] at (\ax,7.65) {upload, review, approve,\\plan, confirm};
-\node[small] at (\ax,5.15) {draft, stock check,\\plan, ETA};
+\node[small] at (\ax,7.65) {upload, review, pick customer,\\approve, plan, confirm};
+\node[small] at (\ax,5.15) {draft, stock check,\\plan, ETA, sync status};
+% AI
 \draw[flow] (\cx+2.3,11.35) -- node[midway,n] {4} (\rx-1.85,11.35);
 \draw[flow] (\rx-1.85,10.65) -- node[midway,n] {5} (\cx+2.3,10.65);
 \node[small] at (12.65,12.0) {file content,\\catalogue lines};
 \node[small] at (12.65,10.0) {JSON lines,\\confidence};
+% ERPs
 \draw[flow] (\rx-2.1,7.5) -- node[midway,n] {6} (\cx+2.3,7.5);
 \draw[flow] (\cx+2.3,6.0) -- node[midway,n] {7} (\rx-2.1,6.0);
 \node[small] at (12.4,8.25) {stock in native\\format};
 \node[small] at (12.4,5.25) {reservations\\on confirm};
+% Salesforce and Dynamics
+\draw[flow,<->,green!55!black] (one.south) -- node[midway,n] {8} (sf.north);
+\node[small,align=left,anchor=west] at (\cx+0.35,2.95) {customer lookup at review;\\order sync after confirm\\(REST API, OAuth 2.0)};
+\draw[flow,dashed,textmuted] (dyn.east) -- node[midway,n] {9} (sf.west);
+\node[small] at (4.95,2.45) {one-time migration,\\months 0–3};
 \end{tikzpicture}
 \end{center}
 \vspace{-6pt}
-\figurenote{Navy = OneOrder. Cards = outside OneOrder; the orange edge marks the person. Light blue = ERP integrations (simulated in the MVP). Green = Salesforce integration. Dashed legacy path = one-time migration. Numbers refer to the table.}
+\figurenote{Navy = OneOrder. Cards = outside OneOrder; the orange edge marks the person. Light blue = ERP integrations (simulated in the MVP). Green = Salesforce. Dashed = not live in year 1 (Norway), legacy (Dynamics 365) or outside OneOrder. Numbers refer to the table.}
 \vspace{2pt}
 
 {\small
+\renewcommand{\arraystretch}{1.22}
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.55cm}>{\bfseries\raggedright\arraybackslash}p{4.3cm}Y@{}}
 \# & Interaction & What flows \\ \thead
-1 & Contractor → Sales desk & The order arrives \emph{outside} OneOrder as an email, a photo or an Excel file. There is no contractor portal in the MVP. \\ \trow
-\hl 2 & \hl Sales desk → OneOrder & \hl Imports a sample email, uploads a file or pastes text; fixes flagged lines and types a missing customer name; approves; chooses delivery site; confirms or cancels (HTTPS, browser). \\ \trow
-3 & OneOrder → Sales desk & Draft order with confidence per line, stock pre-check, fulfilment plan with the reason for each source, ETA per shipment, late and shortage warnings. \\ \trow
-4 & OneOrder → AI provider & The photo, the email text or the Excel columns, plus catalogue candidates for hard-to-match lines. \\ \trow
-5 & AI provider → OneOrder & Structured JSON: customer, delivery site, requested date, lines with quantity, unit, description and confidence. \\ \trow
-6 & ERPs → OneOrder & Stock per warehouse in each ERP's own format, normalised by one adapter per country. \\ \trow
-7 & OneOrder → ERPs & A reservation per shipment line, written when the sales desk confirms. Later orders then see the stock as reserved. \\ \trow
-8 & OneOrder ↔ Salesforce (DK) & Suggest customer at Review. After Confirm, write the order through the CRM adapter; on failure leave it queued for retry. Dynamics exports only into the migration path. \\
+1 & Contractor → Sales desk & The order arrives \emph{outside} OneOrder as an email, a photo, a PDF or an Excel file. No contractor portal in the MVP. \\ \trow
+2 & Sales desk → OneOrder & Imports or uploads the order; fixes flagged lines; picks the customer from CRM suggestions or types it; approves; confirms or cancels (HTTPS, browser). \\ \trow
+3 & OneOrder → Sales desk & Draft with confidence per line, CRM customer suggestions, stock pre-check, plan with reasons, ETA, warnings, CRM sync status. \\ \trow
+4 & OneOrder → AI provider & The photo, PDF, email text or Excel columns, plus catalogue candidates for hard lines. \\ \trow
+5 & AI provider → OneOrder & Structured JSON: customer, phone, site, requested date, lines with confidence. \\ \trow
+6 & ERPs → OneOrder & Stock per warehouse in each ERP's own format, normalised by one adapter per country. Year 1: Denmark and Sweden. \\ \trow
+7 & OneOrder → ERPs & A reservation per shipment line, written when the sales desk confirms. \\ \trow
+\hl 8 & \hl OneOrder ↔ Salesforce (DK) & \hl At review: accounts and contacts by phone and name. After confirm: an Order upserted on the OneOrder order id; on failure queued and retried. \\ \trow
+\hl 9 & \hl Dynamics 365 → Salesforce & \hl One-time migration, never through OneOrder: Dataverse Web API → cleaned CSV → Data Loader (Bulk API 2.0); then Dynamics is archived and switched off. \\
 \end{tabularx}}
 
 \newpage
 \htwo{2. Inside OneOrder}
 \begin{center}
 \begin{tikzpicture}[scale=1.0,transform shape]
-\tikzset{blk/.style={oomod,minimum width=4.2cm,minimum height=1.45cm},sm/.style={font=\fontsize{7.5}{9}\selectfont,inner sep=1.5pt,fill=paper,align=center,text=textbody}}
+\tikzset{blk/.style={oomod,minimum width=4.2cm,minimum height=1.45cm},
+         crmblk/.style={oomod,minimum width=2.9cm,minimum height=1.25cm,fill=green!11,text=navy,draw=green!55!black},
+         sm/.style={font=\fontsize{7.5}{9}\selectfont,inner sep=1.5pt,fill=paper,align=center,text=textbody}}
 \node[ooc,accentleft,minimum width=3.2cm] (user) at (1.6,15.4) {\textbf{Sales desk employee}\\uses a browser};
 \node[oomod,minimum width=12.8cm,minimum height=1.3cm] (web) at (10.6,15.4) {\textbf{Web app} (React, TypeScript, Vite)\\Dashboard · Sample inbox · Order review · Plan and confirm · Stock · Rules};
 \draw[flow,<->] (user) -- node[sm] {HTTPS} (web);
 \begin{scope}[on background layer]
-\node[oonavy,anchor=north west,minimum width=17.2cm,minimum height=9.45cm] (api) at (0,13.7) {};
+\node[oonavy,anchor=north west,minimum width=17.2cm,minimum height=9.9cm] (api) at (0,13.7) {};
 \end{scope}
 \node[anchor=north west,text=onnavy] at (0.25,13.55) {\wordmarkdark[10]\ {\fontsize{9}{10}\selectfont\bfseries\color{onnavy}· Backend API (FastAPI, Python)}};
 \draw[flow,<->] (web.south) -- node[sm] {REST / JSON} (web.south |- api.north);
@@ -86,10 +93,9 @@
 \node[blk] (orch) at (8.6,9.4) {\textbf{Orchestration engine}\\source rules, shipments,\\vehicle choice};
 \node[blk] (res) at (14.8,9.4) {\textbf{Reservations}\\write on confirm,\\net stock view};
 \node[blk] (eta) at (8.6,6.9) {\textbf{ETA model}\\scikit-learn quantiles,\\P50 / P90};
-\node[blk,fill=bluetint,text=navy,draw=blue!35] (adp) at (14.8,6.9) {\textbf{ERP adapters}\\DK, SE, NO into one\\stock model};
-\node[blk,minimum width=3.3cm,minimum height=1.0cm,fill=green!11,text=navy,draw=green!55!black] (cust) at (4.95,6.27) {\textbf{Khớp khách hàng}\\Suggestions for\\staff to verify};
-\node[blk,minimum width=3.3cm,minimum height=1.0cm,fill=green!11,text=navy,draw=green!55!black] (crm) at (4.95,4.89) {\textbf{CRM adapter}\\Look up, enqueue and retry};
-\draw[flow,green!55!black,<->] (cust) -- (crm);
+\node[blk,fill=bluetint,text=navy,draw=blue!35] (adp) at (14.8,6.9) {\textbf{ERP adapters}\\one per country into\\one stock model};
+\node[crmblk] (cust) at (4.85,6.9) {\textbf{Customer matching}\\phone and name;\\a person picks};
+\node[crmblk] (crm) at (4.85,5.05) {\textbf{CRM adapter}\\sync queue,\\retry worker};
 \draw[flow] (intake) -- node[sm] {lines} (match);
 \draw[flow] (match) -- node[sm] {matched} (orders);
 \draw[flow] (intake) -- node[sm] {extract} (aic);
@@ -98,19 +104,30 @@
 \draw[flow] (res.west) -- node[sm] {net stock} (orch.east);
 \draw[flow] (orch) -- node[sm] {shipments} (eta);
 \draw[flow] (adp.north) -- node[sm] {stock} (res.south);
+\draw[flow,green!55!black] (cust) -- (crm);
 % outside the backend
-\node[ooc,bluetop,minimum width=4.2cm,minimum height=1.4cm] (aiext) at (2.1,3.0) {\textbf{AI model provider}\\Gemini or Claude API};
-\node[ooc,fill=green!8,draw=green!55!black,minimum width=2.6cm,minimum height=1.4cm] (sf2) at (5.5,3.0) {\textbf{Salesforce (DK)}};
-\draw[flow,<->,green!55!black] (crm.south) -- (crm.south |- sf2.north);
-\node[ooc,bluetop,minimum width=4.6cm,minimum height=1.4cm] (db) at (9.55,3.0) {\textbf{SQLite database}\\orders, lines, plans,\\audit log, reservations};
-\node[ooadp,minimum width=4.2cm,minimum height=1.4cm] (erpf) at (14.8,3.0) {\textbf{National ERP stock}\\DK CSV, SE JSON, NO JSON\\(mock, opening balance)};
-\node[oofont,fill=papertwo,draw=rule,line width=0.6pt,rounded corners=6pt,align=center,text=navy,minimum width=17.2cm,minimum height=1.0cm] (cfg) at (8.6,0.9) {\textbf{Configuration and data files:} \mono{rules.json}, catalogue, warehouses, sites, drive times, ETA training data};
-\draw[flow,<->] (aic.south) -- node[sm] {HTTPS} (aic.south |- aiext.north);
+\node[ooc,bluetop,minimum width=3.2cm,minimum height=1.4cm] (aiext) at (1.9,2.2) {\textbf{AI model provider}\\Gemini or Claude};
+\node[ooc,fill=green!8,draw=green!55!black,minimum width=2.4cm,minimum height=1.4cm] (sf2) at (4.85,2.2) {\textbf{Salesforce}\\(Denmark)};
+\node[ooc,bluetop,minimum width=4.6cm,minimum height=1.4cm] (db) at (9.55,2.2) {\textbf{SQLite database}\\orders, lines, plans, audit,\\reservations, CRM sync state};
+\node[ooadp,minimum width=4.2cm,minimum height=1.4cm] (erpf) at (14.8,2.2) {\textbf{National ERP stock}\\DK, SE (NO in year 2)\\(mock, opening balance)};
+\node[oofont,fill=papertwo,draw=rule,line width=0.6pt,rounded corners=6pt,align=center,text=navy,minimum width=17.2cm,minimum height=1.0cm] (cfg) at (8.6,0.25) {\textbf{Configuration and data files:} \mono{rules.json} (sources, vehicles, CRM per country), catalogue, warehouses, sites, drive times};
+\draw[flow,<->] (aic.south) -- node[sm,pos=0.78] {HTTPS} (aic.south |- aiext.north);
+\draw[flow,<->,green!55!black] (crm.south) -- node[sm,pos=0.55] {REST} (crm.south |- sf2.north);
 \draw[flow] (adp.south) -- node[sm] {read} (erpf.north);
-\draw[flow,<->] (eta.south) -- node[sm] {save and load} (db.north);
-
+\draw[flow,<->] (eta.south) -- node[sm] {save and load} (eta.south |- db.north);
 \end{tikzpicture}
 \end{center}
 \vspace{-4pt}
-\figurenote{Navy = OneOrder components. Cards = outside OneOrder or stored data (blue edge). Light blue = ERP integration. Green = new CRM modules and service. Arrows show the direction of the main data flow. The ERP stock files are the opening balance; reservations are kept in OneOrder's database and subtracted from them.}
+\figurenote{Navy = OneOrder components. Cards = outside OneOrder or stored data. Light blue = ERP integration. Green = CRM modules added in Round 3: customer matching is used at review; after a confirm the CRM adapter writes the order, and a failure is queued and retried (30\,s, 120\,s, then \emph{Failed} with a \emph{Retry sync} button). The ERP stock files are the opening balance; reservations live in OneOrder's database.}
+
+\htwo{3. What changed since Round 2}
+{\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash\leavevmode\color{navy}}p{3.6cm}Y@{}}
+Change & Why \\ \thead
+Salesforce (DK) added, two-way & One customer record for the sales desk and the account owner; required by the CRM migration. \\ \trow
+Dynamics 365 only on the migration path & It is being switched off; connecting OneOrder to it would be work done twice. \\ \trow
+Norwegian ERP moved to year 2 & Frees €162k of the 30\% budget cut; adapter design is kept. \\ \trow
+CRM failure never blocks Confirm & Stock reservation is the commitment; the CRM copy follows through a queue with retry. \\
+\end{tabularx}}
 \end{document}

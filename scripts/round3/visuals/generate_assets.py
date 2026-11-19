@@ -38,8 +38,8 @@ def waterfall():
         ("Hoãn\nNa Uy", -162, "cut"),
         ("Tách\ngiai đoạn 2", -72, "cut"),
         ("Pilot SE\ngọn hơn", -40.5, "cut"),
-        ("Giảm\ndự phòng", -33.5, "cut"),
-        ("Cloud, AI,\nđào tạo", -27, "cut"),
+        ("Cloud, AI,\nlicense, đào tạo", -29.1, "cut"),
+        ("Dự phòng\n12% → 10,5%", -31.4, "cut"),
         ("Migration\nCRM DK", 81, "add"),
         ("Salesforce\nadapter", 22.5, "add"),
         ("Kế hoạch mới", 533, "total"),
@@ -96,13 +96,13 @@ def timeline():
     fig.subplots_adjust(left=.285, right=.955, bottom=.19, top=.77)
     fig.text(.055, .93, "ROUND 3  /  LỘ TRÌNH TRIỂN KHAI", fontsize=15, weight="bold", color="#607182")
     fig.text(.055, .86, "12 tháng: Thụy Điển trước, Đan Mạch trên Salesforce", fontsize=30, weight="bold")
-    fig.text(.055, .808, "T4 là mốc chuyển CRM; Na Uy được hoãn sang năm 2", fontsize=18, color="#526273")
+    fig.text(.055, .808, "Cuối T3 Salesforce chạy ở DK; Na Uy được hoãn sang năm 2", fontsize=18, color="#526273")
     rows = [
         ("Pilot Thụy Điển", 0, 3, "se"),
         ("Go-live Thụy Điển", 3, 6, "se"),
-        ("Migration CRM Đan Mạch", 1, 4, "crm"),
-        ("Salesforce chạy ở DK", 4, 4, "milestone"),
-        ("Salesforce adapter", 4, 6, "crm"),
+        ("Migration CRM Đan Mạch", 0, 4, "crm"),
+        ("Salesforce chạy ở DK", 3.5, 3.5, "milestone"),
+        ("Salesforce adapter", 3, 5, "crm"),
         ("Go-live DK trên Salesforce", 6, 12, "crm"),
         ("Na Uy", None, None, "deferred"),
     ]
@@ -110,15 +110,15 @@ def timeline():
     for i, (_, start, end, kind) in enumerate(rows):
         if kind == "milestone":
             ax.scatter([start], [i], marker="D", s=220, color=colors[kind], edgecolor="white", linewidth=1.8, zorder=4)
-            ax.text(4.3, i, "T4  •  Salesforce hoạt động tại DK", va="center", fontsize=15, color="#2D7352", weight="bold")
+            ax.text(3.8, i, "Cuối T3  •  Salesforce hoạt động tại DK", va="center", fontsize=15, color="#2D7352", weight="bold")
         elif kind == "deferred":
             ax.barh(i, 12, left=0, height=.57, color=colors[kind], edgecolor="#B7C2CB", hatch="///", linewidth=.5)
             ax.text(6, i, "HOÃN SANG NĂM 2", va="center", ha="center", fontsize=15, weight="bold", bbox={"facecolor": "#F6F8FA", "edgecolor": "none", "pad": 6})
         else:
             ax.barh(i, end-start, left=start, height=.57, color=colors[kind], edgecolor="white", linewidth=1.4, zorder=3)
             ax.text((start+end)/2, i, f"T{start}–T{end}", va="center", ha="center", fontsize=16, weight="bold")
-    ax.axvline(4, color="#3A775A", linestyle=(0, (5, 4)), linewidth=1.7, zorder=2)
-    ax.text(4, -0.68, "T4", color="#2D7352", fontsize=15, weight="bold", ha="center")
+    ax.axvline(3.5, color="#3A775A", linestyle=(0, (5, 4)), linewidth=1.7, zorder=2)
+    ax.text(3.5, -0.68, "Cuối T3", color="#2D7352", fontsize=15, weight="bold", ha="center")
     ax.set_xlim(0, 12)
     ax.set_ylim(6.65, -.85)
     ax.set_xticks(range(13), [f"T{x}" for x in range(13)], fontsize=14)
